@@ -1,7 +1,7 @@
 # !
-!.opera/menu/*
-!.opera/mouse/*
-!.opera/toolbar/*
+!.opera/menu
+!.opera/mouse
+!.opera/toolbar
 !.opera/operaprefs.ini
 !.opera/search.ini
 !.opera/speeddial.ini
