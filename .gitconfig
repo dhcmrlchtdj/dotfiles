@@ -1,0 +1,16 @@
+[user]
+	name = niris
+	email = smresc@gmail.com
+[core]
+	editor = vim
+	autocrlf = input
+[color]
+	ui = true
+[alias]
+    st = status -s
+    ci = commit
+    br = branch
+    co = checkout
+	unstage = reset HEAD --
+    logs = log --oneline --graph --decorate
+    last = log --decorate -1 HEAD

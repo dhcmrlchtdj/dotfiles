@@ -1,0 +1,8 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+from timeit import Timer
+print Timer(
+'''
+'''
+).timeit(1000)

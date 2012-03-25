@@ -1,0 +1,57 @@
+# !
+!.opera/menu/*
+!.opera/mouse/*
+!.opera/toolbar/*
+!.opera/operaprefs.ini
+!.opera/search.ini
+!.opera/speeddial.ini
+!.opera/urlfilter.ini
+
+# backup
+*~
+*.swp
+
+# file
+.Xauthority
+.appcfg_cookies
+.appcfg_nag
+.bash_history
+.bash_logout
+.bash_profile
+.dmrc
+.fonts.conf
+.gpg-agent-info
+.kderc
+.mysql_history
+.pulse-cookie
+.recently-used
+.sqlite_history
+.viminfo
+.xsession-errors
+
+# directary
+.adobe/
+.cache/
+.config/
+.dbus/
+.fontconfig/
+.gconf/
+.gconfd/
+.ghc/
+.gnupg/
+.gstreamer-0.10/
+.kde4/
+.local/
+.macromedia/
+.mozilla/
+.mp3splt-gtk/
+.mplayer/
+.opera/*
+.pki/
+.pulse/
+.ssh/
+.thumbnails/
+library/
+projects/
+temp/
+
