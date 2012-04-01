@@ -59,8 +59,6 @@
 [github.com](https://github.com/plasticboy/vim-markdown/)
 * syntax
 
-*****
-
 ## jQuery : Syntax file for jQuery
 [vim.org](http://www.vim.org/scripts/script.php?script_id=2416)
 

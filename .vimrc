@@ -63,8 +63,9 @@ autocmd BufNewFile *.css 0r ~/.vim/templates/css
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 
 """supertab"""
-let g:SuperTabDefaultCompletionType="<C-X><C-O>"
-autocmd BufNewFile,BufRead *.{c,py} let g:SuperTabDefaultCompletionType="<C-P>"
+let g:SuperTabDefaultCompletionType="context"
+"let g:SuperTabContextDefaultCompletionType="<C-P>"
+autocmd BufNewFile,BufRead *.{html,css} let g:SuperTabDefaultCompletionType="<C-X><C-O>"
 
 """tagbar"""
 nmap <silent> <F4> :TagbarOpen fj<CR>

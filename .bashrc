@@ -34,10 +34,10 @@ alias axel='axel -n 10 -a'
 alias axels='axel -s 100000'
 #alias cn='env LANG=zh_CN.utf8'
 
-alias python='python2'
+#alias python='python2'
 #alias python='env LANG=zh_CN.utf8 python2'
-alias pipi='sudo pip2 install -v'
-alias pipu='sudo pip2 install --upgrade -v'
+#alias pipi='sudo pip2 install -v'
+#alias pipu='sudo pip2 install --upgrade -v'
 
 alias ngo_nginx_stop='sudo rc.d stop nginx'
 alias nga_nginx_start='sudo rc.d start nginx'
@@ -48,8 +48,8 @@ alias goagent='python2 /home/niris/library/wall/goagent/local/proxy.py'
 
 
 #mount galaxy nexus
-alias mandroid='sudo mtpfs -o allow_other /home/niris/library/android'
-alias uandroid='sudo umount /home/niris/library/android'
+#alias mandroid='sudo mtpfs -o allow_other /home/niris/library/android'
+#alias uandroid='sudo umount /home/niris/library/android'
 
 #webteam mysql
 alias webteamsql='mysql -u webteam -p webteam'

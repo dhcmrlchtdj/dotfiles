@@ -11,6 +11,6 @@
     ci = commit
     br = branch
     co = checkout
-	unstage = reset HEAD --
+    unstage = reset HEAD --
     logs = log --oneline --graph --decorate
     last = log --decorate -1 HEAD
