@@ -39,17 +39,19 @@ alias axels='axel -s 100000'
 #alias pipi='sudo pip2 install -v'
 #alias pipu='sudo pip2 install --upgrade -v'
 
-alias ngo_nginx_stop='sudo rc.d stop nginx'
-alias nga_nginx_start='sudo rc.d start nginx'
+alias stop_nginx='sudo rc.d stop nginx'
+alias start_nginx='sudo rc.d start nginx'
 
 #alias vpn_your_free_vpn='sudo openvpn --config ~/library/wall/yourfreevpn/YourFreeVPN-UDP.ovpn'
 alias goagent='python2 /home/niris/library/wall/goagent/local/proxy.py'
-
-
 
 #mount galaxy nexus
 #alias mandroid='sudo mtpfs -o allow_other /home/niris/library/android'
 #alias uandroid='sudo umount /home/niris/library/android'
 
 #webteam mysql
-alias webteamsql='mysql -u webteam -p webteam'
+alias webteam_sql='mysql -u webteam -p webteam'
+
+#python virtualenv
+alias virtualenv='virtualenv2 --no-site-packages -p pypy'
+alias active='source ./bin/activate'

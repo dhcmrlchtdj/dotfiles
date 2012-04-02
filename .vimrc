@@ -59,18 +59,15 @@ autocmd BufNewFile *.html 0r ~/.vim/templates/html
 autocmd BufNewFile jquery.*.js 0r ~/.vim/templates/jquery
 autocmd BufNewFile *.css 0r ~/.vim/templates/css
 
-"""markdown"""
-autocmd BufNewFile,BufRead *.md set filetype=markdown
-
 """supertab"""
 let g:SuperTabDefaultCompletionType="context"
 "let g:SuperTabContextDefaultCompletionType="<C-P>"
 autocmd BufNewFile,BufRead *.{html,css} let g:SuperTabDefaultCompletionType="<C-X><C-O>"
 
 """tagbar"""
-nmap <silent> <F4> :TagbarOpen fj<CR>
+nmap <silent> <F3> :TagbarOpen fj<CR>
 let g:tagbar_width=30
 let g:tagbar_sort=0
 
 """nerd tree"""
-nmap <silent> <F3> :NERDTreeToggle<CR>
+nmap <silent> <F4> :NERDTreeToggle<CR>
