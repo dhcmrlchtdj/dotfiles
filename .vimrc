@@ -62,7 +62,7 @@ autocmd BufNewFile *.css 0r ~/.vim/templates/css
 """supertab"""
 let g:SuperTabDefaultCompletionType="context"
 "let g:SuperTabContextDefaultCompletionType="<C-P>"
-autocmd BufNewFile,BufRead *.{html,css} let g:SuperTabDefaultCompletionType="<C-X><C-O>"
+autocmd BufNewFile,BufRead *.{html,css,js} let g:SuperTabDefaultCompletionType="<C-X><C-O>"
 
 """tagbar"""
 nmap <silent> <F3> :TagbarOpen fj<CR>

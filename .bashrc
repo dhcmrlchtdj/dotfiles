@@ -39,9 +39,6 @@ alias axels='axel -s 100000'
 #alias pipi='sudo pip2 install -v'
 #alias pipu='sudo pip2 install --upgrade -v'
 
-alias stop_nginx='sudo rc.d stop nginx'
-alias start_nginx='sudo rc.d start nginx'
-
 #alias vpn_your_free_vpn='sudo openvpn --config ~/library/wall/yourfreevpn/YourFreeVPN-UDP.ovpn'
 alias goagent='python2 /home/niris/library/wall/goagent/local/proxy.py'
 
@@ -49,9 +46,22 @@ alias goagent='python2 /home/niris/library/wall/goagent/local/proxy.py'
 #alias mandroid='sudo mtpfs -o allow_other /home/niris/library/android'
 #alias uandroid='sudo umount /home/niris/library/android'
 
+
+
+
+## web
+
+#nginx
+alias stop_nginx='sudo rc.d stop nginx'
+alias start_nginx='sudo rc.d start nginx'
+
+#mysql
+alias stop_mysql='sudo rc.d stop mysqld'
+alias start_mysql='sudo rc.d start mysqld'
+
 #webteam mysql
-alias webteam_sql='mysql -u webteam -p webteam'
+alias connect_webteam_database='mysql -u webteam -pwebteam webteam'
 
 #python virtualenv
-alias virtualenv='virtualenv2 --no-site-packages -p pypy'
-alias active='source ./bin/activate'
+#alias virtualenv_pypy='virtualenv2 --no-site-packages -p pypy'
+#alias active='source ./bin/activate'
