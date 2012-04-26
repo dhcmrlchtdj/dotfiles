@@ -51,6 +51,10 @@ alias goagent='python2 /home/niris/library/wall/goagent/local/proxy.py'
 
 ## web
 
+#apache
+alias start_apache='sudo rc.d start httpd mysqld'
+alias stop_apache='sudo rc.d stop httpd mysqld'
+
 #nginx
 alias stop_nginx='sudo rc.d stop nginx'
 alias start_nginx='sudo rc.d start nginx'
@@ -61,6 +65,7 @@ alias start_mysql='sudo rc.d start mysqld'
 
 #webteam mysql
 alias connect_webteam_database='mysql -u webteam -pwebteam webteam'
+alias connect_wordpress_database='mysql -u webteam -pwebteam wordpress'
 
 #python virtualenv
 #alias virtualenv_pypy='virtualenv2 --no-site-packages -p pypy'
