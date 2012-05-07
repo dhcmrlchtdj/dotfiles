@@ -57,15 +57,11 @@ set completeopt=menu
 
 
 
-
-
-
 """"""""""""""""""""""""""""""
 " filetype
 """"""""""""""""""""""""""""""
 
-"""python"""
-autocmd FileType python set ts=4 | set sts=4 | set sw=4
+autocmd FileType python,mkd set ts=4 | set sts=4 | set sw=4
 autocmd BufNewFile,BufRead *.md set filetype=mkd
 
 """templates"""
