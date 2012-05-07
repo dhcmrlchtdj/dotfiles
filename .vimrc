@@ -16,9 +16,10 @@ set virtualedit= "禁止在虚空间内操作
 if has('mouse')
     set mouse=a "鼠标支持
 endif
-set wrap "自动换行
-set nolinebreak "按完整单词折行
-set textwidth=79 "行宽
+"set nolinebreak "按完整单词折行
+"set textwidth=79 "行宽
+"set wrap "自动换行
+set nowrap
 set showmatch "输入括号时显示匹配括号
 set ruler "显示标尺
 set number "显示行号
@@ -39,9 +40,9 @@ set incsearch "搜索时逐字符高亮
 "清除高亮 \qq
 nmap <silent> <leader>qq :nohlsearch<CR>
 
-set tabstop=2 "制表符宽度
-set softtabstop=2 "tab宽度
-set shiftwidth=2 "缩进空格数
+set tabstop=4 "制表符宽度
+set softtabstop=4 "tab宽度
+set shiftwidth=4 "缩进空格数
 set expandtab "用空格替代制表符
 set smarttab "智能缩进
 set smartindent "智能选择缩进方式
@@ -61,7 +62,8 @@ set completeopt=menu
 " filetype
 """"""""""""""""""""""""""""""
 
-autocmd FileType python,mkd set ts=4 | set sts=4 | set sw=4
+"autocmd FileType python,mkd,javascript set ts=4 | set sts=4 | set sw=4
+autocmd FileType html,jinja,css set ts=2 | set sts=2 | set sw=2
 autocmd BufNewFile,BufRead *.md set filetype=mkd
 
 """templates"""

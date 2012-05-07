@@ -14,6 +14,11 @@
 ## The NERD Commenter
 <http://www.vim.org/scripts/script.php?script_id=1218>
 
+## Mark
+<http://www.vim.org/scripts/script.php?script_id=2666>
+> usage: <leader>m
+>        <leader>n
+>        <leader>/
 
 ------
 
@@ -22,7 +27,6 @@
 
 ## html matchit
 <http://www.vim.org/scripts/script.php?script_id=39>
-
 
 ------
 
@@ -33,7 +37,7 @@
 
 ## js (indent) jsbeautify
 <http://www.vim.org/scripts/script.php?script_id=2727>
-  usage: `<leader>ff`
+> usage: `<leader>ff`
 
 ## js (syntax)
 <http://www.vim.org/scripts/script.php?script_id=3425>
@@ -55,6 +59,7 @@
 <https://github.com/plasticboy/vim-markdown/>
 
 ------
+
 ### unused
 
 ## jquery (syntax)
@@ -65,7 +70,7 @@
 
 ## js (indent)
 <http://www.vim.org/scripts/script.php?script_id=1840>
-  usage: `=G`
+> usage: `=G`
 
 ## python (syntax)
 <http://www.vim.org/scripts/script.php?script_id=790>
