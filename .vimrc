@@ -36,10 +36,12 @@ set ignorecase "搜索时忽略大小写
 set smartcase "有大写时对大小写敏感
 set hlsearch "高亮显示搜索结果
 set incsearch "搜索时逐字符高亮
+"清除高亮 \qq
+nmap <silent> <leader>qq :nohlsearch<CR>
 
-set tabstop=4 "制表符宽度
-set softtabstop=4 "tab宽度
-set shiftwidth=4 "缩进空格数
+set tabstop=2 "制表符宽度
+set softtabstop=2 "tab宽度
+set shiftwidth=2 "缩进空格数
 set expandtab "用空格替代制表符
 set smarttab "智能缩进
 set smartindent "智能选择缩进方式
@@ -53,16 +55,34 @@ syntax on "语法加亮
 filetype plugin indent on "允许载入文件类型 插件 缩进
 set completeopt=menu
 
+
+
+
+
+
+""""""""""""""""""""""""""""""
+" filetype
+""""""""""""""""""""""""""""""
+
+"""python"""
+autocmd FileType python set ts=4 | set sts=4 | set sw=4
+autocmd BufNewFile,BufRead *.md set filetype=mkd
+
 """templates"""
 autocmd BufNewFile *.py 0r ~/.vim/templates/python
 autocmd BufNewFile *.html 0r ~/.vim/templates/html
-autocmd BufNewFile jquery.*.js 0r ~/.vim/templates/jquery
 autocmd BufNewFile *.css 0r ~/.vim/templates/css
+autocmd BufNewFile jquery.*.js 0r ~/.vim/templates/jquery
+
+
+""""""""""""""""""""""""""""""
+" plugin
+""""""""""""""""""""""""""""""
 
 """supertab"""
 let g:SuperTabDefaultCompletionType="context"
 "let g:SuperTabContextDefaultCompletionType="<C-P>"
-autocmd BufNewFile,BufRead *.{html,css,js} let g:SuperTabDefaultCompletionType="<C-X><C-O>"
+autocmd FileType html,css,js let g:SuperTabDefaultCompletionType="<C-X><C-O>"
 
 """tagbar"""
 nmap <silent> <F3> :TagbarOpen fj<CR>
@@ -71,3 +91,4 @@ let g:tagbar_sort=0
 
 """nerd tree"""
 nmap <silent> <F4> :NERDTreeToggle<CR>
+
