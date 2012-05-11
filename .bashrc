@@ -51,9 +51,13 @@ alias goagent='python2 /home/niris/library/wall/goagent/local/proxy.py'
 
 ## web
 
+#wordpress
+alias start_wordpress='sudo rc.d start httpd mysqld'
+alias stop_wordpress='sudo rc.d stop httpd mysqld'
+
 #apache
-alias start_apache='sudo rc.d start httpd mysqld'
-alias stop_apache='sudo rc.d stop httpd mysqld'
+alias start_apache='sudo rc.d start httpd'
+alias stop_apache='sudo rc.d stop httpd'
 
 #nginx
 alias stop_nginx='sudo rc.d stop nginx'

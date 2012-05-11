@@ -27,6 +27,7 @@
 .sqlite_history
 .viminfo
 .xsession-errors
+.vim/.netrwhist
 
 # directary
 .adobe/

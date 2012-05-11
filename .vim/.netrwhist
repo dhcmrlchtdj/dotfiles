@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/usr/share/vim/vim73'
-let g:netrw_dirhist_2='/home/niris/.vim/syntax'
-let g:netrw_dirhist_3='/usr/share/vim/vim73/syntax'
-let g:netrw_dirhist_4='/srv/http/wordpress/wp-includes'
-let g:netrw_dirhist_5='/home/niris/.config/fcitx/conf'
-let g:netrw_dirhist_6='/home/niris/works/0000/github/jinja2'
-let g:netrw_dirhist_7='/home/niris/works/0000/github/jquery'

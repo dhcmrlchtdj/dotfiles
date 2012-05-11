@@ -16,9 +16,6 @@
 
 ## Mark
 <http://www.vim.org/scripts/script.php?script_id=2666>
-> usage: <leader>m
->        <leader>n
->        <leader>/
 
 ------
 
@@ -35,9 +32,11 @@
 
 ------
 
+## js (indent)
+<http://www.vim.org/scripts/script.php?script_id=1840>
+
 ## js (indent) jsbeautify
 <http://www.vim.org/scripts/script.php?script_id=2727>
-> usage: `<leader>ff`
 
 ## js (syntax)
 <http://www.vim.org/scripts/script.php?script_id=3425>
@@ -67,10 +66,6 @@
 
 ## yui3 (syntax)
 <https://github.com/rgrove/vim-yui3>
-
-## js (indent)
-<http://www.vim.org/scripts/script.php?script_id=1840>
-> usage: `=G`
 
 ## python (syntax)
 <http://www.vim.org/scripts/script.php?script_id=790>

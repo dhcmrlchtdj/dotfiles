@@ -19,7 +19,7 @@ endif
 "set nolinebreak "按完整单词折行
 "set textwidth=79 "行宽
 "set wrap "自动换行
-set nowrap
+set nowrap "不自动换行
 set showmatch "输入括号时显示匹配括号
 set ruler "显示标尺
 set number "显示行号
@@ -37,12 +37,13 @@ set ignorecase "搜索时忽略大小写
 set smartcase "有大写时对大小写敏感
 set hlsearch "高亮显示搜索结果
 set incsearch "搜索时逐字符高亮
-"清除高亮 \qq
-nmap <silent> <leader>qq :nohlsearch<CR>
+"清除高亮 \q
+"nmap <silent> <leader>q :nohlsearch<CR>
+nmap <silent> <leader>q /dhcmrlchtdj<CR>
 
-set tabstop=4 "制表符宽度
-set softtabstop=4 "tab宽度
-set shiftwidth=4 "缩进空格数
+set tabstop=2 "制表符宽度
+set softtabstop=2 "tab宽度
+set shiftwidth=2 "缩进空格数
 set expandtab "用空格替代制表符
 set smarttab "智能缩进
 set smartindent "智能选择缩进方式
@@ -52,18 +53,20 @@ set backspace=indent,eol,start "insert模式下用删除键进行删除
 set foldmethod=indent "折叠方式
 set nofoldenable "默认不折叠
 
-syntax on "语法加亮
-filetype plugin indent on "允许载入文件类型 插件 缩进
 set completeopt=menu
 
+filetype plugin indent on "允许载入文件类型 插件 缩进
+syntax on "语法加亮
+set background=dark
 
 
 """"""""""""""""""""""""""""""
 " filetype
 """"""""""""""""""""""""""""""
 
-"autocmd FileType python,mkd,javascript set ts=4 | set sts=4 | set sw=4
-autocmd FileType html,jinja,css set ts=2 | set sts=2 | set sw=2
+autocmd FileType make set noet
+autocmd FileType mkd,python,javascript set ts=4 | set sts=4 | set sw=4
+"autocmd FileType html,jinja,css set ts=2 | set sts=2 | set sw=2
 autocmd BufNewFile,BufRead *.md set filetype=mkd
 
 """templates"""
