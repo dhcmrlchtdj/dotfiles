@@ -16,8 +16,8 @@ set virtualedit= "禁止在虚空间内操作
 if has('mouse')
     set mouse=a "鼠标支持
 endif
-"set nolinebreak "按完整单词折行
-"set textwidth=79 "行宽
+set nolinebreak "按完整单词折行
+set textwidth=86 "行宽
 "set wrap "自动换行
 set nowrap "不自动换行
 set showmatch "输入括号时显示匹配括号
@@ -38,8 +38,8 @@ set smartcase "有大写时对大小写敏感
 set hlsearch "高亮显示搜索结果
 set incsearch "搜索时逐字符高亮
 "清除高亮 \q
-"nmap <silent> <leader>q :nohlsearch<CR>
-nmap <silent> <leader>q /dhcmrlchtdj<CR>
+nmap <silent> <leader>q :nohlsearch<CR>
+"nmap <silent> <leader>q /dhcmrlchtdj<CR>
 
 set tabstop=2 "制表符宽度
 set softtabstop=2 "tab宽度
@@ -67,7 +67,8 @@ set background=dark
 autocmd FileType make set noet
 autocmd FileType mkd,python,javascript set ts=4 | set sts=4 | set sw=4
 "autocmd FileType html,jinja,css set ts=2 | set sts=2 | set sw=2
-autocmd BufNewFile,BufRead *.md set filetype=mkd
+autocmd BufNewFile,BufRead *.md set ft=mkd
+autocmd FileType htmldjango set ft=jinja
 
 """templates"""
 autocmd BufNewFile *.py 0r ~/.vim/templates/python
@@ -83,7 +84,7 @@ autocmd BufNewFile jquery.*.js 0r ~/.vim/templates/jquery
 """supertab"""
 let g:SuperTabDefaultCompletionType="context"
 "let g:SuperTabContextDefaultCompletionType="<C-P>"
-autocmd FileType html,css,js let g:SuperTabDefaultCompletionType="<C-X><C-O>"
+"autocmd FileType html,css,js let g:SuperTabDefaultCompletionType="<C-X><C-O>"
 
 """tagbar"""
 nmap <silent> <F3> :TagbarOpen fj<CR>
@@ -91,5 +92,5 @@ let g:tagbar_width=30
 let g:tagbar_sort=0
 
 """nerd tree"""
-nmap <silent> <F4> :NERDTreeToggle<CR>
+nmap <silent> <F4> :NERDTreeFind<CR>
 
