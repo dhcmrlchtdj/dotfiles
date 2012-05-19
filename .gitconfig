@@ -7,12 +7,10 @@
 [color]
   ui = true
 [alias]
-  ad = add -u .
-  st = status -s
+  ad = add -A
+  st = status -bs
   ci = commit
   br = branch
   co = checkout
   df = diff HEAD --stat
   logs = log --oneline --graph --decorate -10
-  last = log --decorate -1 HEAD
-  unstage = reset HEAD --

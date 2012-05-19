@@ -27,10 +27,14 @@
 .sqlite_history
 .viminfo
 .xsession-errors
+.gtk-custom-papers
 .vim/.netrwhist
+.lftp/rl_history
+.lftp/bookmarks
 
 # directary
 .adobe/
+.android/
 .cache/
 .config/
 .dbus/

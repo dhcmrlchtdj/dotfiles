@@ -64,17 +64,17 @@ set background=dark
 " filetype
 """"""""""""""""""""""""""""""
 
-autocmd FileType make set noet
+autocmd BufNewFile,BufRead *.md set ft=mkd
 autocmd FileType mkd,python,javascript set ts=4 | set sts=4 | set sw=4
 "autocmd FileType html,jinja,css set ts=2 | set sts=2 | set sw=2
-autocmd BufNewFile,BufRead *.md set ft=mkd
 autocmd FileType htmldjango set ft=jinja
+autocmd FileType make set noet
 
 """templates"""
 autocmd BufNewFile *.py 0r ~/.vim/templates/python
 autocmd BufNewFile *.html 0r ~/.vim/templates/html
 autocmd BufNewFile *.css 0r ~/.vim/templates/css
-autocmd BufNewFile jquery.*.js 0r ~/.vim/templates/jquery
+"autocmd BufNewFile jquery.*.js 0r ~/.vim/templates/jquery
 
 
 """"""""""""""""""""""""""""""
@@ -84,7 +84,7 @@ autocmd BufNewFile jquery.*.js 0r ~/.vim/templates/jquery
 """supertab"""
 let g:SuperTabDefaultCompletionType="context"
 "let g:SuperTabContextDefaultCompletionType="<C-P>"
-"autocmd FileType html,css,js let g:SuperTabDefaultCompletionType="<C-X><C-O>"
+autocmd FileType html,css,javascript let g:SuperTabDefaultCompletionType="<C-X><C-O>"
 
 """tagbar"""
 nmap <silent> <F3> :TagbarOpen fj<CR>
