@@ -9,8 +9,10 @@
 [alias]
   ad = add -A
   st = status -bs
-  ci = commit
+  ci = commit -m
   br = branch
   co = checkout
   df = diff HEAD --stat
   logs = log --oneline --graph --decorate -10
+
+  rm = rm --cached

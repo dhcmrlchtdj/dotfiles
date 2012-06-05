@@ -27,7 +27,7 @@ set cmdheight=1 "命令行行数
 set history=1000 "命令行历史纪录
 set showcmd "在状态栏显示目前执行的指令
 set laststatus=2 "总是显示状态行
-set statusline=%<%F\ %y\ (%{&ff})\ %h%m%r%w%=%-14.(%l,%c%V%)%p%% "状态行
+set statusline=%<%F\ %y\ (%{&ff})\ %h%m%r%w%=%-14.(%l,%c%)%p%% "状态行
 
 set t_vb= "禁止错误信息响铃及出错屏幕闪烁
 set noerrorbells "禁止错误信息响铃
@@ -60,11 +60,12 @@ syntax on "语法加亮
 set background=dark
 
 
+nmap <silent> <F8> :cp<CR>
+nmap <silent> <F9> :cn<CR>
+
 """"""""""""""""""""""""""""""
 " filetype
 """"""""""""""""""""""""""""""
-
-autocmd BufNewFile,BufRead *.md set ft=mkd
 autocmd FileType mkd,python,javascript set ts=4 | set sts=4 | set sw=4
 "autocmd FileType html,jinja,css set ts=2 | set sts=2 | set sw=2
 autocmd FileType htmldjango set ft=jinja
@@ -75,11 +76,19 @@ autocmd BufNewFile *.py 0r ~/.vim/templates/python
 autocmd BufNewFile *.html 0r ~/.vim/templates/html
 autocmd BufNewFile *.css 0r ~/.vim/templates/css
 "autocmd BufNewFile jquery.*.js 0r ~/.vim/templates/jquery
+autocmd BufNewFile *.c 0r ~/.vim/templates/c
+autocmd BufNewFile *.cpp 0r ~/.vim/templates/cpp
 
 
 """"""""""""""""""""""""""""""
 " plugin
 """"""""""""""""""""""""""""""
+"""pathogen"""
+call pathogen#infect()
+
+"""flake8"""
+autocmd BufWritePost *.py call Flake8()
+let g:flake8_ignore="E501,E303,W391"
 
 """supertab"""
 let g:SuperTabDefaultCompletionType="context"

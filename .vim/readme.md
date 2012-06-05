@@ -1,60 +1,64 @@
 # update 2012-5-7
 
 ------
+## pathogen.vim
+<https://github.com/tpope/vim-pathogen>
 
-## SuperTab continued.
-<http://www.vim.org/scripts/script.php?script_id=1643>
+## supertab
+<https://github.com/ervandew/supertab>
 
-## Tagbar
-<http://www.vim.org/scripts/script.php?script_id=3465>
+## tagbar
+<https://github.com/majutsushi/tagbar>
 
-## The NERD tree
-<http://www.vim.org/scripts/script.php?script_id=1658>
+## nerdtree
+<https://github.com/scrooloose/nerdtree>
 
-## The NERD Commenter
-<http://www.vim.org/scripts/script.php?script_id=1218>
+## nerdcommenter
+<https://github.com/scrooloose/nerdcommenter>
 
-## Mark
+##M Mark (2.6.4)
 <http://www.vim.org/scripts/script.php?script_id=2666>
 
 ------
 
-## html5 (syntax)
-<http://www.vim.org/scripts/script.php?script_id=3236>
+## clang_complete
+<https://github.com/Rip-Rip/clang_complete>
 
-## html matchit
+------
+
+## html5.vim (syntax)
+<https://github.com/othree/html5.vim>
+
+##M matchit (1.13.2)
 <http://www.vim.org/scripts/script.php?script_id=39>
 
 ------
 
-## css (syntax)
-<http://www.vim.org/scripts/script.php?script_id=3220>
+## Better-CSS-Syntax-for-Vim
+<https://github.com/ChrisYip/Better-CSS-Syntax-for-Vim>
 
 ------
 
-## js (indent)
-<http://www.vim.org/scripts/script.php?script_id=1840>
+## vim-javascript (indent)
+<git://github.com/pangloss/vim-javascript.git>
 
-## js (indent) jsbeautify
+## vim-javascript-syntax
+<https://github.com/jelera/vim-javascript-syntax>
+
+##M jsbeautify (N/A)
 <http://www.vim.org/scripts/script.php?script_id=2727>
 
-## js (syntax)
-<http://www.vim.org/scripts/script.php?script_id=3425>
+------
+
+## vim-flake8
+<https://github.com/nvie/vim-flake8>
+
+##M indent/python.vim (0.0.9)
+<http://www.vim.org/scripts/script.php?script_id=3461>
 
 ------
 
-## python pyflakes
-<http://www.vim.org/scripts/script.php?script_id=2441>
-
-## python python_fold
-<http://www.vim.org/scripts/script.php?script_id=515>
-
-## python (indent)
-<http://www.vim.org/scripts/script.php?script_id=974>
-
-------
-
-## markdown (syntax)
+## vim-markdown (syntax)
 <https://github.com/plasticboy/vim-markdown/>
 
 ------
@@ -69,6 +73,15 @@
 
 ## python (syntax)
 <http://www.vim.org/scripts/script.php?script_id=790>
+
+## python pyflakes
+<http://www.vim.org/scripts/script.php?script_id=2441>
+
+## python python_fold
+<http://www.vim.org/scripts/script.php?script_id=515>
+
+## python_ifold
+<http://www.vim.org/scripts/script.php?script_id=2002>
 
 790732180
 xunlei.com

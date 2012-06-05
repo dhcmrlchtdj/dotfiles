@@ -58,3 +58,6 @@
 library/
 temp/
 works/
+
+.lyx/
+.texlive/

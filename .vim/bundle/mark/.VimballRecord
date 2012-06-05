@@ -1,0 +1,1 @@
+mark.vba.gz: call delete('/home/niris/.vim/bundle/mark/./autoload/mark.vim')|call delete('/home/niris/.vim/bundle/mark/./plugin/mark.vim')|call delete('/home/niris/.vim/bundle/mark/./doc/mark.txt')
