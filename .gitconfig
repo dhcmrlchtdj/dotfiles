@@ -9,7 +9,7 @@
 [alias]
   ad = add -A
   st = status -bs
-  ci = commit -m
+  ci = commit
   br = branch
   co = checkout
   df = diff HEAD --stat

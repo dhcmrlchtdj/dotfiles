@@ -17,7 +17,7 @@ if has('mouse')
     set mouse=a "鼠标支持
 endif
 set nolinebreak "按完整单词折行
-set textwidth=86 "行宽
+set textwidth=80 "行宽
 "set wrap "自动换行
 set nowrap "不自动换行
 set showmatch "输入括号时显示匹配括号
@@ -41,9 +41,9 @@ set incsearch "搜索时逐字符高亮
 nmap <silent> <leader>q :nohlsearch<CR>
 "nmap <silent> <leader>q /dhcmrlchtdj<CR>
 
-set tabstop=2 "制表符宽度
-set softtabstop=2 "tab宽度
-set shiftwidth=2 "缩进空格数
+set tabstop=4 "制表符宽度
+set softtabstop=4 "tab宽度
+set shiftwidth=4 "缩进空格数
 set expandtab "用空格替代制表符
 set smarttab "智能缩进
 set smartindent "智能选择缩进方式
@@ -59,15 +59,14 @@ filetype plugin indent on "允许载入文件类型 插件 缩进
 syntax on "语法加亮
 set background=dark
 
-
 nmap <silent> <F8> :cp<CR>
 nmap <silent> <F9> :cn<CR>
 
 """"""""""""""""""""""""""""""
 " filetype
 """"""""""""""""""""""""""""""
-autocmd FileType mkd,python,javascript set ts=4 | set sts=4 | set sw=4
-"autocmd FileType html,jinja,css set ts=2 | set sts=2 | set sw=2
+"autocmd FileType mkd,python,javascript set ts=4 | set sts=4 | set sw=4
+autocmd FileType html,css,jinja set ts=2 | set sts=2 | set sw=2
 autocmd FileType htmldjango set ft=jinja
 autocmd FileType make set noet
 
