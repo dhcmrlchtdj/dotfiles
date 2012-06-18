@@ -14,5 +14,3 @@
   co = checkout
   df = diff HEAD --stat
   logs = log --oneline --graph --decorate -10
-
-  rm = rm --cached

@@ -50,16 +50,21 @@
 
 ------
 
-## vim-flake8
-<https://github.com/nvie/vim-flake8>
+## python pyflakes
+<https://github.com/kevinw/pyflakes-vim>
 
 ##M indent/python.vim (0.0.9)
 <http://www.vim.org/scripts/script.php?script_id=3461>
 
 ------
 
-## vim-markdown (syntax)
+##M vim-markdown (syntax)
 <https://github.com/plasticboy/vim-markdown/>
+
+------
+
+## vim-rst-table
+<http://www.vim.org/scripts/script.php?script_id=3777>
 
 ------
 
@@ -71,11 +76,11 @@
 ## yui3 (syntax)
 <https://github.com/rgrove/vim-yui3>
 
+## vim-flake8
+<https://github.com/nvie/vim-flake8>
+
 ## python (syntax)
 <http://www.vim.org/scripts/script.php?script_id=790>
-
-## python pyflakes
-<http://www.vim.org/scripts/script.php?script_id=2441>
 
 ## python python_fold
 <http://www.vim.org/scripts/script.php?script_id=515>

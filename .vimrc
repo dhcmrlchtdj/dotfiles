@@ -81,6 +81,9 @@ set history=1000
 "命令行补全提示
 set wildmenu
 
+"补全方式
+set wildmode=longest:full
+
 "总是显示状态行
 set laststatus=2
 
@@ -199,14 +202,17 @@ set backspace=indent,eol,start
 set background=dark
 
 
+set undofile
+set undodir=~/.vim/undo
+
 
 """"""""""""""""""""
 " filetype
 """"""""""""""""""""
 autocmd FileType htmldjango set ft=jinja
-autocmd FileType html,css,jinja set ts=2 | set sts=2 | set sw=2
+"autocmd FileType html,css,jinja set ts=2 | set sts=2 | set sw=2
 "autocmd FileType mkd,python,javascript set ts=4 | set sts=4 | set sw=4
-"autocmd FileType make set noet
+autocmd FileType python set noet
 "autocmd FileType python set et
 
 """"""""""""""""""""
@@ -216,7 +222,7 @@ autocmd BufNewFile *.py 0r ~/.vim/templates/python
 autocmd BufNewFile *.html 0r ~/.vim/templates/html
 autocmd BufNewFile *.css 0r ~/.vim/templates/css
 autocmd BufNewFile *.c 0r ~/.vim/templates/c
-autocmd BufNewFile *.{cc,cpp} 0r ~/.vim/templates/cc
+autocmd BufNewFile *.cc 0r ~/.vim/templates/cc
 "autocmd BufNewFile jquery.*.js 0r ~/.vim/templates/jquery
 
 """"""""""""""""""""
@@ -224,12 +230,6 @@ autocmd BufNewFile *.{cc,cpp} 0r ~/.vim/templates/cc
 """"""""""""""""""""
 """pathogen"""
 call pathogen#infect()
-
-"""flake8"""
-autocmd BufWritePost *.py call Flake8()
-"let g:flake8_ignore=""
-nmap <silent> <F8> :cp<CR>
-nmap <silent> <F9> :cn<CR>
 
 """supertab"""
 let g:SuperTabDefaultCompletionType="context"

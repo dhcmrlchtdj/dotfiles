@@ -62,3 +62,5 @@ works/
 .lyx/
 .texlive/
 .subversion/
+.pip/
+.vim/undo/
