@@ -13,4 +13,5 @@
   br = branch
   co = checkout
   df = diff HEAD --stat
-  logs = log --oneline --graph --decorate -10
+  dff = diff HEAD
+  ll = log --oneline --graph --decorate -10

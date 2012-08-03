@@ -55,6 +55,8 @@ set fileencoding=utf-8
 "宽度不明字符设置为双倍字符宽度
 set ambiwidth=double
 
+set fileformat=unix
+
 "设置帮助为中文
 set helplang=cn
 
@@ -201,10 +203,12 @@ set backspace=indent,eol,start
 "深色背景
 set background=dark
 
-
+"撤销
 set undofile
 set undodir=~/.vim/undo
 
+"保存
+nmap <leader>w :wa<CR>
 
 """"""""""""""""""""
 " filetype
@@ -212,7 +216,7 @@ set undodir=~/.vim/undo
 autocmd FileType htmldjango set ft=jinja
 "autocmd FileType html,css,jinja set ts=2 | set sts=2 | set sw=2
 "autocmd FileType mkd,python,javascript set ts=4 | set sts=4 | set sw=4
-autocmd FileType python set noet
+"autocmd FileType python set noet
 "autocmd FileType python set et
 
 """"""""""""""""""""

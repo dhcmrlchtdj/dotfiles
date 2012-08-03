@@ -6,6 +6,8 @@
 [[ $- != *i* ]] && return
 
 PS1='[\u@\h \W]\$ '
+export EDITOR="vim"
+export R_LIBS=$HOME/library/R
 
 # bash completion
 complete -cf sudo

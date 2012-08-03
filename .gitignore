@@ -31,6 +31,8 @@
 .vim/.netrwhist
 .lftp/rl_history
 .lftp/bookmarks
+.Rhistory
+.RData
 
 # directary
 .adobe/
@@ -56,8 +58,8 @@
 .ssh/
 .thumbnails/
 library/
-temp/
-works/
+tmp/
+study/
 
 .lyx/
 .texlive/
