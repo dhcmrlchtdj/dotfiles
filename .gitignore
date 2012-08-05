@@ -33,6 +33,9 @@
 .lftp/bookmarks
 .Rhistory
 .RData
+.zcompdump
+.zdirs
+.zsh_history
 
 # directary
 .adobe/
@@ -66,3 +69,5 @@ study/
 .subversion/
 .pip/
 .vim/undo/
+.eclipse/
+.xmind/
