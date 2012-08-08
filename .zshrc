@@ -1,6 +1,6 @@
 PROMPT="[%{$fg[blue]%}%n%{$reset_color%}@%{$fg[cyan]%}%m"
 PROMPT="${PROMPT} %{$fg[yellow]%}%B%1~%b%{$reset_color%}]%# "
- 
+
 export R_LIBS=$HOME/library/R
 export EDITOR="vim"
 
@@ -12,8 +12,11 @@ alias rm='rm -rvf'
 alias ls='ls --color=auto --group-directories-first -vF'
 alias la='ls -A'
 alias ll='ls -lAh'
+# 
+alias df='df -Th'
 
 # 工具
+alias vi='vim'
 alias zip='7z a -tzip'
 alias 7zx='7z x -r'
 alias txz='tar xzvf'
@@ -28,4 +31,4 @@ autoload -U zsh-mime-setup
 zsh-mime-setup
 alias -s png=kuickshow
 alias -s jpg=kuickshow
-
+alias -s pdf=okular
