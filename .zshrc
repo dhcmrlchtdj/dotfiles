@@ -1,7 +1,6 @@
 PROMPT="[%{$fg[blue]%}%n%{$reset_color%}@%{$fg[cyan]%}%m"
 PROMPT="${PROMPT} %{$fg[yellow]%}%B%1~%b%{$reset_color%}]%# "
 
-export R_LIBS=$HOME/library/R
 export EDITOR="vim"
 
 ## alias
@@ -22,6 +21,7 @@ alias 7zx='7z x -r'
 alias txz='tar xzvf'
 alias txj='tar xjvf'
 alias axel='axel -n 10'
+alias R='R --silent --save'
 
 # 代理
 alias goagent='python2 /home/niris/library/wall/goagent/local/proxy.py'
