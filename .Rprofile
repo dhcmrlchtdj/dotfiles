@@ -1,7 +1,18 @@
-current_repo = getOption('repos')
-current_repo['CRAN'] = 'http://R-Forge.R-project.org'
-options(repos=current_repo)
+options(repos=c(CRAN='http://mirrors.ustc.edu.cn/CRAN/'))
+options(prompt='> ')
+options(continue='+   ')
 
-library(rgl)
-library(ggplot2)
-library(lattice)
+.libPaths('~/.r_library')
+
+.First = function() {
+	#library(rgl)
+	library(ggplot2)
+	library(lattice)
+	if(interactive()) try(utils::loadhistory('~/.Rhistory'))
+	cat('Start Up.\n')
+}
+
+.Last = function() {
+	if(interactive()) try(savehistory('~/.Rhistory'))
+	cat('exited.\n')
+}

@@ -72,3 +72,4 @@ study/
 .eclipse/
 .xmind/
 .rstudio-desktop/
+.r_library/
