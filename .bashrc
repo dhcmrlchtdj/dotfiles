@@ -44,6 +44,7 @@ alias axel='axel -n 10'
 
 #alias vpn_your_free_vpn='sudo openvpn --config ~/library/wall/yourfreevpn/YourFreeVPN-UDP.ovpn'
 alias goagent='python2 /home/niris/library/wall/goagent/local/proxy.py'
+export http_proxy='http://127.0.0.1:8087'
 
 #mount galaxy nexus
 #alias mandroid='sudo mtpfs -o allow_other /home/niris/library/android'

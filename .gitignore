@@ -73,3 +73,5 @@ study/
 .xmind/
 .rstudio-desktop/
 .r_library/
+.googleearth/
+.gem/
