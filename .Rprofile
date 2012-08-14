@@ -10,8 +10,10 @@ if(interactive()) {
 	.First = function() {
 		#library(rgl)
 		library(lattice)
-		library(ggplot2)
+		library(plyr)
+		library(stringr)
 		library(reshape2)
+		library(ggplot2)
 		utils::loadhistory('~/.Rhistory')
 	}
 
