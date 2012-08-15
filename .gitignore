@@ -36,6 +36,7 @@
 .zcompdump
 .zdirs
 .zsh_history
+.histfile
 
 # directary
 .adobe/

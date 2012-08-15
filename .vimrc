@@ -33,7 +33,7 @@ set completeopt=menu "补全窗口的样式
 set showmatch "输入括号时显示匹配括号
 set virtualedit= "禁止在虚空间内操作
 set backspace=indent,eol,start "insert模式下用删除键进行删除
-syntax on "语法加亮
+syntax on "语法加亮 
 set background=dark "深色背景
 set undofile "撤销 
 set undodir=~/.vim/undo
@@ -52,12 +52,12 @@ nmap <silent> <F6> gg=G``
 set tabstop=4 "制表符宽度
 set softtabstop=4 "tab键宽度
 set shiftwidth=4 "空格缩进时宽度
-set noexpandtab "使用tab缩进/使用空格缩进
-set list "显示特殊字符
-set listchars=tab:»\ ,eol:\ , "字符样式
+set noexpandtab "使用tab缩进
 set smarttab "智能缩进
 set smartindent "智能选择缩进方式
 set autoindent "继承前一行缩进方式
+set list "显示特殊字符
+set listchars=tab:»\ ,eol:\ ,trail:¯, "字符样式
 
 """ 折叠
 set nofoldenable "默认不折叠
