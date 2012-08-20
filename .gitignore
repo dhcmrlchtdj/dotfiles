@@ -37,6 +37,7 @@
 .zdirs
 .zsh_history
 .histfile
+.lesshst
 
 # directary
 .adobe/
