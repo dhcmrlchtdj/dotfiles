@@ -11,7 +11,7 @@ alias rm='rm -rvf'
 alias ls='ls --color=auto --group-directories-first -vF'
 alias la='ls -A'
 alias ll='ls -lAh'
-# 
+#
 alias df='df -Th'
 
 # 工具

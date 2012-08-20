@@ -28,7 +28,6 @@
 .viminfo
 .xsession-errors
 .gtk-custom-papers
-.vim/.netrwhist
 .lftp/rl_history
 .lftp/bookmarks
 .Rhistory
@@ -70,7 +69,7 @@ study/
 .texlive/
 .subversion/
 .pip/
-.vim/undo/
+.vim/_tmp/
 .eclipse/
 .xmind/
 .rstudio-desktop/

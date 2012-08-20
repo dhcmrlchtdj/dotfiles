@@ -1,17 +1,19 @@
 [user]
-  name = niris
-  email = smresc@gmail.com
+	name = niris
+	email = smresc@gmail.com
 [core]
-  editor = vim
-  autocrlf = input
+	editor = vim
+	;eol = lf
+	;safecrlf = true
+	autocrlf = input
 [color]
-  ui = true
+	ui = true
 [alias]
-  ad = add -A
-  st = status -bs
-  ci = commit
-  br = branch
-  co = checkout
-  df = diff HEAD --stat
-  dff = diff HEAD
-  ll = log --oneline --graph --decorate -10
+	ad = add -A
+	st = status -bs
+	ci = commit
+	br = branch
+	co = checkout
+	df = diff HEAD --stat
+	dff = diff HEAD
+	ll = log --oneline --graph --decorate -10

@@ -1,8 +1,5 @@
 set nocompatible "不兼容vi
-set shortmess=atI "提示信息设置
 set modelines=0 "忽略 打开的文件 里的vim参数
-set nobackup "覆盖文件时不备份
-set hidden "自动保存?
 set helplang=cn "优先寻找中文帮助
 
 set t_vb='' "禁止错误信息响铃及出错屏幕闪烁
@@ -17,8 +14,13 @@ set backspace=indent,eol,start "insert模式下删除键可删除
 set showmatch "输入括号时显示匹配括号
 set completeopt=menu "补全窗口的样式
 
+""" 备份 撤销
+set hidden "自动保存?
 set undofile "开启撤销历史
-set undodir=~/.vim/undo "存放地址
+set undodir=~/.vim/_tmp/undo "存放地址
+set backup "覆盖文件时备份
+set backupdir=~/.vim/_tmp/backup "存放地址
+autocmd BufWritePre * let &bex = strftime("-%Y.%m.%d.%H%M%S~")
 
 """ 编码
 set encoding=utf-8 "vim内部使用的编码
@@ -29,18 +31,22 @@ set fileformat=unix "默认换行方式
 set fileformats=unix,dos "判断换行方式
 set ambiwidth=double "宽度不明字符设置为双倍字符宽度
 
-""" 行号 命令行 状态行 换行
+""" 行号 命令行 状态行
 set number "显示行号
+set nowrap "不自动换行
+set textwidth=0 "行宽
+set colorcolumn=80 "行宽提示
+
 set cmdheight=1 "命令行行数
 set showcmd "在命令行显示目前执行的指令
 set history=1000 "命令行历史纪录
 set wildmenu "命令行补全提示
 set wildmode=longest:full,full "补全方式
+
 set laststatus=2 "总是显示状态行
+set shortmess=atI "状态行信息
 set statusline=%<%F\ %y\ (%{&ff})\ %h%m%r%w%=%-14.(%l,%c%)%p%% "状态行
-set nowrap "不自动换行
-set textwidth=0 "行宽
-set colorcolumn=80 "行宽提示
+set display=lastline
 
 """ 搜索
 "清除高亮
@@ -142,3 +148,11 @@ autocmd BufNewFile *.html 0r ~/.vim/templates/html
 autocmd BufNewFile *.css 0r ~/.vim/templates/css
 autocmd BufNewFile *.c 0r ~/.vim/templates/c
 autocmd BufNewFile *.cc 0r ~/.vim/templates/cc
+
+""" 快捷键
+" 窗口移动
+nmap <c-h> <c-w>h
+nmap <c-j> <c-w>j
+nmap <c-k> <c-w>k
+nmap <c-l> <c-w>l
+
