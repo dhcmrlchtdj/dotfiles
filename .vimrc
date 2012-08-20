@@ -4,16 +4,19 @@ set modelines=0 "忽略 打开的文件 里的vim参数
 set nobackup "覆盖文件时不备份
 set hidden "自动保存?
 set helplang=cn "优先寻找中文帮助
+
 set t_vb='' "禁止错误信息响铃及出错屏幕闪烁
 set noerrorbells "禁止错误信息响铃
 set novisualbell "禁止出错屏幕闪烁
 set ttyfast
+
 set mouse=a "鼠标支持
 set clipboard=unnamedplus "使用外部剪贴板
 set virtualedit= "禁止在虚空间内操作
 set backspace=indent,eol,start "insert模式下删除键可删除
 set showmatch "输入括号时显示匹配括号
 set completeopt=menu "补全窗口的样式
+
 set undofile "开启撤销历史
 set undodir=~/.vim/undo "存放地址
 
@@ -61,8 +64,11 @@ set list "显示特殊字符
 set listchars=tab:»\ ,eol:\ ,trail:¯, "字符样式
 
 """ 折叠
-set nofoldenable "默认不折叠
-set foldmethod=indent "折叠方式
+set foldenable "开启折叠
+set foldmethod=manual "折叠方式
+set foldcolumn=1
+" 选定后用空格创建折叠
+vmap <silent> <space> zf
 
 """ 插件
 filetype off
@@ -109,7 +115,7 @@ au FileType html,css,javascript let g:SuperTabDefaultCompletionType="<C-X><C-O>"
 "tagbar
 nmap <silent> <F3> :TagbarOpen fj<cr>
 let g:tagbar_width=30
-let g:tagbar_sort=0
+let g:tagbar_foldlevel=1
 
 "nerd tree
 nmap <silent> <F4> :NERDTreeFind<cr>
