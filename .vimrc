@@ -20,7 +20,7 @@ set undofile "开启撤销历史
 set undodir=~/.vim/_tmp/undo "存放地址
 set backup "覆盖文件时备份
 set backupdir=~/.vim/_tmp/backup "存放地址
-autocmd BufWritePre * let &bex = strftime("-%Y.%m.%d.%H%M%S~")
+"autocmd BufWritePre * let &bex = strftime("-%Y.%m.%d.%H%M%S~")
 
 """ 编码
 set encoding=utf-8 "vim内部使用的编码
@@ -55,10 +55,10 @@ set ignorecase "搜索时忽略大小写
 set smartcase "有大写时对大小写敏感
 set hlsearch "高亮显示搜索结果
 set incsearch "搜索时逐字符高亮
+nmap n nzzzv
+nmap N Nzzzv
 
 """ 缩进
-"调整缩进 使用\n换行 删除行尾空格
-nmap <silent> <F6> gg=G``:set ff=unix<cr>:%s/\s\+$//g<cr>
 set tabstop=4 "制表符宽度
 set softtabstop=4 "tab键宽度
 set shiftwidth=4 "空格缩进时宽度
@@ -71,8 +71,8 @@ set listchars=tab:»\ ,eol:\ ,trail:¯, "字符样式
 
 """ 折叠
 set foldmethod=syntax "折叠方式
-set foldenable "开启折叠
-set foldlevel=9 "打开折叠
+set foldenable "启用折叠
+set foldlevel=20 "打开小于20层的折叠
 " 选定后用空格创建折叠
 "vmap <silent> <space> zf
 
@@ -161,10 +161,37 @@ nmap <c-k> <c-w>k
 nmap <c-l> <c-w>l
 
 """ 特殊
-function! Fcitx2en()
-	let s:input_status = system('fcitx-remote')
-	if s:input_status == 2
-		let l:a = system('fcitx-remote -c')
+" 调整文件
+nmap <silent> <F6> :call ReStructureFile()<cr>
+function! ReStructureFile()
+	" 调整缩进
+	if &ft != 'python'
+		exe 'gg=G``'
 	endif
+	" 使用\n换行
+	let &ff = 'unix'
+	" 删除行尾空格
+	exe 'silent! :%s/\s\+$//g'
+	" 删除末尾空行
+	let l:line = line('$')
+	while l:line
+		if !empty(getline(l:line))
+			if l:line != line('$')
+				exe 'normal'.(l:line+1).'ggdG'
+			endif
+			break
+		endif
+		let l:line -= 1
+	endwhile
 endfunction
-autocmd InsertLeave * call Fcitx2en()
+
+" 退出输入模式时关闭fcitx
+"let g:input_toggle = 1
+"function! Fcitx2en()
+	"let s:input_status = system('fcitx-remote')
+	"if s:input_status == 2
+		"let g:input_toggle = 1
+		"let l:a = system('fcitx-remote -c')
+	"endif
+"endfunction
+"autocmd InsertLeave * call Fcitx2en()
