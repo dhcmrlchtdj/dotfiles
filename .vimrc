@@ -70,16 +70,17 @@ set list "显示特殊字符
 set listchars=tab:»\ ,eol:\ ,trail:¯, "字符样式
 
 """ 折叠
+set foldmethod=syntax "折叠方式
 set foldenable "开启折叠
-set foldmethod=manual "折叠方式
-set foldcolumn=1
+set foldlevel=9 "打开折叠
 " 选定后用空格创建折叠
-vmap <silent> <space> zf
+"vmap <silent> <space> zf
 
 """ 插件
 filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+"common
 Bundle 'gmarik/vundle'
 Bundle 'ervandew/supertab'
 Bundle 'majutsushi/tagbar'
@@ -90,28 +91,30 @@ Bundle 'Mark--Karkat'
 "c/c++
 Bundle 'Rip-Rip/clang_complete'
 "html5
+""syntax indent complete
 Bundle 'othree/html5.vim'
 "javascript
+" js indent
 Bundle 'pangloss/vim-javascript'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'maksimr/vim-jsbeautify'
-Bundle 'einars/js-beautify'
+"Bundle 'einars/js-beautify'
 "css
 Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 "python
 Bundle 'kevinw/pyflakes-vim'
+Bundle 'sunsol/vim_python_fold_compact'
+Bundle 'indentpython'
 "rst
 Bundle 'RST-Tables-CJK'
 "pandoc
 Bundle 'vim-pandoc/vim-pandoc'
-"(non git)
-set rtp+=~/.vim/bundle/non-git/
 
 """ 载入插件 高亮
 filetype plugin indent on "载入文件类型 插件 缩进
 syntax enable "语法加亮
-"set background=light "浅色背景
 set background=dark "深色背景
+"set background=light "浅色背景
 
 """ 插件设置
 " super tab
@@ -137,6 +140,7 @@ au FileType javascript nmap <silent> <leader>ff :call JsBeautify()<cr>
 
 """ 文件类型设置
 autocmd FileType htmldjango set ft=jinja
+autocmd FileType python set fdc=3
 "autocmd FileType html,css,jinja set ts=2 | set sts=2 | set sw=2
 "autocmd FileType mkd,python,javascript set ts=4 | set sts=4 | set sw=4
 "autocmd FileType python set noet
@@ -156,3 +160,11 @@ nmap <c-j> <c-w>j
 nmap <c-k> <c-w>k
 nmap <c-l> <c-w>l
 
+""" 特殊
+function! Fcitx2en()
+	let s:input_status = system('fcitx-remote')
+	if s:input_status == 2
+		let l:a = system('fcitx-remote -c')
+	endif
+endfunction
+autocmd InsertLeave * call Fcitx2en()
