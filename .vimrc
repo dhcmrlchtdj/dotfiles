@@ -166,7 +166,7 @@ nmap <silent> <F6> :call ReStructureFile()<cr>
 function! ReStructureFile()
 	" 调整缩进
 	if &ft != 'python'
-		exe 'gg=G``'
+		exe 'normal gg=G``'
 	endif
 	" 使用\n换行
 	let &ff = 'unix'
@@ -183,15 +183,16 @@ function! ReStructureFile()
 		endif
 		let l:line -= 1
 	endwhile
+	echo 'Done.'
 endfunction
 
 " 退出输入模式时关闭fcitx
 "let g:input_toggle = 1
 "function! Fcitx2en()
-	"let s:input_status = system('fcitx-remote')
-	"if s:input_status == 2
-		"let g:input_toggle = 1
-		"let l:a = system('fcitx-remote -c')
-	"endif
+"let s:input_status = system('fcitx-remote')
+"if s:input_status == 2
+"let g:input_toggle = 1
+"let l:a = system('fcitx-remote -c')
+"endif
 "endfunction
 "autocmd InsertLeave * call Fcitx2en()
