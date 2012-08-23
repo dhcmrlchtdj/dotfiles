@@ -165,23 +165,21 @@ nmap <c-l> <c-w>l
 nmap <silent> <F6> :call ReStructureFile()<cr>
 function! ReStructureFile()
 	" 调整缩进
-	if &ft != 'python'
-		exe 'normal gg=G``'
-	endif
+	if &ft != 'python' | exe 'normal gg=G``' | endif
 	" 使用\n换行
 	let &ff = 'unix'
 	" 删除行尾空格
 	exe 'silent! :%s/\s\+$//g'
 	" 删除末尾空行
-	let l:line = line('$')
-	while l:line
-		if !empty(getline(l:line))
-			if l:line != line('$')
-				exe 'normal'.(l:line+1).'ggdG'
+	let lnum = line('$')
+	while lnum
+		if !empty(getline(lnum))
+			if lnum != line('$')
+				exe 'normal '.(lnum+1).'ggdG'
 			endif
 			break
 		endif
-		let l:line -= 1
+		let lnum -= 1
 	endwhile
 	echo 'Done.'
 endfunction

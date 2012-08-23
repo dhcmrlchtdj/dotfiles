@@ -26,7 +26,7 @@ alias R='R --silent --no-save'
 # 代理
 alias goagent='python2 /home/niris/library/wall/goagent/local/proxy.py'
 
-# 查看图片
+# 终端打开文件
 autoload -U zsh-mime-setup
 zsh-mime-setup
 alias -s png=kuickshow
@@ -36,3 +36,8 @@ alias -s avi=smplayer
 alias -s mkv=smplayer
 alias -s mp4=smplayer
 alias -s rmvb=smplayer
+
+# 命令补全
+fpath=(~/.zshfuncs $fpath)
+autoload -U compinit
+compinit
