@@ -73,6 +73,7 @@ set listchars=tab:»\ ,eol:\ ,trail:¯, "字符样式
 set foldmethod=syntax "折叠方式
 set foldenable "启用折叠
 set foldlevel=20 "打开小于20层的折叠
+set foldcolumn=1
 " 选定后用空格创建折叠
 "vmap <silent> <space> zf
 
@@ -89,6 +90,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'matchit.zip'
 Bundle 'Mark--Karkat'
 "c/c++
+Bundle 'a.vim'
 Bundle 'Rip-Rip/clang_complete'
 "html5
 ""syntax indent complete
@@ -98,13 +100,12 @@ Bundle 'othree/html5.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'maksimr/vim-jsbeautify'
-"Bundle 'einars/js-beautify'
 "css
 Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 "python
 Bundle 'kevinw/pyflakes-vim'
 Bundle 'sunsol/vim_python_fold_compact'
-Bundle 'indentpython'
+Bundle 'indentpython.vim--nianyang'
 "rst
 Bundle 'RST-Tables-CJK'
 "pandoc
@@ -122,12 +123,12 @@ let g:SuperTabDefaultCompletionType="context"
 au FileType html,css,javascript let g:SuperTabDefaultCompletionType="<C-X><C-O>"
 
 "tagbar
-nmap <silent> <F3> :TagbarOpen fj<cr>
-let g:tagbar_width=30
+nmap <silent> <F4> :TagbarOpen fj<cr>
+let g:tagbar_width=35
 let g:tagbar_foldlevel=1
 
 "nerd tree
-nmap <silent> <F4> :NERDTreeFind<cr>
+nmap <silent> <F3> :NERDTreeFind<cr>
 
 "jsbeautify
 let g:jsbeautify_engine='d8'
@@ -140,18 +141,15 @@ au FileType javascript nmap <silent> <leader>ff :call JsBeautify()<cr>
 
 """ 文件类型设置
 autocmd FileType htmldjango set ft=jinja
-autocmd FileType python set fdc=3
-"autocmd FileType html,css,jinja set ts=2 | set sts=2 | set sw=2
-"autocmd FileType mkd,python,javascript set ts=4 | set sts=4 | set sw=4
-"autocmd FileType python set noet
-"autocmd FileType python set et
+autocmd FileType python set fdc=3 | set nosi
+autocmd FileType c,cpp nmap <leader>a :A<cr>
 
 """ 模板
 autocmd BufNewFile *.py 0r ~/.vim/templates/python
-autocmd BufNewFile *.html 0r ~/.vim/templates/html
-autocmd BufNewFile *.css 0r ~/.vim/templates/css
-autocmd BufNewFile *.c 0r ~/.vim/templates/c
-autocmd BufNewFile *.cc 0r ~/.vim/templates/cc
+"autocmd BufNewFile *.html 0r ~/.vim/templates/html
+"autocmd BufNewFile *.css 0r ~/.vim/templates/css
+"autocmd BufNewFile *.c 0r ~/.vim/templates/c
+"autocmd BufNewFile *.cpp 0r ~/.vim/templates/cpp
 
 """ 快捷键
 " 窗口移动
@@ -165,7 +163,9 @@ nmap <c-l> <c-w>l
 nmap <silent> <F6> :call ReStructureFile()<cr>
 function! ReStructureFile()
 	" 调整缩进
-	if &ft != 'python' | exe 'normal gg=G``' | endif
+	"if (&ft != 'python') && (&ft != 'pandoc')
+		"exe 'normal gg=G``'
+	"endif
 	" 使用\n换行
 	let &ff = 'unix'
 	" 删除行尾空格
