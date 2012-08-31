@@ -31,10 +31,13 @@ autoload -U zsh-mime-setup
 zsh-mime-setup
 alias -s png=kuickshow
 alias -s jpg=kuickshow
+
 alias -s pdf=okular
+alias -s epub=okular
+
+alias -s mp4=smplayer
 alias -s avi=smplayer
 alias -s mkv=smplayer
-alias -s mp4=smplayer
 alias -s rmvb=smplayer
 
 # 命令补全

@@ -29,7 +29,7 @@ set fileencodings=utf-8,gb18030 "判断文件编码
 set nobomb "去除BOM
 set fileformat=unix "默认换行方式
 set fileformats=unix,dos "判断换行方式
-set ambiwidth=double "宽度不明字符设置为双倍字符宽度
+set ambiwidth=single "宽度不明字符使用单倍字符宽度
 
 """ 行号 命令行 状态行
 set number "显示行号
@@ -168,6 +168,7 @@ function! ReStructureFile()
 	"endif
 	" 使用\n换行
 	let &ff = 'unix'
+	let &fenc = 'utf8'
 	" 删除行尾空格
 	exe 'silent! :%s/\s\+$//g'
 	" 删除末尾空行
