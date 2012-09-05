@@ -37,6 +37,7 @@
 .zsh_history
 .histfile
 .lesshst
+.bzr.log
 
 # directary
 .adobe/

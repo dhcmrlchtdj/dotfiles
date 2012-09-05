@@ -59,10 +59,10 @@ nmap n nzzzv
 nmap N Nzzzv
 
 """ 缩进
-set tabstop=4 "制表符宽度
-set softtabstop=4 "tab键宽度
-set shiftwidth=4 "空格缩进时宽度
 set noexpandtab "使用tab缩进
+set tabstop=4 "制表符\t的宽度
+set softtabstop=4 "tab键的宽度
+set shiftwidth=4 "空格缩进时宽度
 set smarttab "智能缩进
 set smartindent "智能选择缩进方式
 set autoindent "继承前一行缩进方式
@@ -169,6 +169,7 @@ function! ReStructureFile()
 	" 使用\n换行
 	let &ff = 'unix'
 	let &fenc = 'utf8'
+	exe 'silent! :retab'
 	" 删除行尾空格
 	exe 'silent! :%s/\s\+$//g'
 	" 删除末尾空行

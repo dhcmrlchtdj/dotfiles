@@ -22,6 +22,8 @@ alias txz='tar xzvf'
 alias txj='tar xjvf'
 alias axel='axel -n 10'
 alias R='R --silent --no-save'
+# python
+alias activate='source .env/bin/activate'
 
 # 代理
 alias goagent='python2 /home/niris/library/wall/goagent/local/proxy.py'
