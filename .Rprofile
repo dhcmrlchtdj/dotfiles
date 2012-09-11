@@ -11,7 +11,7 @@ if(interactive()) {
 		#library(rgl)
 		#library(lattice)
 		require(plyr)
-		require(stringr)
+		#require(stringr)
 		require(reshape2)
 		require(ggplot2)
 		utils::loadhistory('~/.Rhistory')

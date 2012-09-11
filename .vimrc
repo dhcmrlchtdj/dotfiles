@@ -20,7 +20,6 @@ set undofile "开启撤销历史
 set undodir=~/.vim/_tmp/undo "存放地址
 set backup "覆盖文件时备份
 set backupdir=~/.vim/_tmp/backup "存放地址
-"autocmd BufWritePre * let &bex = strftime("-%Y.%m.%d.%H%M%S~")
 
 """ 编码
 set encoding=utf-8 "vim内部使用的编码
