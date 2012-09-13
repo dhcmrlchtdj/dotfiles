@@ -16,4 +16,5 @@
 	co = checkout
 	df = diff HEAD --stat
 	dff = diff HEAD
-	ll = log --oneline --graph --decorate -10
+	ll = log -10 --oneline --graph --decorate
+	l = log --graph --decorate --date=short --pretty=format:'%C(yellow)%h%Creset <%C(bold blue)%an%Creset@%C(bold cyan)%ad%Creset>%C(bold green)%d%Creset %s'
