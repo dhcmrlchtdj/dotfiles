@@ -1,4 +1,4 @@
-#compdef pip2
+#compdef pip
 #autoload
 
 # pip zsh completion, based on homebrew completion
@@ -7,12 +7,12 @@ _pip_all() {
   # we cache the list of packages (originally from the macports plugin)
   if (( ! $+piplist )); then
     echo -n " (caching package index...)"
-	piplist=($(pip2 search * | cut -d ' ' -f 1 | tr '[A-Z]' '[a-z]'))
+	piplist=($(pip search * | cut -d ' ' -f 1 | tr '[A-Z]' '[a-z]'))
   fi
 }
 
 _pip_installed() {
-  installed_pkgs=(`pip2 freeze | cut -d '=' -f 1`)
+  installed_pkgs=(`pip freeze | cut -d '=' -f 1`)
 }
 
 local -a _1st_arguments
@@ -43,7 +43,7 @@ _arguments \
   '*:: :->subcmds' && return 0
 
 if (( CURRENT == 1 )); then
-  _describe -t commands "pip2 subcommand" _1st_arguments
+  _describe -t commands "pip subcommand" _1st_arguments
   return
 fi
 
