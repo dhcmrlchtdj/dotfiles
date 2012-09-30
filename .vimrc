@@ -62,6 +62,7 @@ set noexpandtab "使用tab缩进
 set tabstop=4 "制表符\t的宽度
 set softtabstop=4 "tab键的宽度
 set shiftwidth=4 "空格缩进时宽度
+set shiftround
 set smarttab "智能缩进
 set smartindent "智能选择缩进方式
 set autoindent "继承前一行缩进方式
@@ -145,7 +146,7 @@ autocmd FileType c,cpp nmap <leader>a :A<cr>
 
 """ 模板
 autocmd BufNewFile *.py 0r ~/.vim/templates/python
-"autocmd BufNewFile *.html 0r ~/.vim/templates/html
+autocmd BufNewFile *.html 0r ~/.vim/templates/html
 "autocmd BufNewFile *.css 0r ~/.vim/templates/css
 "autocmd BufNewFile *.c 0r ~/.vim/templates/c
 "autocmd BufNewFile *.cpp 0r ~/.vim/templates/cpp
