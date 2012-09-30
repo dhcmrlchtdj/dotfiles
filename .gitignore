@@ -38,6 +38,8 @@
 .histfile
 .lesshst
 .bzr.log
+.gtkrc-2.0-kde4
+.gtkrc-2.0
 
 # directary
 .adobe/
