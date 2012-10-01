@@ -26,7 +26,7 @@ alias R='R --silent --no-save'
 alias activate='source .pyenv/bin/activate'
 
 # 代理
-alias goagent='python2 /home/niris/library/wall/goagent/local/proxy.py'
+alias goagent='python2 ~/library/wall/goagent/local/proxy.py'
 
 # 终端打开文件
 autoload -U zsh-mime-setup
