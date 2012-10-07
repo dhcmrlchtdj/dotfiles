@@ -6,6 +6,7 @@ set t_vb='' "禁止错误信息响铃及出错屏幕闪烁
 set noerrorbells "禁止错误信息响铃
 set novisualbell "禁止出错屏幕闪烁
 set ttyfast
+set t_Co=256
 
 set mouse=a "鼠标支持
 set clipboard=unnamedplus "使用外部剪贴板
@@ -44,7 +45,7 @@ set wildmode=longest:full,full "补全方式
 
 set laststatus=2 "总是显示状态行
 set shortmess=atI "状态行信息
-set statusline=%<%F\ %y\ (%{&ff})\ %h%m%r%w%=%-14.(%l,%c%)%p%% "状态行
+"set statusline=%<%F\ %y\ (%{&ff})\ %h%m%r%w%=%-14.(%l,%c%)%p%% "状态行
 set display=lastline
 
 """ 搜索
@@ -73,7 +74,7 @@ set listchars=tab:»\ ,eol:\ ,trail:¯, "字符样式
 set foldmethod=syntax "折叠方式
 set foldenable "启用折叠
 set foldlevel=20 "打开小于20层的折叠
-set foldcolumn=1
+set foldcolumn=2
 " 选定后用空格创建折叠
 "vmap <silent> <space> zf
 
@@ -84,19 +85,21 @@ call vundle#rc()
 "common
 Bundle 'gmarik/vundle'
 Bundle 'ervandew/supertab'
+Bundle 'Shougo/neocomplcache'
 Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'matchit.zip'
 Bundle 'Mark--Karkat'
+Bundle 'Lokaltog/vim-powerline'
 "c/c++
 Bundle 'a.vim'
 Bundle 'Rip-Rip/clang_complete'
 "html5
-""syntax indent complete
+"""syntax indent complete
 Bundle 'othree/html5.vim'
 "javascript
-" js indent
+"""js indent
 Bundle 'pangloss/vim-javascript'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'maksimr/vim-jsbeautify'
@@ -106,6 +109,8 @@ Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 Bundle 'kevinw/pyflakes-vim'
 Bundle 'sunsol/vim_python_fold_compact'
 Bundle 'indentpython.vim--nianyang'
+"""highlight indent
+Bundle 'nathanaelkane/vim-indent-guides'
 "rst
 Bundle 'RST-Tables-CJK'
 "pandoc
@@ -118,9 +123,12 @@ set background=dark "深色背景
 "set background=light "浅色背景
 
 """ 插件设置
-" super tab
+"supertab
 let g:SuperTabDefaultCompletionType="context"
 au FileType html,css,javascript let g:SuperTabDefaultCompletionType="<C-X><C-O>"
+
+"neocomplcache
+let g:neocomplcache_enable_at_startup=1
 
 "tagbar
 nmap <silent> <F4> :TagbarOpen fj<cr>
@@ -139,9 +147,19 @@ au FileType html nmap <silent> <leader>ff :call HtmlBeautify()<cr>
 au FileType css nmap <silent> <leader>ff :call CSSBeautify()<cr>
 au FileType javascript nmap <silent> <leader>ff :call JsBeautify()<cr>
 
+"indent guide
+let g:indent_guides_auto_colors=0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=4
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=4
+let g:indent_guides_guide_size=1
+"let g:indent_guides_enable_on_vim_startup=1
+
+"powerline
+let g:Powerline_symbols='unicode'
+
 """ 文件类型设置
 autocmd FileType htmldjango set ft=jinja
-autocmd FileType python set fdc=3 | set nosi
+autocmd FileType python set fdc=3 | set nosi | norm \ig
 autocmd FileType c,cpp nmap <leader>a :A<cr>
 
 """ 模板
@@ -187,11 +205,4 @@ function! ReStructureFile()
 endfunction
 
 " 退出输入模式时关闭fcitx
-"function! Fcitx2en()
-"let s:input_status = system('fcitx-remote')
-"if s:input_status == 2
-"let l:a = system('fcitx-remote -c')
-"endif
-"endfunction
-"autocmd InsertLeave * call Fcitx2en()
-autocmd InsertLeave * let b:fcitx=system('fcitx-remote -c')
+"autocmd InsertLeave * let b:fcitx=system('fcitx-remote -c')
