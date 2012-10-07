@@ -92,6 +92,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'matchit.zip'
 Bundle 'Mark--Karkat'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'sjl/gundo.vim'
 "c/c++
 Bundle 'a.vim'
 Bundle 'Rip-Rip/clang_complete'
@@ -156,6 +157,10 @@ let g:indent_guides_guide_size=1
 
 "powerline
 let g:Powerline_symbols='unicode'
+
+"gundo
+nmap <silent> <F5> :GundoToggle<cr>
+let g:gundo_right=1
 
 """ 文件类型设置
 autocmd FileType htmldjango set ft=jinja
