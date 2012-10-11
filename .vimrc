@@ -68,7 +68,7 @@ set smarttab "智能缩进
 set smartindent "智能选择缩进方式
 set autoindent "继承前一行缩进方式
 set list "显示特殊字符
-set listchars=tab:»\ ,eol:\ ,trail:¯, "字符样式
+set listchars=tab:»\ ,eol:\ ,trail:˽, "字符样式¯
 
 """ 折叠
 set foldmethod=syntax "折叠方式
@@ -84,38 +84,48 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 "common
 Bundle 'gmarik/vundle'
+
 Bundle 'ervandew/supertab'
 Bundle 'Shougo/neocomplcache'
-Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'Lokaltog/vim-powerline'
+
+Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/nerdtree'
+Bundle 'sjl/gundo.vim'
+
 Bundle 'matchit.zip'
 Bundle 'Mark--Karkat'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'sjl/gundo.vim'
+
 "c/c++
 Bundle 'a.vim'
 Bundle 'Rip-Rip/clang_complete'
+
 "html5
 """syntax indent complete
 Bundle 'othree/html5.vim'
+
 "javascript
 """js indent
 Bundle 'pangloss/vim-javascript'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'maksimr/vim-jsbeautify'
+
 "css
 Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
+
 "python
 Bundle 'kevinw/pyflakes-vim'
 Bundle 'sunsol/vim_python_fold_compact'
 Bundle 'indentpython.vim--nianyang'
 """highlight indent
 Bundle 'nathanaelkane/vim-indent-guides'
+
 "rst
 Bundle 'RST-Tables-CJK'
+
 "pandoc
-Bundle 'vim-pandoc/vim-pandoc'
+"Bundle 'vim-pandoc/vim-pandoc'
 
 """ 载入插件 高亮
 filetype plugin indent on "载入文件类型 插件 缩进
@@ -125,19 +135,19 @@ set background=dark "深色背景
 
 """ 插件设置
 "supertab
-let g:SuperTabDefaultCompletionType="context"
-au FileType html,css,javascript let g:SuperTabDefaultCompletionType="<C-X><C-O>"
+"let g:SuperTabDefaultCompletionType="context"
+"au FileType html,css,javascript let g:SuperTabDefaultCompletionType="<C-X><C-O>"
 
 "neocomplcache
 let g:neocomplcache_enable_at_startup=1
+
+"nerd tree
+nmap <silent> <F3> :NERDTreeFind<cr>
 
 "tagbar
 nmap <silent> <F4> :TagbarOpen fj<cr>
 let g:tagbar_width=35
 let g:tagbar_foldlevel=1
-
-"nerd tree
-nmap <silent> <F3> :NERDTreeFind<cr>
 
 "jsbeautify
 let g:jsbeautify_engine='d8'
