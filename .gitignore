@@ -35,6 +35,7 @@
 .pulse-cookie
 .pythonhist
 .recently-used
+.screenrc
 .sqlite_history
 .viminfo
 .xsession-errors
@@ -78,8 +79,7 @@
 .subversion/
 .texlive/
 .thumbnails/
-.vim/_tmp/
-.vim/bundle/
+.vim/
 .xmind/
 library/
 study/

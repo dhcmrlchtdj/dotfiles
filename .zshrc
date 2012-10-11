@@ -15,6 +15,14 @@ alias ll='ls -lAh'
 #
 alias df='df -Th'
 
+#systemclt
+#alias start='sudo systemclt start'
+#alias restart='sudo systemclt restart'
+#alias stop='sudo systemclt stop'
+#alias status='sudo systemclt status'
+#alias enable='sudo systemclt enable'
+#alias disable='sudo systemclt disable'
+
 # 工具
 alias vi='vim'
 alias zip='7z a -tzip'
@@ -26,6 +34,7 @@ alias R='R --silent --no-save'
 alias ssh='ssh -2'
 # python virtualenv
 alias activate='source .pyenv/bin/activate'
+alias py2='python2'
 
 # 代理
 alias goagent='python2 ~/library/wall/goagent/local/proxy.py'
