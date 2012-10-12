@@ -74,7 +74,7 @@ set listchars=tab:»\ ,eol:\ ,trail:˽, "字符样式¯
 set foldmethod=syntax "折叠方式
 set foldenable "启用折叠
 set foldlevel=20 "打开小于20层的折叠
-set foldcolumn=2
+set foldcolumn=1
 " 选定后用空格创建折叠
 "vmap <silent> <space> zf
 
@@ -94,6 +94,7 @@ Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/nerdtree'
 Bundle 'sjl/gundo.vim'
 
+Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'matchit.zip'
 Bundle 'Mark--Karkat'
 
@@ -118,20 +119,25 @@ Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 Bundle 'kevinw/pyflakes-vim'
 Bundle 'sunsol/vim_python_fold_compact'
 Bundle 'indentpython.vim--nianyang'
-"""highlight indent
-Bundle 'nathanaelkane/vim-indent-guides'
 
-"rst
+"rst markdown pandoc
 Bundle 'RST-Tables-CJK'
-
-"pandoc
+Bundle 'tpope/vim-markdown'
 "Bundle 'vim-pandoc/vim-pandoc'
+
+"colorscheme
+Bundle 'altercation/vim-colors-solarized'
 
 """ 载入插件 高亮
 filetype plugin indent on "载入文件类型 插件 缩进
 syntax enable "语法加亮
 set background=dark "深色背景
-"set background=light "浅色背景
+set background=light "浅色背景
+
+let g:solarized_termcolors=256
+let g:solarized_visibility='low'
+"let g:solarized_termtrans=1
+colorscheme solarized
 
 """ 插件设置
 "supertab
@@ -160,8 +166,8 @@ au FileType javascript nmap <silent> <leader>ff :call JsBeautify()<cr>
 
 "indent guide
 let g:indent_guides_auto_colors=0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=4
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=4
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=lightgrey
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=lightgrey
 let g:indent_guides_guide_size=1
 "let g:indent_guides_enable_on_vim_startup=1
 
@@ -174,7 +180,8 @@ let g:gundo_right=1
 
 """ 文件类型设置
 autocmd FileType htmldjango set ft=jinja
-autocmd FileType python set fdc=3 | set nosi | norm \ig
+autocmd FileType python set nosi "| set fdc=3
+autocmd BufRead *.py norm \ig
 autocmd FileType c,cpp nmap <leader>a :A<cr>
 
 """ 模板
