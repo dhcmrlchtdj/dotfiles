@@ -1,8 +1,8 @@
 PROMPT="[%{$fg[blue]%}%n%{$reset_color%}@%{$fg[cyan]%}%m"
-PROMPT="${PROMPT} %{$fg[yellow]%}%B%1~%b%{$reset_color%}]%# "
+PROMPT="${PROMPT} %{$fg[red]%}%B%1~%b%{$reset_color%}]%# "
 
 export EDITOR="vim"
-export TERM='xterm-256color'
+export TERM='konsole-256color'
 
 ## alias
 

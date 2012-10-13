@@ -131,12 +131,12 @@ Bundle 'altercation/vim-colors-solarized'
 """ 载入插件 高亮
 filetype plugin indent on "载入文件类型 插件 缩进
 syntax enable "语法加亮
-set background=dark "深色背景
+"set background=dark "深色背景
 set background=light "浅色背景
 
 let g:solarized_termcolors=256
 let g:solarized_visibility='low'
-"let g:solarized_termtrans=1
+let g:solarized_termtrans=1
 colorscheme solarized
 
 """ 插件设置
@@ -176,7 +176,7 @@ let g:Powerline_symbols='unicode'
 
 "gundo
 nmap <silent> <F5> :GundoToggle<cr>
-let g:gundo_right=1
+"let g:gundo_right=1
 
 """ 文件类型设置
 autocmd FileType htmldjango set ft=jinja
@@ -187,6 +187,7 @@ autocmd FileType c,cpp nmap <leader>a :A<cr>
 """ 模板
 autocmd BufNewFile *.py 0r ~/.vim/templates/python
 autocmd BufNewFile *.html 0r ~/.vim/templates/html
+autocmd BufNewFile .gitignore 0r ~/.vim/templates/gitignore
 "autocmd BufNewFile *.css 0r ~/.vim/templates/css
 "autocmd BufNewFile *.c 0r ~/.vim/templates/c
 "autocmd BufNewFile *.cpp 0r ~/.vim/templates/cpp
