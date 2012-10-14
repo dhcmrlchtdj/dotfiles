@@ -231,4 +231,4 @@ function! ReStructureFile()
 endfunction
 
 " 退出输入模式时关闭fcitx
-autocmd InsertLeave * let b:fcitx=system('fcitx-remote -c')
+"autocmd InsertLeave * let b:fcitx=system('fcitx-remote -c')
