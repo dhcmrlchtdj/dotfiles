@@ -34,8 +34,8 @@ alias R='R --silent --no-save'
 alias ssh='ssh -2'
 # python virtualenv
 alias activate='source .pyenv/bin/activate'
-alias py2='python2'
 alias py='python'
+alias py2='python2'
 
 # 代理
 alias goagent='python2 ~/library/wall/goagent/local/proxy.py'

@@ -2,11 +2,11 @@ set nocompatible "不兼容vi
 set modelines=0 "忽略 打开的文件 里的vim参数
 set helplang=cn "优先寻找中文帮助
 
+set t_Co=256 "颜色数目
 set t_vb='' "禁止错误信息响铃及出错屏幕闪烁
 set noerrorbells "禁止错误信息响铃
 set novisualbell "禁止出错屏幕闪烁
 set ttyfast
-set t_Co=256
 
 set mouse=a "鼠标支持
 set clipboard=unnamedplus "使用外部剪贴板
@@ -127,22 +127,25 @@ Bundle 'tpope/vim-markdown'
 
 "colorscheme
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'chriskempson/base16-vim'
 
 """ 载入插件 高亮
 filetype plugin indent on "载入文件类型 插件 缩进
 syntax enable "语法加亮
-"set background=dark "深色背景
+set background=dark "深色背景
 set background=light "浅色背景
 
 let g:solarized_termcolors=256
 let g:solarized_visibility='low'
 let g:solarized_termtrans=1
 colorscheme solarized
+"let base16colorspace=256
+"colorscheme base16-solarized
 
 """ 插件设置
 "supertab
-"let g:SuperTabDefaultCompletionType="context"
-"au FileType html,css,javascript let g:SuperTabDefaultCompletionType="<C-X><C-O>"
+let g:SuperTabDefaultCompletionType="context"
+au FileType html,css,javascript let g:SuperTabDefaultCompletionType="<C-X><C-O>"
 
 "neocomplcache
 let g:neocomplcache_enable_at_startup=1
@@ -166,8 +169,8 @@ au FileType javascript nmap <silent> <leader>ff :call JsBeautify()<cr>
 
 "indent guide
 let g:indent_guides_auto_colors=0
-autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=lightgrey
-autocmd VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=lightgrey
+au VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=lightgrey
+au VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=lightgrey
 let g:indent_guides_guide_size=1
 "let g:indent_guides_enable_on_vim_startup=1
 
