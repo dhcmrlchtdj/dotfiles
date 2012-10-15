@@ -15,13 +15,9 @@ alias ll='ls -lAh'
 #
 alias df='df -Th'
 
-#systemclt
-#alias start='sudo systemclt start'
-#alias restart='sudo systemclt restart'
-#alias stop='sudo systemclt stop'
-#alias status='sudo systemclt status'
-#alias enable='sudo systemclt enable'
-#alias disable='sudo systemclt disable'
+# systemclt
+alias start_nginx='sudo systemctl start nginx.service'
+alias stop_nginx='sudo systemctl stop nginx.service'
 
 # 工具
 alias vi='vim'
