@@ -16,8 +16,8 @@ alias ll='ls -lAh'
 alias df='df -Th'
 
 # systemclt
-alias start_nginx='sudo systemctl start nginx.service'
-alias stop_nginx='sudo systemctl stop nginx.service'
+alias start_nginx='sudo systemctl start nginx'
+alias stop_nginx='sudo systemctl stop nginx'
 
 # 工具
 alias vi='vim'
