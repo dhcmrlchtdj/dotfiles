@@ -1,12 +1,3 @@
-# !
-!.opera/menu
-!.opera/mouse
-!.opera/operaprefs.ini
-!.opera/search.ini
-!.opera/speeddial.ini
-!.opera/toolbar
-!.opera/urlfilter.ini
-
 # backup
 *~
 *.swp
@@ -79,8 +70,19 @@
 .subversion/
 .texlive/
 .thumbnails/
-.vim/
+.vim/*
 .xmind/
 library/
 study/
 tmp/
+
+# !
+!.opera/menu
+!.opera/mouse
+!.opera/operaprefs.ini
+!.opera/search.ini
+!.opera/speeddial.ini
+!.opera/toolbar
+!.opera/urlfilter.ini
+!.vim/templates/
+!.kde4/share/apps/konsole/test.colorscheme

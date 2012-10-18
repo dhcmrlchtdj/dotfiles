@@ -190,6 +190,7 @@ autocmd FileType c,cpp nmap <leader>a :A<cr>
 """ 模板
 autocmd BufNewFile *.py 0r ~/.vim/templates/python
 autocmd BufNewFile *.html 0r ~/.vim/templates/html
+autocmd BufNewFile .md 0r ~/.vim/templates/markdown
 autocmd BufNewFile .gitignore 0r ~/.vim/templates/gitignore
 "autocmd BufNewFile *.css 0r ~/.vim/templates/css
 "autocmd BufNewFile *.c 0r ~/.vim/templates/c
@@ -197,10 +198,10 @@ autocmd BufNewFile .gitignore 0r ~/.vim/templates/gitignore
 
 """ 快捷键
 " 窗口移动
-nmap <c-h> <c-w>h
-nmap <c-j> <c-w>j
-nmap <c-k> <c-w>k
-nmap <c-l> <c-w>l
+"nmap <c-h> <c-w>h
+"nmap <c-j> <c-w>j
+"nmap <c-k> <c-w>k
+"nmap <c-l> <c-w>l
 
 """ 特殊
 " 调整文件
