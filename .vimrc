@@ -170,8 +170,8 @@ au FileType javascript nmap <silent> <leader>ff :call JsBeautify()<cr>
 
 "indent guide
 let g:indent_guides_auto_colors=0
-au VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=darkgrey
-au VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=darkgrey
+au VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=lightgrey
+au VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=lightgrey
 let g:indent_guides_guide_size=1
 let g:indent_guides_enable_on_vim_startup=1
 
