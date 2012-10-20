@@ -69,15 +69,19 @@ set smarttab "智能缩进
 set smartindent "智能选择缩进方式
 set autoindent "继承前一行缩进方式
 set list "显示特殊字符
-set listchars=tab:»\ ,eol:\ ,trail:˽, "字符样式¯
+set listchars=tab:»\ ,eol:\ ,trail:¯, "字符样式˽
+autocmd FileType python set nosi
+autocmd FileType html,css set ts=2 | set sts=2 | set sw=2
 
 """ 折叠
-set foldmethod=syntax "折叠方式
+set foldmethod=indent "折叠方式
 set foldenable "启用折叠
 set foldlevel=20 "打开小于20层的折叠
 set foldcolumn=1
 " 选定后用空格创建折叠
 "vmap <silent> <space> zf
+au FileType css set fdm=marker | set fmr={,}
+au FileType c,cpp set fdm=syntax
 
 """ 插件
 filetype off
@@ -93,6 +97,7 @@ Bundle 'Lokaltog/vim-powerline'
 
 Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
 Bundle 'sjl/gundo.vim'
 
 Bundle 'nathanaelkane/vim-indent-guides'
@@ -117,7 +122,7 @@ Bundle 'maksimr/vim-jsbeautify'
 Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 
 "python
-Bundle 'kevinw/pyflakes-vim'
+"Bundle 'kevinw/pyflakes-vim'
 Bundle 'sunsol/vim_python_fold_compact'
 Bundle 'indentpython.vim--nianyang'
 
@@ -133,6 +138,7 @@ Bundle 'chriskempson/base16-vim'
 """ 载入插件 高亮
 filetype plugin indent on "载入文件类型 插件 缩进
 syntax enable "语法加亮
+au FileType htmldjango set ft=html
 "set background=dark "深色背景
 set background=light "浅色背景
 
@@ -154,16 +160,22 @@ let g:neocomplcache_enable_at_startup=1
 "nerd tree
 nmap <silent> <F3> :NERDTreeFind<cr>
 
+"syntastic
+let g:syntastic_check_on_open=1
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+
 "tagbar
 nmap <silent> <F4> :TagbarOpen fj<cr>
 let g:tagbar_width=35
 let g:tagbar_foldlevel=1
+let g:tagbar_sort=0
 
 "jsbeautify
 let g:jsbeautify_engine='d8'
 let g:jsbeautify={'indent_size': 4, 'indent_char': ' '}
-let g:cssbeautify={'indent_size': 4, 'indent_char': ' '}
-let g:htmlbeautify={'indent_size': 4, 'indent_char': ' '}
+let g:cssbeautify={'indent_size': 2, 'indent_char': ' '}
+let g:htmlbeautify={'indent_size': 2, 'indent_char': ' '}
 au FileType html nmap <silent> <leader>ff :call HtmlBeautify()<cr>
 au FileType css nmap <silent> <leader>ff :call CSSBeautify()<cr>
 au FileType javascript nmap <silent> <leader>ff :call JsBeautify()<cr>
@@ -175,17 +187,15 @@ au VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=lightgrey
 let g:indent_guides_guide_size=1
 let g:indent_guides_enable_on_vim_startup=1
 
+"a.vim
+autocmd FileType c,cpp nmap <leader>a :A<cr>
+
 "powerline
 let g:Powerline_symbols='unicode'
 
 "gundo
 nmap <silent> <F5> :GundoToggle<cr>
 "let g:gundo_right=1
-
-""" 文件类型设置
-autocmd FileType htmldjango set ft=jinja
-autocmd FileType python set nosmartindent
-autocmd FileType c,cpp nmap <leader>a :A<cr>
 
 """ 模板
 autocmd BufNewFile *.py 0r ~/.vim/templates/python
@@ -195,13 +205,6 @@ autocmd BufNewFile .gitignore 0r ~/.vim/templates/gitignore
 "autocmd BufNewFile *.css 0r ~/.vim/templates/css
 "autocmd BufNewFile *.c 0r ~/.vim/templates/c
 "autocmd BufNewFile *.cpp 0r ~/.vim/templates/cpp
-
-""" 快捷键
-" 窗口移动
-"nmap <c-h> <c-w>h
-"nmap <c-j> <c-w>j
-"nmap <c-k> <c-w>k
-"nmap <c-l> <c-w>l
 
 """ 特殊
 " 调整文件
