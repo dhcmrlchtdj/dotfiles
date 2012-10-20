@@ -3,9 +3,9 @@
     email = smresc@gmail.com
 [core]
     editor = vim
-    ;eol = lf
-    ;safecrlf = true
+    quotepath = false
     autocrlf = input
+    whitespace = space-before-tab,trailing-space,tabwidth=4
 [color]
     ui = true
 [alias]
