@@ -174,10 +174,8 @@ let g:tagbar_sort=0
 "jsbeautify
 let g:jsbeautify_engine='d8'
 let g:jsbeautify={'indent_size': 4, 'indent_char': ' '}
-let g:cssbeautify={'indent_size': 2, 'indent_char': ' '}
 let g:htmlbeautify={'indent_size': 2, 'indent_char': ' '}
 au FileType html nmap <silent> <leader>ff :call HtmlBeautify()<cr>
-au FileType css nmap <silent> <leader>ff :call CSSBeautify()<cr>
 au FileType javascript nmap <silent> <leader>ff :call JsBeautify()<cr>
 
 "indent guide
@@ -200,7 +198,7 @@ nmap <silent> <F5> :GundoToggle<cr>
 """ 模板
 autocmd BufNewFile *.py 0r ~/.vim/templates/python
 autocmd BufNewFile *.html 0r ~/.vim/templates/html
-autocmd BufNewFile .md 0r ~/.vim/templates/markdown
+autocmd BufNewFile *.md 0r ~/.vim/templates/markdown
 autocmd BufNewFile .gitignore 0r ~/.vim/templates/gitignore
 "autocmd BufNewFile *.css 0r ~/.vim/templates/css
 "autocmd BufNewFile *.c 0r ~/.vim/templates/c
