@@ -11,7 +11,7 @@
 [alias]
     ad = add -A
     st = status -bs
-    ci = commit
+    ci = commit -m
     br = branch
     co = checkout
     df = diff HEAD --stat

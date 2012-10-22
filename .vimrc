@@ -71,7 +71,7 @@ set autoindent "继承前一行缩进方式
 set list "显示特殊字符
 set listchars=tab:»\ ,eol:\ ,trail:¯, "字符样式˽
 autocmd FileType python set nosi
-autocmd FileType html,css set ts=2 | set sts=2 | set sw=2
+autocmd FileType html,css,javascript set ts=2 | set sts=2 | set sw=2
 
 """ 折叠
 set foldmethod=indent "折叠方式
@@ -173,7 +173,7 @@ let g:tagbar_sort=0
 
 "jsbeautify
 let g:jsbeautify_engine='d8'
-let g:jsbeautify={'indent_size': 4, 'indent_char': ' '}
+let g:jsbeautify={'indent_size': 2, 'indent_char': ' '}
 let g:htmlbeautify={'indent_size': 2, 'indent_char': ' '}
 au FileType html nmap <silent> <leader>ff :call HtmlBeautify()<cr>
 au FileType javascript nmap <silent> <leader>ff :call JsBeautify()<cr>
@@ -209,9 +209,9 @@ autocmd BufNewFile .gitignore 0r ~/.vim/templates/gitignore
 nmap <silent> <F6> :call ReStructureFile()<cr>
 function! ReStructureFile()
     " 调整缩进
-    "if (&ft != 'python') && (&ft != 'pandoc')
-        "exe 'normal gg=G``'
-    "endif
+    if (&ft =~ 'html\|css\|javascript\|c\|cpp')
+        exe 'normal gg=G``'
+    endif
     " 使用\n换行
     let &ff = 'unix'
     let &fenc = 'utf8'
@@ -229,7 +229,7 @@ function! ReStructureFile()
         endif
         let lnum -= 1
     endwhile
-    echo 'Done.'
+    "echo 'Done.'
 endfunction
 
 " 退出输入模式时关闭fcitx
