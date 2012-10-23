@@ -29,7 +29,7 @@ alias axel='axel -n 10'
 alias R='R --silent --no-save'
 alias ssh='ssh -2'
 # python virtualenv
-alias activate='source .pyenv/bin/activate'
+alias activate='source .pyvenv/bin/activate'
 alias py='python'
 alias py2='python2'
 

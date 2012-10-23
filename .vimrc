@@ -59,8 +59,8 @@ nmap n nzzzv
 nmap N Nzzzv
 
 """ 缩进
-"set noexpandtab "使用tab缩进
 set expandtab "使用空格缩进
+set noexpandtab "使用tab缩进
 set tabstop=4 "制表符\t的宽度
 set softtabstop=4 "tab键的宽度
 set shiftwidth=4 "空格缩进时宽度
@@ -70,17 +70,17 @@ set smartindent "智能选择缩进方式
 set autoindent "继承前一行缩进方式
 set list "显示特殊字符
 set listchars=tab:»\ ,eol:\ ,trail:¯, "字符样式˽
-autocmd FileType python set nosi
-autocmd FileType html,css,javascript set ts=2 | set sts=2 | set sw=2
+autocmd FileType python set nosi | set et
+autocmd FileType html,css set ts=2 | set sts=2 | set sw=2
 
 """ 折叠
 set foldmethod=indent "折叠方式
 set foldenable "启用折叠
 set foldlevel=20 "打开小于20层的折叠
 set foldcolumn=1
-" 选定后用空格创建折叠
-"vmap <silent> <space> zf
-au FileType css set fdm=marker | set fmr={,}
+" 选定后用空格创建折叠 用于marker
+vmap <silent> <space> zf
+au FileType css,javascript set fdm=marker | set fmr={,}
 au FileType c,cpp set fdm=syntax
 
 """ 插件
@@ -139,15 +139,13 @@ Bundle 'chriskempson/base16-vim'
 filetype plugin indent on "载入文件类型 插件 缩进
 syntax enable "语法加亮
 au FileType htmldjango set ft=html
-"set background=dark "深色背景
+set background=dark "深色背景
 set background=light "浅色背景
 
 let g:solarized_termcolors=256
 let g:solarized_visibility='low'
 let g:solarized_termtrans=1
 colorscheme solarized
-"let base16colorspace=256
-"colorscheme base16-solarized
 
 """ 插件设置
 "supertab
@@ -173,8 +171,8 @@ let g:tagbar_sort=0
 
 "jsbeautify
 let g:jsbeautify_engine='d8'
-let g:jsbeautify={'indent_size': 2, 'indent_char': ' '}
-let g:htmlbeautify={'indent_size': 2, 'indent_char': ' '}
+let g:jsbeautify={'indent_size': 1, 'indent_char': '\t'}
+let g:htmlbeautify={'indent_size': 1, 'indent_char': '\t'}
 au FileType html nmap <silent> <leader>ff :call HtmlBeautify()<cr>
 au FileType javascript nmap <silent> <leader>ff :call JsBeautify()<cr>
 
@@ -183,7 +181,7 @@ let g:indent_guides_auto_colors=0
 au VimEnter,Colorscheme * :hi IndentGuidesOdd ctermbg=lightgrey
 au VimEnter,Colorscheme * :hi IndentGuidesEven ctermbg=lightgrey
 let g:indent_guides_guide_size=1
-let g:indent_guides_enable_on_vim_startup=1
+au Filetype python exe 'IndentGuidesEnable'
 
 "a.vim
 autocmd FileType c,cpp nmap <leader>a :A<cr>
@@ -208,28 +206,30 @@ autocmd BufNewFile .gitignore 0r ~/.vim/templates/gitignore
 " 调整文件
 nmap <silent> <F6> :call ReStructureFile()<cr>
 function! ReStructureFile()
-    " 调整缩进
-    if (&ft =~ 'html\|css\|javascript\|c\|cpp')
-        exe 'normal gg=G``'
-    endif
-    " 使用\n换行
-    let &ff = 'unix'
-    let &fenc = 'utf8'
-    exe 'silent! :retab'
-    " 删除行尾空格
-    exe 'silent! :%s/\s\+$//g'
-    " 删除末尾空行
-    let lnum = line('$')
-    while lnum
-        if !empty(getline(lnum))
-            if lnum != line('$')
-                exe 'normal '.(lnum+1).'ggdG'
-            endif
-            break
-        endif
-        let lnum -= 1
-    endwhile
-    "echo 'Done.'
+	" 调整缩进
+	if (!(&ft =~ 'python'))
+		exe 'normal gg=G``'
+		exe 'IndentGuidesDisable'
+	endif
+	exe 'silent! :retab'
+	" 使用\n换行
+	let &ff = 'unix'
+	" 使用utf-8编码
+	let &fenc = 'utf8'
+	" 删除行尾空格
+	exe 'silent! :%s/\s\+$//g'
+	" 删除末尾空行
+	let lnum = line('$')
+	while lnum
+		if !empty(getline(lnum))
+			if lnum != line('$')
+				exe 'normal '.(lnum+1).'ggdG'
+			endif
+			break
+		endif
+		let lnum -= 1
+	endwhile
+	echo 'Done.'
 endfunction
 
 " 退出输入模式时关闭fcitx
