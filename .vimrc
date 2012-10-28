@@ -70,7 +70,8 @@ set smartindent "智能选择缩进方式
 set autoindent "继承前一行缩进方式
 set list "显示特殊字符
 set listchars=tab:»\ ,eol:\ ,trail:¯, "字符样式˽
-autocmd FileType python set nosi | set et
+autocmd FileType python,markdown set et
+autocmd FileType python set nosi
 autocmd FileType html,css set ts=2 | set sts=2 | set sw=2
 
 """ 折叠
@@ -94,15 +95,14 @@ Bundle 'ervandew/supertab'
 Bundle 'Shougo/neocomplcache'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'matchit.zip'
+Bundle 'Mark--Karkat'
 
 Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'sjl/gundo.vim'
-
 Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'matchit.zip'
-Bundle 'Mark--Karkat'
 
 "c/c++
 Bundle 'a.vim'
@@ -133,7 +133,7 @@ Bundle 'tpope/vim-markdown'
 
 "colorscheme
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'chriskempson/base16-vim'
+"Bundle 'chriskempson/base16-vim'
 
 """ 载入插件 高亮
 filetype plugin indent on "载入文件类型 插件 缩进
