@@ -96,7 +96,7 @@ Bundle 'Shougo/neocomplcache'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'matchit.zip'
-Bundle 'Mark--Karkat'
+"Bundle 'Mark--Karkat'
 
 Bundle 'majutsushi/tagbar'
 Bundle 'scrooloose/nerdtree'
@@ -207,9 +207,8 @@ autocmd BufNewFile .gitignore 0r ~/.vim/templates/gitignore
 nmap <silent> <F6> :call ReStructureFile()<cr>
 function! ReStructureFile()
 	" 调整缩进
-	if (!(&ft =~ 'python'))
+	if (&ft !~ 'python\|markdown')
 		exe 'normal gg=G``'
-		exe 'IndentGuidesDisable'
 	endif
 	exe 'silent! :retab'
 	" 使用\n换行

@@ -13,6 +13,10 @@ export EDITOR="vim"
 complete -cf sudo
 complete -cf man
 
+alias yaourt='yaourt --insecure'
+export http_proxy='http://127.0.0.1:8087'
+#export https_proxy='http://127.0.0.1:8087'
+
 #alias
 alias ~='cd ~'
 alias ..='cd ..'
@@ -44,9 +48,6 @@ alias ..='cd ..'
 
 #alias vpn_your_free_vpn='sudo openvpn --config ~/library/wall/yourfreevpn/YourFreeVPN-UDP.ovpn'
 #alias goagent='python2 /home/niris/library/wall/goagent/local/proxy.py'
-alias yaourt='yaourt --insecure'
-export http_proxy='http://127.0.0.1:8087'
-export https_proxy='http://127.0.0.1:8087'
 
 #mount galaxy nexus
 #alias mandroid='sudo mtpfs -o allow_other /home/niris/library/android'
