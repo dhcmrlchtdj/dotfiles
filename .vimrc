@@ -25,7 +25,7 @@ set backupdir=~/.vim/_tmp/backup "存放地址
 """ 编码
 set encoding=utf-8 "vim内部使用的编码
 set fileencoding=utf-8 "默认使用编码
-set fileencodings=utf-8,gb18030 "判断文件编码
+set fileencodings=utf-8,big5,gb18030 "判断文件编码
 set nobomb "去除BOM
 set fileformat=unix "默认换行方式
 set fileformats=unix,dos "判断换行方式
@@ -159,6 +159,7 @@ let g:neocomplcache_enable_at_startup=1
 nmap <silent> <F3> :NERDTreeFind<cr>
 
 "syntastic
+let g:syntastic_python_checker_args='--ignore=E701'
 let g:syntastic_check_on_open=1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
