@@ -117,6 +117,7 @@ Bundle 'othree/html5.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'maksimr/vim-jsbeautify'
+Bundle 'teramako/jscomplete-vim'
 
 "css
 Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
