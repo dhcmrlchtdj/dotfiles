@@ -1,6 +1,0 @@
-debug 3
-#set ftp:charset GBK
-set file:charset UTF-8
-#set ftp:passtive-mode no
-#alias utf8 "set ftp:charset UTF-8"
-#alias gbk "set ftp:charset GBK"

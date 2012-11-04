@@ -160,7 +160,7 @@ let g:neocomplcache_enable_at_startup=1
 nmap <silent> <F3> :NERDTreeFind<cr>
 
 "syntastic
-let g:syntastic_python_checker_args='--ignore=E701'
+let g:syntastic_python_checker_args='--ignore=E261'
 let g:syntastic_check_on_open=1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
@@ -173,8 +173,8 @@ let g:tagbar_sort=0
 
 "jsbeautify
 let g:jsbeautify_engine='d8'
-let g:jsbeautify={'indent_size': 1, 'indent_char': '\t'}
-let g:htmlbeautify={'indent_size': 1, 'indent_char': '\t'}
+"let g:jsbeautify={'indent_size': 1, 'indent_char': '\t'}
+"let g:htmlbeautify={'indent_size': 1, 'indent_char': '\t'}
 au FileType html nmap <silent> <leader>ff :call HtmlBeautify()<cr>
 au FileType javascript nmap <silent> <leader>ff :call JsBeautify()<cr>
 

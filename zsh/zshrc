@@ -37,7 +37,7 @@ alias py2='python2'
 alias goagent='python2 ~/library/wall/goagent/local/proxy.py'
 
 # 命令补全
-fpath=(~/.zshfuncs $fpath)
+fpath=(~/.zsh_functions $fpath)
 autoload -U compinit
 compinit
 
