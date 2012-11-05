@@ -17,10 +17,11 @@ set completeopt=menu "补全窗口的样式
 
 """ 备份 撤销
 set hidden "自动保存?
+"set directory=~/.vim/swap "交换文件
 set undofile "开启撤销历史
-set undodir=~/.vim/_tmp/undo "存放地址
+set undodir=~/.vim/undo "存放地址
 set backup "覆盖文件时备份
-set backupdir=~/.vim/_tmp/backup "存放地址
+set backupdir=~/.vim/backup "存放地址
 
 """ 编码
 set encoding=utf-8 "vim内部使用的编码
@@ -199,7 +200,7 @@ nmap <silent> <F5> :GundoToggle<cr>
 autocmd BufNewFile *.py 0r ~/.vim/templates/python
 autocmd BufNewFile *.html 0r ~/.vim/templates/html
 autocmd BufNewFile *.md 0r ~/.vim/templates/markdown
-autocmd BufNewFile .gitignore 0r ~/.vim/templates/gitignore
+"autocmd BufNewFile .gitignore 0r ~/.vim/templates/gitignore
 "autocmd BufNewFile *.css 0r ~/.vim/templates/css
 "autocmd BufNewFile *.c 0r ~/.vim/templates/c
 "autocmd BufNewFile *.cpp 0r ~/.vim/templates/cpp
