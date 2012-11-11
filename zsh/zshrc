@@ -27,6 +27,7 @@ alias txz='tar xzvf'
 alias txj='tar xjvf'
 alias axel='axel -n 10'
 alias R='R --silent --no-save'
+alias jobs='jobs -dl'
 alias ssh='ssh -2'
 # python virtualenv
 alias activate='source .pyvenv/bin/activate'
