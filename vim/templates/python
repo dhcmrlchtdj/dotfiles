@@ -5,7 +5,7 @@
 def main():
     pass
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
     import timeit
     print(timeit.timeit("main()", setup="from __main__ import main",
