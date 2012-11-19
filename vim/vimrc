@@ -203,7 +203,7 @@ autocmd BufNewFile *.md 0r ~/.vim/templates/markdown
 autocmd BufNewFile *.js 0r ~/.vim/templates/javascript
 "autocmd BufNewFile .gitignore 0r ~/.vim/templates/gitignore
 "autocmd BufNewFile *.css 0r ~/.vim/templates/css
-"autocmd BufNewFile *.c 0r ~/.vim/templates/c
+autocmd BufNewFile *.c 0r ~/.vim/templates/c
 "autocmd BufNewFile *.cpp 0r ~/.vim/templates/cpp
 
 """ 特殊
