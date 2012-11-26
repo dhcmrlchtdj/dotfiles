@@ -94,6 +94,7 @@ Bundle 'gmarik/vundle'
 
 Bundle 'ervandew/supertab'
 Bundle 'Shougo/neocomplcache'
+Bundle 'Shougo/neosnippet'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'matchit.zip'
@@ -157,11 +158,23 @@ au FileType html,css,javascript let g:SuperTabDefaultCompletionType="<C-X><C-O>"
 "neocomplcache
 let g:neocomplcache_enable_at_startup=1
 
+"neosnippet
+" Plugin key-mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+" SuperTab like snippets behavior.
+imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+" For snippet_complete marker.
+if has('conceal')
+  set conceallevel=2 concealcursor=i
+endif
+
 "nerd tree
 nmap <silent> <F3> :NERDTreeFind<cr>
 
 "syntastic
-let g:syntastic_python_checker_args='--ignore=E261,E501'
+let g:syntastic_python_checker_args='--ignore=E261,E302,E303,E501'
 let g:syntastic_check_on_open=1
 let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
