@@ -128,6 +128,7 @@ Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 "Bundle 'kevinw/pyflakes-vim'
 Bundle 'sunsol/vim_python_fold_compact'
 Bundle 'indentpython.vim--nianyang'
+Bundle 'davidhalter/jedi-vim'
 
 "rst markdown pandoc
 Bundle 'RST-Tables-CJK'
@@ -153,7 +154,7 @@ colorscheme solarized
 """ 插件设置
 "supertab
 let g:SuperTabDefaultCompletionType="context"
-au FileType html,css,javascript let g:SuperTabDefaultCompletionType="<C-X><C-O>"
+"au FileType html,css,javascript let g:SuperTabDefaultCompletionType="<C-X><C-O>"
 
 "neocomplcache
 let g:neocomplcache_enable_at_startup=1
@@ -161,8 +162,8 @@ let g:neocomplcache_enable_at_startup=1
 
 "neosnippet
 " Plugin key-mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
 " SuperTab like snippets behavior.
 imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
