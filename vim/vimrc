@@ -98,6 +98,7 @@ Bundle 'Shougo/neosnippet'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'matchit.zip'
+Bundle 'Lokaltog/vim-easymotion'
 "Bundle 'Mark--Karkat'
 
 Bundle 'majutsushi/tagbar'
@@ -214,7 +215,7 @@ autocmd FileType c,cpp nmap <leader>a :A<cr>
 let g:Powerline_symbols='unicode'
 
 "gundo
-nmap <silent> <F2> :GundoToggle<cr>
+nmap <silent> <F5> :GundoToggle<cr>
 "let g:gundo_right=1
 
 """ 模板
