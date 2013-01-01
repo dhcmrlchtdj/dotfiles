@@ -101,6 +101,7 @@ Bundle 'matchit.zip'
 "Bundle 'Mark--Karkat'
 
 Bundle 'majutsushi/tagbar'
+Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'sjl/gundo.vim'
@@ -154,7 +155,7 @@ colorscheme solarized
 """ 插件设置
 "supertab
 let g:SuperTabDefaultCompletionType="context"
-"au FileType html,css,javascript let g:SuperTabDefaultCompletionType="<C-X><C-O>"
+au FileType html,css,javascript let g:SuperTabDefaultCompletionType="<C-X><C-O>"
 
 "neocomplcache
 let g:neocomplcache_enable_at_startup=1
@@ -169,8 +170,11 @@ imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" 
 smap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 " For snippet_complete marker.
 if has('conceal')
-  set conceallevel=2 concealcursor=i
+	set conceallevel=2 concealcursor=i
 endif
+
+"ctrlp
+let g:ctrlp_working_path_mode='c'
 
 "nerd tree
 nmap <silent> <F3> :NERDTreeFind<cr>
@@ -210,7 +214,7 @@ autocmd FileType c,cpp nmap <leader>a :A<cr>
 let g:Powerline_symbols='unicode'
 
 "gundo
-nmap <silent> <F5> :GundoToggle<cr>
+nmap <silent> <F2> :GundoToggle<cr>
 "let g:gundo_right=1
 
 """ 模板
@@ -223,7 +227,7 @@ autocmd BufNewFile *.c 0r ~/.vim/templates/c
 "autocmd BufNewFile *.css 0r ~/.vim/templates/css
 "autocmd BufNewFile *.cpp 0r ~/.vim/templates/cpp
 
-""" 特殊
+""" 其他
 " 调整文件
 nmap <silent> <F6> :call ReStructureFile()<cr>
 function! ReStructureFile()
@@ -251,6 +255,8 @@ function! ReStructureFile()
 	endwhile
 	echo 'Done.'
 endfunction
+
+" 复制
 
 " 退出输入模式时关闭fcitx
 "autocmd InsertLeave * let b:fcitx=system('fcitx-remote -c')
