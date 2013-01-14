@@ -14,20 +14,20 @@ alias la='ls -A'
 alias ll='ls -lAh --time-style=long-iso'
 #
 alias df='df -Th'
+alias du='du -h'
 
 # systemclt
 alias start_nginx='sudo systemctl start nginx'
 alias stop_nginx='sudo systemctl stop nginx'
 
 # 工具
-alias vi='vim'
+#alias vi='vim'
 alias zip='7z a -tzip'
-alias 7zx='7z x -r'
-alias txz='tar xzvf'
-alias txj='tar xjvf'
+alias ex='bsdtar -xvf'
+#alias 7zx='7z x -r'
 alias axel='axel -n 10'
 alias R='R --silent --no-save'
-alias jobs='jobs -dl'
+#alias jobs='jobs -dl'
 alias ssh='ssh -2'
 # python virtualenv
 alias activate='source .pyvenv/bin/activate'

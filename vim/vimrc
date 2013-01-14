@@ -26,7 +26,7 @@ set backupdir=~/.vim/backup "存放地址
 """ 编码
 set encoding=utf-8 "vim内部使用的编码
 set fileencoding=utf-8 "默认使用编码
-set fileencodings=utf-8,big5,gb18030 "判断文件编码
+set fileencodings=utf-8,cp936 "判断文件编码
 set nobomb "去除BOM
 set fileformat=unix "默认换行方式
 set fileformats=unix,dos "判断换行方式
@@ -51,7 +51,7 @@ set display=lastline
 
 """ 搜索
 "清除高亮
-nmap <silent> <space> :nohlsearch<cr>
+nmap <silent> <Space> :nohlsearch<CR>
 set ignorecase "搜索时忽略大小写
 set smartcase "有大写时对大小写敏感
 set hlsearch "高亮显示搜索结果
@@ -81,7 +81,7 @@ set foldenable "启用折叠
 set foldlevel=20 "打开小于20层的折叠
 set foldcolumn=1
 " 选定后用空格创建折叠 用于marker
-vmap <silent> <space> zf
+vmap <silent> <Space> zf
 au FileType css,javascript set fdm=marker | set fmr={,}
 au FileType c,cpp set fdm=syntax
 
@@ -97,12 +97,15 @@ Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/neosnippet'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'matchit.zip'
+"Bundle 'matchit.zip'
+Bundle 'tmhedberg/matchit'
 Bundle 'Lokaltog/vim-easymotion'
 "Bundle 'Mark--Karkat'
 
 Bundle 'majutsushi/tagbar'
-Bundle 'kien/ctrlp.vim'
+"Bundle 'kien/ctrlp.vim'
+Bundle 'jeetsukumaran/vim-buffergator'
+"Bundle 'bufexplorer.zip'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'sjl/gundo.vim'
@@ -175,10 +178,15 @@ if has('conceal')
 endif
 
 "ctrlp
-let g:ctrlp_working_path_mode='c'
+"let g:ctrlp_working_path_mode='c'
+
+"vim-buffergator
+nmap <silent> <F2> :BuffergatorOpen<CR>
+let g:buffergator_autodismiss_on_select=0
+let g:buffergator_split_size=30
 
 "nerd tree
-nmap <silent> <F3> :NERDTreeFind<cr>
+nmap <silent> <F3> :NERDTreeFind<CR>
 
 "syntastic
 let g:syntastic_check_on_open=1
@@ -189,7 +197,7 @@ let g:syntastic_csslint_options = "~/.npm/bin/csslint"
 let g:syntastic_json_checker = "~/.npm/bin/jsonlint"
 
 "tagbar
-nmap <silent> <F4> :TagbarOpen fj<cr>
+nmap <silent> <F4> :TagbarOpen fj<CR>
 let g:tagbar_width=35
 let g:tagbar_foldlevel=1
 let g:tagbar_sort=0
@@ -198,8 +206,8 @@ let g:tagbar_sort=0
 let g:jsbeautify_engine='d8'
 "let g:jsbeautify={'indent_size': 1, 'indent_char': '\t'}
 "let g:htmlbeautify={'indent_size': 1, 'indent_char': '\t'}
-au FileType html nmap <silent> <leader>ff :call HtmlBeautify()<cr>
-au FileType javascript nmap <silent> <leader>ff :call JsBeautify()<cr>
+au FileType html nmap <silent> <Leader>ff :call HtmlBeautify()<CR>
+au FileType javascript nmap <silent> <Leader>ff :call JsBeautify()<CR>
 
 "indent guide
 let g:indent_guides_auto_colors=0
@@ -209,13 +217,13 @@ let g:indent_guides_guide_size=1
 au Filetype python exe 'IndentGuidesEnable'
 
 "a.vim
-autocmd FileType c,cpp nmap <leader>a :A<cr>
+autocmd FileType c,cpp nmap <Leader>a :A<CR>
 
 "powerline
 let g:Powerline_symbols='unicode'
 
 "gundo
-nmap <silent> <F5> :GundoToggle<cr>
+nmap <silent> <F5> :GundoToggle<CR>
 "let g:gundo_right=1
 
 """ 模板
@@ -230,7 +238,7 @@ autocmd BufNewFile *.c 0r ~/.vim/templates/c
 
 """ 其他
 " 调整文件
-nmap <silent> <F6> :call ReStructureFile()<cr>
+nmap <silent> <F6> :call ReStructureFile()<CR>
 function! ReStructureFile()
 	" 调整缩进
 	if (&ft !~ 'python\|markdown')
