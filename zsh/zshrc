@@ -26,7 +26,7 @@ alias zip='7z a -tzip'
 alias ex='bsdtar -xvf'
 #alias 7zx='7z x -r'
 alias axel='axel -n 10'
-alias R='R --silent --no-save'
+alias r='R --silent --no-save'
 #alias jobs='jobs -dl'
 alias ssh='ssh -2'
 # python virtualenv
