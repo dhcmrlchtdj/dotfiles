@@ -208,6 +208,9 @@ let g:tagbar_width=35
 let g:tagbar_foldlevel=1
 let g:tagbar_sort=0
 
+"jedi-vim
+let g:jedi#auto_vim_configuration=0
+let g:jedi#use_tabs_not_buffers=0
 
 "indent guide
 let g:indent_guides_guide_size=1
@@ -268,4 +271,4 @@ endfunction
 " 复制
 
 " 退出输入模式时关闭fcitx
-"autocmd InsertLeave * let b:fcitx=system('fcitx-remote -c')
+autocmd InsertLeave * let b:fcitx=system('fcitx-remote -c')
