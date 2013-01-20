@@ -12,7 +12,7 @@
 
 set nocompatible "不兼容vi
 set modelines=0 "忽略 打开的文件 里的vim参数
-set helplang=cn "优先寻找中文帮助
+"set helplang=cn "优先寻找中文帮助
 
 set t_Co=256 "颜色数目
 set t_vb='' "禁止错误信息响铃及出错屏幕闪烁
@@ -59,6 +59,7 @@ set wildmode=longest:full,full "补全方式
 set laststatus=2 "总是显示状态行
 set shortmess=atI "状态行信息
 "set statusline=%<%F\ %y\ (%{&ff})\ %h%m%r%w%=%-14.(%l,%c%)%p%% "状态行
+
 set display=lastline
 
 """ 搜索
@@ -82,14 +83,14 @@ set smarttab "智能缩进
 set smartindent "智能选择缩进方式
 set autoindent "继承前一行缩进方式
 set list "显示特殊字符
-set listchars=tab:»\ ,eol:\ ,trail:¯, "字符样式˽
+set listchars=tab:»\ ,eol:\ ,trail:¯, "字符样式
 autocmd FileType python,markdown set et
 autocmd FileType python set nosi
 autocmd FileType html,css set ts=2 | set sts=2 | set sw=2
 
 """ 折叠
 set foldmethod=indent "折叠方式
-set foldenable "启用折叠
+set nofoldenable "启用折叠
 set foldlevel=20 "打开小于20层的折叠
 set foldcolumn=1
 " 选定后用空格创建折叠 用于marker
