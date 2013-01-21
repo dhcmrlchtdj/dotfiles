@@ -158,6 +158,12 @@ Bundle 'tpope/vim-markdown'
 Bundle 'Rykka/riv.vim'
 "Bundle 'vim-pandoc/vim-pandoc'
 
+"sql
+"Bundle 'SQLComplete.vim'
+"Bundle 'dbext.vim'
+Bundle 'sql_iabbr.vim'
+Bundle 'sql.vim--Stinson'
+
 "colorscheme
 Bundle 'altercation/vim-colors-solarized'
 "Bundle 'chriskempson/base16-vim'
