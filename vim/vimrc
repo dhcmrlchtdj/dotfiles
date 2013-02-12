@@ -26,6 +26,7 @@ set virtualedit= "禁止在虚空间内操作
 set backspace=indent,eol,start "insert模式下删除键可删除
 set showmatch "输入括号时显示匹配括号
 set completeopt=menu "补全窗口的样式
+"set completeopt=longest,menuone "补全窗口的样式
 
 """ 备份 撤销
 set hidden "自动保存?
@@ -38,7 +39,7 @@ set backupdir=~/.vim/backup "存放地址
 """ 编码
 set encoding=utf-8 "vim内部使用的编码
 set fileencoding=utf-8 "默认使用编码
-set fileencodings=utf-8,gb18030 "判断文件编码
+set fileencodings=ucs-bom,utf-8,gb18030 "判断文件编码
 set nobomb "去除BOM
 set fileformat=unix "默认换行方式
 set fileformats=unix,dos "判断换行方式
@@ -83,20 +84,24 @@ set smarttab "智能缩进
 set smartindent "智能选择缩进方式
 set autoindent "继承前一行缩进方式
 set list "显示特殊字符
-set listchars=tab:»\ ,eol:\ ,trail:¯, "字符样式
+set listchars=tab:»\ ,eol:\ ,trail:·, "字符样式·¯
 autocmd FileType python,markdown set et
 autocmd FileType python set nosi
 autocmd FileType html,css set ts=2 | set sts=2 | set sw=2
 
 """ 折叠
 set foldmethod=indent "折叠方式
-set nofoldenable "启用折叠
+set nofoldenable "关闭折叠
 set foldlevel=20 "打开小于20层的折叠
 set foldcolumn=1
 " 选定后用空格创建折叠 用于marker
 vmap <silent> <Space> zf
 au FileType css,javascript set fdm=marker | set fmr={,}
 au FileType c,cpp set fdm=syntax
+
+"""
+set splitright
+"set splitbelow
 
 """ 插件
 filetype off
@@ -215,11 +220,9 @@ nmap <silent> <F3> :NERDTreeFind<CR>
 
 "syntastic
 let g:syntastic_check_on_open=1
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-let g:syntastic_python_checker_args='--ignore=E261,E302,E303,E501'
-"let g:syntastic_csslint_options = "~/.npm/bin/csslint"
-"let g:syntastic_json_checker = "~/.npm/bin/jsonlint"
+let g:syntastic_error_symbol='➥✘'
+let g:syntastic_warning_symbol='➥✗'
+let syntastic_python_flake8_args='--ignore=E261,E302,E303,E501,W291'
 
 "tagbar
 nmap <silent> <F4> :TagbarOpen fj<CR>
@@ -262,17 +265,24 @@ autocmd BufNewFile *.c 0r ~/.vim/templates/c
 " 调整文件
 nmap <silent> <F6> :call ReStructureFile()<CR>
 function! ReStructureFile()
+	let l = line(".")
+	let c = col(".")
+
 	" 调整缩进
 	if (&ft !~ 'python\|markdown')
 		exe 'normal gg=G``'
 	endif
 	exe 'silent! :retab'
+
 	" 使用\n换行
 	let &ff = 'unix'
+
 	" 使用utf-8编码
 	let &fenc = 'utf8'
+
 	" 删除行尾空格
 	exe 'silent! :%s/\s\+$//g'
+
 	" 删除末尾空行
 	let lnum = line('$')
 	while lnum
@@ -284,10 +294,9 @@ function! ReStructureFile()
 		endif
 		let lnum -= 1
 	endwhile
-	echo 'Done.'
-endfunction
 
-" 复制
+	call cursor(l, c)
+endfunction
 
 " 退出输入模式时关闭fcitx
 autocmd InsertLeave * let b:fcitx=system('fcitx-remote -c')
