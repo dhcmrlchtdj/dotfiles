@@ -24,8 +24,9 @@ alias stop_nginx='sudo systemctl stop nginx'
 # 工具
 #alias vi='vim'
 alias zip='7z a -tzip'
-alias ex='bsdtar -xvf'
 #alias 7zx='7z x -r'
+alias ex='bsdtar -xvf'
+alias conv_mv='convmv -f cp936 -t utf8 --notest -r'
 alias axel='axel -n 10'
 alias r='R --silent --no-save'
 #alias jobs='jobs -dl'
@@ -46,6 +47,7 @@ compinit
 # 终端打开文件
 autoload -U zsh-mime-setup
 zsh-mime-setup
+
 alias -s png=kuickshow
 alias -s jpg=kuickshow
 
