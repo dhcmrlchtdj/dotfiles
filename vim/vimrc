@@ -58,6 +58,7 @@ set wildmenu "命令行补全提示
 set wildmode=longest:full,full "补全方式
 
 set laststatus=2 "总是显示状态行
+set noshowmode "隐藏信息
 set shortmess=atI "状态行信息
 "set statusline=%<%F\ %y\ (%{&ff})\ %h%m%r%w%=%-14.(%l,%c%)%p%% "状态行
 
@@ -116,6 +117,7 @@ Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/neosnippet'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'Lokaltog/vim-powerline'
+"Bundle 'Lokaltog/powerline'
 Bundle 'tmhedberg/matchit'
 Bundle 'Lokaltog/vim-easymotion'
 
@@ -179,11 +181,14 @@ au BufRead,BufNewFile *.json set ft=json
 set background=light "浅色背景
 
 let g:solarized_termcolors=256
-let g:solarized_visibility='low'
+let g:solarized_visibility="low"
 let g:solarized_termtrans=1
 colorscheme solarized
 
 """ 插件设置
+"vundle
+let g:vundle_default_git_proto="git"
+
 "supertab
 let g:SuperTabDefaultCompletionType="context"
 au FileType html,css,javascript let g:SuperTabDefaultCompletionType="<C-X><C-O>"
@@ -238,6 +243,7 @@ let g:indentLine_char='»'
 autocmd FileType c,cpp nmap <Leader>a :A<CR>
 
 "powerline
+"set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 let g:Powerline_symbols='unicode'
 
 "gundo
