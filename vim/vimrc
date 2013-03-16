@@ -138,14 +138,14 @@ Bundle 'othree/html5.vim'
 
 "javascript
 """js indent
-Bundle 'pangloss/vim-javascript'
+"Bundle 'pangloss/vim-javascript'
 Bundle 'jelera/vim-javascript-syntax'
 "Bundle 'maksimr/vim-jsbeautify'
 Bundle 'teramako/jscomplete-vim'
 "so ****
-Bundle 'michalliu/jsruntime.vim'
-Bundle 'michalliu/jsoncodecs.vim'
-Bundle 'michalliu/sourcebeautify.vim'
+"Bundle 'michalliu/jsruntime.vim'
+"Bundle 'michalliu/jsoncodecs.vim'
+"Bundle 'michalliu/sourcebeautify.vim'
 
 "css
 Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
@@ -232,6 +232,10 @@ let g:tagbar_width=35
 let g:tagbar_foldlevel=1
 let g:tagbar_sort=0
 
+"jscomplete
+let g:jscomplete_use=['dom', 'es6th', 'moz']
+
+
 "jedi-vim
 let g:jedi#auto_vim_configuration=0
 let g:jedi#use_tabs_not_buffers=0
@@ -254,7 +258,7 @@ nmap <silent> <F5> :GundoToggle<CR>
 autocmd BufNewFile *.py 0r ~/.vim/templates/python
 autocmd BufNewFile *.html 0r ~/.vim/templates/html
 autocmd BufNewFile *.md 0r ~/.vim/templates/markdown
-autocmd BufNewFile *.c 0r ~/.vim/templates/c
+"autocmd BufNewFile *.c 0r ~/.vim/templates/c
 "autocmd BufNewFile *.js 0r ~/.vim/templates/javascript
 "autocmd BufNewFile .gitignore 0r ~/.vim/templates/gitignore
 "autocmd BufNewFile *.css 0r ~/.vim/templates/css
