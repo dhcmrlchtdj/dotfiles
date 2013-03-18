@@ -12,7 +12,7 @@
 	default = simple
 [alias]
 	rc = rm --cached -r
-	ad = add -A
+	ad = add -A .
 	st = status -bs
 	ci = commit -m
 	br = branch
