@@ -83,7 +83,8 @@ set shiftwidth=4 "空格缩进时宽度
 set shiftround
 set smarttab "智能缩进
 set smartindent "智能选择缩进方式
-set autoindent "继承前一行缩进方式
+"set autoindent "继承前一行缩进方式
+set cindent
 set list "显示特殊字符
 set listchars=tab:»\ ,eol:\ ,trail:·, "字符样式·¯
 autocmd FileType python,markdown set et
