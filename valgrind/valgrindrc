@@ -1,0 +1,12 @@
+--memcheck:leak-check=full
+--memcheck:show-reachable=yes
+--memcheck:track-origins=yes
+
+--massif:time-unit=B
+--massif:max-snapshots=128
+--massif:stacks=yes
+--massif:peak-inaccuracy=0.5
+
+--callgrind:dump-instr=yes
+--callgrind:compress-strings=no
+--callgrind:compress-pos=no
