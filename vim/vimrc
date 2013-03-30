@@ -88,7 +88,7 @@ set cindent
 set list "显示特殊字符
 set listchars=tab:»\ ,eol:\ ,trail:·, "字符样式·¯
 autocmd FileType python,markdown set et
-autocmd FileType python set nosi
+"autocmd FileType python set nosi
 autocmd FileType html,css set ts=2 | set sts=2 | set sw=2
 
 """ 折叠
@@ -240,8 +240,12 @@ let g:jscomplete_use=['dom', 'es6th', 'moz']
 "jedi-vim
 let g:jedi#auto_vim_configuration=0
 let g:jedi#use_tabs_not_buffers=0
+let g:jedi#show_function_definition="0"
 
 "indentLine
+let g:indentLine_fileType=['python', 'markdown']
+let g:indentLine_showFirstIndentLevel=1
+let g:indentLine_first_char='»'
 let g:indentLine_char='»'
 
 "a.vim
