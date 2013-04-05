@@ -15,8 +15,8 @@ alias ll='ls -lAh --time-style=long-iso'
 #
 alias df='df -Th'
 alias du='du -h'
+alias free='free -h'
 alias tracepath='tracepath -b'
-
 # systemclt
 alias start_nginx='sudo systemctl start nginx'
 alias stop_nginx='sudo systemctl stop nginx'
