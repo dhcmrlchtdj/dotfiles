@@ -17,9 +17,14 @@ alias df='df -Th'
 alias du='du -h'
 alias free='free -h'
 alias tracepath='tracepath -b'
+
+alias mysql_login='mysql -p -u root'
+
 # systemclt
 alias start_nginx='sudo systemctl start nginx'
 alias stop_nginx='sudo systemctl stop nginx'
+alias start_mysql='sudo systemctl start mysqld'
+alias stop_mysql='sudo systemctl stop mysqld'
 
 # 工具
 #alias vi='vim'
