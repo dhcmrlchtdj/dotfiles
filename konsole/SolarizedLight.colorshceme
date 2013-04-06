@@ -1,64 +1,103 @@
 [Background]
+Bold=false
 Color=253,246,227
+Transparency=false
 
 [BackgroundIntense]
+Bold=false
 Color=238,232,213
+Transparency=false
 
 [Color0]
+Bold=false
 Color=7,54,66
+Transparency=false
 
 [Color0Intense]
+Bold=false
 Color=0,43,54
+Transparency=false
 
 [Color1]
+Bold=false
 Color=220,50,47
+Transparency=false
 
 [Color1Intense]
+Bold=false
 Color=203,75,22
+Transparency=false
 
 [Color2]
+Bold=false
 Color=133,153,0
+Transparency=false
 
 [Color2Intense]
+Bold=false
 Color=133,153,0
+Transparency=false
 
 [Color3]
+Bold=false
 Color=181,137,0
+Transparency=false
 
 [Color3Intense]
+Bold=false
 Color=181,137,0
+Transparency=false
 
 [Color4]
+Bold=false
 Color=38,139,210
+Transparency=false
 
 [Color4Intense]
+Bold=false
 Color=38,139,210
+Transparency=false
 
 [Color5]
+Bold=false
 Color=211,54,130
+Transparency=false
 
 [Color5Intense]
+Bold=false
 Color=108,113,196
+Transparency=false
 
 [Color6]
+Bold=false
 Color=42,161,152
+Transparency=false
 
 [Color6Intense]
+Bold=false
 Color=42,161,152
+Transparency=false
 
 [Color7]
+Bold=false
 Color=238,232,213
+Transparency=false
 
 [Color7Intense]
+Bold=false
 Color=253,246,227
+Transparency=false
 
 [Foreground]
+Bold=false
 Color=101,123,131
+Transparency=false
 
 [ForegroundIntense]
+Bold=false
 Color=88,110,117
+Transparency=false
 
 [General]
-Description=Solarized Light
+Description=SolarizedLight
 Opacity=1
-Wallpaper=
