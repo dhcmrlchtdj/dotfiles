@@ -1,5 +1,4 @@
-PROMPT="[%{$fg[blue]%}%n%{$reset_color%}@%{$fg[cyan]%}%m"
-PROMPT="${PROMPT} %{$fg[red]%}%B%1~%b%{$reset_color%}]%# "
+PROMPT="[%F{blue}%n%f@%F{cyan}%m%f %F{red}%B%1~%b%f]# "
 
 export EDITOR="vim"
 export TERM='konsole-256color'
