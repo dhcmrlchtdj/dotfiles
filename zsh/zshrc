@@ -17,7 +17,7 @@ alias du='du -h'
 alias free='free -h'
 alias tracepath='tracepath -b'
 
-alias mysql_login='mysql -p -u root'
+alias maria='mysql -p -u root'
 
 # systemclt
 alias start_nginx='sudo systemctl start nginx'
@@ -44,9 +44,9 @@ alias py2='python2'
 alias goagent='python2 ~/library/wall/goagent/local/proxy.py'
 
 # 命令补全
-fpath=(~/.zsh_functions $fpath)
-autoload -U compinit
-compinit
+#fpath=(~/.zsh_functions $fpath)
+#autoload -U compinit
+#compinit
 
 # 终端打开文件
 autoload -U zsh-mime-setup
