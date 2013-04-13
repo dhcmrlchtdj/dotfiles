@@ -21,12 +21,15 @@ set novisualbell "禁止出错屏幕闪烁
 set ttyfast
 
 set mouse=a "鼠标支持
-set clipboard=unnamedplus "使用外部剪贴板
-set virtualedit= "禁止在虚空间内操作
+set clipboard=unnamed,unnamedplus,autoselect "剪贴板
+set virtualedit=block "虚空间
 set backspace=indent,eol,start "insert模式下删除键可删除
 set showmatch "输入括号时显示匹配括号
 set completeopt=menu "补全窗口的样式
 "set completeopt=longest,menuone "补全窗口的样式
+set conceallevel=2
+set concealcursor=i
+set cryptmethod=blowfish
 
 """ 备份 撤销
 set hidden "自动保存?
@@ -35,6 +38,7 @@ set undofile "开启撤销历史
 set undodir=~/.vim/undo "存放地址
 set backup "覆盖文件时备份
 set backupdir=~/.vim/backup "存放地址
+set diffopt+=context:3
 
 """ 编码
 set encoding=utf-8 "vim内部使用的编码
@@ -98,8 +102,8 @@ set foldlevel=20 "打开小于20层的折叠
 set foldcolumn=1
 " 选定后用空格创建折叠 用于marker
 vmap <silent> <Space> zf
-au FileType css,javascript set fdm=marker | set fmr={,}
-au FileType c,cpp set fdm=syntax
+au FileType c,cpp,css,javascript set fdm=marker | set fmr={,}
+"au FileType c,cpp set fdm=syntax
 
 """
 set splitright
@@ -118,7 +122,6 @@ Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/neosnippet'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'Lokaltog/vim-powerline'
-"Bundle 'Lokaltog/powerline'
 Bundle 'tmhedberg/matchit'
 Bundle 'Lokaltog/vim-easymotion'
 
@@ -207,10 +210,6 @@ smap <C-k> <Plug>(neosnippet_expand_or_jump)
 " SuperTab like snippets behavior.
 imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-" For snippet_complete marker.
-if has('conceal')
-	set conceallevel=2 concealcursor=i
-endif
 
 "clang_complete
 let g:clang_complete_auto=0
@@ -255,7 +254,6 @@ let g:indentLine_char='»'
 autocmd FileType c,cpp nmap <Leader>a :A<CR>
 
 "powerline
-"set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 let g:Powerline_symbols='unicode'
 
 "gundo
