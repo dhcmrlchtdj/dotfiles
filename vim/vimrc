@@ -121,7 +121,7 @@ Bundle 'ervandew/supertab'
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/neosnippet'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'Lokaltog/vim-powerline'
+"Bundle 'Lokaltog/vim-powerline'
 Bundle 'tmhedberg/matchit'
 Bundle 'Lokaltog/vim-easymotion'
 
@@ -252,9 +252,6 @@ let g:indentLine_char='»'
 
 "a.vim
 autocmd FileType c,cpp nmap <Leader>a :A<CR>
-
-"powerline
-let g:Powerline_symbols='unicode'
 
 "gundo
 nmap <silent> <F5> :GundoToggle<CR>
