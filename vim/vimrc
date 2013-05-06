@@ -135,6 +135,7 @@ Bundle 'Yggdroot/indentLine'
 "c/c++
 Bundle 'a.vim'
 Bundle 'Rip-Rip/clang_complete'
+"Bundle 'bjoernricks/vim-cmake'
 
 "html5
 """syntax indent complete
@@ -165,6 +166,7 @@ Bundle 'RST-Tables-CJK'
 Bundle 'tpope/vim-markdown'
 Bundle 'Rykka/riv.vim'
 "Bundle 'vim-pandoc/vim-pandoc'
+Bundle 'jceb/vim-orgmode'
 
 "sql
 "Bundle 'SQLComplete.vim'

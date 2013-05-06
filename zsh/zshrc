@@ -4,7 +4,7 @@ export EDITOR="vim"
 export TERM='konsole-256color'
 export PYTHONPATH=/usr/lib/python3.3/site-packages
 #source /usr/lib/python3.3/site-packages/powerline/bindings/zsh/powerline.zsh
-source virtualenvwrapper.sh
+#source virtualenvwrapper.sh
 
 ## alias
 
