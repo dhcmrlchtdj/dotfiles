@@ -166,7 +166,7 @@ Bundle 'RST-Tables-CJK'
 Bundle 'tpope/vim-markdown'
 Bundle 'Rykka/riv.vim'
 "Bundle 'vim-pandoc/vim-pandoc'
-Bundle 'jceb/vim-orgmode'
+"Bundle 'jceb/vim-orgmode'
 
 "sql
 "Bundle 'SQLComplete.vim'
@@ -263,7 +263,7 @@ nmap <silent> <F5> :GundoToggle<CR>
 autocmd BufNewFile *.py 0r ~/.vim/templates/python
 autocmd BufNewFile *.html 0r ~/.vim/templates/html
 autocmd BufNewFile *.md 0r ~/.vim/templates/markdown
-autocmd BufNewFile *.c 0r ~/.vim/templates/c
+autocmd BufNewFile *.h 0r ~/.vim/templates/h
 "autocmd BufNewFile *.js 0r ~/.vim/templates/javascript
 "autocmd BufNewFile .gitignore 0r ~/.vim/templates/gitignore
 "autocmd BufNewFile *.css 0r ~/.vim/templates/css
