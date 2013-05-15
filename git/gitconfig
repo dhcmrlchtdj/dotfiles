@@ -13,6 +13,7 @@
 [alias]
 	rc = rm --cached -r .
 	ad = add -A .
+	au = add -u
 	st = status -bs
 	ci = commit -m
 	br = branch

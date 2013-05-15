@@ -159,7 +159,7 @@ Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 "Bundle 'sunsol/vim_python_fold_compact'
 Bundle 'tmhedberg/SimpylFold'
 Bundle 'indentpython.vim--nianyang'
-Bundle 'davidhalter/jedi-vim'
+"Bundle 'davidhalter/jedi-vim'
 
 "rst markdown pandoc
 Bundle 'RST-Tables-CJK'
@@ -169,10 +169,8 @@ Bundle 'Rykka/riv.vim'
 "Bundle 'jceb/vim-orgmode'
 
 "sql
-"Bundle 'SQLComplete.vim'
-"Bundle 'dbext.vim'
-Bundle 'sql_iabbr.vim'
 Bundle 'sql.vim--Stinson'
+Bundle 'dhcmrlchtdj/sql_iabbr.vim'
 
 "nginx
 "Bundle 'evanmiller/nginx-vim-syntax'
@@ -229,7 +227,7 @@ nmap <silent> <F3> :NERDTreeFind<CR>
 let g:syntastic_check_on_open=1
 let g:syntastic_error_symbol='➥✘'
 let g:syntastic_warning_symbol='➥✗'
-let syntastic_python_flake8_args='--ignore=E261,E302,E303,E501,W291,E701'
+let syntastic_python_flake8_args='--ignore=E261,E302,E303,E501,E701'
 
 "tagbar
 nmap <silent> <F4> :TagbarOpen fj<CR>
