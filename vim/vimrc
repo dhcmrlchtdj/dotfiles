@@ -121,7 +121,6 @@ Bundle 'ervandew/supertab'
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/neosnippet'
 Bundle 'scrooloose/nerdcommenter'
-"Bundle 'Lokaltog/vim-powerline'
 Bundle 'tmhedberg/matchit'
 Bundle 'Lokaltog/vim-easymotion'
 
@@ -143,6 +142,7 @@ Bundle 'othree/html5.vim'
 
 "javascript
 """js indent
+Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'pangloss/vim-javascript'
 Bundle 'jelera/vim-javascript-syntax'
 "Bundle 'maksimr/vim-jsbeautify'
@@ -197,8 +197,8 @@ colorscheme solarized
 let g:vundle_default_git_proto="git"
 
 "supertab
-let g:SuperTabDefaultCompletionType="context"
-au FileType html,css,javascript let g:SuperTabDefaultCompletionType="<C-X><C-O>"
+"let g:SuperTabDefaultCompletionType="context"
+"au FileType html,css,javascript let g:SuperTabDefaultCompletionType="<C-X><C-O>"
 
 "neocomplcache
 let g:neocomplcache_enable_at_startup=1
@@ -238,11 +238,10 @@ let g:tagbar_sort=0
 "jscomplete
 let g:jscomplete_use=['dom', 'es6th', 'moz']
 
-
 "jedi-vim
-let g:jedi#auto_vim_configuration=0
-let g:jedi#use_tabs_not_buffers=0
-let g:jedi#show_function_definition="0"
+"let g:jedi#auto_vim_configuration=0
+"let g:jedi#use_tabs_not_buffers=0
+"let g:jedi#show_function_definition="0"
 
 "indentLine
 let g:indentLine_fileType=['python', 'markdown']
@@ -255,6 +254,9 @@ autocmd FileType c,cpp nmap <Leader>a :A<CR>
 
 "gundo
 nmap <silent> <F5> :GundoToggle<CR>
+
+"javascript-libraries-syntax.vim
+let g:used_javascript_libs = 'angularjs'
 
 
 """ 模板
