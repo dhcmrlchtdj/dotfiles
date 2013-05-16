@@ -198,7 +198,7 @@ let g:vundle_default_git_proto="git"
 
 "supertab
 "let g:SuperTabDefaultCompletionType="context"
-"au FileType html,css,javascript let g:SuperTabDefaultCompletionType="<C-X><C-O>"
+au FileType html,css let g:SuperTabDefaultCompletionType="<C-X><C-O>"
 
 "neocomplcache
 let g:neocomplcache_enable_at_startup=1
@@ -227,7 +227,8 @@ nmap <silent> <F3> :NERDTreeFind<CR>
 let g:syntastic_check_on_open=1
 let g:syntastic_error_symbol='➥✘'
 let g:syntastic_warning_symbol='➥✗'
-let syntastic_python_flake8_args='--ignore=E261,E302,E303,E501,E701'
+let g:syntastic_python_flake8_args='--ignore=E261,E302,E303,E501,E701'
+let g:syntastic_html_tidy_ignore_errors=['proprietary attribute "ng-']
 
 "tagbar
 nmap <silent> <F4> :TagbarOpen fj<CR>
