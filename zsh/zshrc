@@ -31,7 +31,7 @@ alias stop_mysql='sudo systemctl stop mysqld'
 #alias vi='vim'
 alias zip='7z a -tzip'
 #alias 7zx='7z x -r'
-alias ex='bsdtar -xvf'
+#alias ex='bsdtar -xvf'
 alias conv_mv='convmv -f cp936 -t utf8 --notest -r'
 alias axel='axel -n 10 -a'
 alias r='R --silent --no-save'
@@ -56,17 +56,26 @@ alias goagent='python2 ~/library/wall/goagent/local/proxy.py'
 #compinit
 
 # 终端打开文件
-autoload -U zsh-mime-setup
-zsh-mime-setup
+#autoload -U zsh-mime-setup
+#zsh-mime-setup
 
-alias -s png=kuickshow
-alias -s jpg=kuickshow
+#alias -s png=kuickshow
+#alias -s jpg=kuickshow
 
-alias -s pdf=okular
-alias -s epub=okular
+#alias -s pdf=okular
+#alias -s epub=okular
 
-alias -s mp4=smplayer
-alias -s avi=smplayer
-alias -s mkv=smplayer
-alias -s flv=smplayer
-alias -s rmvb=smplayer
+#alias -s mp4=smplayer
+#alias -s avi=smplayer
+#alias -s mkv=smplayer
+#alias -s flv=smplayer
+#alias -s rmvb=smplayer
+
+
+ex () {
+	case $1 in
+		*.tar.gz) bsdtar -xvf $1;;
+		*.gz) gzip -d $1;;
+		*) bsdtar -xvf $1;;
+	esac
+}
