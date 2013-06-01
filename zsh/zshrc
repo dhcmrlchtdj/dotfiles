@@ -35,7 +35,7 @@ alias zip='7z a -tzip'
 alias conv_mv='convmv -f cp936 -t utf8 --notest -r'
 alias axel='axel -n 10 -a'
 alias r='R --silent --no-save'
-#alias jobs='jobs -dl'
+alias jobs='jobs -dl'
 alias ssh='ssh -2'
 # python virtualenv
 alias activate='source .pyvenv/bin/activate'
@@ -74,8 +74,9 @@ alias goagent='python2 ~/library/wall/goagent/local/proxy.py'
 
 ex () {
 	case $1 in
-		*.tar.gz) bsdtar -xvf $1;;
+		*.rar) 7z x $1;;
+		*.tar.gz) bsdtar xvf $1;;
 		*.gz) gzip -d $1;;
-		*) bsdtar -xvf $1;;
+		*) bsdtar xvf $1;;
 	esac
 }
