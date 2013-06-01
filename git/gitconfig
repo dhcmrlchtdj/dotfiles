@@ -16,9 +16,9 @@
 	au = add -u
 	st = status -bs
 	ci = commit -m
-	br = branch
+	br = branch -vva
 	co = checkout
 	df = diff --stat HEAD
 	dff = diff HEAD
-	ll = log -10 --oneline --graph --decorate
-	l = log --graph --decorate --date=short --pretty=format:'%C(yellow)%h%Creset <%C(blue)%an%Creset@%C(cyan)%ad%Creset>%C(green)%d%Creset %s'
+	ll = log --graph --decorate --oneline -10
+	l = log --graph --decorate --date=short --format=format:'%C(yellow)%h%Creset <%C(blue)%an%Creset@%C(cyan)%ad%Creset>%C(green)%d%Creset %s'
