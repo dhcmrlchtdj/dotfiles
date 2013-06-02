@@ -28,13 +28,10 @@ alias start_mysql='sudo systemctl start mysqld'
 alias stop_mysql='sudo systemctl stop mysqld'
 
 # 工具
-#alias vi='vim'
 alias zip='7z a -tzip'
-#alias 7zx='7z x -r'
-#alias ex='bsdtar -xvf'
 alias conv_mv='convmv -f cp936 -t utf8 --notest -r'
 alias axel='axel -n 10 -a'
-alias r='R --silent --no-save'
+#alias r='R --silent --no-save'
 alias jobs='jobs -dl'
 alias ssh='ssh -2'
 # python virtualenv
@@ -71,12 +68,13 @@ alias goagent='python2 ~/library/wall/goagent/local/proxy.py'
 #alias -s flv=smplayer
 #alias -s rmvb=smplayer
 
-
 ex () {
 	case $1 in
-		*.rar) 7z x $1;;
-		*.tar.gz) bsdtar xvf $1;;
-		*.gz) gzip -d $1;;
-		*) bsdtar xvf $1;;
+		*.tar.@(gz|bz2|xz|lzma|Z) ) bsdtar xvf $1;;
+		*.zip ) bsdtar xvf $1;;
+		*.rar ) unrar x $1;;
+		*.gz ) gzip -d $1;;
+		*.bz2 ) bzip2 -d $1;;
+		* ) echo "unrecognized file extension: '$1'" >&2
 	esac
 }
