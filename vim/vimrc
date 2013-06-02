@@ -27,6 +27,7 @@ set backspace=indent,eol,start "insert模式下删除键可删除
 set showmatch "输入括号时显示匹配括号
 set completeopt=menu "补全窗口的样式
 "set completeopt=longest,menuone "补全窗口的样式
+set autochdir "进入文件目录
 set conceallevel=2
 set concealcursor=i
 set cryptmethod=blowfish
@@ -225,6 +226,8 @@ let g:buffergator_autodismiss_on_select=0
 let g:buffergator_split_size=30
 
 "nerd tree
+let g:NERDTreeCaseSensitiveSort=1
+let g:NERDTreeChDirMode=2
 nmap <silent> <F3> :NERDTreeFind<CR>
 
 "syntastic
