@@ -2,7 +2,8 @@ PROMPT="[%F{blue}%n%f@%F{cyan}%m%f %F{red}%B%~%b%f]%# "
 
 export EDITOR="vim"
 export TERM='konsole-256color'
-#source virtualenvwrapper.sh
+
+source virtualenvwrapper_lazy.sh
 
 ## alias
 alias pacman='pacman --color=auto'
@@ -34,8 +35,6 @@ alias axel='axel -n 10 -a'
 #alias r='R --silent --no-save'
 alias jobs='jobs -dl'
 alias ssh='ssh -2'
-# python virtualenv
-alias activate='source .pyvenv/bin/activate'
 alias py='python'
 alias py2='python2'
 
