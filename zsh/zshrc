@@ -69,7 +69,7 @@ alias goagent='python2 ~/library/wall/goagent/local/proxy.py'
 
 ex () {
 	case $1 in
-		*.tar.(gz|bz2|xz|lzma|Z) ) bsdtar xvf $1;;
+		*.t(xz|gz|ar.(gz|bz2|xz)) ) bsdtar xvf $1;;
 		*.(7z|zip|rar|gz|bz2) ) 7z x $1;;
 		* ) echo "unrecognized file extension: '$1'" >&2
 	esac
