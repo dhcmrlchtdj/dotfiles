@@ -14,7 +14,7 @@
 	rc = rm --cached -r .
 	ad = add -A .
 	au = add -u
-	st = status -bs
+	st = status -bsu
 	ci = commit -m
 	br = branch -vva
 	co = checkout
