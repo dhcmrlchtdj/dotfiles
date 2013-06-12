@@ -161,7 +161,7 @@ Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 "Bundle 'sunsol/vim_python_fold_compact'
 Bundle 'tmhedberg/SimpylFold'
 Bundle 'indentpython.vim--nianyang'
-"Bundle 'davidhalter/jedi-vim'
+Bundle 'davidhalter/jedi-vim'
 
 "rst markdown pandoc
 Bundle 'RST-Tables-CJK'
@@ -235,7 +235,10 @@ let g:syntastic_check_on_open=1
 let g:syntastic_error_symbol='➥✘'
 let g:syntastic_warning_symbol='➥✗'
 let g:syntastic_python_flake8_args='--ignore=E261,E302,E303,E501,E701'
-let g:syntastic_html_tidy_ignore_errors=['proprietary attribute "ng-']
+let g:syntastic_html_tidy_ignore_errors=['proprietary attribute "ng-',
+			\'<link> escaping malformed URI reference',
+			\"plain text isn't allowed in <head> elements",
+			\]
 
 "tagbar
 nmap <silent> <F4> :TagbarOpen fj<CR>
@@ -247,9 +250,9 @@ let g:tagbar_sort=0
 let g:jscomplete_use=['dom', 'es6th', 'moz']
 
 "jedi-vim
-"let g:jedi#auto_vim_configuration=0
-"let g:jedi#use_tabs_not_buffers=0
-"let g:jedi#show_function_definition="0"
+let g:jedi#auto_vim_configuration=0
+let g:jedi#use_tabs_not_buffers=0
+let g:jedi#show_function_definition="0"
 
 "indentLine
 let g:indentLine_fileType=['python', 'markdown']
