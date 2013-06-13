@@ -4,139 +4,168 @@ prefix=`pwd`
 
 bashrc () {
 	echo ">>> bashrc ..."
-	dest=~/.bashrc
+	dest=${HOME}/.bashrc
 	if [[ -e $dest ]]; then
 		read -p "'$dest' is existed. skip? [y/n] " opt
 		case $opt in
-			[nN] ) mv -v ${dest}{,.orig};;
+			[nN] ) echo "mv ..."; mv -v ${dest}{,.orig};;
 			* ) echo "skip $dest"; return;;
 		esac
 	fi
+	echo "ln ...";
 	ln -sv ${prefix}/bash/bashrc ${dest};
 }
 
 git () {
 	echo ">>> git ..."
-	dest=~/.gitconfig
+	dest=${HOME}/.gitconfig
 	if [[ -e $dest ]]; then
 		read -p "'$dest' is existed. skip? [y/n] " opt
 		case $opt in
-			[nN] ) mv -v ${dest}{,.orig};;
+			[nN] ) echo "mv ..."; mv -v ${dest}{,.orig};;
 			* ) echo "skip $dest"; return;;
 		esac
 	fi
+	echo "ln ...";
 	ln -sv ${prefix}/git/gitconfig ${dest};
 }
 
 fontconfig () {
 	echo ">>> fontconfig ..."
-	dest=~/.config/fontconfig/fonts.conf
+	dest=${HOME}/.config/fontconfig/fonts.conf
 	if [[ -e $dest ]]; then
 		read -p "'$dest' is existed. skip? [y/n] " opt
 		case $opt in
-			[nN] ) mv -v ${dest}{,.orig};;
+			[nN] ) echo "mv ..."; mv -v ${dest}{,.orig};;
 			* ) echo "skip $dest"; return;;
 		esac
 	fi
+	echo "ln ...";
 	ln -sv ${prefix}/fontconfig/fonts.conf ${dest};
 }
 
 htop () {
 	echo ">>> htop ..."
-	dest=~/.config/htop/htoprc
+	dest=${HOME}/.config/htop/htoprc
 	if [[ -e $dest ]]; then
 		read -p "'$dest' is existed. skip? [y/n] " opt
 		case $opt in
-			[nN] ) mv -v ${dest}{,.orig};;
+			[nN] ) echo "mv ..."; mv -v ${dest}{,.orig};;
 			* ) echo "skip $dest"; return;;
 		esac
 	fi
+	echo "ln ...";
 	ln -sv ${prefix}/htop/htoprc ${dest};
 }
 
 sqlite () {
 	echo ">>> sqlite ..."
-	dest=~/.sqliterc
+	dest=${HOME}/.sqliterc
 	if [[ -e $dest ]]; then
 		read -p "'$dest' is existed. skip? [y/n] " opt
 		case $opt in
-			[nN] ) mv -v ${dest}{,.orig};;
+			[nN] ) echo "mv ..."; mv -v ${dest}{,.orig};;
 			* ) echo "skip $dest"; return;;
 		esac
 	fi
+	echo "ln ...";
 	ln -sv ${prefix}/sqlite/sqliterc ${dest};
 }
 
 tmux () {
 	echo ">>> tmux ..."
-	dest=~/.tmux.conf
+	dest=${HOME}/.tmux.conf
 	if [[ -e $dest ]]; then
 		read -p "'$dest' is existed. skip? [y/n] " opt
 		case $opt in
-			[nN] ) mv -v ${dest}{,.orig};;
+			[nN] ) echo "mv ..."; mv -v ${dest}{,.orig};;
 			* ) echo "skip $dest"; return;;
 		esac
 	fi
+	echo "ln ...";
 	ln -sv ${prefix}/tmux/tmux.conf ${dest};
 }
 
 valgrind () {
 	echo ">>> valgrind ..."
-	dest=~/.valgrindrc
+	dest=${HOME}/.valgrindrc
 	if [[ -e $dest ]]; then
 		read -p "'$dest' is existed. skip? [y/n] " opt
 		case $opt in
-			[nN] ) mv -v ${dest}{,.orig};;
+			[nN] ) echo "mv ..."; mv -v ${dest}{,.orig};;
 			* ) echo "skip $dest"; return;;
 		esac
 	fi
+	echo "ln ...";
 	ln -sv ${prefix}/valgrind/valgrindrc ${dest};
 }
 
 zsh () {
 	echo ">>> zsh ..."
-	dest=~/.zshrc
+	dest=${HOME}/.zshrc
 	if [[ -e $dest ]]; then
 		read -p "'$dest' is existed. skip? [y/n] " opt
 		case $opt in
-			[nN] ) mv -v ${dest}{,.orig};;
+			[nN] ) echo "mv ..."; mv -v ${dest}{,.orig};;
 			* ) echo "skip $dest"; return;;
 		esac
 	fi
+	echo "ln ...";
 	ln -sv ${prefix}/zsh/zshrc ${dest};
 }
 
 vimrc () {
 	echo ">>> vim ..."
-	dest=~/.vimrc
+	dest=${HOME}/.vimrc
 	if [[ -e $dest ]]; then
 		read -p "'$dest' is existed. skip? [y/n] " opt
 		case $opt in
-			[nN] ) mv -v ${dest}{,.orig};;
+			[nN] ) echo "mv ..."; mv -v ${dest}{,.orig};;
 			* ) echo "skip $dest"; return;;
 		esac
 	fi
+	echo "ln ...";
 	ln -sv ${prefix}/vim/vimrc ${dest};
 }
 
 vim () {
 	vimrc
 
-	if [[ -d ~/.vim/backup ]]; then mkdir -pv ~/.vim/backup; fi
-	if [[ -d ~/.vim/undo ]]; then mkdir -pv ~/.vim/undo; fi
+	if [[ ! -d ${HOME}/.vim/backup ]]; then mkdir -pv ${HOME}/.vim/backup; fi
+	if [[ ! -d ${HOME}/.vim/undo ]]; then mkdir -pv ${HOME}/.vim/undo; fi
 
-	dest=~/.vim/templates
+	dest=${HOME}/.vim/templates
 	if [[ -d $dest ]]; then
 		read -p "'$dest' is existed. skip? [y/n] " opt
 		case $opt in
-			[nN] ) mv -v ${dest}{,.orig};;
+			[nN] ) echo "mv ..."; mv -v ${dest}{,.orig};;
 			* ) echo "skip $dest"; return;;
 		esac
 	fi
+	echo "ln ...";
 	ln -sv ${prefix}/vim/templates ${dest};
 }
 
+aria2 () {
+	echo ">>> aria2 ..."
+	dest=${HOME}/.aria2/aria2.conf
 
+	if [[ ! -d ${HOME}/.aria2 ]]; then mkdir -pv ${HOME}/.aria2; fi
+	touch ${HOME}/.aria2/aria2.session
+
+	if [[ -e $dest ]]; then
+		read -p "'$dest' is existed. skip? [y/n] " opt
+		case $opt in
+			[nN] ) echo "mv ..."; mv -v ${dest}{,.orig};;
+			* ) echo "skip $dest"; return;;
+		esac
+	fi
+	echo "ln ...";
+	ln -sv ${prefix}/aria2/aria2.conf ${dest};
+}
+
+
+aria2
 bashrc
 fontconfig
 git
@@ -144,5 +173,5 @@ htop
 sqlite
 tmux
 valgrind
-zsh
 vim
+zsh
