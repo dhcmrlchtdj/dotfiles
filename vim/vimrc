@@ -219,6 +219,7 @@ smap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" 
 "clang_complete
 let g:clang_complete_auto=0
 "let g:clang_snippets=1
+let g:clang_complete_macros=1
 
 "vim-buffergator
 nmap <silent> <F2> :BuffergatorOpen<CR>
