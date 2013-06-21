@@ -251,9 +251,7 @@ let g:tagbar_sort=0
 let g:jscomplete_use=['dom', 'es6th', 'moz']
 
 "jedi-vim
-let g:jedi#auto_vim_configuration=0
-let g:jedi#use_tabs_not_buffers=0
-let g:jedi#show_function_definition="0"
+let g:jedi#popup_on_dot=0
 
 "indentLine
 let g:indentLine_fileType=['python', 'markdown']

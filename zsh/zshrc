@@ -1,5 +1,6 @@
 PROMPT="[%F{blue}%n%f@%F{cyan}%m%f %F{red}%B%~%b%f]%# "
 
+export QT_SELECT=4
 export EDITOR="vim"
 export TERM='konsole-256color'
 
@@ -29,7 +30,6 @@ alias start_mysql='sudo systemctl start mysqld'
 alias stop_mysql='sudo systemctl stop mysqld'
 
 # 工具
-alias zip='7z a -tzip'
 alias conv_mv='convmv -f cp936 -t utf8 --notest -r'
 alias axel='axel -n 10 -a'
 #alias r='R --silent --no-save'
@@ -70,14 +70,14 @@ alias goagent='python2 ~/library/wall/goagent/local/proxy.py'
 ex () {
 	_out="";
 	case $1 in
-		*.(xz|gz|bz2|t(xz|gz|bz2|ar.(xz|gz|bz2))) )
+		*.t(xz|gz|bz2|ar.(xz|gz|bz2)) )
 			if [[ $2 != "" ]]; then
 				`mkdir -p $2`;
 				_out="-C${2// }";
 			fi
 			bsdtar xvpf $1 $_out;
 			;;
-		*.(7z|zip|rar) )
+		*.(7z|zip|rar|gz|bz2) )
 			if [[ $2 != "" ]]; then
 				_out="-o${2// }";
 			fi
@@ -90,3 +90,5 @@ ex () {
 }
 #alias tarball='bsdtar cvahf'
 alias tarball='bsdtar cvaf'
+# tarball x.zip files
+# tarball x.tgz files
