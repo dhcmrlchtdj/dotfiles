@@ -34,7 +34,6 @@ alias conv_mv='convmv -f cp936 -t utf8 --notest -r'
 alias axel='axel -n 10 -a'
 #alias r='R --silent --no-save'
 alias jobs='jobs -dl'
-alias ssh='ssh -2'
 alias py='python'
 alias py2='python2'
 

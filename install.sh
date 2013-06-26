@@ -164,6 +164,23 @@ aria2 () {
 	ln -sv ${prefix}/aria2/aria2.conf ${dest};
 }
 
+ssh () {
+	echo ">>> ssh config ..."
+	dest=${HOME}/.ssh/config
+
+	if [[ ! -d ${HOME}/.ssh ]]; then mkdir -pv ${HOME}/.ssh; fi
+
+	if [[ -e $dest ]]; then
+		read -p "'$dest' is existed. skip? [y/n] " opt
+		case $opt in
+			[nN] ) echo "mv ..."; mv -v ${dest}{,.orig};;
+			* ) echo "skip $dest"; return;;
+		esac
+	fi
+	echo "ln ...";
+	ln -sv ${prefix}/ssh/config ${dest};
+}
+
 
 aria2
 bashrc
@@ -171,6 +188,7 @@ fontconfig
 git
 htop
 sqlite
+ssh
 tmux
 valgrind
 vim

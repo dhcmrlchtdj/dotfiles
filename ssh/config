@@ -1,0 +1,4 @@
+AddressFamily inet
+Ciphers arcfour,blowfish-cbc
+Compression yes
+Protocol 2
