@@ -11,14 +11,15 @@
 [push]
 	default = simple
 [alias]
-	rc = rm --cached -r .
 	ad = add -A .
 	au = add -u
 	st = status -bsu
-	ci = commit -m
 	br = branch -vva
+	ci = commit -m
 	co = checkout
 	df = diff --stat HEAD
 	dff = diff HEAD
-	ll = log --graph --decorate --oneline -10
+	rc = rm --cached -r .
+	sm = submodule
 	l = log --graph --decorate --date=short --format=format:'%C(yellow)%h%Creset <%C(blue)%an%Creset@%C(cyan)%ad%Creset>%C(green)%d%Creset %s'
+	ll = log --graph --decorate --oneline -10

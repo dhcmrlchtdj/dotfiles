@@ -1,4 +1,7 @@
 AddressFamily inet
-Ciphers arcfour,blowfish-cbc
+Ciphers blowfish-cbc,arcfour
 Compression yes
 Protocol 2
+ControlMaster auto
+ControlPath ~/.ssh/socket-%r@%h:%p
+ServerAliveInterval 60
