@@ -31,9 +31,9 @@ alias stop_mysql='sudo systemctl stop mysqld'
 
 # 工具
 alias conv_mv='convmv -f cp936 -t utf8 --notest -r'
-alias axel='axel -n 10 -a'
+#alias axel='axel -n 10 -a'
 #alias r='R --silent --no-save'
-alias jobs='jobs -dl'
+alias j='jobs -dl'
 alias py='python'
 alias py2='python2'
 
