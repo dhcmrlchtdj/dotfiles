@@ -119,12 +119,13 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 Bundle 'ervandew/supertab'
-Bundle 'Shougo/neocomplcache'
-Bundle 'Shougo/neosnippet'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'tmhedberg/matchit'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/powerline'
+"Bundle 'Shougo/neocomplete.vim'
+Bundle 'Shougo/neocomplcache'
+Bundle 'Shougo/neosnippet.vim'
 
 Bundle 'majutsushi/tagbar'
 Bundle 'jeetsukumaran/vim-buffergator'
@@ -149,7 +150,6 @@ Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'teramako/jscomplete-vim'
 "Bundle 'maksimr/vim-jsbeautify'
-"so ****
 "Bundle 'michalliu/jsruntime.vim'
 "Bundle 'michalliu/jsoncodecs.vim'
 "Bundle 'michalliu/sourcebeautify.vim'
@@ -205,16 +205,23 @@ let g:SuperTabDefaultCompletionType="<c-x><c-o>"
 "powerline
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
+"neocomplete
+"let g:neocomplete#enable_at_startup=1
+"inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+"inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
+
 "neocomplcache
 let g:neocomplcache_enable_at_startup=1
 
-"neosnippet
-" Plugin key-mappings.
+"neosnippet.vim
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
-" SuperTab like snippets behavior.
-imap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+xmap <C-k> <Plug>(neosnippet_expand_target)
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+			\ "\<Plug>(neosnippet_expand_or_jump)" :
+			\ pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+			\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 "clang_complete
 let g:clang_complete_auto=0
