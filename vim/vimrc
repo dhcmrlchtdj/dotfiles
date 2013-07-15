@@ -80,7 +80,7 @@ nmap n nzzzv
 nmap N Nzzzv
 
 """ 缩进
-set expandtab "使用空格缩进
+"set expandtab "使用空格缩进
 set noexpandtab "使用tab缩进
 set tabstop=4 "制表符\t的宽度
 set softtabstop=4 "tab键的宽度
@@ -175,7 +175,7 @@ Bundle 'sql.vim--Stinson'
 Bundle 'dhcmrlchtdj/sql_iabbr.vim'
 
 "nginx
-"Bundle 'evanmiller/nginx-vim-syntax'
+Bundle 'evanmiller/nginx-vim-syntax'
 
 "colorscheme
 Bundle 'altercation/vim-colors-solarized'
@@ -243,9 +243,11 @@ let g:syntastic_check_on_open=1
 let g:syntastic_error_symbol='➥✘'
 let g:syntastic_warning_symbol='➥✗'
 let g:syntastic_python_flake8_args='--ignore=E261,E302,E303,E501,E701'
-let g:syntastic_html_tidy_ignore_errors=['proprietary attribute "ng-',
-			\'<link> escaping malformed URI reference',
+let g:syntastic_html_tidy_ignore_errors=[
+			\'proprietary attribute "ng-',
 			\"plain text isn't allowed in <head> elements",
+			\'<link> escaping malformed URI reference',
+			\'<script> escaping malformed URI reference',
 			\]
 
 "tagbar
@@ -281,7 +283,7 @@ autocmd BufNewFile *.py 0r ~/.vim/templates/python
 autocmd BufNewFile *.html 0r ~/.vim/templates/html
 autocmd BufNewFile *.md 0r ~/.vim/templates/markdown
 autocmd BufNewFile *.h 0r ~/.vim/templates/h
-"autocmd BufNewFile *.js 0r ~/.vim/templates/javascript
+autocmd BufNewFile *.js 0r ~/.vim/templates/javascript
 "autocmd BufNewFile .gitignore 0r ~/.vim/templates/gitignore
 "autocmd BufNewFile *.css 0r ~/.vim/templates/css
 "autocmd BufNewFile *.cpp 0r ~/.vim/templates/cpp

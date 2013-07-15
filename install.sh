@@ -6,7 +6,7 @@ bashrc () {
 	echo ">>> bashrc ..."
 	dest=${HOME}/.bashrc
 	if [[ -e $dest ]]; then
-		read -p "'$dest' is existed. skip? [y/n] " opt
+		read -p "'$dest' is existed. skip? ([y]/n) " opt
 		case $opt in
 			[nN] ) echo "mv ..."; mv -v ${dest}{,.orig};;
 			* ) echo "skip $dest"; return;;
@@ -20,7 +20,7 @@ git () {
 	echo ">>> git ..."
 	dest=${HOME}/.gitconfig
 	if [[ -e $dest ]]; then
-		read -p "'$dest' is existed. skip? [y/n] " opt
+		read -p "'$dest' is existed. skip? ([y]/n) " opt
 		case $opt in
 			[nN] ) echo "mv ..."; mv -v ${dest}{,.orig};;
 			* ) echo "skip $dest"; return;;
@@ -34,7 +34,7 @@ fontconfig () {
 	echo ">>> fontconfig ..."
 	dest=${HOME}/.config/fontconfig/fonts.conf
 	if [[ -e $dest ]]; then
-		read -p "'$dest' is existed. skip? [y/n] " opt
+		read -p "'$dest' is existed. skip? ([y]/n) " opt
 		case $opt in
 			[nN] ) echo "mv ..."; mv -v ${dest}{,.orig};;
 			* ) echo "skip $dest"; return;;
@@ -48,7 +48,7 @@ htop () {
 	echo ">>> htop ..."
 	dest=${HOME}/.config/htop/htoprc
 	if [[ -e $dest ]]; then
-		read -p "'$dest' is existed. skip? [y/n] " opt
+		read -p "'$dest' is existed. skip? ([y]/n) " opt
 		case $opt in
 			[nN] ) echo "mv ..."; mv -v ${dest}{,.orig};;
 			* ) echo "skip $dest"; return;;
@@ -62,7 +62,7 @@ sqlite () {
 	echo ">>> sqlite ..."
 	dest=${HOME}/.sqliterc
 	if [[ -e $dest ]]; then
-		read -p "'$dest' is existed. skip? [y/n] " opt
+		read -p "'$dest' is existed. skip? ([y]/n) " opt
 		case $opt in
 			[nN] ) echo "mv ..."; mv -v ${dest}{,.orig};;
 			* ) echo "skip $dest"; return;;
@@ -76,7 +76,7 @@ tmux () {
 	echo ">>> tmux ..."
 	dest=${HOME}/.tmux.conf
 	if [[ -e $dest ]]; then
-		read -p "'$dest' is existed. skip? [y/n] " opt
+		read -p "'$dest' is existed. skip? ([y]/n) " opt
 		case $opt in
 			[nN] ) echo "mv ..."; mv -v ${dest}{,.orig};;
 			* ) echo "skip $dest"; return;;
@@ -90,7 +90,7 @@ valgrind () {
 	echo ">>> valgrind ..."
 	dest=${HOME}/.valgrindrc
 	if [[ -e $dest ]]; then
-		read -p "'$dest' is existed. skip? [y/n] " opt
+		read -p "'$dest' is existed. skip? ([y]/n) " opt
 		case $opt in
 			[nN] ) echo "mv ..."; mv -v ${dest}{,.orig};;
 			* ) echo "skip $dest"; return;;
@@ -104,7 +104,7 @@ zsh () {
 	echo ">>> zsh ..."
 	dest=${HOME}/.zshrc
 	if [[ -e $dest ]]; then
-		read -p "'$dest' is existed. skip? [y/n] " opt
+		read -p "'$dest' is existed. skip? ([y]/n) " opt
 		case $opt in
 			[nN] ) echo "mv ..."; mv -v ${dest}{,.orig};;
 			* ) echo "skip $dest"; return;;
@@ -118,7 +118,7 @@ vimrc () {
 	echo ">>> vim ..."
 	dest=${HOME}/.vimrc
 	if [[ -e $dest ]]; then
-		read -p "'$dest' is existed. skip? [y/n] " opt
+		read -p "'$dest' is existed. skip? ([y]/n) " opt
 		case $opt in
 			[nN] ) echo "mv ..."; mv -v ${dest}{,.orig};;
 			* ) echo "skip $dest"; return;;
@@ -136,7 +136,7 @@ vim () {
 
 	dest=${HOME}/.vim/templates
 	if [[ -d $dest ]]; then
-		read -p "'$dest' is existed. skip? [y/n] " opt
+		read -p "'$dest' is existed. skip? ([y]/n) " opt
 		case $opt in
 			[nN] ) echo "mv ..."; mv -v ${dest}{,.orig};;
 			* ) echo "skip $dest"; return;;
@@ -154,7 +154,7 @@ aria2 () {
 	touch ${HOME}/.aria2/aria2.session
 
 	if [[ -e $dest ]]; then
-		read -p "'$dest' is existed. skip? [y/n] " opt
+		read -p "'$dest' is existed. skip? ([y]/n) " opt
 		case $opt in
 			[nN] ) echo "mv ..."; mv -v ${dest}{,.orig};;
 			* ) echo "skip $dest"; return;;
@@ -171,7 +171,7 @@ ssh () {
 	if [[ ! -d ${HOME}/.ssh ]]; then mkdir -pv ${HOME}/.ssh; fi
 
 	if [[ -e $dest ]]; then
-		read -p "'$dest' is existed. skip? [y/n] " opt
+		read -p "'$dest' is existed. skip? ([y]/n) " opt
 		case $opt in
 			[nN] ) echo "mv ..."; mv -v ${dest}{,.orig};;
 			* ) echo "skip $dest"; return;;
@@ -181,12 +181,31 @@ ssh () {
 	ln -sv ${prefix}/ssh/config ${dest};
 }
 
+pip () {
+	echo ">>> pip ..."
+	dest=${HOME}/.pip/pip.conf
+
+	if [[ ! -d ${HOME}/.pip ]]; then mkdir -pv ${HOME}/.pip; fi
+
+	if [[ -e $dest ]]; then
+		read -p "'$dest' is existed. skip? ([y]/n) " opt
+		case $opt in
+			[nN] ) echo "mv ..."; mv -v ${dest}{,.orig};;
+			* ) echo "skip $dest"; return;;
+		esac
+	fi
+	echo "ln ...";
+	ln -sv ${prefix}/pip/pip.conf ${dest};
+}
+
+
 
 aria2
 bashrc
 fontconfig
 git
 htop
+pip
 sqlite
 ssh
 tmux
