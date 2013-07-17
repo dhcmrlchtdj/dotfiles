@@ -94,7 +94,7 @@ set list "显示特殊字符
 set listchars=tab:»\ ,eol:\ ,trail:·, "字符样式·¯
 autocmd FileType python,markdown set et
 "autocmd FileType python set nosi
-autocmd FileType css set ts=2 | set sts=2 | set sw=2
+"autocmd FileType css set ts=2 | set sts=2 | set sw=2
 
 """ 折叠
 set foldmethod=indent "折叠方式
@@ -248,6 +248,7 @@ let g:syntastic_html_tidy_ignore_errors=[
 			\"plain text isn't allowed in <head> elements",
 			\'<link> escaping malformed URI reference',
 			\'<script> escaping malformed URI reference',
+			\'<input> proprietary attribute',
 			\]
 
 "tagbar

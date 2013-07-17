@@ -16,7 +16,7 @@ alias rm='rm -rvf'
 alias ls='ls --color=auto --group-directories-first -vF'
 alias la='ls -A'
 alias ll='ls -lAh --time-style=long-iso'
-alias l='ll'
+alias l='ll *'
 #
 alias df='df -Th'
 alias du='du -h'
