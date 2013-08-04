@@ -245,6 +245,7 @@ let g:syntastic_warning_symbol='➥✗'
 let g:syntastic_python_flake8_args='--ignore=W391,E261,E302,E303,E501,E701'
 let g:syntastic_html_tidy_ignore_errors=[
 			\'proprietary attribute "ng-',
+			\'trimming empty',
 			\"plain text isn't allowed in <head> elements",
 			\'<link> escaping malformed URI reference',
 			\'<script> escaping malformed URI reference',
@@ -276,15 +277,16 @@ autocmd FileType c,cpp nmap <Leader>a :A<CR>
 nmap <silent> <F5> :GundoToggle<CR>
 
 "javascript-libraries-syntax.vim
-let g:used_javascript_libs = 'angularjs'
+let g:used_javascript_libs = 'underscore'
 
 
 """ 模板
 autocmd BufNewFile *.py 0r ~/.vim/templates/python
 autocmd BufNewFile *.html 0r ~/.vim/templates/html
-autocmd BufNewFile *.md 0r ~/.vim/templates/markdown
 autocmd BufNewFile *.h 0r ~/.vim/templates/h
 autocmd BufNewFile *.js 0r ~/.vim/templates/javascript
+autocmd BufNewFile *.sh 0r ~/.vim/templates/sh
+"autocmd BufNewFile *.md 0r ~/.vim/templates/markdown
 "autocmd BufNewFile .gitignore 0r ~/.vim/templates/gitignore
 "autocmd BufNewFile *.css 0r ~/.vim/templates/css
 "autocmd BufNewFile *.cpp 0r ~/.vim/templates/cpp

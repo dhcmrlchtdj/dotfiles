@@ -16,7 +16,6 @@ alias rm='rm -rvf'
 alias ls='ls --color=auto --group-directories-first -vF'
 alias la='ls -A'
 alias ll='ls -lAh --time-style=long-iso'
-alias l='ll *'
 #
 alias df='df -Th'
 alias du='du -h'
@@ -73,15 +72,14 @@ ex () {
 	case $1 in
 		*.t(xz|gz|bz2|ar.(xz|gz|bz2)) )
 			if [[ $2 != "" ]]; then
-				`mkdir -p $2`;
-				_out="-C${2// }";
+				mkdir -p $2;
+				_out="-C$2";
 			fi
-			#bsdtar xvpf $1 $_out;
 			bsdtar xvf $1 $_out;
 			;;
 		*.(7z|zip|rar|gz|bz2) )
 			if [[ $2 != "" ]]; then
-				_out="-o${2// }";
+				_out="-o$2";
 			fi
 			(export LANG=zh_CN.gbk; 7z x $1 $_out);
 			;;
