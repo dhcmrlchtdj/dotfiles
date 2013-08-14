@@ -3,48 +3,49 @@ PROMPT="[%F{blue}%n%f@%F{cyan}%m%f %F{red}%B%~%b%f]%# "
 
 export QT_SELECT=4
 export EDITOR="vim"
-export TERM='konsole-256color'
+export TERM="konsole-256color"
 
 source virtualenvwrapper_lazy.sh
 
 ## alias
-alias pacman='pacman --color=auto'
+alias pacman="pacman --color=auto"
 
 # 删除
-alias rm='rm -rvf'
+alias rm="rm -rvf"
 # ls 系列
-alias ls='ls --color=auto --group-directories-first -vF'
-alias la='ls -A'
-alias ll='ls -lAh --time-style=long-iso'
+alias ls="ls --color=auto --group-directories-first -vF"
+alias la="ls -A"
+alias ll="ls -lAh --time-style=long-iso"
 #
-alias df='df -Th'
-alias du='du -h'
-alias free='free -h'
-alias tracepath='tracepath -b'
+alias df="df -Th"
+alias du="du -h"
+alias free="free -h"
+alias tracepath="tracepath -b"
 
-alias maria='mysql -p -u root'
+alias maria="mysql -p -u root"
 
 # systemclt
-alias start_nginx='sudo systemctl start nginx'
-alias stop_nginx='sudo systemctl stop nginx'
-alias start_mysql='sudo systemctl start mysqld'
-alias stop_mysql='sudo systemctl stop mysqld'
+alias start_nginx="sudo systemctl start nginx"
+alias stop_nginx="sudo systemctl stop nginx"
+alias start_mysql="sudo systemctl start mysqld"
+alias stop_mysql="sudo systemctl stop mysqld"
+alias wifi="sudo netctl start wlp9s0-mathwebteam"
 
 # 工具
-alias cm='convmv -f cp936 -t utf8 --notest -r'
-#alias axel='axel -n 10 -a'
-#alias r='R --silent --no-save'
-alias j='jobs -dl'
-alias py='python'
-alias py2='python2'
+alias cm="convmv -f cp936 -t utf8 --notest -r"
+#alias axel="axel -n 10 -a"
+#alias r="R --silent --no-save"
+alias j="jobs -dl"
+alias py="python"
+alias py2="python2"
 
-alias _qemu='qemu-system-x86_64 -enable-kvm -vga vmware -net nic,model=virtio -m 256'
-#alias qemu='_qemu -net tap,ifname=tap0,script=no,downscript=no'
-#alias qemu='_qemu -net bridge,br=br0'
-alias qemu='_qemu -net user'
+alias _qemu="qemu-system-x86_64 -enable-kvm -vga vmware -net nic,model=virtio -m 256"
+#alias qemu="_qemu -net tap,ifname=tap0,script=no,downscript=no"
+#alias qemu="_qemu -net bridge,br=br0"
+alias qemu="_qemu -net user"
 
 # 代理
-alias goagent='python2 ~/library/wall/goagent/local/proxy.py'
+alias goagent="python2 ~/library/wall/goagent/local/proxy.py"
 
 # 命令补全
 #fpath=(~/.zsh_functions $fpath)
@@ -88,7 +89,7 @@ ex () {
 			;;
 	esac
 }
-#alias tarball='bsdtar cvahf'
-alias tarball='bsdtar cvaf'
+#alias tarball="bsdtar cvahf"
+alias tarball="bsdtar cvaf"
 # tarball x.zip files
 # tarball x.tgz files

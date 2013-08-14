@@ -149,10 +149,8 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'jelera/vim-javascript-syntax'
 Bundle 'teramako/jscomplete-vim'
-"Bundle 'maksimr/vim-jsbeautify'
-"Bundle 'michalliu/jsruntime.vim'
-"Bundle 'michalliu/jsoncodecs.vim'
-"Bundle 'michalliu/sourcebeautify.vim'
+Bundle 'maksimr/vim-jsbeautify'
+" git submodule update --init --recursive
 
 "css
 Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
@@ -244,7 +242,6 @@ let g:syntastic_error_symbol='➥✘'
 let g:syntastic_warning_symbol='➥✗'
 let g:syntastic_python_flake8_args='--ignore=W391,E261,E302,E303,E501,E701'
 let g:syntastic_html_tidy_ignore_errors=[
-			\'proprietary attribute "ng-',
 			\'trimming empty',
 			\"plain text isn't allowed in <head> elements",
 			\'<link> escaping malformed URI reference',
@@ -260,6 +257,9 @@ let g:tagbar_sort=0
 
 "jscomplete
 let g:jscomplete_use=['dom', 'es6th', 'moz']
+
+"jsbeautify
+autocmd FileType javascript noremap <buffer> <Leader>ff :call JsBeautify()<CR>
 
 "jedi-vim
 let g:jedi#popup_on_dot=0
@@ -277,7 +277,7 @@ autocmd FileType c,cpp nmap <Leader>a :A<CR>
 nmap <silent> <F5> :GundoToggle<CR>
 
 "javascript-libraries-syntax.vim
-let g:used_javascript_libs = 'underscore'
+let g:used_javascript_libs = 'jquery'
 
 
 """ 模板
