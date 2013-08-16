@@ -44,6 +44,8 @@ alias _qemu="qemu-system-x86_64 -enable-kvm -vga vmware -net nic,model=virtio -m
 #alias qemu="_qemu -net bridge,br=br0"
 alias qemu="_qemu -net user"
 
+alias uglify="uglifyjs -m -c unsafe=true"
+
 # 代理
 alias goagent="python2 ~/library/wall/goagent/local/proxy.py"
 
