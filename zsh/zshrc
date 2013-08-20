@@ -1,6 +1,13 @@
 # 1614-2175
 PROMPT="[%F{blue}%n%f@%F{cyan}%m%f %F{red}%B%1~%b%f]%# "
-RPROMPT="[%F{red}%B%~%b%f]"
+precmd() {
+	ret=$?;
+	if [[ $ret != 0 ]]; then
+		RPROMPT="[%F{red}%B$ret%b%f][%F{red}%B%~%b%f]";
+	else
+		RPROMPT="[%F{red}%B%~%b%f]";
+	fi
+}
 
 export QT_SELECT=4
 export EDITOR="vim"
