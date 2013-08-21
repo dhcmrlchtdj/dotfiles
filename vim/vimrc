@@ -310,6 +310,8 @@ function! ReStructureFile()
 
 	" 使用utf-8编码
 	let &fenc = 'utf8'
+	" 去除 BOM
+	exe 'set nobomb'
 
 	" 删除行尾空格
 	exe 'silent! :%s/\s\+$//g'
