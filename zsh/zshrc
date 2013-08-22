@@ -37,7 +37,7 @@ alias start_nginx="sudo systemctl start nginx"
 alias stop_nginx="sudo systemctl stop nginx"
 alias start_mysql="sudo systemctl start mysqld"
 alias stop_mysql="sudo systemctl stop mysqld"
-alias wifi="sudo netctl start wlp9s0-mathwebteam"
+alias wifi="sudo netctl start wlan0"
 
 # 工具
 alias cm="convmv -f cp936 -t utf8 --notest -r"
