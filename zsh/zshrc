@@ -32,11 +32,9 @@ alias tracepath="tracepath -b"
 
 alias maria="mysql -p -u root"
 
-# systemclt
-alias start_nginx="sudo systemctl start nginx"
-alias stop_nginx="sudo systemctl stop nginx"
-alias start_mysql="sudo systemctl start mysqld"
-alias stop_mysql="sudo systemctl stop mysqld"
+# systemctl
+alias _start="sudo systemctl start"
+alias _stop="sudo systemctl stop"
 alias wifi="sudo netctl start wlan0"
 
 # 工具
