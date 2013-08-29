@@ -12,6 +12,7 @@ precmd() {
 export QT_SELECT=4
 export EDITOR="vim"
 export TERM="konsole-256color"
+export LESS="-RXFM"
 
 source virtualenvwrapper_lazy.sh
 
