@@ -1,4 +1,4 @@
-# 1614-2175
+# comment grmlzshrc 1613-2187
 PROMPT="[%F{blue}%n%f@%F{cyan}%m%f %F{red}%B%1~%b%f]%# "
 precmd() {
 	ret=$?;
@@ -17,19 +17,19 @@ export LESS="-RXFM"
 source virtualenvwrapper_lazy.sh
 
 ## alias
-alias pacman="pacman --color=auto"
 alias cp="cp -r"
 alias rm="rm -rvf"
-alias ls="ls --color=auto --group-directories-first -vF"
+alias tree="tree --dirsfirst"
 alias la="ls -A"
 alias ll="ls -lAh --time-style=long-iso"
-#
-alias df="df -Th"
+alias ls="ls --color=auto --group-directories-first -vF"
 alias du="du -h"
+alias df="df -Th"
 alias free="free -h"
-alias tracepath="tracepath -b"
 
-alias maria="mysql -p -u root"
+alias pacman="pacman --color=auto"
+alias tracepath="tracepath -b"
+alias maria="mysql -p -u"
 
 # systemctl
 alias _start="sudo systemctl start"
@@ -52,27 +52,6 @@ alias xp="qemu-system-i386 -enable-kvm -net nic,model=rtl8139 -net user -m 256"
 # 代理
 alias goagent="python2 ~/library/wall/goagent/local/proxy.py"
 
-# 命令补全
-#fpath=(~/.zsh_functions $fpath)
-#autoload -U compinit
-#compinit
-
-# 终端打开文件
-#autoload -U zsh-mime-setup
-#zsh-mime-setup
-
-#alias -s png=kuickshow
-#alias -s jpg=kuickshow
-
-#alias -s pdf=okular
-#alias -s epub=okular
-
-#alias -s mp4=smplayer
-#alias -s avi=smplayer
-#alias -s mkv=smplayer
-#alias -s flv=smplayer
-#alias -s rmvb=smplayer
-
 ex () {
 	_out="";
 	case $1 in
@@ -94,7 +73,6 @@ ex () {
 			;;
 	esac
 }
-#alias tarball="bsdtar cvahf"
 alias tarball="bsdtar cvaf"
 # tarball x.zip files
 # tarball x.tgz files
