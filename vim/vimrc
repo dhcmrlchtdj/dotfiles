@@ -153,7 +153,9 @@ Bundle 'maksimr/vim-jsbeautify'
 " git submodule update --init --recursive
 
 "css
-Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
+"Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
+Bundle 'hail2u/vim-css3-syntax'
+Bundle 'groenewege/vim-less'
 
 "python
 "Bundle 'sunsol/vim_python_fold_compact'
