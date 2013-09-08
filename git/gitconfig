@@ -16,6 +16,7 @@
 	st = status -bsu
 	br = branch -vva
 	ci = commit -m
+	amend = commit --amend
 	co = checkout
 	df = diff --stat HEAD
 	dff = diff HEAD
