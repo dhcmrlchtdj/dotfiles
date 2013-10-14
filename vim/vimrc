@@ -126,6 +126,7 @@ Bundle 'Lokaltog/powerline'
 "Bundle 'Shougo/neocomplete.vim'
 Bundle 'Shougo/neocomplcache'
 Bundle 'Shougo/neosnippet.vim'
+"Bundle 'junegunn/vim-easy-align'
 
 Bundle 'majutsushi/tagbar'
 Bundle 'jeetsukumaran/vim-buffergator'
@@ -161,7 +162,7 @@ Bundle 'groenewege/vim-less'
 "Bundle 'sunsol/vim_python_fold_compact'
 Bundle 'tmhedberg/SimpylFold'
 Bundle 'indentpython.vim--nianyang'
-Bundle 'davidhalter/jedi-vim'
+"Bundle 'davidhalter/jedi-vim'
 
 "rst markdown pandoc
 Bundle 'RST-Tables-CJK'
