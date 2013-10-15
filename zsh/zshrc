@@ -68,20 +68,20 @@ small () {
 }
 
 ex () {
-	_out="";
 	case $1 in
-		*.t(xz|gz|bz2|ar.(xz|gz|bz2)) )
+		*.t(xz|gz|bz2|ar.(xz|gz|bz2)))
+			_out="";
 			if [[ $2 != "" ]]; then
 				mkdir -p $2;
 				_out="-C$2";
 			fi
 			bsdtar xvf $1 $_out;
 			;;
-		*.(7z|zip|rar|gz|bz2) )
-			if [[ $2 != "" ]]; then
-				_out="-o$2";
-			fi
-			(export LANG=zh_CN.gbk; 7z x $1 $_out);
+		*.7z)
+			7z x $1 ${2:+-o${2}};
+			;;
+		*.(zip|rar|gz|bz2))
+			(export LANG=zh_CN.gbk; 7z x $1 ${2:+-o${2}});
 			;;
 		* )
 			echo "unrecognized file extension: '$1'" >&2;
