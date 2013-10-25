@@ -1,3 +1,3 @@
 .echo ON
 .headers ON
-.mode column
+.mode line
