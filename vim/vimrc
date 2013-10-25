@@ -247,6 +247,7 @@ let g:syntastic_python_flake8_args='--ignore=W391,E261,E301,E302,E303,E501,E701'
 let g:syntastic_html_tidy_ignore_errors=[
 			\'proprietary attribute',
 			\'trimming empty',
+			\'malformed URI',
 			\]
 
 "tagbar
