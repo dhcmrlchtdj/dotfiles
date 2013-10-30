@@ -2,6 +2,26 @@
 
 prefix=$(pwd)
 
+xprofile () {
+	echo ">>> xprofile ..."
+	dest="${HOME}/.xprofile"
+	if [[ -e $dest ]]; then
+		read -p "'$dest' is existed. skip? ([y]/n) " opt
+		case $opt in
+			[nN] )
+				echo "mv ...";
+				mv -v ${dest}{,.orig};
+				;;
+			* )
+				echo "skip $dest";
+				return;
+				;;
+		esac
+	fi
+	echo "ln ...";
+	ln -sv "${prefix}/x/xprofile" "$dest";
+}
+
 bashrc () {
 	echo ">>> bashrc ..."
 	dest="${HOME}/.bashrc"
@@ -284,4 +304,5 @@ ssh
 tmux
 valgrind
 vim
+xprofile
 zsh
