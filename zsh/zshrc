@@ -45,12 +45,18 @@ alias h="htop"
 alias py="python"
 alias py2="python2"
 alias ujs="uglifyjs -m -c unsafe=true"
-alias s="python3 -m http.server"
+#alias s="python3 -m http.server"
 alias qemu="qemu-system-x86_64 -enable-kvm -vga vmware -net nic,model=virtio -net user -m 256"
 alias xp="qemu-system-i386 -enable-kvm -net nic,model=rtl8139 -net user -m 256"
 
 # 代理
 alias goagent="python2 ~/library/wall/goagent/local/proxy.py"
+
+trash () {
+	for i in "$@"; do
+		kioclient move "$i" trash:/;
+	done
+}
 
 small () {
 	for i in "$@"; do
