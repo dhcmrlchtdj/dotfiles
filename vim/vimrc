@@ -286,6 +286,7 @@ autocmd BufNewFile *.py 0r ~/.vim/templates/python
 autocmd BufNewFile *.html 0r ~/.vim/templates/html
 autocmd BufNewFile *.h 0r ~/.vim/templates/h
 autocmd BufNewFile *.js 0r ~/.vim/templates/javascript
+autocmd BufNewFile *.user.js 0r ~/.vim/templates/userjs
 autocmd BufNewFile *.sh 0r ~/.vim/templates/sh
 "autocmd BufNewFile *.md 0r ~/.vim/templates/markdown
 "autocmd BufNewFile .gitignore 0r ~/.vim/templates/gitignore
