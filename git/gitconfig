@@ -14,7 +14,7 @@
 	ad = add -A .
 	au = add -u
 	st = status -bsu
-	br = branch -vva
+	br = branch -vv
 	ci = commit -m
 	amend = commit --amend
 	co = checkout

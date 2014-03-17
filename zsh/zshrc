@@ -1,99 +1,66 @@
 # comment grmlzshrc 1613-2187
+source ~/.grml_zshrc
+PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 PROMPT="[%F{blue}%n%f@%F{cyan}%m%f %F{red}%B%1~%b%f]%# "
 precmd() {
-	ret=$?;
-	if [[ $ret != 0 ]]; then
-		RPROMPT="[%F{red}%B$ret%b%f][%F{red}%B%~%b%f]";
-	else
-		RPROMPT="[%F{red}%B%~%b%f]";
-	fi
+    ret=$?;
+    if [[ $ret != 0 ]]; then
+        RPROMPT="[%F{red}%B$ret%b%f][%F{red}%B%~%b%f]";
+    else
+        RPROMPT="[%F{red}%B%~%b%f]";
+    fi
 }
 
-export QT_SELECT=4
 export EDITOR="vim"
-export TERM="konsole-256color"
 export LESS="-RXFM"
 
-source virtualenvwrapper_lazy.sh
+#source virtualenvwrapper_lazy.sh
 
 ## alias
 alias cp="cp -r"
 alias rm="rm -rvf"
-alias tree="tree --dirsfirst"
+#alias tree="tree --dirsfirst"
 alias la="ls -A"
-alias ll="ls -lAh --time-style=long-iso"
-alias ls="ls --color=auto --group-directories-first -vF"
-alias du="du -h"
-alias df="df -Th"
-alias free="free -h"
+#alias ll="ls -lAh --time-style=long-iso"
+#alias ls="gls --group-directories-first -vF"
+alias ll="ls -lAh"
+alias ls="ls -vF"
+#alias du="du -h"
+#alias df="df -Th"
+#alias free="free -h"
 
-alias pacman="pacman --color=auto"
-alias tracepath="tracepath -b"
-alias maria="mysql -p -u"
+#alias pacman="pacman --color=auto"
+#alias tracepath="tracepath -b"
+#alias maria="mysql -p -u"
 
 # systemctl
-alias _start="sudo systemctl start"
-alias _stop="sudo systemctl stop"
-alias wifi="sudo netctl start wlan0"
+#alias _start="sudo systemctl start"
+#alias _stop="sudo systemctl stop"
+#alias wifi="sudo netctl start wlan0"
 
 # 工具
-alias cm="convmv -f cp936 -t utf8 --notest -r"
+#alias cm="convmv -f cp936 -t utf8 --notest -r"
 #alias axel="axel -n 10 -a"
 #alias r="R --silent --no-save"
 alias j="jobs -dl"
 alias h="htop"
-alias py="python"
+alias f="find ."
+alias py="python3"
 alias py2="python2"
 alias ujs="uglifyjs -m -c unsafe=true"
-#alias s="python3 -m http.server"
-alias qemu="qemu-system-x86_64 -enable-kvm -vga vmware -net nic,model=virtio -net user -m 256"
-alias xp="qemu-system-i386 -enable-kvm -net nic,model=rtl8139 -net user -m 256"
+alias sss="python3 -m http.server"
+#alias qemu="qemu-system-x86_64 -enable-kvm -vga vmware -net nic,model=virtio -net user -m 256"
+#alias xp="qemu-system-i386 -enable-kvm -net nic,model=rtl8139 -net user -m 256"
+alias upgrade="brew outdated && brew upgrade"
+
+alias nginx_start="sudo nginx"
+alias nginx_restart="sudo nginx -s stop && sudo nginx"
+alias nginx_stop="sudo nginx -s stop"
 
 # 代理
-alias goagent="python2 ~/library/wall/goagent/local/proxy.py"
+#alias goagent="python2 ~/library/wall/goagent/local/proxy.py"
 
-trash () {
-	for i in "$@"; do
-		kioclient move "$i" trash:/;
-	done
-}
-
-small () {
-	for i in "$@"; do
-		echo "optimize $i...";
-		case $i in
-			*.jpg|*.jpeg)
-				mv $i $i.bak;
-				jpegtran -copy none -optimize -perfect $i.bak > $i;
-				;;
-			*.png)
-				optipng -keep -strip all -quiet $i;
-				;;
-		esac
-	done
-}
-
-ex () {
-	case $1 in
-		*.t(xz|gz|bz2|ar.(xz|gz|bz2)))
-			_out="";
-			if [[ $2 != "" ]]; then
-				mkdir -p $2;
-				_out="-C$2";
-			fi
-			bsdtar xvf $1 $_out;
-			;;
-		*.7z)
-			7z x $1 ${2:+-o${2}};
-			;;
-		*.(zip|rar|gz|bz2))
-			(export LANG=zh_CN.gbk; 7z x $1 ${2:+-o${2}});
-			;;
-		* )
-			echo "unrecognized file extension: '$1'" >&2;
-			;;
-	esac
-}
-alias tarball="bsdtar cvaf"
+#alias tarball="tar -cvf"
 # tarball x.zip files
 # tarball x.tgz files
+alias ca="7z a -tzip"
