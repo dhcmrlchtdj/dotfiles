@@ -22,7 +22,8 @@ set ttyfast
 
 set mouse=a "鼠标支持
 set clipboard=unnamed,unnamedplus,autoselect "剪贴板
-set virtualedit=all "虚空间
+"set virtualedit=all "虚空间
+set virtualedit=block "虚空间
 set backspace=indent,eol,start "insert模式下删除键可删除
 set showmatch "输入括号时显示匹配括号
 set completeopt=menu "补全窗口的样式
@@ -55,6 +56,7 @@ set number "显示行号
 set nowrap "不自动换行
 set textwidth=0 "行宽
 set colorcolumn=80 "行宽提示
+set cursorline "高亮当前行
 
 set cmdheight=1 "命令行行数
 set showcmd "在命令行显示目前执行的指令
@@ -123,7 +125,6 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'tmhedberg/matchit'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/powerline'
-"Bundle 'Shougo/neocomplcache.vim'
 Bundle 'Shougo/neocomplete.vim'
 Bundle 'Shougo/neosnippet.vim'
 Bundle 'Shougo/neosnippet-snippets'
@@ -134,7 +135,6 @@ Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'sjl/gundo.vim'
-"Bundle 'Yggdroot/indentLine'
 Bundle 'nathanaelkane/vim-indent-guides'
 
 "c/c++
@@ -154,7 +154,6 @@ Bundle 'jelera/vim-javascript-syntax'
 "Bundle 'teramako/jscomplete-vim'
 Bundle 'maksimr/vim-jsbeautify'
 " git submodule update --init --recursive
-"Bundle 'marijnh/tern_for_vim'
 
 "css
 "Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
@@ -213,21 +212,16 @@ set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 "neocomplete
 let g:neocomplete#enable_at_startup=1
 let g:neocomplete#enable_smart_case=1
+"let g:neocomplete#sources#syntax#min_keyword_length=3
 "inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 "inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
-
-"neocomplcache
-"let g:neocomplcache_enable_at_startup=1
 
 "neosnippet.vim
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_target)
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-            \ "\<Plug>(neosnippet_expand_or_jump)" :
-            \ pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-            \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+imap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 "clang_complete
 let g:clang_complete_auto=0
