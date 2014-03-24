@@ -240,14 +240,14 @@ nmap <silent> <F3> :NERDTreeFind<CR>
 
 "syntastic
 let g:syntastic_check_on_open=1
-let g:syntastic_error_symbol='➥✘'
-let g:syntastic_warning_symbol='➥✗'
-let g:syntastic_python_flake8_args='--ignore=W391,E261,E301,E302,E303,E501,E701'
-let g:syntastic_html_tidy_ignore_errors=[
-            \'proprietary attribute',
-            \'trimming empty',
-            \'malformed URI',
-            \]
+let g:syntastic_error_symbol='✗'
+let g:syntastic_warning_symbol='⚠'
+"let g:syntastic_python_flake8_args='--ignore=W391,E261,E301,E302,E303,E501,E701'
+"let g:syntastic_html_tidy_ignore_errors=[
+            "\'proprietary attribute',
+            "\'trimming empty',
+            "\'malformed URI',
+            "\]
 
 "tagbar
 nmap <silent> <F4> :TagbarOpen fj<CR>
@@ -280,10 +280,10 @@ let g:used_javascript_libs = 'jquery'
 
 
 """ 模板
-"autocmd BufNewFile *.py 0r ~/.vim/templates/python
+autocmd BufNewFile *.py 0r ~/.vim/templates/skeleton.py
 "autocmd BufNewFile *.html 0r ~/.vim/templates/html
 "autocmd BufNewFile *.h 0r ~/.vim/templates/h
-"autocmd BufNewFile *.js 0r ~/.vim/templates/javascript
+autocmd BufNewFile *.js 0r ~/.vim/templates/skeleton.js
 "autocmd BufNewFile *.user.js 0r ~/.vim/templates/userjs
 "autocmd BufNewFile *.sh 0r ~/.vim/templates/sh
 "autocmd BufNewFile *.md 0r ~/.vim/templates/markdown
