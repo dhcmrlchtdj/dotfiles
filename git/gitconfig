@@ -11,17 +11,19 @@
 [push]
 	default = simple
 [alias]
-	ad = add -A .
-	au = add -u
 	st = status -bsu
 	br = branch -vv
+	co = checkout
+	ad = add -A .
+	au = add -u
 	ci = commit -m
 	amend = commit --amend
-	co = checkout
 	df = diff --stat HEAD
 	dff = diff HEAD
-	rc = rm --cached -r .
-	sm = submodule
-	sp = submodule foreach git pull
 	l = log --graph --decorate --date=short --format=format:'%C(yellow)%h%Creset <%C(blue)%an%Creset@%C(cyan)%ad%Creset>%C(green)%d%Creset   %s'
 	ll = log --graph --decorate --oneline -10
+	rc = rm --cached -r .
+	sm = submodule
+    mt = mergetool
+[merge]
+	tool = vimdiff2
