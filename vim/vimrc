@@ -13,6 +13,7 @@
 set nocompatible "不兼容vi
 set modelines=0 "忽略 打开的文件 里的vim参数
 "set helplang=cn "优先寻找中文帮助
+set guifont=PowerlineSymbols:h14 "for macvim
 
 set t_Co=256 "颜色数目
 set t_vb='' "禁止错误信息响铃及出错屏幕闪烁
@@ -40,7 +41,8 @@ set undofile "开启撤销历史
 set undodir=~/.vim/undo "存放地址
 set backup "覆盖文件时备份
 set backupdir=~/.vim/backup "存放地址
-set diffopt+=context:3
+set diffopt+=filler,context:3,vertical
+set scrollbind "diff 时同步滚动
 
 """ 编码
 set encoding=utf-8 "vim内部使用的编码
@@ -53,6 +55,7 @@ set ambiwidth=single "宽度不明字符使用单倍字符宽度
 
 """ 行号 命令行 状态行
 set number "显示行号
+"set wrap "自动换行
 set nowrap "不自动换行
 set textwidth=0 "行宽
 set colorcolumn=80 "行宽提示
@@ -130,6 +133,8 @@ Bundle 'Shougo/neosnippet.vim'
 Bundle 'Shougo/neosnippet-snippets'
 "Bundle 'junegunn/vim-easy-align'
 
+Bundle 'kien/ctrlp.vim'
+Bundle 'tacahiroy/ctrlp-funky'
 Bundle 'majutsushi/tagbar'
 Bundle 'jeetsukumaran/vim-buffergator'
 Bundle 'scrooloose/nerdtree'
@@ -152,13 +157,14 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'othree/javascript-libraries-syntax.vim'
 Bundle 'jelera/vim-javascript-syntax'
 "Bundle 'teramako/jscomplete-vim'
+Bundle 'https://bitbucket.org/teramako/jscomplete-vim.git'
 Bundle 'maksimr/vim-jsbeautify'
 " git submodule update --init --recursive
 
 "css
 "Bundle 'ChrisYip/Better-CSS-Syntax-for-Vim'
 Bundle 'hail2u/vim-css3-syntax'
-Bundle 'groenewege/vim-less'
+"Bundle 'groenewege/vim-less'
 
 "python
 "Bundle 'sunsol/vim_python_fold_compact'
@@ -180,6 +186,8 @@ Bundle 'dhcmrlchtdj/sql_iabbr.vim'
 "nginx
 Bundle 'evanmiller/nginx-vim-syntax'
 
+Bundle 'chaquotay/ftl-vim-syntax'
+
 "colorscheme
 Bundle 'altercation/vim-colors-solarized'
 "Bundle 'chriskempson/base16-vim'
@@ -189,7 +197,7 @@ filetype plugin indent on "载入文件类型 插件 缩进
 syntax enable "语法加亮
 au FileType htmldjango set ft=html
 au BufRead,BufNewFile *.json set ft=json
-au BufRead,BufNewFile *.ftl set ft=html
+au BufRead,BufNewFile *.ftl set ft=ftl
 "set background=dark "深色背景
 set background=light "浅色背景
 
@@ -203,8 +211,8 @@ colorscheme solarized
 let g:vundle_default_git_proto="git"
 
 "supertab
-"let g:SuperTabDefaultCompletionType="context"
-let g:SuperTabDefaultCompletionType="<c-x><c-o>"
+let g:SuperTabDefaultCompletionType="context"
+"let g:SuperTabDefaultCompletionType="<c-x><c-o>"
 
 "powerline
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
@@ -276,14 +284,22 @@ autocmd FileType c,cpp nmap <Leader>a :A<CR>
 nmap <silent> <F5> :GundoToggle<CR>
 
 "javascript-libraries-syntax.vim
-let g:used_javascript_libs = 'jquery'
+let g:used_javascript_libs = 'jquery,requirejs'
+
+"ctrlp
+let g:ctrlp_extensions = ['funky']
+let g:ctrlp_funky_syntax_highlight = 1
+nnoremap <Leader>pp :CtrlP<CR>
+"nnoremap <Leader>pp :CtrlPMixed<CR>
+nnoremap <Leader>fu :CtrlPFunky<CR>
+nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<CR>
 
 
 """ 模板
 autocmd BufNewFile *.py 0r ~/.vim/templates/skeleton.py
-"autocmd BufNewFile *.html 0r ~/.vim/templates/html
-"autocmd BufNewFile *.h 0r ~/.vim/templates/h
+autocmd BufNewFile *.html 0r ~/.vim/templates/skeleton.html
 autocmd BufNewFile *.js 0r ~/.vim/templates/skeleton.js
+"autocmd BufNewFile *.h 0r ~/.vim/templates/h
 "autocmd BufNewFile *.user.js 0r ~/.vim/templates/userjs
 "autocmd BufNewFile *.sh 0r ~/.vim/templates/sh
 "autocmd BufNewFile *.md 0r ~/.vim/templates/markdown
