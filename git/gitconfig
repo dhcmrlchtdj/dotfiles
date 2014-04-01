@@ -26,4 +26,9 @@
 	sm = submodule
     mt = mergetool
 [merge]
-	tool = vimdiff2
+	tool = vimdiff
+[mergetool]
+	keepBackup = false
+	prompt = false
+[branch]
+	autosetuprebase = always
