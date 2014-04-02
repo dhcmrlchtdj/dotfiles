@@ -22,13 +22,11 @@ set novisualbell "禁止出错屏幕闪烁
 set ttyfast
 
 set mouse=a "鼠标支持
-set clipboard=unnamed,unnamedplus,autoselect "剪贴板
-"set virtualedit=all "虚空间
+set clipboard=unnamed,unnamedplus,autoselect,autoselectplus "剪贴板
 set virtualedit=block "虚空间
 set backspace=indent,eol,start "insert模式下删除键可删除
 set showmatch "输入括号时显示匹配括号
 set completeopt=menu "补全窗口的样式
-"set completeopt=longest,menuone "补全窗口的样式
 set autochdir "进入文件目录
 set conceallevel=2
 set concealcursor=i
@@ -36,7 +34,6 @@ set cryptmethod=blowfish
 
 """ 备份 撤销
 set hidden "自动保存?
-"set directory=~/.vim/swap "交换文件
 set undofile "开启撤销历史
 set undodir=~/.vim/undo "存放地址
 set backup "覆盖文件时备份
@@ -55,10 +52,9 @@ set ambiwidth=single "宽度不明字符使用单倍字符宽度
 
 """ 行号 命令行 状态行
 set number "显示行号
-"set wrap "自动换行
 set nowrap "不自动换行
 set textwidth=0 "行宽
-set colorcolumn=80 "行宽提示
+"set colorcolumn=80 "行宽提示
 set cursorline "高亮当前行
 
 set cmdheight=1 "命令行行数
@@ -93,13 +89,9 @@ set shiftwidth=4 "空格缩进时宽度
 set shiftround
 set smarttab "智能缩进
 set smartindent "智能选择缩进方式
-"set autoindent "继承前一行缩进方式
 set cindent
 set list "显示特殊字符
 set listchars=tab:»\ ,eol:\ ,trail:·, "字符样式·¯
-"autocmd FileType python,markdown set et
-"autocmd FileType python set nosi
-"autocmd FileType css set ts=2 | set sts=2 | set sw=2
 
 """ 折叠
 set foldmethod=indent "折叠方式
@@ -213,6 +205,7 @@ let g:vundle_default_git_proto="git"
 "supertab
 let g:SuperTabDefaultCompletionType="context"
 "let g:SuperTabDefaultCompletionType="<c-x><c-o>"
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 
 "powerline
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
@@ -247,15 +240,17 @@ let g:NERDTreeChDirMode=2
 nmap <silent> <F3> :NERDTreeFind<CR>
 
 "syntastic
-let g:syntastic_check_on_open=1
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-"let g:syntastic_python_flake8_args='--ignore=W391,E261,E301,E302,E303,E501,E701'
-"let g:syntastic_html_tidy_ignore_errors=[
-            "\'proprietary attribute',
-            "\'trimming empty',
-            "\'malformed URI',
-            "\]
+let g:syntastic_check_on_open = 1
+let g:syntastic_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_flake8_args = '--ignore=W391,E261,E301,E302,E303,E501,E701'
+let g:syntastic_csslint_options = "--ignore=unique-headings,qualified-headings,ids,regex-selectors"
+let g:syntastic_html_tidy_ignore_errors = [
+            \'proprietary attribute',
+            \'trimming empty',
+            \'malformed URI',
+            \]
 
 "tagbar
 nmap <silent> <F4> :TagbarOpen fj<CR>
@@ -296,16 +291,10 @@ nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<CR>
 
 
 """ 模板
-autocmd BufNewFile *.py 0r ~/.vim/templates/skeleton.py
 autocmd BufNewFile *.html 0r ~/.vim/templates/skeleton.html
 autocmd BufNewFile *.js 0r ~/.vim/templates/skeleton.js
-"autocmd BufNewFile *.h 0r ~/.vim/templates/h
-"autocmd BufNewFile *.user.js 0r ~/.vim/templates/userjs
-"autocmd BufNewFile *.sh 0r ~/.vim/templates/sh
-"autocmd BufNewFile *.md 0r ~/.vim/templates/markdown
-"autocmd BufNewFile .gitignore 0r ~/.vim/templates/gitignore
-"autocmd BufNewFile *.css 0r ~/.vim/templates/css
-"autocmd BufNewFile *.cpp 0r ~/.vim/templates/cpp
+autocmd BufNewFile *.py 0r ~/.vim/templates/skeleton.py
+
 
 """ 其他
 " 调整文件
@@ -345,6 +334,3 @@ function! ReStructureFile()
 
     call cursor(l, c)
 endfunction
-
-" 退出输入模式时关闭fcitx
-autocmd InsertLeave * let b:fcitx=system('fcitx-remote -c')
