@@ -1,4 +1,5 @@
-# comment grmlzshrc 1613-2187
+# wget -O .zshrc_grml http://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
+# comment grmlzshrc 1611-2185
 source ~/.zshrc_grml
 PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 PROMPT="[%F{blue}%n%f@%F{cyan}%m%f %F{red}%B%1~%b%f]%# "
