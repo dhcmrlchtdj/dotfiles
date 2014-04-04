@@ -15,7 +15,7 @@
 	br = branch -vv
 	co = checkout
 	ad = add -A .
-	au = add -u
+	au = add -u :/
 	ci = commit -m
 	amend = commit --amend
 	df = diff --stat HEAD
