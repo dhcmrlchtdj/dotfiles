@@ -39,7 +39,6 @@ set undodir=~/.vim/undo "存放地址
 set backup "覆盖文件时备份
 set backupdir=~/.vim/backup "存放地址
 set diffopt+=filler,context:3,vertical
-set scrollbind "diff 时同步滚动
 
 """ 编码
 set encoding=utf-8 "vim内部使用的编码
@@ -55,7 +54,7 @@ set number "显示行号
 set nowrap "不自动换行
 set textwidth=0 "行宽
 "set colorcolumn=80 "行宽提示
-set cursorline "高亮当前行
+"set cursorline "高亮当前行
 
 set cmdheight=1 "命令行行数
 set showcmd "在命令行显示目前执行的指令
