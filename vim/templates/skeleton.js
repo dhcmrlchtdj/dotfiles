@@ -1,5 +1,7 @@
 (function() {
     "use strict";
-    var win = (0, eval)("this");
+    factory( window );
 
+    function factory(win) {
+    }
 })();
