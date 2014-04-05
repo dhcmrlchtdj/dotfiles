@@ -290,9 +290,14 @@ nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<CR>
 
 
 """ 模板
-autocmd BufNewFile *.html 0r ~/.vim/templates/skeleton.html
-autocmd BufNewFile *.js 0r ~/.vim/templates/skeleton.js
-autocmd BufNewFile *.py 0r ~/.vim/templates/skeleton.py
+augroup templates
+    let l = [ "gulpfile.js" ]
+    if index(l, "".expand("%")) >= 0
+        autocmd BufNewFile * silent! execute "0r ~/.vim/templates/skeleton.".expand("<afile>")
+    else
+        autocmd BufNewFile * silent! execute "0r ~/.vim/templates/skeleton.".expand("<afile>:e")
+    endif
+augroup END
 
 
 """ 其他
