@@ -12,13 +12,15 @@
 
 set nocompatible "不兼容vi
 set modelines=0 "忽略 打开的文件 里的vim参数
-set guifont=PowerlineSymbols:h14 "for macvim
+set autoread "macvim
+set guifont=Monaco:h14 "macvim
 
 set t_Co=256 "颜色数目
 set t_vb='' "禁止错误信息响铃及出错屏幕闪烁
 set noerrorbells "禁止错误信息响铃
 set novisualbell "禁止出错屏幕闪烁
 set ttyfast
+set display=lastline,uhex
 
 set mouse=a "鼠标支持
 set clipboard=unnamed,unnamedplus,autoselect,autoselectplus "剪贴板
@@ -26,7 +28,7 @@ set virtualedit=block "虚空间
 set backspace=indent,eol,start "insert模式下删除键可删除
 set showmatch "输入括号时显示匹配括号
 set completeopt=menu "补全窗口的样式
-set autochdir "进入文件目录
+"set autochdir "进入文件目录
 set conceallevel=2
 set concealcursor=i
 set cryptmethod=blowfish
@@ -52,8 +54,9 @@ set ambiwidth=single "宽度不明字符使用单倍字符宽度
 set number "显示行号
 set nowrap "不自动换行
 set textwidth=0 "行宽
-"set colorcolumn=80 "行宽提示
-"set cursorline "高亮当前行
+set colorcolumn=80 "行宽提示
+set cursorline "高亮当前行
+"set scrolljump=-50 "翻页
 
 set cmdheight=1 "命令行行数
 set showcmd "在命令行显示目前执行的指令
@@ -66,7 +69,6 @@ set noshowmode "隐藏信息
 set shortmess=atI "状态行信息
 "set statusline=%<%F\ %y\ (%{&ff})\ %h%m%r%w%=%-14.(%l,%c%)%p%% "状态行
 
-set display=lastline
 
 """ 搜索
 "清除高亮
@@ -89,7 +91,7 @@ set smarttab "智能缩进
 set smartindent "智能选择缩进方式
 set cindent
 set list "显示特殊字符
-set listchars=tab:»\ ,eol:\ ,trail:·, "字符样式·¯
+set listchars=tab:»\ ,eol:\ ,trail:·, "字符样式
 
 """ 折叠
 set foldmethod=indent "折叠方式
@@ -107,132 +109,147 @@ set splitright
 
 
 """ 插件
-filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-"common
-Plugin 'gmarik/vundle'
+set runtimepath+=~/.vim/bundle/neobundle.vim/
+call neobundle#rc(expand('~/.vim/bundle/'))
+NeoBundleFetch 'Shougo/neobundle.vim'
 
-Plugin 'ervandew/supertab'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'tmhedberg/matchit'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'Lokaltog/powerline'
-Plugin 'Shougo/neocomplete.vim'
-Plugin 'Shougo/neosnippet.vim'
-Plugin 'Shougo/neosnippet-snippets'
+" ui
+NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'bling/vim-airline'
 
-Plugin 'kien/ctrlp.vim'
-Plugin 'tacahiroy/ctrlp-funky'
-Plugin 'majutsushi/tagbar'
-Plugin 'jeetsukumaran/vim-buffergator'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'sjl/gundo.vim'
-Plugin 'nathanaelkane/vim-indent-guides'
+" git
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'airblade/vim-gitgutter'
 
-"c/c++
-Plugin 'a.vim'
-Plugin 'Rip-Rip/clang_complete'
+" navigator
+NeoBundle 'Shougo/vimproc', {
+            \'build' : {
+            \       'mac': 'make -f make_mac.mak',
+            \       'unix': 'make -f make_unix.mak',
+            \   },
+            \}
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/unite-outline'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'jeetsukumaran/vim-buffergator'
+NeoBundle 'majutsushi/tagbar'
 
-"html5
-"""syntax indent complete
-Plugin 'othree/html5.vim'
+" motion
+NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'tmhedberg/matchit'
 
-"javascript
-"""js indent
-Plugin 'pangloss/vim-javascript'
-Plugin 'othree/javascript-libraries-syntax.vim'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'maksimr/vim-jsbeautify'
+" undo
+NeoBundle 'sjl/gundo.vim'
+
+" comment
+NeoBundle 'scrooloose/nerdcommenter'
+
+" syntax check
+NeoBundle 'scrooloose/syntastic'
+
+" complete
+NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
+"NeoBundle 'drmingdrmer/xptemplate'
+
+" html5
+NeoBundle 'othree/html5.vim'
 
 "css
-Plugin 'hail2u/vim-css3-syntax'
+NeoBundle 'hail2u/vim-css3-syntax'
 
-"python
-Plugin 'tmhedberg/SimpylFold'
-Plugin 'indentpython.vim--nianyang'
-"Plugin 'davidhalter/jedi-vim'
+" javascript
+NeoBundle 'jelera/vim-javascript-syntax'
+NeoBundle 'maksimr/vim-jsbeautify'
+NeoBundle 'othree/javascript-libraries-syntax.vim'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'mattn/jscomplete-vim'
+NeoBundle 'hujo/jscomplete-html5API'
 
-"rst markdown pandoc
-Plugin 'RST-Tables-CJK'
-Plugin 'tpope/vim-markdown'
-Plugin 'Rykka/riv.vim'
-"Plugin 'vim-pandoc/vim-pandoc'
-"Plugin 'jceb/vim-orgmode'
+" python
+NeoBundle 'tmhedberg/SimpylFold'
+NeoBundle 'hynek/vim-python-pep8-indent'
+"NeoBundle 'davidhalter/jedi-vim'
 
+" c
+NeoBundle 'a.vim'
+
+" md | rst
+NeoBundle 'tpope/vim-markdown'
+NeoBundle 'Rykka/riv.vim'
+NeoBundle 'RST-Tables-CJK'
+
+" nginx
+NeoBundle 'evanmiller/nginx-vim-syntax'
+
+" colorscheme
+NeoBundle 'altercation/vim-colors-solarized'
+
+" ftl
+NeoBundle 'chaquotay/ftl-vim-syntax'
+
+"c/c++
+"NeoBundle 'Rip-Rip/clang_complete'
 "sql
-Plugin 'sql.vim--Stinson'
-Plugin 'dhcmrlchtdj/sql_iabbr.vim'
+"NeoBundle 'sql.vim--Stinson'
+"NeoBundle 'dhcmrlchtdj/sql_iabbr.vim'
 
-"nginx
-Plugin 'evanmiller/nginx-vim-syntax'
 
-Plugin 'chaquotay/ftl-vim-syntax'
 
-"colorscheme
-Plugin 'altercation/vim-colors-solarized'
-"Plugin 'chriskempson/base16-vim'
-
-""" 载入插件 高亮
+""" 插件设置
 filetype plugin indent on "载入文件类型 插件 缩进
 syntax enable "语法加亮
 au FileType htmldjango set ft=html
 au BufRead,BufNewFile *.json set ft=json
 au BufRead,BufNewFile *.ftl set ft=ftl
+
 "set background=dark "深色背景
 set background=light "浅色背景
-
-let g:solarized_termcolors=256
-let g:solarized_visibility="low"
-let g:solarized_termtrans=1
+let g:solarized_termcolors = 256
+let g:solarized_visibility = 'low'
+let g:solarized_termtrans = 1
 colorscheme solarized
+highlight SignColumn ctermfg=240 ctermbg=187 guifg=DarkBlue guibg=Grey
 
-""" 插件设置
-"vundle
-let g:vundle_default_git_proto="git"
+" indent guide
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'unite']
+let g:indent_guides_default_mapping = 0
 
-"supertab
-let g:SuperTabDefaultCompletionType="context"
-"let g:SuperTabDefaultCompletionType="<c-x><c-o>"
-let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
-
-"powerline
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-
-"neocomplete
-let g:neocomplete#enable_at_startup=1
-let g:neocomplete#enable_smart_case=1
-"let g:neocomplete#sources#syntax#min_keyword_length=3
-"inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-"inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "\<Space>"
-
-"neosnippet.vim
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
-imap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "\<C-n>" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-"clang_complete
-let g:clang_complete_auto=0
-"let g:clang_snippets=1
-let g:clang_complete_macros=1
-
-"vim-buffergator
+" vim-buffergator
+let g:buffergator_split_size = 30
 nmap <silent> <F2> :BuffergatorOpen<CR>
-let g:buffergator_autodismiss_on_select=0
-let g:buffergator_split_size=30
 
-"nerd tree
-let g:NERDTreeCaseSensitiveSort=1
-let g:NERDTreeChDirMode=2
+" nerd tree
+let g:NERDTreeCaseSensitiveSort = 1
+let g:NERDTreeChDirMode = 2
 nmap <silent> <F3> :NERDTreeFind<CR>
 
-"syntastic
+"tagbar
+let g:tagbar_width = 35
+let g:tagbar_foldlevel = 1
+let g:tagbar_sort = 0
+nmap <silent> <F4> :TagbarOpen fj<CR>
+
+" gundo
+let g:gundo_preview_height = 10
+let g:gundo_help = 0
+let g:gundo_close_on_revert = 1
+nmap <silent> <F5> :silent GundoToggle<CR>
+
+" js beautify
+autocmd FileType javascript noremap <buffer> <Leader>ff :call JsBeautify()<CR>
+
+" a.vim
+autocmd FileType c,cpp nmap <Leader>a :A<CR>
+
+" syntastic
 let g:syntastic_check_on_open = 1
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_style_error_symbol = '✗'
+let g:syntastic_style_warning_symbol = '⚠'
 let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args = '--ignore=W391,E261,E301,E302,E303,E501,E701'
 let g:syntastic_csslint_options = "--ignore=unique-headings,qualified-headings,ids,regex-selectors"
@@ -242,51 +259,63 @@ let g:syntastic_html_tidy_ignore_errors = [
             \'malformed URI',
             \]
 
-"tagbar
-nmap <silent> <F4> :TagbarOpen fj<CR>
-let g:tagbar_width=35
-let g:tagbar_foldlevel=1
-let g:tagbar_sort=0
-
-"jscomplete
-"let g:jscomplete_use=['dom', 'es6th', 'moz']
-
-"jsbeautify
-autocmd FileType javascript noremap <buffer> <Leader>ff :call JsBeautify()<CR>
-
-"jedi-vim
-let g:jedi#popup_on_dot=0
-
-"indent guide
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
-let g:indent_guides_default_mapping = 0
-
-"a.vim
-autocmd FileType c,cpp nmap <Leader>a :A<CR>
-
-"gundo
-nmap <silent> <F5> :GundoToggle<CR>
-
-"javascript-libraries-syntax.vim
+" javascript-libraries-syntax.vim
 let g:used_javascript_libs = 'jquery,requirejs'
 
-"ctrlp
-let g:ctrlp_extensions = ['funky']
-let g:ctrlp_funky_syntax_highlight = 1
-nnoremap <Leader>pp :CtrlP<CR>
-"nnoremap <Leader>pp :CtrlPMixed<CR>
-nnoremap <Leader>fu :CtrlPFunky<CR>
-nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<CR>
+" jscomplete
+let g:jscomplete_use = ['dom', 'moz', 'es6th', 'html5API']
+
+" unite
+let g:unite_enable_start_insert = 1
+let g:unite_split_rule = 'botright'
+let g:unite_prompt = '» '
+let g:unite_winwidth = 35
+let g:unite_winheight = 10
+nmap <C-p> :Unite buffer file_rec/async<CR>
+nmap <leader>p :Unite -vertical outline<CR>
+
+" neocomplete
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+inoremap <expr><TAB> pumvisible() ? "<C-n>" : "<TAB>"
+"inoremap <expr><Space> pumvisible() ? neocomplete#close_popup() : "<Space>"
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+
+" airline
+let g:airline_theme="powerlineish"
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_symbols = { 'linenr': '␊', 'paste': 'ρ', 'branch': '⎇', 'whitespace': 'Ξ'}
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
+
+" git gutter
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '~'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_modified_removed = '!'
+highlight link GitGutterAdd SignColumn
+highlight link GitGutterChange SignColumn
+highlight link GitGutterDelete SignColumn
+highlight link GitGutterChangeDelete SignColumn
+
+"clang_complete
+"let g:clang_complete_auto=0
+""let g:clang_snippets=1
+"let g:clang_complete_macros=1
+
+"jedi-vim
+"let g:jedi#popup_on_dot=0
 
 
 """ 模板
 augroup templates
-    let l = [ "gulpfile.js" ]
-    if index(l, "".expand("%")) >= 0
-        autocmd BufNewFile * silent! execute "0r ~/.vim/templates/skeleton.".expand("<afile>")
+    let l = [ 'gulpfile.js' ]
+    if index(l, expand('%')) >= 0
+        autocmd BufNewFile * silent! execute '0r ~/.vim/templates/skeleton.'.expand('<afile>')
     else
-        autocmd BufNewFile * silent! execute "0r ~/.vim/templates/skeleton.".expand("<afile>:e")
+        autocmd BufNewFile * silent! execute '0r ~/.vim/templates/skeleton.'.expand('<afile>:e')
     endif
 augroup END
 
@@ -295,8 +324,8 @@ augroup END
 " 调整文件
 nmap <silent> <F6> :call ReStructureFile()<CR>
 function! ReStructureFile()
-    let l = line(".")
-    let c = col(".")
+    let l = line('.')
+    let c = col('.')
 
     " 调整缩进
     if (&ft !~ 'python\|markdown\|text')
