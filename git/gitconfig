@@ -10,6 +10,8 @@
 	ui = true
 [push]
 	default = simple
+[branch]
+	autosetuprebase = always
 [alias]
 	st = status -bsu
 	br = branch -vv
@@ -25,10 +27,13 @@
 	rc = rm --cached -rf .
 	sm = submodule
     mt = mergetool
+    dt = difftool
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
 [merge]
 	tool = vimdiff
 [mergetool]
 	keepBackup = false
 	prompt = false
-[branch]
-	autosetuprebase = always
