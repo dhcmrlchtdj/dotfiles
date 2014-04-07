@@ -1,4 +1,4 @@
-ALL := vim git aria2 pip zsh htop
+ALL := vim git aria2 pip htop zsh
 .PHONY: usage install $(ALL)
 
 usage:
@@ -26,10 +26,10 @@ pip:
 	ln -s `pwd`/pip ~/.pip
 
 zsh:
-	rm -rf ~/.zshrc ~/.zshrc_grml
+	rm -rf ~/.zshrc ~/.zshrc_grml ~/.zshrc_prompt
 	wget -O `pwd`/zsh/zshrc_grml http://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
-	gsed -i "1611,2185s/^/#/" zsh/zshrc_grml
 	ln -s `pwd`/zsh/zshrc_grml ~/.zshrc_grml
+	ln -s `pwd`/zsh/zshrc_prompt ~/.zshrc_prompt
 	ln -s `pwd`/zsh/zshrc ~/.zshrc
 
 htop:

@@ -1,19 +1,9 @@
-# wget -O .zshrc_grml http://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
-# comment grmlzshrc 1611-2185
 source ~/.zshrc_grml
-PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-PROMPT="[%F{blue}%n%f@%F{cyan}%m%f %F{red}%B%1~%b%f]%# "
-precmd() {
-    ret=$?;
-    if [[ $ret != 0 ]]; then
-        RPROMPT="[%F{red}%B$ret%b%f][%F{red}%B%~%b%f]";
-    else
-        RPROMPT="[%F{red}%B%~%b%f]";
-    fi
-}
+source ~/.zshrc_prompt
 
+fpath=(/usr/local/share/zsh-completions $fpath)
+PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 export EDITOR="vim"
-export LESS="-RXFM"
 VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python3"
 source virtualenvwrapper_lazy.sh
 
@@ -37,8 +27,6 @@ alias py2="python2"
 alias ujs="uglifyjs -m -c unsafe=true"
 alias sss="python3 -m http.server"
 alias ca="7z a -tzip"
-#alias qemu="qemu-system-x86_64 -enable-kvm -vga vmware -net nic,model=virtio -net user -m 256"
-#alias xp="qemu-system-i386 -enable-kvm -net nic,model=rtl8139 -net user -m 256"
 alias upgrade="brew outdated && brew upgrade"
 
 alias nginx_start="sudo nginx"

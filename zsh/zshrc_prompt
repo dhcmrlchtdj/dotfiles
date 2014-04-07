@@ -1,0 +1,35 @@
+# thanks to https://github.com/sindresorhus/pure
+
+prompt off
+setopt prompt_subst
+
+zstyle ":vcs_info:*" enable git
+zstyle ":vcs_info:git*" formats "%b"
+zstyle ":vcs_info:git*" actionformats "%b|%a"
+
+prompt_pure_git_dirty() {
+    command git rev-parse --is-inside-work-tree &>/dev/null || return
+    command git diff --quiet --ignore-submodules HEAD &>/dev/null
+    (($? == 1)) && echo '*'
+}
+
+precmd() {
+    return_code=$?
+
+    vcs_info
+
+    _before=""
+    _after=""
+
+    _before+="%F{blue}%n%f@%F{cyan}%m%f "
+    _before+="%F{red}%~%f "
+    [[ $vcs_info_msg_0_ != "" ]] && _before+="%F{green}$vcs_info_msg_0_%f$(prompt_pure_git_dirty) "
+    [[ $return_code != "0" ]] && _before+="[%F{red}%B$return_code%b%f]"
+    #_before+="$(date '+%Y-%m-%d %T') "
+    #_after+="%F{cyan}%n%f@%F{blue}%m%f "
+    #_after+="%F{red}%B%1~%b%f "
+    _after+="%F{magenta}❯%f "
+
+    print
+    PROMPT=$'$_before\n$_after'
+}
