@@ -1,10 +1,14 @@
-ALL := vim git aria2 pip htop zsh
+ALL := vim git aria2 pip htop jshint zsh
 .PHONY: usage install $(ALL)
 
 usage:
 	@echo "Usage:\n$$ make install"
 
 install: $(ALL)
+
+jshint:
+	rm -rf ~/.jshintrc
+	ln -s `pwd`/jshint/jshintrc ~/.jshintrc
 
 vim:
 	rm -rf ~/.vim ~/.vimrc
