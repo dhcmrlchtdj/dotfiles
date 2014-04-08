@@ -1,39 +1,41 @@
 [user]
-	name = niris
-	email = nirisix@gmail.com
+    name = niris
+    email = nirisix@gmail.com
 [core]
-	editor = vim
-	quotepath = false
-	autocrlf = input
-	whitespace = space-before-tab,trailing-space
+    editor = vim
+    quotepath = false
+    autocrlf = input
+    whitespace = space-before-tab,trailing-space
 [color]
-	ui = true
+    ui = true
 [push]
-	default = simple
+    default = simple
 [branch]
-	autosetuprebase = always
+    autosetuprebase = always
 [alias]
-	st = status -bsu
-	br = branch -vv
-	co = checkout
-	ad = add -A .
-	au = add -u :/
-	ci = commit -m
-	amend = commit --amend
-	df = diff --stat HEAD
-	dff = diff HEAD
-	l = log --graph --decorate --date=short --format=format:'%C(yellow)%h%Creset <%C(blue)%an%Creset@%C(cyan)%ad%Creset>%C(green)%d%Creset   %s'
-	ll = log --graph --decorate --oneline -10
-	rc = rm --cached -rf .
-	sm = submodule
+    st = status -bsu
+    br = branch -vv
+    bra = branch -vva
+    co = checkout
+    ad = add -A .
+    au = add -u :/
+    ci = commit -m
+    amend = commit --amend
+    df = diff --stat HEAD
+    dff = diff HEAD
+    l = log --graph --decorate --date=short --format=format:'%C(yellow)%h%Creset <%C(blue)%an%Creset@%C(cyan)%ad%Creset>%C(green)%d%Creset   %s'
+    ll = log --graph --decorate --oneline -10
+    rc = rm --cached -rf .
+    sm = submodule
     mt = mergetool
     dt = difftool
+    fp = fetch upstream -p
 [diff]
-	tool = vimdiff
+    tool = vimdiff
 [difftool]
-	prompt = false
+    prompt = false
 [merge]
-	tool = vimdiff
+    tool = vimdiff
 [mergetool]
-	keepBackup = false
-	prompt = false
+    keepBackup = false
+    prompt = false
