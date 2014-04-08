@@ -14,17 +14,15 @@ prompt_pure_git_dirty() {
 }
 
 precmd() {
-    return_code=$?
-
-    vcs_info
-
     _before=""
     _after=""
 
     _before+="%F{blue}%n%f@%F{cyan}%m%f "
-    _before+="%F{red}%~%f "
+    _before+="%(?,,[%F{red}%B%?%b%f] )"
+    vcs_info
     [[ $vcs_info_msg_0_ != "" ]] && _before+="%F{green}$vcs_info_msg_0_%f$(prompt_pure_git_dirty) "
-    [[ $return_code != "0" ]] && _before+="[%F{red}%B$return_code%b%f]"
+    _before+="%F{red}%~%f "
+    _before+="%(1j,[%j running] ,)"
     #_before+="$(date '+%Y-%m-%d %T') "
     #_after+="%F{cyan}%n%f@%F{blue}%m%f "
     #_after+="%F{red}%B%1~%b%f "
