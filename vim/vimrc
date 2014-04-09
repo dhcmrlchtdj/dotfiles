@@ -224,7 +224,7 @@ nmap <silent> <F2> :BuffergatorOpen<CR>
 " nerd tree
 let g:NERDTreeCaseSensitiveSort = 1
 let g:NERDTreeChDirMode = 2
-nmap <silent> <F3> :NERDTreeFind<CR>
+nmap <silent> <F3> :silent! NERDTreeFind<CR>
 
 "tagbar
 let g:tagbar_width = 35
@@ -236,7 +236,7 @@ nmap <silent> <F4> :TagbarOpen fj<CR>
 let g:gundo_preview_height = 10
 let g:gundo_help = 0
 let g:gundo_close_on_revert = 1
-nmap <silent> <F5> :silent GundoToggle<CR>
+nmap <silent> <F5> :silent! GundoToggle<CR>
 
 " js beautify
 autocmd FileType javascript noremap <buffer> <Leader>ff :call JsBeautify()<CR>
@@ -251,7 +251,7 @@ let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_style_error_symbol = '✗'
 let g:syntastic_style_warning_symbol = '⚠'
 let g:syntastic_python_flake8_args = '--ignore=W391,E261,E301,E302,E303,E501,E701'
-let g:syntastic_csslint_options = "--ignore=unique-headings,qualified-headings,ids,regex-selectors"
+let g:syntastic_csslint_options = "--ignore=unique-headings,qualified-headings,ids,regex-selectors,box-sizing"
 let g:syntastic_html_tidy_ignore_errors = [
             \'proprietary attribute',
             \'trimming empty',
