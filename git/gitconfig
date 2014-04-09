@@ -29,7 +29,7 @@
     sm = submodule
     mt = mergetool
     dt = difftool
-    fp = fetch upstream -p
+    fp = fetch -p upstream
 [diff]
     tool = vimdiff
 [difftool]
