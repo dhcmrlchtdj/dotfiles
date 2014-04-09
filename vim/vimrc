@@ -240,6 +240,11 @@ nmap <silent> <F5> :silent! GundoToggle<CR>
 
 " js beautify
 autocmd FileType javascript noremap <buffer> <Leader>ff :call JsBeautify()<CR>
+autocmd FileType javascript vnoremap <buffer> <Leader>ff :call RangeJsBeautify()<CR>
+autocmd FileType html noremap <buffer> <Leader>ff :call HtmlBeautify()<CR>
+autocmd FileType html vnoremap <buffer> <Leader>ff :call RangeHtmlBeautify()<CR>
+autocmd FileType css noremap <buffer> <Leader>ff :call CSSBeautify()<CR>
+autocmd FileType css vnoremap <buffer> <Leader>ff :call RangeCSSBeautify()<CR>
 
 " a.vim
 autocmd FileType c,cpp nmap <Leader>a :A<CR>
