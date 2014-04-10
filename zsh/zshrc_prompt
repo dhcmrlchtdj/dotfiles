@@ -19,6 +19,7 @@ precmd() {
 
     _before+="%F{blue}%n%f@%F{cyan}%m%f "
     _before+="%(?,,[%F{red}%B%?%b%f] )"
+    [[ $VIRTUAL_ENV != "" ]] && _before+="[$(basename $VIRTUAL_ENV)] "
     vcs_info
     [[ $vcs_info_msg_0_ != "" ]] && _before+="%F{green}$vcs_info_msg_0_%f$(prompt_pure_git_dirty) "
     _before+="%F{red}%~%f "
