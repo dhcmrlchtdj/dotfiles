@@ -14,6 +14,7 @@ vim:
 	rm -rf ~/.vim ~/.vimrc
 	ln -s `pwd`/vim ~/.vim
 	ln -s ~/.vim/vimrc ~/.vimrc
+	git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 
 git:
 	rm -f ~/.gitconfig
@@ -23,7 +24,7 @@ aria2:
 	rm -rf ~/.aria2
 	mkdir ~/.aria2
 	touch ~/.aria2/aria2.session
-	gsed "s@~@${HOME}@" `pwd`/aria2/aria2.conf > ~/.aria2/aria2.conf
+	sed "s@~@${HOME}@" `pwd`/aria2/aria2.conf > ~/.aria2/aria2.conf
 
 pip:
 	rm -rf ~/.pip
