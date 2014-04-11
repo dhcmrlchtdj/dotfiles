@@ -100,7 +100,7 @@ set foldlevel=20 "打开小于20层的折叠
 set foldcolumn=1
 " 选定后用空格创建折叠 用于marker
 vmap <silent> <Space> zf
-au FileType c,cpp,css,javascript set fdm=marker | set fmr={,}
+au FileType c,cpp,css,javascript setl fdm=marker | setl fmr={,}
 "au FileType c,cpp set fdm=syntax
 
 """
@@ -160,7 +160,7 @@ NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'maksimr/vim-jsbeautify'
 NeoBundle 'othree/javascript-libraries-syntax.vim'
 NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'mattn/jscomplete-vim'
+NeoBundle 'https://bitbucket.org/teramako/jscomplete-vim.git'
 NeoBundle 'hujo/jscomplete-html5API'
 
 " python
@@ -263,6 +263,7 @@ let g:syntastic_html_tidy_ignore_errors = [
 let g:used_javascript_libs = 'jquery,requirejs'
 
 " jscomplete
+autocmd FileType javascript setl omnifunc=jscomplete#CompleteJS
 let g:jscomplete_use = ['dom', 'moz', 'es6th', 'html5API']
 
 " unite
@@ -289,7 +290,7 @@ imap <C-k> <Plug>(neosnippet_expand_or_jump)
 let g:airline_theme="powerlineish"
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
-let g:airline_symbols = { 'linenr': '␊', 'paste': 'ρ', 'branch': '⎇', 'whitespace': 'Ξ'}
+let g:airline_symbols = { 'linenr': '¶', 'paste': 'ρ', 'branch': '⎇', 'whitespace': 'Ξ'}
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 
