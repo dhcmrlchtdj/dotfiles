@@ -11,7 +11,7 @@ source virtualenvwrapper_lazy.sh
 alias cp="cp -r"
 alias rm="rm -rvf"
 alias la="ls -A"
-alias ll="ls -lhAT"
+alias ll="ls -lhA"
 alias ls="ls -vF"
 alias du="du -h"
 alias df="df -h"

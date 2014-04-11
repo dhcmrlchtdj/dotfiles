@@ -29,6 +29,5 @@ precmd() {
     #_after+="%F{red}%B%1~%b%f "
     _after+="%F{magenta}❯%f "
 
-    print
     PROMPT=$'$_before\n$_after'
 }
