@@ -1,8 +1,9 @@
 source ~/.zshrc_grml
 source ~/.zshrc_prompt
 
-fpath=(/usr/local/share/zsh-completions $fpath)
 PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+fpath=(/usr/local/share/zsh-completions $fpath)
+
 export EDITOR="vim"
 VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python3"
 source virtualenvwrapper_lazy.sh
@@ -17,8 +18,6 @@ alias du="du -h"
 alias df="df -h"
 
 # 工具
-#alias cm="convmv -f cp936 -t utf8 --notest -r"
-#alias r="R --silent --no-save"
 alias j="jobs -dl"
 alias h="htop"
 alias f="find . -name"
@@ -35,6 +34,3 @@ alias nginx_stop="sudo nginx -s stop"
 alias _start_nginx="sudo nginx"
 alias _start_postgresql="postgres -D /usr/local/var/postgres"
 alias _start_redis="redis-server /usr/local/etc/redis.conf"
-
-# 代理
-#alias goagent="python2 ~/library/wall/goagent/local/proxy.py"

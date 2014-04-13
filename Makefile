@@ -1,3 +1,4 @@
+OS := $(shell uname | tr A-Z a-z)
 ALL := vim git aria2 pip htop jshint zsh
 .PHONY: usage install $(ALL)
 
@@ -14,7 +15,7 @@ vim:
 	rm -rf ~/.vim ~/.vimrc
 	ln -s `pwd`/vim ~/.vim
 	ln -s ~/.vim/vimrc ~/.vimrc
-	git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+	-git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
 
 git:
 	rm -f ~/.gitconfig
@@ -32,10 +33,10 @@ pip:
 
 zsh:
 	rm -rf ~/.zshrc ~/.zshrc_grml ~/.zshrc_prompt
-	wget -O `pwd`/zsh/zshrc_grml http://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
+	#wget -O `pwd`/zsh/zshrc_grml http://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
 	ln -s `pwd`/zsh/zshrc_grml ~/.zshrc_grml
 	ln -s `pwd`/zsh/zshrc_prompt ~/.zshrc_prompt
-	ln -s `pwd`/zsh/zshrc ~/.zshrc
+	ln -s `pwd`/zsh/zshrc_$(OS) ~/.zshrc
 
 htop:
 	rm -rf ~/.htoprc
