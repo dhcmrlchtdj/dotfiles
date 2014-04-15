@@ -27,6 +27,7 @@ precmd() {
     #_before+="$(date '+%Y-%m-%d %T') "
     #_after+="%F{cyan}%n%f@%F{blue}%m%f "
     #_after+="%F{red}%B%1~%b%f "
+    #_after+="%F{magenta}%#%f "
     _after+="%F{magenta}❯%f "
 
     PROMPT=$'$_before\n$_after'
