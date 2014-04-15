@@ -166,7 +166,7 @@ NeoBundle 'hujo/jscomplete-html5API'
 " python
 NeoBundle 'tmhedberg/SimpylFold'
 NeoBundle 'hynek/vim-python-pep8-indent'
-"NeoBundle 'davidhalter/jedi-vim'
+NeoBundle 'davidhalter/jedi-vim'
 
 " c
 NeoBundle 'a.vim'
@@ -309,8 +309,12 @@ highlight link GitGutterChangeDelete SignColumn
 ""let g:clang_snippets=1
 "let g:clang_complete_macros=1
 
-"jedi-vim
-"let g:jedi#popup_on_dot=0
+" jedi-vim
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#popup_on_dot = 0
+let g:jedi#popup_select_first = 0
+let g:jedi#force_py_version = 3
+
 
 
 """ 模板
