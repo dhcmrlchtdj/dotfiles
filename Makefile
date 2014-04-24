@@ -1,12 +1,17 @@
 OS := $(shell uname | tr A-Z a-z)
-ALL := vim git aria2 pip htop jshint zsh ssh
+ALL := vim git aria2 pip htop jshint zsh ssh sqlite
 .PHONY: usage install $(ALL)
 
 usage:
-	@echo "Usage:\n$$ make install"
+	@echo -e "Usage:\n$$ make install"
 
 
 install: $(ALL)
+
+
+sqlite:
+	rm -rf ~/.sqliterc
+	ln -s `pwd`/.sqliterc ~/.sqliterc
 
 
 ssh:
