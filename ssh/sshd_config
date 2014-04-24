@@ -1,0 +1,17 @@
+Port 22
+Banner /etc/issue
+
+AllowUsers USERNAME
+PermitRootLogin no
+PermitEmptyPasswords no
+
+StrictModes yes
+RSAAuthentication yes
+PubkeyAuthentication yes
+AuthorizedKeysFile .ssh/authorized_keys
+PasswordAuthentication yes
+
+ClientAliveInterval 60
+ClientAliveCountMax 3
+
+IgnoreRhosts yes
