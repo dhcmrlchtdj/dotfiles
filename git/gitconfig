@@ -30,7 +30,8 @@
     mt = mergetool
     dt = difftool
     pp = pull -p
-    fp = fetch -p upstream
+    up = fetch -p upstream
+    ur = rebase upstream/master
 [diff]
     tool = vimdiff
 [difftool]
