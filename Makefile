@@ -11,7 +11,7 @@ install: $(ALL)
 
 sqlite:
 	rm -rf ~/.sqliterc
-	ln -s `pwd`/.sqliterc ~/.sqliterc
+	ln -s `pwd`/sqlite/sqliterc ~/.sqliterc
 
 
 ssh:
