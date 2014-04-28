@@ -35,6 +35,7 @@ alias py="python"
 alias py2="python2"
 alias ujs="uglifyjs -m -c unsafe=true"
 alias sss="python3 -m http.server"
+alias ssh="ssh -2"
 
 alias zip="7z a -tzip"
 alias qemu="qemu-system-x86_64 -enable-kvm -vga vmware -net nic,model=virtio -net user -m 256"
