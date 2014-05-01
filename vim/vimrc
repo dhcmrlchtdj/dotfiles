@@ -170,6 +170,7 @@ NeoBundle 'davidhalter/jedi-vim'
 
 " c
 NeoBundle 'a.vim'
+NeoBundle 'Rip-Rip/clang_complete'
 
 " md | rst
 NeoBundle 'tpope/vim-markdown'
@@ -185,8 +186,6 @@ NeoBundle 'altercation/vim-colors-solarized'
 " ftl
 NeoBundle 'chaquotay/ftl-vim-syntax'
 
-"c/c++
-"NeoBundle 'Rip-Rip/clang_complete'
 "sql
 "NeoBundle 'sql.vim--Stinson'
 "NeoBundle 'dhcmrlchtdj/sql_iabbr.vim'
@@ -280,11 +279,17 @@ nmap <S-p> :Unite grep:.<CR>
 nmap <leader>p :Unite outline<CR>
 
 " neocomplete
+let g:neocomplete#force_overwrite_completefunc = 1
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 inoremap <expr><TAB> pumvisible() ? "<C-n>" : "<TAB>"
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
+" Enable heavy omni completion.
+if !exists('g:neocomplete#force_omni_input_patterns')
+    let g:neocomplete#force_omni_input_patterns = {}
+endif
+let g:neocomplete#force_omni_input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)\w*'
 
 " airline
 let g:airline_theme="powerlineish"
@@ -304,10 +309,11 @@ highlight link GitGutterChange SignColumn
 highlight link GitGutterDelete SignColumn
 highlight link GitGutterChangeDelete SignColumn
 
-"clang_complete
-"let g:clang_complete_auto=0
-""let g:clang_snippets=1
-"let g:clang_complete_macros=1
+" clang_complete
+let g:clang_complete_auto=0
+let g:clang_complete_macros=1
+"let g:clang_auto_select = 1
+"let g:clang_hl_errors=0
 
 " jedi-vim
 let g:jedi#auto_vim_configuration = 0
