@@ -55,9 +55,6 @@ small () {
                 mv $i $i.bak;
                 jpegtran -copy none -optimize -perfect $i.bak > $i;
                 ;;
-            *.png)
-                optipng -keep -strip all -quiet $i;
-                ;;
         esac
     done
 }
