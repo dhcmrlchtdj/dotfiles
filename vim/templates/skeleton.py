@@ -1,10 +1,17 @@
 #!/usr/bin/env python3
 
-import sys
+import argparse
+
+
 
 
 def main():
-    print("Usage: {} [arguments]".format(sys.argv[0]))
+    ARGS = argparse.ArgumentParser()
+    ARGS.add_argument("skeleton")
+    args = ARGS.parse_args()
 
-if __name__ == '__main__':
+
+
+
+if __name__ == "__main__":
     main()
