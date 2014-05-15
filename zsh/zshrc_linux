@@ -10,7 +10,7 @@ source virtualenvwrapper_lazy.sh
 
 ## alias
 alias cp="cp -r"
-alias rm="rm -rvf"
+alias rm="rm -rvfi"
 alias tree="tree --dirsfirst"
 alias la="ls -A"
 alias ll="ls -lAh --time-style=long-iso"
