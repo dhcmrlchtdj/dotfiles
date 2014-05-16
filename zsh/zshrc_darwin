@@ -35,3 +35,9 @@ alias nginx_stop="sudo nginx -s stop"
 alias _start_nginx="sudo nginx"
 alias _start_postgresql="postgres -D /usr/local/var/postgres"
 alias _start_redis="redis-server /usr/local/etc/redis.conf"
+
+_zip () {
+    for i in "$@"; do
+        7z a -tzip $i.zip $i;
+    done
+}

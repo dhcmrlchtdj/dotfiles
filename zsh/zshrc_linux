@@ -10,7 +10,8 @@ source virtualenvwrapper_lazy.sh
 
 ## alias
 alias cp="cp -r"
-alias rm="rm -rvfi"
+#alias rm="rm -rvfi"
+alias rm="trash"
 alias tree="tree --dirsfirst"
 alias la="ls -A"
 alias ll="ls -lAh --time-style=long-iso"
@@ -56,6 +57,12 @@ small () {
                 jpegtran -copy none -optimize -perfect $i.bak > $i;
                 ;;
         esac
+    done
+}
+
+_zip () {
+    for i in "$@"; do
+        7z a -tzip $i.zip $i;
     done
 }
 
