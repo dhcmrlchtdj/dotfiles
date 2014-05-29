@@ -38,7 +38,7 @@ alias ujs="uglifyjs -m -c unsafe=true"
 alias sss="python3 -m http.server"
 alias ssh="ssh -2"
 
-alias zip="7z a -tzip"
+#alias zip="7z a -tzip"
 alias qemu="qemu-system-x86_64 -enable-kvm -vga vmware -net nic,model=virtio -net user -m 256"
 #alias xp="qemu-system-i386 -enable-kvm -net nic,model=rtl8139 -net user -m 256"
 
@@ -60,7 +60,7 @@ small () {
     done
 }
 
-_zip () {
+zzz () {
     for i in "$@"; do
         7z a -tzip $i.zip $i;
     done

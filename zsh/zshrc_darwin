@@ -25,7 +25,7 @@ alias py="python3"
 alias py2="python2"
 alias ujs="uglifyjs -m -c unsafe=true"
 alias sss="python3 -m http.server"
-alias zip="7z a -tzip"
+#alias zip="7z a -tzip"
 alias ssh="ssh -2"
 alias upgrade="brew outdated && brew upgrade"
 
@@ -36,7 +36,7 @@ alias _start_nginx="sudo nginx"
 alias _start_postgresql="postgres -D /usr/local/var/postgres"
 alias _start_redis="redis-server /usr/local/etc/redis.conf"
 
-_zip () {
+_zzz () {
     for i in "$@"; do
         7z a -tzip $i.zip $i;
     done

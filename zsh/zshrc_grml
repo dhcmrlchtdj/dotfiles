@@ -536,7 +536,12 @@ export PAGER=${PAGER:-less}
 export MAIL=${MAIL:-/var/mail/$USER}
 
 # if we don't set $SHELL then aterm, rxvt,.. will use /bin/sh or /bin/bash :-/
-export SHELL='/bin/zsh'
+if [[ -z "$SHELL" ]] ; then
+  SHELL="$(which zsh)"
+  if [[ -x "$SHELL" ]] ; then
+    export SHELL
+  fi
+fi
 
 # color setup for ls:
 check_com -c dircolors && eval $(dircolors -b)
@@ -2754,11 +2759,6 @@ if check_com vim; then
         VIM_PLEASE_SET_TITLE='yes' command vim ${VIM_OPTIONS} "$@"
     }
 fi
-
-# make a backup of a file
-bk() {
-    cp -a "$1" "${1}_$(date --iso-8601=seconds)"
-}
 
 ssl_hashes=( sha512 sha256 sha1 md5 )
 
