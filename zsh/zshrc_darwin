@@ -13,7 +13,8 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 
 ## alias
 alias cp="cp -r"
-alias rm="rm -rvfi"
+#alias rm="rm -rvfi"
+alias rm="rm -rvf"
 alias la="ls -A"
 alias ll="ls -lhA"
 alias ls="ls -vF"
@@ -32,6 +33,9 @@ alias py2="python2"
 alias sss="python3 -m http.server"
 alias ujs="uglifyjs -m -c unsafe=true"
 #alias upgrade="brew outdated && brew upgrade"
+
+alias jjj="mvn jetty:run &>/dev/null &"
+alias jj="mvn jetty:run"
 
 alias nginx_start="sudo nginx"
 alias nginx_restart="sudo nginx -s stop && sudo nginx"
