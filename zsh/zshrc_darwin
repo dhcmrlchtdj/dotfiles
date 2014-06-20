@@ -1,12 +1,15 @@
 source ~/.zshrc_grml
 source ~/.zshrc_prompt
 
-PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-fpath=(/usr/local/share/zsh-completions $fpath)
+PYENV_ROOT="$HOME/.pyenv"
+PATH="$PYENV_ROOT/shims:/usr/local/bin:/usr/local/sbin:$PATH"
+
+export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+eval "$(pyenv init -)"
+pyenv virtualenvwrapper_lazy
 
 export EDITOR="vim"
-VIRTUALENVWRAPPER_PYTHON="/usr/local/bin/python3"
-source virtualenvwrapper_lazy.sh
+fpath=(/usr/local/share/zsh-completions $fpath)
 
 ## alias
 alias cp="cp -r"
@@ -21,13 +24,14 @@ alias df="df -h"
 alias j="jobs -dl"
 alias h="htop"
 alias f="find . -name"
-alias py="python3"
-alias py2="python2"
-alias ujs="uglifyjs -m -c unsafe=true"
-alias sss="python3 -m http.server"
-#alias zip="7z a -tzip"
 alias ssh="ssh -2"
-alias upgrade="brew outdated && brew upgrade"
+alias py="python"
+alias py3="python3"
+alias py2="python2"
+
+alias sss="python3 -m http.server"
+alias ujs="uglifyjs -m -c unsafe=true"
+#alias upgrade="brew outdated && brew upgrade"
 
 alias nginx_start="sudo nginx"
 alias nginx_restart="sudo nginx -s stop && sudo nginx"
@@ -36,7 +40,7 @@ alias _start_nginx="sudo nginx"
 alias _start_postgresql="postgres -D /usr/local/var/postgres"
 alias _start_redis="redis-server /usr/local/etc/redis.conf"
 
-_zzz () {
+zzz () {
     for i in "$@"; do
         7z a -tzip $i.zip $i;
     done
