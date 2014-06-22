@@ -196,6 +196,7 @@ NeoBundle 'chaquotay/ftl-vim-syntax'
 filetype plugin indent on "载入文件类型 插件 缩进
 syntax enable "语法加亮
 au FileType htmldjango set ft=html
+au FileType jsp set ft=html
 au BufRead,BufNewFile *.json set ft=json
 au BufRead,BufNewFile *.ftl set ft=ftl
 
@@ -311,8 +312,8 @@ highlight link GitGutterDelete SignColumn
 highlight link GitGutterChangeDelete SignColumn
 
 " clang_complete
-let g:clang_complete_auto=0
-let g:clang_complete_macros=1
+let g:clang_complete_auto = 0
+let g:clang_complete_macros = 1
 "let g:clang_auto_select = 1
 "let g:clang_hl_errors=0
 
