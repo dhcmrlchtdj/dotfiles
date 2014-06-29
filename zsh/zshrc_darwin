@@ -4,9 +4,11 @@ source ~/.zshrc_prompt
 PYENV_ROOT="$HOME/.pyenv"
 PATH="$PYENV_ROOT/shims:/usr/local/bin:/usr/local/sbin:$PATH"
 
-export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
-eval "$(pyenv init -)"
-pyenv virtualenvwrapper_lazy
+if which pyenv > /dev/null; then
+    export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+    eval "$(pyenv init -)";
+    pyenv virtualenvwrapper_lazy
+fi
 
 export EDITOR="vim"
 fpath=(/usr/local/share/zsh-completions $fpath)

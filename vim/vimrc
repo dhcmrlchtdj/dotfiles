@@ -14,6 +14,7 @@ set nocompatible "不兼容vi
 set modelines=0 "忽略 打开的文件 里的vim参数
 set autoread "macvim
 set guifont=Monaco:h14 "macvim
+set ambiwidth=single
 
 set t_Co=256 "颜色数目
 set t_vb='' "禁止错误信息响铃及出错屏幕闪烁
@@ -44,7 +45,7 @@ set diffopt+=filler,context:3,vertical
 """ 编码
 set encoding=utf-8 "vim内部使用的编码
 set fileencoding=utf-8 "默认使用编码
-set fileencodings=ucs-bom,utf-8,gb18030 "判断文件编码
+set fileencodings=ucs-bom,utf-8,big5,gb18030 "判断文件编码
 set nobomb "去除BOM
 set fileformat=unix "默认换行方式
 set fileformats=unix,dos "判断换行方式
