@@ -2,8 +2,8 @@ source ~/.zshrc_grml
 source ~/.zshrc_prompt
 source ~/.zshrc_gitprofile
 
-PYENV_ROOT="$HOME/.pyenv"
-PATH="$PYENV_ROOT/shims:/usr/local/bin:/usr/local/sbin:$PATH"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/shims:/usr/local/bin:/usr/local/sbin:$PATH"
 
 if which pyenv > /dev/null; then
     export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
