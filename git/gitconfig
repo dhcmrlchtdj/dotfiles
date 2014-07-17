@@ -31,6 +31,7 @@
     dt = difftool
     pp = pull -p
     pu = pull -p upstream master
+    mm = merge --no-ff
 [diff]
     tool = vimdiff
 [difftool]

@@ -34,17 +34,15 @@ alias py2="python2"
 
 alias sss="python3 -m http.server"
 alias ujs="uglifyjs -m -c unsafe=true"
-#alias upgrade="brew outdated && brew upgrade"
 
 alias jjj="mvn jetty:run &>/dev/null &"
 alias jj="mvn jetty:run"
 
-alias nginx_start="sudo nginx"
-alias nginx_restart="sudo nginx -s stop && sudo nginx"
-alias nginx_stop="sudo nginx -s stop"
-alias _start_nginx="sudo nginx"
-alias _start_postgresql="postgres -D /usr/local/var/postgres"
-alias _start_redis="redis-server /usr/local/etc/redis.conf"
+alias _n_start="sudo nginx"
+alias _n_reload="sudo nginx -s reload"
+alias _n_stop="sudo nginx -s stop"
+#alias _start_postgresql="postgres -D /usr/local/var/postgres"
+#alias _start_redis="redis-server /usr/local/etc/redis.conf"
 
 zzz () {
     for i in "$@"; do
