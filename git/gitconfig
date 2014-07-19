@@ -25,6 +25,7 @@
     dff = diff HEAD
     l = log --graph --decorate --date=short --format=format:'%C(yellow)%h%Creset <%C(blue)%an%Creset@%C(cyan)%ad%Creset>%C(green)%d%Creset   %s'
     ll = log --graph --decorate --oneline -10
+    lc = log --graph --decorate --date=iso --format=format:'%C(yellow)%h%Creset <%C(blue)%cn%Creset@%C(cyan)%cd%Creset>%C(green)%d%Creset   %s'
     rc = rm --cached -rf .
     sm = submodule
     mt = mergetool
