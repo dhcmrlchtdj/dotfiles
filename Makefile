@@ -1,5 +1,5 @@
 OS := $(shell uname | tr A-Z a-z)
-ALL := vim git aria2 pip htop jshint zsh ssh sqlite
+ALL := vim git aria2 pip htop jshint zsh ssh sqlite tmux
 .PHONY: usage install $(ALL)
 
 usage:
@@ -61,3 +61,8 @@ zsh:
 htop:
 	rm -rf ~/.htoprc
 	ln -s `pwd`/htop/htoprc ~/.htoprc
+
+
+tmux:
+	rm -rf ~/.tmux.conf
+	ln -s `pwd`/tmux/tmux.conf ~/.tmux.conf
