@@ -50,12 +50,13 @@ pip:
 
 
 zsh:
-	rm -rf ~/.zshrc ~/.zshrc_grml ~/.zshrc_prompt ~/.zshrc_gitprofile
+	rm -rf ~/.zshrc ~/.zshrc_grml ~/.zshrc_prompt ~/.zshrc_gitprofile ~/.zshrc_tmux
 	wget -O `pwd`/zsh/zshrc_grml http://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
 	ln -s `pwd`/zsh/zshrc_grml ~/.zshrc_grml
-	ln -s `pwd`/zsh/zshrc_gitprofile ~/.zshrc_gitprofile
 	ln -s `pwd`/zsh/zshrc_prompt ~/.zshrc_prompt
 	ln -s `pwd`/zsh/zshrc_$(OS) ~/.zshrc
+	ln -s `pwd`/zsh/zshrc_gitprofile ~/.zshrc_gitprofile
+	ln -s `pwd`/zsh/zshrc_tmux ~/.zshrc_tmux
 
 
 htop:
