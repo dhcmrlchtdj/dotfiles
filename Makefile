@@ -50,7 +50,7 @@ pip:
 
 
 zsh:
-	rm -rf ~/.zshrc ~/.zshrc_grml ~/.zshrc_prompt
+	rm -rf ~/.zshrc ~/.zshrc_grml ~/.zshrc_prompt ~/.zshrc_gitprofile
 	wget -O `pwd`/zsh/zshrc_grml http://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
 	ln -s `pwd`/zsh/zshrc_grml ~/.zshrc_grml
 	ln -s `pwd`/zsh/zshrc_gitprofile ~/.zshrc_gitprofile
