@@ -208,7 +208,10 @@ let g:solarized_termcolors = 256
 let g:solarized_visibility = 'low'
 let g:solarized_termtrans = 1
 colorscheme solarized
-highlight SignColumn ctermfg=240 ctermbg=187 guifg=DarkBlue guibg=Grey
+highlight clear SignColumn
+highlight link SignColumn CursorColumn
+
+
 
 " indent guide
 let g:indent_guides_enable_on_vim_startup = 1
