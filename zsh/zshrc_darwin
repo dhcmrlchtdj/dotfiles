@@ -26,7 +26,7 @@ alias df="df -h"
 
 # 工具
 alias j="jobs -dl"
-alias h="htop"
+alias h="sudo htop"
 alias f="find . -name"
 alias ssh="ssh -2"
 alias py="python"
