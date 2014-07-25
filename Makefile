@@ -33,8 +33,9 @@ vim:
 
 
 git:
-	rm -f ~/.gitconfig
+	rm -f ~/.gitconfig ~/.gitignore_global
 	ln -s `pwd`/git/gitconfig ~/.gitconfig
+	ln -s `pwd`/git/gitignore_global ~/.gitignore_global
 
 
 aria2:
@@ -46,7 +47,8 @@ aria2:
 
 pip:
 	rm -rf ~/.pip
-	ln -s `pwd`/pip ~/.pip
+	mkdir ~/.pip
+	ln -s `pwd`/pip/pip.conf ~/.pip/pip.conf
 
 
 zsh:

@@ -1,0 +1,17 @@
+*~
+*.swp
+.DS_Store
+
+# python
+__pycache__/
+*.py[cod]
+
+# node
+node_modules/
+
+# java
+*.iml
+.idea/
+logs/
+out/
+target/
