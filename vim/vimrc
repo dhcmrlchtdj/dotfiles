@@ -216,8 +216,6 @@ colorscheme solarized
 highlight clear SignColumn
 highlight link SignColumn CursorColumn
 
-
-
 " indent guide
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'unite']
@@ -316,10 +314,10 @@ let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '~'
 let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_modified_removed = '!'
-highlight link GitGutterAdd SignColumn
-highlight link GitGutterChange SignColumn
-highlight link GitGutterDelete SignColumn
-highlight link GitGutterChangeDelete SignColumn
+highlight link GitGutterAdd CursorColumn
+highlight link GitGutterChange CursorColumn
+highlight link GitGutterDelete CursorColumn
+highlight link GitGutterChangeDelete CursorColumn
 
 " clang_complete
 let g:clang_complete_auto = 0
