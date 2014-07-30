@@ -53,7 +53,7 @@ set ambiwidth=single "宽度不明字符使用单倍字符宽度
 
 """ 行号 命令行 状态行
 set number "显示行号
-"set nowrap "不自动换行
+set nowrap "不自动换行
 set wrap "自动换行
 set textwidth=0 "行宽
 set colorcolumn=80 "行宽提示
