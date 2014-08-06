@@ -1,6 +1,5 @@
 source ~/.zshrc_grml
 source ~/.zshrc_prompt
-#source ~/.zshrc_tmux
 
 export QT_SELECT=4
 export TERM="konsole-256color"
@@ -62,12 +61,6 @@ small () {
     done
 }
 
-zzz () {
-    for i in "$@"; do
-        7z a -tzip $i.zip $i;
-    done
-}
-
 ex () {
     case $1 in
         *.t(xz|gz|bz2|ar.(xz|gz|bz2)))
@@ -90,3 +83,21 @@ ex () {
     esac
 }
 #alias tarball="bsdtar cvaf"
+
+zzz () {
+    for i in "$@"; do
+        7z a -tzip $i.zip $i;
+    done
+}
+
+ttt () {
+    if [[ -z "$TMUX" ]] ;then
+        ID="`tmux ls | grep -vm1 attached | cut -d: -f1`" # get the id of a deattached session
+        if [[ -z "$ID" ]] ;then # if not available create a new one
+            tmux -CC
+        else
+            tmux -CC attach -t "$ID" # if available attach to it
+        fi
+    fi
+}
+#ttt
