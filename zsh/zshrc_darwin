@@ -40,9 +40,9 @@ alias ujs="uglifyjs -m -c unsafe=true"
 alias jjj="mvn jetty:run &>/dev/null &"
 alias jj="mvn jetty:run"
 
-alias _n_start="sudo nginx"
-alias _n_reload="sudo nginx -s reload"
-alias _n_stop="sudo nginx -s stop"
+#alias _n_start="sudo nginx"
+#alias _n_reload="sudo nginx -s reload"
+#alias _n_stop="sudo nginx -s stop"
 #alias _start_postgresql="postgres -D /usr/local/var/postgres"
 #alias _start_redis="redis-server /usr/local/etc/redis.conf"
 
