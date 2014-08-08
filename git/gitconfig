@@ -6,7 +6,7 @@
     quotepath = false
     autocrlf = input
     whitespace = space-before-tab,trailing-space
-	excludesfile = ~/.gitignore_global
+    excludesfile = ~/.gitignore_global
 [color]
     ui = true
 [push]
