@@ -2,17 +2,21 @@ source ~/.zshrc_grml
 source ~/.zshrc_prompt
 source ~/.zshrc_gitprofile
 
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/shims:/usr/local/bin:/usr/local/sbin:$PATH"
+#export PYENV_ROOT="$HOME/.pyenv"
+#export PATH="$PYENV_ROOT/shims:/usr/local/bin:/usr/local/sbin:$PATH"
+#if which pyenv > /dev/null; then
+    #export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+    #eval "$(pyenv init -)";
+    #pyenv virtualenvwrapper_lazy
+#fi
 
-if which pyenv > /dev/null; then
-    export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
-    eval "$(pyenv init -)";
-    pyenv virtualenvwrapper_lazy
-fi
+export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+fpath=(/usr/local/share/zsh-completions $fpath)
+
+export VIRTUALENVWRAPPER_PYTHON="$(whence python3)"
+source virtualenvwrapper_lazy.sh
 
 export EDITOR="vim"
-fpath=(/usr/local/share/zsh-completions $fpath)
 
 ## alias
 alias cp="cp -r"
@@ -29,7 +33,7 @@ alias j="jobs -dl"
 alias h="sudo htop"
 alias f="find . -name"
 alias ssh="ssh -2"
-alias py="python"
+alias py="python3"
 alias py3="python3"
 alias py2="python2"
 alias node="node --harmony"
@@ -39,12 +43,6 @@ alias ujs="uglifyjs -m -c unsafe=true"
 
 alias jjj="mvn jetty:run &>/dev/null &"
 alias jj="mvn jetty:run"
-
-#alias _n_start="sudo nginx"
-#alias _n_reload="sudo nginx -s reload"
-#alias _n_stop="sudo nginx -s stop"
-#alias _start_postgresql="postgres -D /usr/local/var/postgres"
-#alias _start_redis="redis-server /usr/local/etc/redis.conf"
 
 zzz () {
     for i in "$@"; do
