@@ -1,9 +1,9 @@
 OS := $(shell uname | tr A-Z a-z)
-ALL := vim git aria2 pip htop jshint zsh ssh sqlite tmux
+ALL := vim git aria2 pip htop jshint ssh sqlite tmux zsh
 .PHONY: usage install $(ALL)
 
 usage:
-	@echo -e "Usage:\n$$ make install"
+	@echo "Usage:\n$$ make install"
 
 
 install: $(ALL)
