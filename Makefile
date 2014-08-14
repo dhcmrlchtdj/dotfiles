@@ -1,5 +1,5 @@
 OS := $(shell uname | tr A-Z a-z)
-ALL := vim git aria2 pip htop jshint ssh sqlite tmux zsh
+ALL := vim git aria2 pip htop ssh sqlite tmux zsh
 .PHONY: usage install $(ALL)
 
 usage:
