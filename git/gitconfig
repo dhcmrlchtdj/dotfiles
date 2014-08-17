@@ -1,18 +1,37 @@
 [user]
     name = niris
     email = nirisix@gmail.com
+
 [core]
     editor = vim
     quotepath = false
     autocrlf = input
     whitespace = space-before-tab,trailing-space
     excludesfile = ~/.gitignore_global
+
 [color]
     ui = true
+
 [push]
     default = simple
+
 [branch]
     autosetuprebase = always
+
+[diff]
+    tool = vimdiff
+    algorithm = patience
+
+[difftool]
+    prompt = false
+
+[merge]
+    tool = vimdiff
+
+[mergetool]
+    keepBackup = false
+    prompt = false
+
 [alias]
     st = status -bsu
     br = branch -vv
@@ -35,12 +54,3 @@
     pp = pull -p
     pu = pull -p upstream master
     mm = merge --no-ff
-[diff]
-    tool = vimdiff
-[difftool]
-    prompt = false
-[merge]
-    tool = vimdiff
-[mergetool]
-    keepBackup = false
-    prompt = false
