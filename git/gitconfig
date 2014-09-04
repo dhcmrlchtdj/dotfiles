@@ -43,6 +43,7 @@
     amend = commit --amend
     df = diff --stat HEAD
     dff = diff HEAD
+    dffs = diff --cached HEAD
     dfw = diff HEAD --word-diff
     l = log --graph --decorate --date=short --format=format:'%C(yellow)%h%Creset <%C(blue)%an%Creset@%C(cyan)%ad%Creset>%C(green)%d%Creset   %s'
     ll = log --graph --decorate --oneline -10
@@ -54,3 +55,4 @@
     pp = pull -p
     pu = pull -p upstream master
     mm = merge --no-ff
+    cp = cherry-pick
