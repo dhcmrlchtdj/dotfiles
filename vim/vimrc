@@ -106,7 +106,7 @@ set foldlevel=20 "打开小于20层的折叠
 set foldcolumn=1
 " 选定后用空格创建折叠 用于marker
 "vmap <silent> <Space> zf
-au FileType c,cpp,css,javascript setl fdm=marker | setl fmr={,}
+au FileType c,cpp,css,javascript,scss setl fdm=marker | setl fmr={,}
 "au FileType c,cpp set fdm=syntax
 
 """
@@ -167,7 +167,8 @@ NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'maksimr/vim-jsbeautify'
 NeoBundle 'othree/javascript-libraries-syntax.vim'
-NeoBundle 'pangloss/vim-javascript'
+"NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'buztard/vim-javascript', { 'rev' : 'dot-chained-calls' }
 NeoBundle 'https://bitbucket.org/teramako/jscomplete-vim.git'
 NeoBundle 'hujo/jscomplete-html5API'
 
@@ -203,11 +204,8 @@ NeoBundle 'altercation/vim-colors-solarized'
 """ 插件设置
 filetype plugin indent on "载入文件类型 插件 缩进
 syntax enable "语法加亮
-au FileType htmldjango set ft=html
-au FileType jsp set ft=html
+au FileType htmldjango,jsp set ft=html
 au BufRead,BufNewFile *.ftl set ft=html
-au BufRead,BufNewFile *.juicer set ft=html
-au BufRead,BufNewFile *.json set ft=json
 
 "set background=dark "深色背景
 set background=light "浅色背景
