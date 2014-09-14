@@ -1,7 +1,7 @@
 {
     // enforce
     "bitwise": false,
-    "camelcase": true,
+    "camelcase": false,
     "curly": false,
     "eqeqeq": true,
     "es3": false,
@@ -48,7 +48,7 @@
     "proto": true,
     "scripturl": false,
     "shadow": false,
-    "sub": false,
+    "sub": true,
     "supernew": true,
     "validthis": false,
     "noyield": false,

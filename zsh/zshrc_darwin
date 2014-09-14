@@ -42,10 +42,11 @@ alias node="node --harmony"
 alias sss="python3 -m http.server"
 alias mm="mitmproxy --palette light"
 alias mmm="mitmproxy --palette light -i '~q|~s'"
-alias sass="node-sass --source-comments=normal"
-alias ujs="uglifyjs -m -c unsafe=true"
-alias jjj="mvn jetty:run &>/dev/null &"
 alias jj="mvn jetty:run"
+alias jjj="mvn jetty:run &>/dev/null &"
+alias sass="node-sass --source-comments=normal"
+alias css="cleancss --s0"
+alias ujs="uglifyjs -m -c unsafe=true"
 
 zzz () {
     for i in "$@"; do
