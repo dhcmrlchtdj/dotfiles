@@ -264,7 +264,7 @@ let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_style_error_symbol = '✗'
 let g:syntastic_style_warning_symbol = '⚠'
 let g:syntastic_python_python_exec = 'python3'
-let g:syntastic_python_flake8_args = '--ignore=W391,E261,E301,E302,E303,E501,E701'
+let g:syntastic_python_flake8_args = '--ignore=W391,E261,E265,E301,E302,E303,E501,E701'
 let g:syntastic_css_csslint_args = "--ignore=unique-headings,qualified-headings,ids,regex-selectors,box-sizing,overqualified-elements,universal-selector,adjoining-classes"
 let g:syntastic_html_checkers = []
 
