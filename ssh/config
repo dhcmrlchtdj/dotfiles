@@ -1,5 +1,6 @@
 AddressFamily inet
-Ciphers blowfish-cbc,arcfour
+HashKnownHosts yes
+Ciphers arcfour,blowfish-cbc
 Compression yes
 Protocol 2
 ControlMaster auto
