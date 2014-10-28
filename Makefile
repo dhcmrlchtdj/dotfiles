@@ -1,5 +1,5 @@
 OS := $(shell uname | tr A-Z a-z)
-ALL := vim git aria2 pip htop ssh sqlite tmux zsh jshint
+ALL := vim git aria2 pip htop ssh sqlite tmux zsh jshint npm
 .PHONY: usage install $(ALL)
 
 usage:
@@ -7,6 +7,11 @@ usage:
 
 
 install: $(ALL)
+
+
+npm:
+	rm -rf ~/.npmrc
+	ln -s `pwd`/npm/npmrc ~/.npmrc
 
 
 sqlite:
