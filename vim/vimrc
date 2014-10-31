@@ -116,7 +116,7 @@ set splitright
 
 """ 插件
 set runtimepath+=~/.vim/bundle/neobundle.vim/
-call neobundle#rc(expand('~/.vim/bundle/'))
+call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " ui
@@ -128,7 +128,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
 
 " navigator
-NeoBundle 'Shougo/vimproc', { 'build' : { 'mac' : 'make -f make_mac.mak', 'unix' : 'make -f make_unix.mak' } }
+NeoBundle 'Shougo/vimproc', { 'build' : { 'mac' : 'make -f make_mac.mak', 'unix' : 'make' } }
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/unite-outline'
 
@@ -183,7 +183,8 @@ NeoBundle 'a.vim'
 
 " md | rst
 NeoBundle 'tpope/vim-markdown'
-NeoBundle 'Rykka/riv.vim'
+"NeoBundle 'Rykka/clickable.vim'
+"NeoBundle 'Rykka/riv.vim'
 NeoBundle 'RST-Tables-CJK'
 
 " nginx
@@ -199,6 +200,7 @@ NeoBundle 'altercation/vim-colors-solarized'
 "NeoBundle 'sql.vim--Stinson'
 "NeoBundle 'dhcmrlchtdj/sql_iabbr.vim'
 
+call neobundle#end()
 
 
 """ 插件设置
