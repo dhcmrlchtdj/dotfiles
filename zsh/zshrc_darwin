@@ -16,6 +16,7 @@ source ~/.zshrc_gitprofile
 export JAVA_HOME="$(/usr/libexec/java_home)"
 export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 fpath=(/usr/local/share/zsh-completions $fpath)
+compinit
 eval "$(gulp --completion=zsh)"
 
 export EDITOR="vim"
