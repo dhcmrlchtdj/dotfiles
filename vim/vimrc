@@ -272,7 +272,7 @@ let g:syntastic_css_csslint_args = "--ignore=unique-headings,qualified-headings,
 let g:syntastic_html_checkers = []
 
 " javascript-libraries-syntax.vim
-let g:used_javascript_libs = 'jquery,requirejs,underscore'
+let g:used_javascript_libs = 'jquery,requirejs,underscore,angularjs'
 
 " jscomplete
 autocmd FileType javascript setl omnifunc=jscomplete#CompleteJS
