@@ -49,6 +49,7 @@ alias jjj="mvn jetty:run &>/dev/null &"
 alias sass="node-sass --source-comments=normal"
 alias css="cleancss --s0"
 alias ujs="uglifyjs -m -c unsafe=true"
+alias marked="marked --gfm --breaks"
 
 zzz () {
     for i in "$@"; do
