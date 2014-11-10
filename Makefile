@@ -1,5 +1,5 @@
 OS := $(shell uname | tr A-Z a-z)
-ALL := vim git aria2 pip htop ssh sqlite tmux zsh jshint npm
+ALL := vim git aria2 pip htop ssh sqlite tmux zsh jshint npm siege
 .PHONY: usage install $(ALL)
 
 usage:
@@ -7,6 +7,10 @@ usage:
 
 
 install: $(ALL)
+
+siege:
+	rm -rf ~/.siegerc
+	ln -s `pwd`/siege/siegerc ~/.siegerc
 
 
 npm:
