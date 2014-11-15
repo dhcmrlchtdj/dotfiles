@@ -1,5 +1,8 @@
 Port 22
+
 Banner /etc/issue
+
+Protocol 2
 
 AllowUsers USERNAME
 PermitRootLogin no
