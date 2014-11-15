@@ -186,7 +186,8 @@ NeoBundle 'a.vim'
 NeoBundle 'tpope/vim-markdown'
 "NeoBundle 'Rykka/clickable.vim'
 "NeoBundle 'Rykka/riv.vim'
-NeoBundle 'RST-Tables-CJK'
+"NeoBundle 'RST-Tables-CJK'
+"NeoBundle 'dagwieers/asciidoc-vim'
 
 " nginx
 NeoBundle 'evanmiller/nginx-vim-syntax'
@@ -209,6 +210,7 @@ filetype plugin indent on "载入文件类型 插件 缩进
 syntax enable "语法加亮
 au FileType htmldjango,jsp set ft=html
 au BufRead,BufNewFile *.ftl set ft=html
+"au FileType text set ft=asciidoc
 
 "set background=dark "深色背景
 set background=light "浅色背景
