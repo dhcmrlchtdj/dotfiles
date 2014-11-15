@@ -16,3 +16,4 @@ benchmark = true
 accept-encoding = gzip
 url-escaping = true
 spinner = true
+show-logfile = false
