@@ -1,6 +1,6 @@
 source ~/.zshrc_grml
 source ~/.zshrc_prompt
-source ~/.zshrc_gitprofile
+source ~/.zshrc_others
 
 #export PYENV_ROOT="$HOME/.pyenv"
 #export PATH="$PYENV_ROOT/shims:/usr/local/bin:/usr/local/sbin:$PATH"
