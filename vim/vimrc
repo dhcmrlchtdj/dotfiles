@@ -167,8 +167,8 @@ NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'maksimr/vim-jsbeautify'
 NeoBundle 'othree/javascript-libraries-syntax.vim'
-"NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'buztard/vim-javascript', { 'rev' : 'dot-chained-calls' }
+NeoBundle 'pangloss/vim-javascript'
+"NeoBundle 'buztard/vim-javascript', { 'rev' : 'dot-chained-calls' }
 NeoBundle 'https://bitbucket.org/teramako/jscomplete-vim.git'
 NeoBundle 'hujo/jscomplete-html5API'
 NeoBundle 'marijnh/tern_for_vim', { 'build' : { 'mac': 'npm install' } }
