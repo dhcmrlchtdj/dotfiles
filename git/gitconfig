@@ -56,5 +56,6 @@
     pp = pull -p
     pu = pull -p upstream master
     mm = merge --no-ff
+    mmx = merge --no-ff -Xtheirs
     cp = cherry-pick
     tt = "!_() { git tag $(date +%s); }; _"
