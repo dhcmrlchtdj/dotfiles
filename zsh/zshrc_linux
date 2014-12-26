@@ -1,5 +1,6 @@
 source ~/.zshrc_grml
 source ~/.zshrc_prompt
+source ~/.zshrc_others
 
 export QT_SELECT=4
 export TERM="konsole-256color"
