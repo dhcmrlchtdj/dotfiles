@@ -31,7 +31,7 @@
     "boss": true,
     "debug": false,
     "eqnull": false,
-    "esnext": false,
+    "esnext": true,
     "evil": true,
     "expr": true,
     "funcscope": true,
@@ -67,5 +67,6 @@
     "rhino": false,
     "worker": true,
     "wsh": false,
-    "yui": false
+    "yui": false,
+    "noyield": true
 }
