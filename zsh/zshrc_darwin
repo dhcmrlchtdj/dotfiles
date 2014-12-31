@@ -14,12 +14,23 @@ source ~/.zshrc_others
 #source virtualenvwrapper_lazy.sh
 
 export JAVA_HOME="$(/usr/libexec/java_home)"
-export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+#export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 fpath=(/usr/local/share/zsh-completions $fpath)
 compinit
 eval "$(gulp --completion=zsh)"
 
 export EDITOR="vim"
+
+
+
+### node ###
+export NVM_DIR=~/.nvm
+source ~/.nvm/nvm.sh
+alias node="node --harmony"
+alias nn="nvm use unstable"
+### END node ###
+
+
 
 ## alias
 alias cp="cp -r"
@@ -39,7 +50,6 @@ alias ssh="ssh -2"
 alias py="python3"
 alias py3="python3"
 alias py2="python2"
-alias node="node --harmony"
 
 alias sss="python3 -m http.server"
 alias mm="mitmproxy --palette light"

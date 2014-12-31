@@ -1,5 +1,5 @@
 OS := $(shell uname | tr A-Z a-z)
-ALL := vim git aria2 pip htop ssh sqlite tmux zsh jshint npm siege
+ALL := vim git aria2 pip htop ssh sqlite tmux zsh jshint npm siege nvm
 .PHONY: usage install $(ALL)
 
 usage:
@@ -7,6 +7,14 @@ usage:
 
 
 install: $(ALL)
+
+
+nvm:
+	mkdir -p ./nvm ~/.nvm
+	rm -rf ~/.nvm/nvm.sh
+	wget -O `pwd`/nvm/nvm.sh https://raw.githubusercontent.com/creationix/nvm/master/nvm.sh
+	ln -s `pwd`/nvm/nvm.sh ~/.nvm/nvm.sh
+
 
 siege:
 	rm -rf ~/.siegerc
