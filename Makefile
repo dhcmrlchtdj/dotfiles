@@ -1,4 +1,4 @@
-OS := $(shell uname | tr A-Z a-z)
+OS := $(shell uname)
 ALL := vim git aria2 pip htop ssh sqlite tmux zsh jshint npm siege nvm
 .PHONY: usage install $(ALL)
 
@@ -14,6 +14,11 @@ nvm:
 	rm -rf ~/.nvm/nvm.sh
 	wget -O `pwd`/nvm/nvm.sh https://raw.githubusercontent.com/creationix/nvm/master/nvm.sh
 	ln -s `pwd`/nvm/nvm.sh ~/.nvm/nvm.sh
+ifeq ($(OS),Darwin)
+	sed -i "" "s/which node/whence -p node/" `pwd`/nvm/nvm.sh
+else
+	sed -i "s/which node/whence -p node/" `pwd`/nvm/nvm.sh
+endif
 
 
 siege:
@@ -71,10 +76,14 @@ pip:
 zsh:
 	rm -rf ~/.zshrc ~/.zshrc_grml ~/.zshrc_prompt ~/.zshrc_others
 	wget -O `pwd`/zsh/zshrc_grml http://git.grml.org/f/grml-etc-core/etc/zsh/zshrc
-	ln -s `pwd`/zsh/zshrc_$(OS) ~/.zshrc
 	ln -s `pwd`/zsh/zshrc_grml ~/.zshrc_grml
 	ln -s `pwd`/zsh/zshrc_prompt ~/.zshrc_prompt
 	ln -s `pwd`/zsh/zshrc_others ~/.zshrc_others
+ifeq ($(OS),Darwin)
+	ln -s `pwd`/zsh/zshrc_darwin ~/.zshrc
+else
+	ln -s `pwd`/zsh/zshrc_linux ~/.zshrc
+endif
 
 
 htop:
