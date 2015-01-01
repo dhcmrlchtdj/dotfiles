@@ -15,9 +15,7 @@ nvm:
 	wget -O `pwd`/nvm/nvm.sh https://raw.githubusercontent.com/creationix/nvm/master/nvm.sh
 	ln -s `pwd`/nvm/nvm.sh ~/.nvm/nvm.sh
 ifeq ($(OS),Darwin)
-	sed -i "" "s/which node/whence -p node/" `pwd`/nvm/nvm.sh
-else
-	sed -i "s/which node/whence -p node/" `pwd`/nvm/nvm.sh
+	sed -i "" "s/which node/command which node/" `pwd`/nvm/nvm.sh
 endif
 
 
