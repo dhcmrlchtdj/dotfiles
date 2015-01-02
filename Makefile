@@ -10,14 +10,11 @@ install: $(ALL)
 
 
 nvm:
-	mkdir -p ~/.nvm
+	mkdir -p ~/.nvm ~/.nvmrc
 	rm -rf ~/.nvm/nvm.sh
 	wget -O `pwd`/nvm/nvm.sh https://raw.githubusercontent.com/creationix/nvm/master/nvm.sh
 	ln -s `pwd`/nvm/nvm.sh ~/.nvm/nvm.sh
 	ln -s `pwd`/nvm/nvmrc ~/.nvmrc
-ifeq ($(OS),Darwin)
-	sed -i "" "s/which node/command which node/" `pwd`/nvm/nvm.sh
-endif
 
 
 siege:
