@@ -27,7 +27,6 @@ export EDITOR="vim"
 export NVM_DIR=~/.nvm
 source ~/.nvm/nvm.sh
 alias node="node --harmony"
-alias nn="nvm use unstable"
 ### END node ###
 
 
