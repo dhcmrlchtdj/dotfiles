@@ -1,13 +1,13 @@
 source ~/.zshrc_grml
 source ~/.zshrc_prompt
-source ~/.zshrc_others
+#source ~/.zshrc_others
 
 export QT_SELECT=4
 export TERM="konsole-256color"
 export LESS="-RXFM"
 
 export EDITOR="vim"
-source virtualenvwrapper_lazy.sh
+#source virtualenvwrapper_lazy.sh
 
 ## alias
 alias cp="cp -r"
