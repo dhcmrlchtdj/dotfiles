@@ -2,6 +2,12 @@ source ~/.zshrc_grml
 source ~/.zshrc_prompt
 #source ~/.zshrc_others
 
+### node ###
+export NVM_DIR=~/.nvm
+source ~/.nvm/nvm.sh
+alias node="node --harmony"
+### END node ###
+
 export QT_SELECT=4
 export TERM="konsole-256color"
 export LESS="-RXFM"
