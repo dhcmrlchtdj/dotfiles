@@ -14,21 +14,20 @@ prompt_pure_git_dirty() {
 }
 
 precmd() {
-    _before=""
-    _after=""
+    line1=""
+    line2=""
 
-    _before+="%F{blue}%n%f@%F{cyan}%m%f "
-    _before+="%(?,,[%F{red}%B%?%b%f] )"
-    [[ $VIRTUAL_ENV != "" ]] && _before+="[$(basename $VIRTUAL_ENV)] "
-    vcs_info
-    [[ $vcs_info_msg_0_ != "" ]] && _before+="%F{green}$vcs_info_msg_0_%f$(prompt_pure_git_dirty) "
-    _before+="%F{red}%~%f "
-    _before+="%(1j,[%j running] ,)"
-    #_before+="$(date '+%Y-%m-%d %T') "
-    #_after+="%F{cyan}%n%f@%F{blue}%m%f "
-    #_after+="%F{red}%B%1~%b%f "
-    #_after+="%F{magenta}%#%f "
-    _after+="%F{magenta}❯%f "
 
-    PROMPT=$'$_before\n$_after'
+    line1+="%F{blue}%n%f "
+    line1+="at %F{cyan}%m%f "
+    line1+="in %F{red}%~%f "
+    vcs_info && [[ $vcs_info_msg_0_ != "" ]] && line1+="on %F{green}$vcs_info_msg_0_%f$(prompt_pure_git_dirty) "
+    line1+="%(?,,[%F{red}%B%?%b%f] ) "
+    line1+="%(1j,[%j running] ,) "
+
+
+    line2+="%F{magenta}❯%f "
+
+
+    PROMPT=$'$line1\n$line2'
 }
