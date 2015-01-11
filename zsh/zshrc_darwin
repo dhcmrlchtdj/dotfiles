@@ -27,6 +27,7 @@ export EDITOR="vim"
 export NVM_DIR=~/.nvm
 source ~/.nvm/nvm.sh
 alias node="node --harmony"
+eval "$(npm completion)"
 ### END node ###
 
 
