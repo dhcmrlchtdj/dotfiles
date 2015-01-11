@@ -6,13 +6,15 @@ Protocol 2
 
 AllowUsers USERNAME
 PermitRootLogin no
-PermitEmptyPasswords no
 
 StrictModes yes
 RSAAuthentication yes
 PubkeyAuthentication yes
 AuthorizedKeysFile .ssh/authorized_keys
 PasswordAuthentication yes
+#PasswordAuthentication no
+PermitEmptyPasswords no
+ChallengeResponseAuthentication no
 
 ClientAliveInterval 60
 ClientAliveCountMax 3
