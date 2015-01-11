@@ -1,22 +1,41 @@
 Port 22
 
-Banner /etc/issue
+
 
 Protocol 2
 
-AllowUsers USERNAME
-PermitRootLogin no
 
+
+SyslogFacility AUTH
+LogLevel INFO
+
+
+
+UsePrivilegeSeparation yes
+AllowUsers USERNAME
+LoginGraceTime 120
+PermitRootLogin no
 StrictModes yes
+
 RSAAuthentication yes
 PubkeyAuthentication yes
 AuthorizedKeysFile .ssh/authorized_keys
-PasswordAuthentication yes
-#PasswordAuthentication no
+
 PermitEmptyPasswords no
 ChallengeResponseAuthentication no
+PasswordAuthentication yes
+#PasswordAuthentication no
+
+
+
+IgnoreRhosts yes
+
+
+
+AcceptEnv LANG LC_*
+
+
+
 
 ClientAliveInterval 60
 ClientAliveCountMax 3
-
-IgnoreRhosts yes
