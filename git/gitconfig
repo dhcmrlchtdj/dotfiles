@@ -58,4 +58,5 @@
     mm = merge --no-ff
     mmx = merge --no-ff -Xtheirs
     cp = cherry-pick
-    tt = "!_() { git tag $(date +%s); }; _"
+    ; USAGE: "$ git tt" / "$ git tt description"
+    tt = "!_() { git tag $(date +%s)${1:+_$1}; }; _"
