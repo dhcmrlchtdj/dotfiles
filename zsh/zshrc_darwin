@@ -26,6 +26,9 @@ export EDITOR="vim"
 ### node ###
 export NVM_DIR=~/.nvm
 source ~/.nvm/nvm.sh
+function chpwd_nvm_use() { nvm use &> /dev/null || nvm use system &> /dev/null ; return 0 }
+chpwd_nvm_use
+chpwd_functions=( ${chpwd_functions} chpwd_nvm_use )
 alias node="node --harmony"
 eval "$(npm completion)"
 ### END node ###
