@@ -2,6 +2,9 @@ source ~/.zshrc_grml
 source ~/.zshrc_prompt
 source ~/.zshrc_others
 
+export EDITOR="vim"
+#export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+
 #export PYENV_ROOT="$HOME/.pyenv"
 #export PATH="$PYENV_ROOT/shims:/usr/local/bin:/usr/local/sbin:$PATH"
 #if which pyenv > /dev/null; then
@@ -9,18 +12,22 @@ source ~/.zshrc_others
     #eval "$(pyenv init -)";
     #pyenv virtualenvwrapper_lazy
 #fi
-
 #export VIRTUALENVWRAPPER_PYTHON="$(whence python3)"
 #source virtualenvwrapper_lazy.sh
 
+
 export JAVA_HOME="$(/usr/libexec/java_home)"
-#export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+
+
+### autocompletion ###
 fpath=(/usr/local/share/zsh-completions $fpath)
 compinit
-eval "$(gulp --completion=zsh)"
+### END autocompletion ###
 
-export EDITOR="vim"
 
+### gulp ###
+#eval "$(gulp --completion=zsh)"
+### END gulp ###
 
 
 ### node ###
@@ -39,9 +46,9 @@ eval "$(npm completion)"
 alias cp="cp -r"
 #alias rm="rm -rvfi"
 alias rm="rm -rvf"
+alias ls="ls -vF"
 alias la="ls -A"
 alias ll="ls -lhAT"
-alias ls="ls -vF"
 alias du="du -h"
 alias df="df -h"
 
