@@ -46,7 +46,7 @@
     "multistr": false,
     "notypeof": false,
     "proto": true,
-    "scripturl": false,
+    "scripturl": true,
     "shadow": false,
     "sub": true,
     "supernew": true,
