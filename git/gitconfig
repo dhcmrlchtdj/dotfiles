@@ -2,6 +2,9 @@
     name = niris
     email = nirisix@gmail.com
 
+[include]
+    path = ~/.gitconfig.filter
+
 [core]
     editor = vim
     quotepath = false
