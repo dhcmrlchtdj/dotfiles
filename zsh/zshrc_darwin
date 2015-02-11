@@ -2,6 +2,9 @@ source ~/.zshrc_grml
 source ~/.zshrc_prompt
 source ~/.zshrc_others
 
+# command start with space will not be saved
+setopt HIST_IGNORE_SPACE
+
 export EDITOR="vim"
 #export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
