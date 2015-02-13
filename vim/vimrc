@@ -149,6 +149,10 @@ NeoBundle 'scrooloose/nerdcommenter'
 " syntax check
 NeoBundle 'scrooloose/syntastic'
 
+" align
+NeoBundle 'godlygeek/tabular'
+"NeoBundle 'junegunn/vim-easy-align'
+
 " complete
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet'
