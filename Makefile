@@ -9,7 +9,7 @@ include */*.mk
 
 .PHONY: show
 show:
-	@make -nprR | gsed -n -e '/^$$/{n; /^[^#].*:$$/{s/://; p}}' | sort
+	@make -nprR | gsed -n -e "/^$$/{n; /^[^.#].*:/{s/:.*//; p}}" | sort
 
 
 .PHONY: install
