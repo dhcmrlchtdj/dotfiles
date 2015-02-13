@@ -169,21 +169,21 @@ NeoBundle 'cakebaker/scss-syntax.vim'
 
 " javascript
 NeoBundle 'jelera/vim-javascript-syntax'
-NeoBundle 'maksimr/vim-jsbeautify'
 NeoBundle 'othree/javascript-libraries-syntax.vim'
+NeoBundle 'maksimr/vim-jsbeautify'
 NeoBundle 'pangloss/vim-javascript'
 "NeoBundle 'buztard/vim-javascript', { 'rev' : 'dot-chained-calls' }
 NeoBundle 'https://bitbucket.org/teramako/jscomplete-vim.git'
 NeoBundle 'hujo/jscomplete-html5API'
-NeoBundle 'marijnh/tern_for_vim', { 'build' : { 'mac': 'npm install' } }
+"NeoBundle 'marijnh/tern_for_vim', { 'build' : { 'mac': 'npm install' } }
 
 " python
 NeoBundle 'tmhedberg/SimpylFold'
 NeoBundle 'hynek/vim-python-pep8-indent'
-NeoBundle 'davidhalter/jedi-vim'
+"NeoBundle 'davidhalter/jedi-vim'
 
 " c
-NeoBundle 'a.vim'
+"NeoBundle 'a.vim'
 "NeoBundle 'Rip-Rip/clang_complete'
 
 " md | rst
@@ -264,7 +264,7 @@ autocmd FileType css,scss noremap <buffer> <Leader>ff :call CSSBeautify()<CR>
 autocmd FileType css,scss vnoremap <buffer> <Leader>ff :call RangeCSSBeautify()<CR>
 
 " a.vim
-autocmd FileType c,cpp nmap <Leader>a :A<CR>
+"autocmd FileType c,cpp nmap <Leader>a :A<CR>
 
 " syntastic
 let g:syntastic_check_on_open = 1
