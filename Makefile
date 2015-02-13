@@ -1,6 +1,15 @@
 .PHONY: usage
 usage:
-	@echo "Usage:\n$$ make install"
+	@echo "make install \t # install default"
+	@echo "make show \t # show available "
+
+
+include */*.mk
+
+
+.PHONY: show
+show:
+	@make -nprR | gsed -n -e '/^$$/{n; /^[^#].*:$$/{s/://; p}}' | sort
 
 
 .PHONY: install
@@ -19,7 +28,3 @@ install: \
 	tmux\
 	vim\
 	zsh\
-
-
-
-include */*.mk
