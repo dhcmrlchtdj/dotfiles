@@ -270,14 +270,17 @@ autocmd FileType css,scss vnoremap <buffer> <Leader>ff :call RangeCSSBeautify()<
 
 " syntastic
 let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_style_error_symbol = '✗'
 let g:syntastic_style_warning_symbol = '⚠'
 let g:syntastic_python_python_exec = 'python3'
 let g:syntastic_python_flake8_args = '--ignore=W391,E261,E265,E301,E302,E303,E501,E701'
-let g:syntastic_css_csslint_args = "--ignore=unique-headings,qualified-headings,ids,regex-selectors,box-sizing,overqualified-elements,universal-selector,adjoining-classes"
 let g:syntastic_html_checkers = []
+let g:syntastic_scss_checkers = ['sassc']
 
 " javascript-libraries-syntax.vim
 let g:used_javascript_libs = 'jquery,requirejs,underscore,angularjs'
