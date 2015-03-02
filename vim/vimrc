@@ -168,8 +168,8 @@ NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'cakebaker/scss-syntax.vim'
 
 " javascript
-"NeoBundle 'jelera/vim-javascript-syntax'
-NeoBundle 'othree/yajs.vim' "highlight
+NeoBundle 'jelera/vim-javascript-syntax'
+"NeoBundle 'othree/yajs.vim' "highlight
 NeoBundle 'othree/javascript-libraries-syntax.vim' "highlight
 NeoBundle 'othree/jspc.vim' "complete
 NeoBundle 'maksimr/vim-jsbeautify' "format
@@ -280,7 +280,8 @@ let g:syntastic_style_warning_symbol = '⚠'
 let g:syntastic_python_python_exec = 'python3'
 let g:syntastic_python_flake8_args = '--ignore=W391,E261,E265,E301,E302,E303,E501,E701'
 let g:syntastic_html_checkers = []
-let g:syntastic_scss_checkers = ['sassc']
+let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_scss_checkers = ['sassc']
 
 " javascript-libraries-syntax.vim
 let g:used_javascript_libs = 'jquery,requirejs,underscore,angularjs'
