@@ -391,4 +391,5 @@ function! ReStructureFile()
     endwhile
 
     call cursor(l, c)
+    exe 'normal zz'
 endfunction
