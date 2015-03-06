@@ -18,7 +18,7 @@ install: \
 	aria2\
 	git\
 	htop\
-	jshint\
+	eslint\
 	npm\
 	nvm\
 	pip\
