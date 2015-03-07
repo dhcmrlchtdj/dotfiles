@@ -6,3 +6,5 @@ ControlMaster auto
 ControlPath ~/.ssh/socket-%r@%h:%p
 ControlPersist 10h
 ServerAliveInterval 60
+
+Host bandwagon

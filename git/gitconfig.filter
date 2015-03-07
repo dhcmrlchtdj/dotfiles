@@ -1,3 +1,7 @@
 [filter "npmrc"]
     smudge = cat
     clean = "sed '/^[/][/]/d'"
+
+[filter "sshconfig"]
+    smudge = cat
+    clean = "gsed '/^\\(\\s\\|Host\\)/d'"
