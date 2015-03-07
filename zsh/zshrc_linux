@@ -42,7 +42,7 @@ eval "$(npm completion)"
 
 ## alias
 alias cp="cp -r"
-alias rm="grm -Irv"
+alias rm="rm -Irv"
 alias ls="ls --color=auto --group-directories-first -vF"
 alias la="ls -A"
 alias ll="ls -lAh --time-style=long-iso"
