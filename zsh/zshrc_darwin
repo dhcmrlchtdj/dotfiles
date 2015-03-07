@@ -2,23 +2,12 @@ source ~/.zshrc_grml
 source ~/.zshrc_prompt
 source ~/.zshrc_others
 
+
 # command start with space will not be saved
 setopt HIST_IGNORE_SPACE
 
+
 export EDITOR="vim"
-#export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-
-#export PYENV_ROOT="$HOME/.pyenv"
-#export PATH="$PYENV_ROOT/shims:/usr/local/bin:/usr/local/sbin:$PATH"
-#if which pyenv > /dev/null; then
-    #export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
-    #eval "$(pyenv init -)";
-    #pyenv virtualenvwrapper_lazy
-#fi
-#export VIRTUALENVWRAPPER_PYTHON="$(whence python3)"
-#source virtualenvwrapper_lazy.sh
-
-
 export JAVA_HOME="$(/usr/libexec/java_home)"
 
 
@@ -58,8 +47,6 @@ eval "$(npm completion)"
 
 ## alias
 alias cp="cp -r"
-#alias rm="rm -rvfi"
-#alias rm="rm -rvf"
 alias rm="grm -Irv"
 alias ls="ls -vF"
 alias la="ls -A"

@@ -2,10 +2,13 @@ source ~/.zshrc_grml
 source ~/.zshrc_prompt
 #source ~/.zshrc_others
 
+
 # command start with space will not be saved
 setopt HIST_IGNORE_SPACE
 
+
 export EDITOR="vim"
+export TERM="xterm-256color"
 
 
 ### git for directoy ###
@@ -37,22 +40,16 @@ eval "$(npm completion)"
 ### END node ###
 
 
-export QT_SELECT=4
-export TERM="konsole-256color"
-export LESS="-RXFM"
-
-#source virtualenvwrapper_lazy.sh
-
 ## alias
 alias cp="cp -r"
 alias rm="grm -Irv"
-alias tree="tree --dirsfirst"
+alias ls="ls --color=auto --group-directories-first -vF"
 alias la="ls -A"
 alias ll="ls -lAh --time-style=long-iso"
-alias ls="ls --color=auto --group-directories-first -vF"
 alias du="du -h"
-alias df="df -Th"
+alias df="df -h"
 alias free="free -h"
+alias tree="tree --dirsfirst"
 
 alias pacman="pacman --color=auto"
 alias tracepath="tracepath -b"
@@ -61,15 +58,18 @@ alias cm="convmv -f cp936 -t utf8 --notest -r"
 alias j="jobs -dl"
 alias h="htop"
 alias f="find . -name"
-alias py="python"
-alias py2="python2"
-alias ujs="uglifyjs -m -c unsafe=true"
-alias sss="python3 -m http.server"
 alias ssh="ssh -2"
+alias py="python3"
+alias py3="python3"
+alias py2="python2"
 
-#alias zip="7z a -tzip"
-alias qemu="qemu-system-x86_64 -enable-kvm -vga vmware -net nic,model=virtio -net user -m 256"
-#alias xp="qemu-system-i386 -enable-kvm -net nic,model=rtl8139 -net user -m 256"
+alias sss="python3 -m http.server"
+alias mm="mitmproxy --palette light"
+alias mmm="mitmproxy --palette light -i '~q|~s'"
+alias css="cleancss --s0"
+alias ujs="uglifyjs -m -c unsafe=true"
+alias marked="marked --gfm --breaks --smart-lists"
+
 
 ex () {
     case $1 in
@@ -110,4 +110,4 @@ ttt () {
         fi
     fi
 }
-#ttt
+ttt
