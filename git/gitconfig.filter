@@ -4,4 +4,4 @@
 
 [filter "sshconfig"]
     smudge = cat
-    clean = "gsed '/^\\(\\s\\|Host\\)/d'"
+    clean = "sed -E '/^(Host| )/d'"
