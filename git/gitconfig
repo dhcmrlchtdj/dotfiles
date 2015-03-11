@@ -10,7 +10,7 @@
     quotepath = false
     autocrlf = input
     whitespace = space-before-tab,trailing-space
-    excludesfile = ~/.gitignore_global
+    excludesfile = ~/.gitconfig.ignore
 
 [color]
     ui = true
