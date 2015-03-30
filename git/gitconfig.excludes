@@ -1,7 +1,11 @@
+# vim
 *~
 *.sw[po]
+
+# mac
 .DS_Store
 
+# sass
 .sass-cache
 
 # python
