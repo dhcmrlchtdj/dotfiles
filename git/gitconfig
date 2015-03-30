@@ -8,9 +8,12 @@
 [core]
     editor = vim
     quotepath = false
-    autocrlf = input
     whitespace = space-before-tab,trailing-space
-    excludesfile = ~/.gitconfig.ignore
+    excludesfile = ~/.gitconfig.excludes
+    attributesfile = ~/.gitconfig.attributes
+    eol = native
+    autocrlf = input
+    safecrlf = warn
 
 [color]
     ui = true
