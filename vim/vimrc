@@ -32,7 +32,7 @@ set completeopt=menu "补全窗口的样式
 "set autochdir "进入文件目录
 set conceallevel=2
 set concealcursor=i
-set cryptmethod=blowfish
+set cryptmethod=blowfish2
 
 """ 备份 撤销
 set hidden "自动保存?
