@@ -188,6 +188,9 @@ NeoBundle 'hynek/vim-python-pep8-indent'
 "NeoBundle 'a.vim'
 "NeoBundle 'Rip-Rip/clang_complete'
 
+NeoBundle 'rust-lang/rust.vim'
+NeoBundle 'cespare/vim-toml'
+
 " md | rst
 NeoBundle 'tpope/vim-markdown'
 "NeoBundle 'Rykka/clickable.vim'
