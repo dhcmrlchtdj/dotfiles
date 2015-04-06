@@ -21,6 +21,9 @@
 [push]
     default = simple
 
+[pull]
+    rebase = true
+
 [branch]
     autosetuprebase = always
 
