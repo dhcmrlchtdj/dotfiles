@@ -53,6 +53,7 @@ alias la="ls -A"
 alias ll="ls -lhAT"
 alias du="du -h"
 alias df="df -h"
+alias tree="tree -F --dirsfirst"
 
 # 工具
 alias j="jobs -dl"
