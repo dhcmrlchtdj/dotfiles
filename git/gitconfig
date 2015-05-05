@@ -59,11 +59,9 @@
     ll = log --graph --decorate --oneline -10
     lc = log --graph --decorate --date=iso --format=format:'%C(yellow)%h%Creset <%C(blue)%cn%Creset@%C(cyan)%cd%Creset>%C(green)%d%Creset   %s'
     rc = rm --cached -rf .
-    sm = submodule
     mt = mergetool
     dt = difftool
     pp = pull -p
-    pu = pull -p upstream master
     mm = merge --no-ff
     mmx = merge --no-ff -Xtheirs
     cp = cherry-pick
