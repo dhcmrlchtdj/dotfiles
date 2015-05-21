@@ -1,6 +1,6 @@
 {
     "ecmaFeatures": {},
-    "parser": "esprima",
+    "parser": "espree",
     "env": {
         "browser": true,
         "node": true,
@@ -12,7 +12,7 @@
         // Possible Errors
         "comma-dangle": [2, "never"],
         "no-cond-assign": [2, "except-parens"],
-        "no-console": 1,
+        "no-console": 0,
         "no-constant-condition": 2,
         "no-control-regex": 2,
         "no-debugger": 2,
@@ -20,10 +20,10 @@
         "no-dupe-keys": 2,
         "no-duplicate-case": 2,
         "no-empty-class": 2,
-        "no-empty": 2,
+        "no-empty": 0,
         "no-ex-assign": 2,
         "no-extra-boolean-cast": 2,
-        "no-extra-parens": 2,
+        "no-extra-parens": 0,
         "no-extra-semi": 2,
         "no-func-assign": 2,
         "no-inner-declarations": 2,
@@ -64,7 +64,7 @@
         "no-iterator": 2,
         "no-labels": 2,
         "no-lone-blocks": 2,
-        "no-loop-func": 2,
+        "no-loop-func": 0,
         "no-multi-spaces": 2,
         "no-multi-str": 1,
         "no-native-reassign": 2,
@@ -73,7 +73,7 @@
         "no-new": 2,
         "no-octal-escape": 2,
         "no-octal": 2,
-        "no-param-reassign": 1,
+        "no-param-reassign": 0,
         "no-process-env": 1,
         "no-proto": 1,
         "no-redeclare": 2,
@@ -92,7 +92,7 @@
         "yoda": 0,
 
         // Strict Mode
-        "strict": [2, "function"],
+        "strict": [2],
 
         // Variables
         "no-catch-shadow": 2,
@@ -102,7 +102,7 @@
         "no-shadow": 0,
         "no-undef-init": 2,
         "no-undef": 2,
-        "no-undefined": 2,
+        "no-undefined": 0,
         "no-unused-vars": 2,
         "no-use-before-define": 2,
 
@@ -120,7 +120,7 @@
         "camelcase": [1, {"properties": "never"}],
         "comma-spacing": [1, {"before": false, "after": true}],
         "comma-style": [1, "last"],
-        "consistent-this": 1,
+        "consistent-this": 0,
         "eol-last": 1,
         "func-names": 0,
         "func-style": 0,
@@ -136,7 +136,7 @@
         "no-inline-comments": 0,
         "no-lonely-if": 1,
         "no-mixed-spaces-and-tabs": 2,
-        "no-multiple-empty-lines": 1,
+        "no-multiple-empty-lines": 0,
         "no-nested-ternary": 0,
         "no-new-object": 1,
         "no-spaced-func": 1,
@@ -145,7 +145,7 @@
         "no-underscore-dangle": 0,
         "no-unneeded-ternary": 1,
         "no-wrap-func": 1,
-        "one-var": [1, "always"],
+        "one-var": [1, "never"],
         "operator-assignment": 0,
         "operator-linebreak": [1, "after"],
         "padded-blocks": 0,
