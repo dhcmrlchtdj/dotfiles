@@ -113,6 +113,10 @@ au FileType c,cpp,css,javascript,scss setl fdm=marker | setl fmr={,}
 set splitright
 "set splitbelow
 
+""" location list
+autocmd FileType qf nmap <buffer> <cr> <cr>:lcl<cr>
+nmap <silent> <F1> :silent! lopen<CR>
+
 
 """ 插件
 set runtimepath+=~/.vim/bundle/neobundle.vim/
