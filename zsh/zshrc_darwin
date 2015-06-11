@@ -72,6 +72,7 @@ alias jjj="mvn jetty:run &>/dev/null &"
 alias css="cleancss --s0"
 alias ujs="uglifyjs -m -c unsafe=true"
 alias marked="marked --gfm --breaks --smart-lists"
+alias curlw="curl -w '\ntime_namelookup:\t%{time_namelookup}\ntime_connect:\t\t%{time_connect}\ntime_appconnect:\t%{time_appconnect}\ntime_pretransfer:\t%{time_pretransfer}\ntime_redirect:\t\t%{time_redirect}\ntime_starttransfer:\t%{time_starttransfer}\n------\ntime_total:\t\t%{time_total}\n'"
 
 sass () {
     node-sass --source-comments --source-map --source-map-embed --source-map-contents --stdout $1 | autoprefixer --map --inline-map --sources-content -b "> 0.01%" -o -;
