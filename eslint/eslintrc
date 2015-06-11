@@ -1,5 +1,7 @@
 {
-    "ecmaFeatures": {},
+    "ecmaFeatures": {
+        "jsx": true
+    },
     "parser": "espree",
     "env": {
         "browser": true,
@@ -8,6 +10,9 @@
         "es6": true
     },
     "globals": {},
+    "plugins": [
+        "react"
+    ],
     "rules": {
         // Possible Errors
         "comma-dangle": [2, "never"],
