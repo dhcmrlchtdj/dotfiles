@@ -4,10 +4,11 @@
     },
     "parser": "espree",
     "env": {
-        "browser": true,
-        "node": true,
         "amd": true,
-        "es6": true
+        "browser": true,
+        "es6": true,
+        "jquery": true,
+        "node": true
     },
     "globals": {},
     "plugins": [
@@ -154,7 +155,7 @@
         "operator-assignment": 0,
         "operator-linebreak": [1, "after"],
         "padded-blocks": 0,
-        "quote-props": [2, "as-needed"],
+        "quote-props": [1, "as-needed"],
         "quotes": [1, "single", "avoid-escape"],
         "semi-spacing": [2, {"before": false, "after": true}],
         "semi": [2, "always"],
