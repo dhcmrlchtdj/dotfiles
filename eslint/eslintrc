@@ -53,7 +53,7 @@
         "default-case": 0,
         "dot-notation": 0,
         "dot-location": [1, "property"],
-        "eqeqeq": [2, "smart"],
+        "eqeqeq": [1, "smart"],
         "guard-for-in": 1,
         "no-alert": 1,
         "no-caller": 2,
