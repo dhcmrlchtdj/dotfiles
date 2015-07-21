@@ -177,7 +177,8 @@ NeoBundle 'othree/yajs.vim' "syntax highlight
 NeoBundle 'othree/javascript-libraries-syntax.vim' "highlight
 NeoBundle 'othree/jspc.vim' "complete
 NeoBundle 'maksimr/vim-jsbeautify' "format
-NeoBundle 'pangloss/vim-javascript' "indent
+NeoBundle 'rschmukler/pangloss-vim-indent' "indent
+"NeoBundle 'pangloss/vim-javascript' "indent
 "NeoBundle 'buztard/vim-javascript', { 'rev' : 'dot-chained-calls' }
 
 " python
@@ -189,8 +190,8 @@ NeoBundle 'hynek/vim-python-pep8-indent'
 "NeoBundle 'a.vim'
 "NeoBundle 'Rip-Rip/clang_complete'
 
-NeoBundle 'rust-lang/rust.vim'
-NeoBundle 'cespare/vim-toml'
+"NeoBundle 'rust-lang/rust.vim'
+"NeoBundle 'cespare/vim-toml'
 
 " md | rst
 NeoBundle 'tpope/vim-markdown'
