@@ -155,7 +155,7 @@
         "operator-assignment": 0,
         "operator-linebreak": [1, "after"],
         "padded-blocks": 0,
-        "quote-props": [1, "as-needed"],
+        "quote-props": [0, "as-needed"],
         "quotes": [1, "single", "avoid-escape"],
         "semi-spacing": [2, {"before": false, "after": true}],
         "semi": [2, "always"],
