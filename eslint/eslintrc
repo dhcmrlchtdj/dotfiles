@@ -26,7 +26,7 @@
         "no-dupe-keys": 2,
         "no-duplicate-case": 2,
         "no-empty": 0,
-        "no-empty-character-class": 2, // disallow the use of empty character classes in regular expressions (recommended)
+        "no-empty-character-class": 2,
         "no-ex-assign": 2,
         "no-extra-boolean-cast": 2,
         "no-extra-parens": 0,
@@ -38,16 +38,15 @@
         "no-negated-in-lhs": 2,
         "no-obj-calls": 2,
         "no-regex-spaces": 2,
-        "no-reserved-keys": 2,
         "no-sparse-arrays": 2,
-        "no-unexpected-multiline": 2, // Avoid code that looks like two expressions but is actually one
+        "no-unexpected-multiline": 2,
         "no-unreachable": 2,
         "use-isnan": 2,
         "valid-jsdoc": 0,
         "valid-typeof": 2,
 
         // Best Practices
-        "accessor-pairs": [2, {getWithoutSet: true}], // Enforces getter/setter pairs in objects
+        "accessor-pairs": [2, {getWithoutSet: true}],
         "block-scoped-var": 2,
         "complexity": 0,
         "consistent-return": 0,
@@ -68,9 +67,9 @@
         "no-extra-bind": 2,
         "no-fallthrough": 2,
         "no-floating-decimal": 2,
-        "no-implicit-coercion": 0, // disallow the type conversions with shorter notations
+        "no-implicit-coercion": 0,
         "no-implied-eval": 2,
-        "no-invalid-this": 2, // disallow this keywords outside of classes or class-like objects
+        "no-invalid-this": 0,
         "no-iterator": 2,
         "no-labels": 2,
         "no-lone-blocks": 2,
@@ -93,7 +92,7 @@
         "no-sequences": 2,
         "no-throw-literal": 2,
         "no-unused-expressions": 2,
-        "no-useless-call": 1, // disallow unnecessary .call() and .apply()
+        "no-useless-call": 1,
         "no-void": 1,
         "no-warning-comments": [1, {"terms": ["todo", "fixme"]}],
         "no-with": 2,
@@ -103,10 +102,10 @@
         "yoda": 0,
 
         // Strict Mode
-        "strict": 2,
+        "strict": 0,
 
         // Variables
-        "init-declarations": 0, // enforce or disallow variable initializations at definition
+        "init-declarations": 0,
         "no-catch-shadow": 2,
         "no-delete-var": 2,
         "no-label-var": 2,
@@ -119,7 +118,7 @@
         "no-use-before-define": 2,
 
         // Node.js
-        "callback-return": 0, // enforce return after a callback
+        "callback-return": 0,
         "handle-callback-err": 0,
         "no-mixed-requires": 2,
         "no-new-require": 2,
@@ -129,22 +128,22 @@
         "no-sync": 0,
 
         // Stylistic Issues
-        "array-bracket-spacing": [1, "never"], // enforce spacing inside array brackets
+        "array-bracket-spacing": [1, "never"],
         "brace-style": [1, "1tbs", {"allowSingleLine": true}],
         "camelcase": [1, {"properties": "never"}],
         "comma-spacing": [1, {"before": false, "after": true}],
         "comma-style": [1, "last"],
-        "computed-property-spacing": [1, "never"], // require or disallow padding inside computed properties
+        "computed-property-spacing": [1, "never"],
         "consistent-this": 0,
         "eol-last": 1,
         "func-names": 0,
         "func-style": 0,
-        "id-length": 0, // this option enforces minimum and maximum identifier lengths (variable names, property names etc.) (off by default)
-        "id-match": 0, // require identifiers to match the provided regular expression
+        "id-length": 0,
+        "id-match": 0,
         "indent": [1, 4],
         "key-spacing": 1,
         "linebreak-style": [1, "unix"],
-        "lines-around-comment": [1, {"beforeBlockComment": true, "beforeLineComment": true, "allowBlockStart": true, "allowBlockEnd": true}], // enforce empty lines around comments
+        "lines-around-comment": [1, {"beforeBlockComment": true, "beforeLineComment": false, "allowBlockStart": true, "allowBlockEnd": true}],
         "max-nested-callbacks": 0,
         "new-cap": 1,
         "new-parens": 1,
@@ -162,7 +161,7 @@
         "no-trailing-spaces": 1,
         "no-underscore-dangle": 0,
         "no-unneeded-ternary": 1,
-        "object-curly-spacing": [1, "never"], // require or disallow padding inside curly braces
+        "object-curly-spacing": [1, "never"],
         "one-var": [1, "never"],
         "operator-assignment": 0,
         "operator-linebreak": [1, "after"],
@@ -179,23 +178,23 @@
         "space-infix-ops": 1,
         "space-return-throw-case": 1,
         "space-unary-ops": [1, {"words": true, "nonwords": false}],
-        "spaced-comment": 0, // require or disallow a space immediately following the // or /* in a comment
+        "spaced-comment": 0,
         "wrap-regex": 1,
 
         // ECMAScript 6
-        "arrow-parens": 2, // require parens in arrow function arguments
-        "arrow-spacing": [2, {"before": true, "after": true}], // require space before/after arrow function's arrow
-        "constructor-super": 1, // verify calls of super() in constructors
-        "generator-star-spacing": 0, // enforce spacing around the * in generator functions
-        "no-class-assign": 2, // disallow modifying variables of class declarations
-        "no-const-assign": 2, // disallow modifying variables that are declared using const
-        "no-this-before-super": 1, // disallow use of this/super before calling super() in constructors.
-        "no-var": 0, // require let or const instead of var
-        "object-shorthand": [2, "never"], // require method and property shorthand syntax for object literals
-        "prefer-const": 0, // suggest using const declaration for variables that are never modified after declared
-        "prefer-spread": 0, // suggest using the spread operator instead of .apply().
-        "prefer-reflect": 0, // suggest using Reflect methods where applicable
-        "require-yield": 1, // disallow generator functions that do not have yield
+        "arrow-parens": 2,
+        "arrow-spacing": [2, {"before": true, "after": true}],
+        "constructor-super": 1,
+        "generator-star-spacing": 0,
+        "no-class-assign": 2,
+        "no-const-assign": 2,
+        "no-this-before-super": 1,
+        "no-var": 0,
+        "object-shorthand": [2, "never"],
+        "prefer-const": 0,
+        "prefer-spread": 0,
+        "prefer-reflect": 0,
+        "require-yield": 1,
 
         // Legacy
         "max-depth": 0,
