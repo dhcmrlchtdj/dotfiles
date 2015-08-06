@@ -143,7 +143,7 @@
         "indent": [1, 4],
         "key-spacing": 1,
         "linebreak-style": [1, "unix"],
-        "lines-around-comment": [1, {"beforeBlockComment": true, "beforeLineComment": false, "allowBlockStart": true, "allowBlockEnd": true}],
+        "lines-around-comment": 0,
         "max-nested-callbacks": 0,
         "new-cap": 1,
         "new-parens": 1,
