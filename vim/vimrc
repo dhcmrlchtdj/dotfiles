@@ -309,8 +309,8 @@ let g:unite_prompt = '» '
 let g:unite_winwidth = 30
 let g:unite_winheight = 20
 let g:unite_source_grep_command = 'ag'
-let g:unite_source_grep_default_opts = '--smart-case --nocolor --nogroup --hidden --ignore ".git"'
-let g:unite_source_grep_recursive_opt = ''
+let g:unite_source_grep_default_opts = '--vimgrep --smart-case --nocolor --nogroup --hidden --ignore ".git"'
+"let g:unite_source_grep_recursive_opt = ''
 nmap <C-p> :Unite buffer file_rec/async<CR>
 nmap <S-p> :Unite grep:.<CR>
 nmap <Leader>p :Unite outline<CR>
