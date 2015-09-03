@@ -14,9 +14,11 @@
     eol = native
     autocrlf = input
     safecrlf = warn
+    trustctime = false
+    precomposeunicode = false
 
 [color]
-    ui = true
+    ui = auto
 
 [push]
     default = simple
