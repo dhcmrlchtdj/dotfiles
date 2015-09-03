@@ -178,6 +178,9 @@ NeoBundle 'rschmukler/pangloss-vim-indent' "indent
 "NeoBundle 'pangloss/vim-javascript' "indent
 "NeoBundle 'buztard/vim-javascript', { 'rev' : 'dot-chained-calls' }
 
+"json
+NeoBundle 'elzr/vim-json' "json syntax
+
 " jsx
 NeoBundle 'mxw/vim-jsx' " jsx indent/syntax
 
