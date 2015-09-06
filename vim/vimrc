@@ -362,14 +362,9 @@ highlight link GitGutterChangeDelete CursorColumn
 
 
 """ 模板
-"augroup templates
-    "let l = [ 'gulpfile.js' ]
-    "if index(l, expand('%')) >= 0
-        "autocmd BufNewFile * silent! execute '0r ~/.vim/templates/skeleton.'.expand('<afile>')
-    "else
-        "autocmd BufNewFile * silent! execute '0r ~/.vim/templates/skeleton.'.expand('<afile>:e')
-    "endif
-"augroup END
+augroup templates
+    autocmd BufNewFile * silent! execute '0r ~/.vim/templates/skeleton.'.expand('<afile>:e')
+augroup END
 
 
 """ 其他
