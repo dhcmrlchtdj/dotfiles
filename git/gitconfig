@@ -16,6 +16,7 @@
     safecrlf = warn
     trustctime = false
     precomposeunicode = false
+    pager = cat
 
 [color]
     ui = auto
