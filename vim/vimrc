@@ -303,7 +303,7 @@ let g:syntastic_javascript_checkers = ['eslint']
 "let g:syntastic_scss_checkers = ['sassc']
 
 " javascript-libraries-syntax.vim
-let g:used_javascript_libs = 'jquery,underscore'
+let g:used_javascript_libs = 'jquery,underscore,requirejs'
 
 " unite
 "let g:unite_split_rule = 'botright'
