@@ -264,10 +264,10 @@ let g:NERDTreeIndicatorMap = {
             \ }
 
 "tagbar
-let g:tagbar_width = 35
-let g:tagbar_foldlevel = 1
-let g:tagbar_sort = 0
-nmap <silent> <F4> :TagbarOpen fj<CR>
+"let g:tagbar_width = 35
+"let g:tagbar_foldlevel = 1
+"let g:tagbar_sort = 0
+"nmap <silent> <F4> :TagbarOpen fj<CR>
 
 " gundo
 let g:gundo_preview_height = 10
@@ -303,7 +303,7 @@ let g:syntastic_javascript_checkers = ['eslint']
 "let g:syntastic_scss_checkers = ['sassc']
 
 " javascript-libraries-syntax.vim
-let g:used_javascript_libs = 'jquery,requirejs,underscore,angularjs'
+let g:used_javascript_libs = 'jquery,underscore'
 
 " unite
 "let g:unite_split_rule = 'botright'
