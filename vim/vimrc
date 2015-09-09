@@ -132,7 +132,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
 
 " navigator
-NeoBundle 'Shougo/vimproc', { 'build' : { 'mac' : 'make -f make_mac.mak', 'unix' : 'make' } }
+NeoBundle 'Shougo/vimproc', { 'build' : { 'mac' : 'make', 'unix' : 'make' } }
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/unite-outline'
 
@@ -279,6 +279,8 @@ nmap <silent> <F5> :silent! GundoToggle<CR>
 " js beautify
 autocmd FileType javascript noremap <buffer> <Leader>ff :call JsBeautify()<CR>
 autocmd FileType javascript vnoremap <buffer> <Leader>ff :call RangeJsBeautify()<CR>
+autocmd FileType json noremap <buffer> <Leader>ff :call JsBeautify()<CR>
+autocmd FileType json vnoremap <buffer> <Leader>ff :call RangeJsBeautify()<CR>
 autocmd FileType html noremap <buffer> <Leader>ff :call HtmlBeautify()<CR>
 autocmd FileType html vnoremap <buffer> <Leader>ff :call RangeHtmlBeautify()<CR>
 autocmd FileType css,scss noremap <buffer> <Leader>ff :call CSSBeautify()<CR>
