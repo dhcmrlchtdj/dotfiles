@@ -158,9 +158,9 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'godlygeek/tabular'
 
 " complete
-"NeoBundle 'Shougo/neocomplete.vim'
-"NeoBundle 'Shougo/neosnippet'
-"NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 
 " html5
 NeoBundle 'othree/html5.vim'
@@ -185,7 +185,7 @@ NeoBundle 'elzr/vim-json' "json syntax
 NeoBundle 'mxw/vim-jsx' " jsx indent/syntax
 
 " python
-NeoBundle 'tmhedberg/SimpylFold'
+"NeoBundle 'tmhedberg/SimpylFold'
 NeoBundle 'hynek/vim-python-pep8-indent'
 "NeoBundle 'davidhalter/jedi-vim'
 
@@ -322,12 +322,12 @@ nmap <Leader>p :Unite outline<CR>
 
 " neocomplete
 "let g:neocomplete#force_overwrite_completefunc = 1
-"let g:neocomplete#enable_at_startup = 1
-"let g:neocomplete#enable_smart_case = 1
-"let g:neocomplete#sources#syntax#min_keyword_length = 1
-"inoremap <expr><TAB> pumvisible() ? "<C-n>" : "<TAB>"
-"imap <C-k> <Plug>(neosnippet_expand_or_jump)
-"" Enable heavy omni completion.
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 1
+inoremap <expr><TAB> pumvisible() ? "<C-n>" : "<TAB>"
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+" Enable heavy omni completion.
 "if !exists('g:neocomplete#force_omni_input_patterns')
     "let g:neocomplete#force_omni_input_patterns = {}
 "endif
