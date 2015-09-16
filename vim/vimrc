@@ -255,14 +255,18 @@ let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeSortHiddenFirst = 1
 let g:NERDTreeIgnore = ["\.swp$"]
 nmap <silent> <F3> :silent! NERDTreeFind<CR>
+
 " nerdtree-git-plugin
-let g:NERDTreeIndicatorMap = {
+let g:NERDTreeIndicatorMapCustom = {
             \ "Modified"  : "M",
             \ "Staged"    : "S",
             \ "Untracked" : "U",
             \ "Renamed"   : "R",
             \ "Unmerged"  : "u",
-            \ "Unknown"   : "?"
+            \ "Deleted"   : "",
+            \ "Dirty"     : "",
+            \ "Clean"     : "",
+            \ "Unknown"   : ""
             \ }
 
 "tagbar
@@ -279,10 +283,8 @@ let g:gundo_prefer_python3=1
 nmap <silent> <F5> :silent! GundoToggle<CR>
 
 " js beautify
-autocmd FileType javascript noremap <buffer> <Leader>ff :call JsBeautify()<CR>
-autocmd FileType javascript vnoremap <buffer> <Leader>ff :call RangeJsBeautify()<CR>
-autocmd FileType json noremap <buffer> <Leader>ff :call JsBeautify()<CR>
-autocmd FileType json vnoremap <buffer> <Leader>ff :call RangeJsBeautify()<CR>
+autocmd FileType javascript,json noremap <buffer> <Leader>ff :call JsBeautify()<CR>
+autocmd FileType javascript,json vnoremap <buffer> <Leader>ff :call RangeJsBeautify()<CR>
 autocmd FileType html noremap <buffer> <Leader>ff :call HtmlBeautify()<CR>
 autocmd FileType html vnoremap <buffer> <Leader>ff :call RangeHtmlBeautify()<CR>
 autocmd FileType css,scss noremap <buffer> <Leader>ff :call CSSBeautify()<CR>
