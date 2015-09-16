@@ -147,6 +147,7 @@ NeoBundle 'tmhedberg/matchit'
 
 " undo
 NeoBundle 'sjl/gundo.vim'
+"NeoBundle 'mbbill/undotree'
 
 " comment
 NeoBundle 'scrooloose/nerdcommenter'
