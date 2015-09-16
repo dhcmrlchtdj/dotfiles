@@ -120,6 +120,7 @@ nmap <silent> <F1> :silent! lopen<CR>
 
 """ 插件
 set runtimepath+=~/.vim/bundle/neobundle.vim/
+"let g:neobundle#install_process_timeout = 600
 call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
