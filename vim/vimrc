@@ -199,7 +199,7 @@ NeoBundle 'hynek/vim-python-pep8-indent'
 "NeoBundle 'cespare/vim-toml'
 
 " md | rst
-NeoBundle 'tpope/vim-markdown'
+"NeoBundle 'tpope/vim-markdown'
 "NeoBundle 'Rykka/clickable.vim'
 "NeoBundle 'Rykka/riv.vim'
 "NeoBundle 'RST-Tables-CJK'
