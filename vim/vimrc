@@ -158,6 +158,7 @@ NeoBundle 'scrooloose/syntastic'
 
 " align
 NeoBundle 'godlygeek/tabular'
+"NeoBundle 'junegunn/vim-easy-align'
 
 " complete
 NeoBundle 'Shougo/neocomplete.vim'
