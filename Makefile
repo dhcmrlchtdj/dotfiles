@@ -14,11 +14,12 @@ show:
 
 .PHONY: install
 install: \
-	mpv\
 	aria2\
+	eslint\
 	git\
 	htop\
-	eslint\
+	mitmproxy\
+	mpv\
 	npm\
 	nvm\
 	pip\
