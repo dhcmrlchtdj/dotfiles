@@ -1,17 +1,22 @@
-// v1.4.3
+// v1.6.0
 {
     "root": true,
     "ecmaFeatures": {
+        "arrowFunctions": true,
+        "generators": true,
         "jsx": true,
+        "restParams": true,
         "templateStrings": true
     },
     "parser": "babel-eslint",
     "env": {
-        "amd": true,
         "browser": true,
+        "commonjs": true,
         "es6": true,
         "jquery": true,
-        "node": true
+        "node": true,
+        "serviceworker": true,
+        "worker": true
     },
     "globals": {
     },
@@ -99,7 +104,7 @@
         "no-useless-call": 1,
         "no-useless-concat": 2,
         "no-void": 1,
-        "no-warning-comments": [1, {"terms": ["todo", "fixme"]}],
+        "no-warning-comments": [1, {"terms": ["TODO", "FIXME", "XXX"], "location": "start"}],
         "no-with": 2,
         "radix": 2,
         "vars-on-top": 0,
@@ -107,7 +112,7 @@
         "yoda": 0,
 
         // Strict Mode
-        "strict": 0,
+        "strict": [2, "global"],
 
         // Variables
         "init-declarations": 0,
@@ -161,6 +166,7 @@
         "no-lonely-if": 0,
         "no-mixed-spaces-and-tabs": 2,
         "no-multiple-empty-lines": 0,
+        "no-negated-condition": 0,
         "no-nested-ternary": 0,
         "no-new-object": 1,
         "no-restricted-syntax": [1, "WithStatement"],
@@ -195,7 +201,7 @@
         "arrow-parens": 2,
         "arrow-spacing": [2, {"before": true, "after": true}],
         "constructor-super": 1,
-        "generator-star-spacing": 0,
+        "generator-star-spacing": [2, {"before": false, "after": true}],
         "no-class-assign": 2,
         "no-const-assign": 2,
         "no-dupe-class-members": 2,
