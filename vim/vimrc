@@ -147,7 +147,8 @@ NeoBundle 'jeetsukumaran/vim-buffergator'
 NeoBundle 'tmhedberg/matchit'
 
 " undo
-NeoBundle 'sjl/gundo.vim'
+NeoBundle 'omarkhan/gundo.vim'
+"NeoBundle 'sjl/gundo.vim'
 "NeoBundle 'mbbill/undotree'
 
 " comment
@@ -282,6 +283,12 @@ let g:gundo_help = 0
 let g:gundo_close_on_revert = 1
 let g:gundo_prefer_python3=1
 nmap <silent> <F5> :silent! GundoToggle<CR>
+
+"undotree
+"let g:undotree_SplitWidth = 40
+"let g:undotree_DiffpanelHeight = 10
+"let g:undotree_SetFocusWhenToggle = 1
+"nmap <silent> <F5> :silent! UndotreeToggle<CR>
 
 " js beautify
 autocmd FileType javascript,json noremap <buffer> <Leader>ff :call JsBeautify()<CR>
