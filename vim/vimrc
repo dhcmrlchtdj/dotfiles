@@ -23,7 +23,7 @@ set novisualbell "禁止出错屏幕闪烁
 set ttyfast
 set display=lastline,uhex
 
-set mouse=a "鼠标支持
+set mouse="" "鼠标支持
 set clipboard=unnamed,unnamedplus,autoselect,autoselectplus "剪贴板
 set virtualedit=block "虚空间
 set backspace=indent,eol,start "insert模式下删除键可删除
