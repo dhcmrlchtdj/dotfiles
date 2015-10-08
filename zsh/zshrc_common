@@ -1,0 +1,96 @@
+source ~/.zshrc_grml
+source ~/.zshrc_prompt
+
+
+# helper, from nvm
+_zsh_has() {
+  type "$1" > /dev/null 2>&1
+}
+
+
+# command start with space will not be saved
+setopt HIST_IGNORE_SPACE
+
+export EDITOR="vim"
+
+
+### git for directoy ###
+chpwd_profile_default() {
+    [[ ${profile} == ${CHPWD_PROFILE} ]] && return 1
+    unset GIT_AUTHOR_NAME
+    unset GIT_AUTHOR_EMAIL
+    unset GIT_COMMITTER_NAME
+    unset GIT_COMMITTER_EMAIL
+}
+chpwd_profiles
+#### END git for directoy ###
+
+
+### autocompletion ###
+fpath=(/usr/local/share/zsh-completions $fpath)
+compinit
+### END autocompletion ###
+
+
+### gulp ###
+#eval "$(gulp --completion=zsh)"
+### END gulp ###
+
+
+### node ###
+export NVM_DIR=~/.nvm
+source ~/.nvm/nvm.sh
+function chpwd_nvm_use() { nvm use &> /dev/null || nvm use system &> /dev/null ; return 0 }
+chpwd_nvm_use
+chpwd_functions=( ${chpwd_functions} chpwd_nvm_use )
+alias node="node --harmony"
+if _zsh_has "npm"; then eval "$(npm completion)"; fi
+### END node ###
+
+
+### alias ###
+alias cp="cp -r"
+alias rm="rm -Irv"
+alias ls="ls --color=auto --group-directories-first -vF"
+alias la="ls -A"
+alias ll="ls -lAh --time-style=long-iso"
+alias du="du -h"
+alias df="df -h"
+alias free="free -h"
+alias tree="tree -F --dirsfirst"
+
+alias j="jobs -dl"
+alias h="htop"
+alias f="find . -name"
+alias py="python3"
+alias py3="python3"
+alias py2="python2"
+
+alias sss="python3 -m http.server"
+alias mm="mitmproxy"
+alias mmm="mitmproxy -i '~q | ~s'"
+#alias jj="mvn jetty:run"
+#alias jjj="mvn jetty:run &>/dev/null &"
+#alias css="cleancss --s0"
+alias ujs="uglifyjs -m -c unsafe=true"
+alias marked="marked --gfm --breaks --smart-lists"
+alias curlw="curl -w '\ntime_namelookup:\t%{time_namelookup}\ntime_connect:\t\t%{time_connect}\ntime_appconnect:\t%{time_appconnect}\ntime_pretransfer:\t%{time_pretransfer}\ntime_redirect:\t\t%{time_redirect}\ntime_starttransfer:\t%{time_starttransfer}\n------\ntime_total:\t\t%{time_total}\n'"
+### END alias ###
+
+
+zzz() {
+    for i in "$@"; do
+        7z a -tzip $i.zip $i;
+    done
+}
+
+ttt() {
+    if [[ -z "$TMUX" ]] ;then
+        ID="`tmux ls | grep -vm1 attached | cut -d: -f1`" # get the id of a deattached session
+        if [[ -z "$ID" ]] ;then # if not available create a new one
+            tmux -CC
+        else
+            tmux -CC attach -t "$ID" # if available attach to it
+        fi
+    fi
+}
