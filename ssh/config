@@ -6,7 +6,7 @@ ControlMaster auto
 ControlPath ~/.ssh/socket-%r@%h:%p
 ControlPersist 10h
 ServerAliveInterval 60
-Ciphers chacha20-poly1305@openssh.com,aes256-ctr
+Ciphers chacha20-poly1305@openssh.com,aes256-ctr,blowfish-cbc
 
 
 
