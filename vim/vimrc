@@ -24,6 +24,7 @@ set ttyfast
 set display=lastline,uhex
 
 set mouse="" "鼠标支持
+set lazyredraw
 set clipboard=unnamed,unnamedplus,autoselect,autoselectplus "剪贴板
 set virtualedit=block "虚空间
 set backspace=indent,eol,start "insert模式下删除键可删除
@@ -102,7 +103,7 @@ set listchars=tab:»\ ,eol:\ ,trail:·, "字符样式
 """ fold
 set foldmethod=indent "折叠方式
 set nofoldenable "关闭折叠
-set foldlevel=20 "打开小于20层的折叠
+set foldlevel=10 "打开小于10层的折叠
 set foldcolumn=1
 " 选定后用空格创建折叠 用于marker
 "vmap <silent> <Space> zf
