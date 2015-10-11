@@ -23,9 +23,9 @@ install: \
 	npm\
 	nvm\
 	pip\
+	screen\
 	siege\
 	sqlite\
 	ssh\
-	tmux\
 	vim\
 	zsh\

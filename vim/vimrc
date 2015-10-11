@@ -139,7 +139,7 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/unite-outline'
 
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'Xuyuanp/nerdtree-git-plugin'
+"NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle 'jeetsukumaran/vim-buffergator'
 "NeoBundle 'majutsushi/tagbar'
 

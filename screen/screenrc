@@ -1,0 +1,4 @@
+startup_message off
+term "xterm-256color"
+hardstatus alwayslastline
+hardstatus string "%-Lw%{= BW}%50>[%n%f* %t]%{-}%+Lw%<"
