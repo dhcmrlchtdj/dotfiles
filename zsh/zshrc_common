@@ -58,7 +58,7 @@ alias du="du -h"
 alias df="df -h"
 alias free="free -h"
 alias tree="tree -F --dirsfirst"
-alias screen="screen -R"
+alias sc="screen -R"
 
 alias j="jobs -dl"
 alias h="htop"
