@@ -117,7 +117,7 @@ set splitright
 """ location list
 nmap <silent> <F1> :silent! lopen<CR>
 autocmd FileType qf nmap <buffer> <CR> <CR>:lclose<CR>
-autocmd FileType qf nmap <buffer> q <CR>:lclose<CR>
+autocmd FileType qf nmap <buffer> q :q<CR>
 
 
 """ plugin
