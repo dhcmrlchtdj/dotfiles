@@ -32,8 +32,9 @@
 
 [diff]
     tool = vimdiff
+    algorithm = minimal
     ;algorithm = patience
-    algorithm = histogram
+    ;algorithm = histogram
 
 [difftool]
     prompt = false
