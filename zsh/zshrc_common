@@ -12,6 +12,7 @@ _zsh_has() {
 setopt HIST_IGNORE_SPACE
 
 export EDITOR="vim"
+export TERM="xterm-256color"
 
 
 ### git for directoy ###
