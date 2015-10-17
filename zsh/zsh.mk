@@ -5,7 +5,7 @@ zsh:
 	ln -s `pwd`/zsh/zshrc_grml ~/.zshrc_grml
 	ln -s `pwd`/zsh/zshrc_prompt ~/.zshrc_prompt
 	ln -s `pwd`/zsh/zshrc_common ~/.zshrc_common
-	ln -s `pwd`/zsh/zshrc_others ~/.zshrc_others
+	test -e `pwd`/zsh/zshrc_others && ln -s `pwd`/zsh/zshrc_others ~/.zshrc_others
 ifeq ($(shell uname),Darwin)
 	ln -s `pwd`/zsh/zshrc_darwin ~/.zshrc
 else
