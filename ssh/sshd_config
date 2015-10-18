@@ -1,41 +1,36 @@
 Port 22
 
-
+SyslogFacility AUTH
+LogLevel VERBOSE
 
 Protocol 2
 
-
-
-SyslogFacility AUTH
-LogLevel INFO
-
-
+Compression yes
+AddressFamily inet
+Ciphers chacha20-poly1305@openssh.com,blowfish-cbc
 
 UsePrivilegeSeparation yes
-AllowUsers USERNAME
 LoginGraceTime 120
-PermitRootLogin no
 StrictModes yes
 
-RSAAuthentication yes
-PubkeyAuthentication yes
-AuthorizedKeysFile .ssh/authorized_keys
-
 PermitEmptyPasswords no
-ChallengeResponseAuthentication no
-PasswordAuthentication yes
-#PasswordAuthentication no
+PermitRootLogin no
+# AllowUsers USERNAME
 
+PubkeyAuthentication yes
+AuthorizedKeysFile %h/.ssh/authorized_keys
+# PasswordAuthentication no
 
+UsePAM yes
+ChallengeResponseAuthentication yes
+AuthenticationMethods publickey keyboard-interactive:pam
+# AuthenticationMethods publickey keyboard-interactive
+
+# AcceptEnv LANG LC_*
 
 IgnoreRhosts yes
+HostbasedAuthentication no
 
-
-
-AcceptEnv LANG LC_*
-
-
-
-
-ClientAliveInterval 60
+TCPKeepAlive no
+ClientAliveInterval 120
 ClientAliveCountMax 3
