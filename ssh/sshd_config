@@ -20,6 +20,8 @@ PermitRootLogin no
 PubkeyAuthentication yes
 AuthorizedKeysFile %h/.ssh/authorized_keys
 # PasswordAuthentication no
+PasswordAuthentication yes
+
 
 UsePAM yes
 ChallengeResponseAuthentication yes

@@ -13,7 +13,7 @@ setopt HIST_IGNORE_SPACE
 
 export EDITOR="vim"
 export TERM="xterm-256color"
-export LESS="-i"
+#export LESS="-ir"
 
 
 ### git for directoy ###
