@@ -160,8 +160,8 @@ NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'scrooloose/syntastic'
 
 " align
-NeoBundle 'godlygeek/tabular'
-"NeoBundle 'junegunn/vim-easy-align'
+"NeoBundle 'godlygeek/tabular'
+NeoBundle 'junegunn/vim-easy-align'
 
 " complete
 NeoBundle 'Shougo/neocomplete.vim'
@@ -288,7 +288,7 @@ nmap <silent> <F5> :silent! GundoToggle<CR>
 
 "undotree
 "let g:undotree_SplitWidth = 40
-"let g:undotree_DiffpanelHeight = 10
+"let g:undotree_DiffpanelHeight = 15
 "let g:undotree_SetFocusWhenToggle = 1
 "nmap <silent> <F5> :silent! UndotreeToggle<CR>
 
@@ -317,6 +317,10 @@ let g:syntastic_style_warning_symbol = '⚠'
 let g:syntastic_html_checkers = []
 let g:syntastic_javascript_checkers = ['eslint']
 "let g:syntastic_scss_checkers = ['sassc']
+
+" vim-easy-align
+vmap ga <Plug>(EasyAlign)
+vmap <Enter> <Plug>(EasyAlign)
 
 " javascript-libraries-syntax.vim
 let g:used_javascript_libs = 'jquery,underscore,requirejs'
