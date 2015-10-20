@@ -6,4 +6,4 @@ zsh:
 	ln -s `pwd`/zsh/zshrc_prompt ~/.zshrc_prompt
 	ln -s `pwd`/zsh/zshrc_common ~/.zshrc_common
 	ln -s `pwd`/zsh/zshrc_`uname | tr '[:upper:]' '[:lower:]'` ~/.zshrc
-	if [[ -e `pwd`/zsh/zshrc_others ]]; then ln -s `pwd`/zsh/zshrc_others ~/.zshrc_others; fi
+	if [ -e "`pwd`/zsh/zshrc_others" ]; then ln -s `pwd`/zsh/zshrc_others ~/.zshrc_others; fi
