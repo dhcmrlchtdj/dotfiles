@@ -3,10 +3,13 @@ source ~/.zshrc_prompt
 
 
 # helper, from nvm
-_zsh_has() {
-  type "$1" > /dev/null 2>&1
+_has() {
+  type "$1" &> /dev/null
 }
 
+_is_ssh() {
+    [[ -n "$SSH_CONNECTION" ]] || [[ -n "$SSH_TTY" ]]
+}
 
 # command start with space will not be saved
 setopt HIST_IGNORE_SPACE
@@ -46,7 +49,7 @@ function chpwd_nvm_use() { nvm use &> /dev/null || nvm use system &> /dev/null ;
 chpwd_nvm_use
 chpwd_functions=( ${chpwd_functions} chpwd_nvm_use )
 alias node="node --harmony"
-if _zsh_has "npm"; then eval "$(npm completion)"; fi
+if _has "npm"; then eval "$(npm completion)"; fi
 ### END node ###
 
 
@@ -88,8 +91,8 @@ zzz() {
 }
 
 ttt() {
-    if [[ -z "$TMUX" ]] ;then
-        ID="`tmux ls | grep -vm1 attached | cut -d: -f1`" # get the id of a deattached session
+    if _has "tmux" && [[ -z "$TMUX" ]] ;then
+        ID=$(tmux ls | grep -vm1 attached | cut -d: -f1) # get the id of a deattached session
         if [[ -z "$ID" ]] ;then # if not available create a new one
             tmux -CC
         else
@@ -97,3 +100,4 @@ ttt() {
         fi
     fi
 }
+if _is_ssh; then ttt; fi
