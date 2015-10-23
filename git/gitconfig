@@ -69,4 +69,4 @@
     mm = merge --no-ff
     mmx = merge --no-ff -Xtheirs
     cp = cherry-pick
-    tt = "!_() { git tag $(date '+%Y-%m-%dT%H.%M.%S%z')${1:+_$1}; }; _"
+    tt = "!_() { declare tag=\"$(date '+%Y-%m-%dT%H.%M.%S%z')${1:+_$1}\"; git tag $tag -am $tag; }; _"
