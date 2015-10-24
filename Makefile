@@ -22,7 +22,6 @@ install: \
 	mpv\
 	npm\
 	nvm\
-	pip\
 	screen\
 	siege\
 	sqlite\
