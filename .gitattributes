@@ -1,3 +1,3 @@
 npmrc filter=npmrc
-ssh/config filter=sshconfig
+ssh/ssh_config filter=sshconfig
 htop/htoprc filter=htoprc
