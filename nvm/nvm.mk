@@ -7,4 +7,5 @@ nvm:
 	#ln -s `pwd`/nvm/nvmrc ~/.nvmrc
 
 nvmrc:
-	ln -s `pwd`/nvm/nvmrc ~/.nvmrc
+	rm -rf ~/.nvmrc
+	cp `pwd`/nvm/nvmrc ~/.nvmrc
