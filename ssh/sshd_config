@@ -25,13 +25,12 @@ PermitRootLogin no
 
 PubkeyAuthentication yes
 AuthorizedKeysFile %h/.ssh/authorized_keys
-
-# PasswordAuthentication no
-# ChallengeResponseAuthentication no
-PasswordAuthentication yes
-ChallengeResponseAuthentication yes
-# AuthenticationMethods publickey keyboard-interactive:pam # TODO
 UsePAM yes
+PasswordAuthentication no
+
+ChallengeResponseAuthentication no
+# ChallengeResponseAuthentication yes
+# AuthenticationMethods publickey keyboard-interactive:pam # TODO
 
 IgnoreRhosts yes
 HostbasedAuthentication no
