@@ -11,12 +11,12 @@ _is_ssh() {
     [[ -n "$SSH_CONNECTION" ]] || [[ -n "$SSH_TTY" ]]
 }
 
+
 # command start with space will not be saved
 setopt HIST_IGNORE_SPACE
 
 export EDITOR="vim"
 export TERM="xterm-256color"
-#export LESS="-ir"
 
 
 ### git for directoy ###
@@ -37,19 +37,15 @@ compinit
 ### END autocompletion ###
 
 
-### gulp ###
-#eval "$(gulp --completion=zsh)"
-### END gulp ###
-
-
 ### node ###
 export NVM_DIR=~/.nvm
 source ~/.nvm/nvm.sh
-function chpwd_nvm_use() { nvm use &> /dev/null || nvm use system &> /dev/null ; return 0 }
+chpwd_nvm_use() { nvm use &>/dev/null || nvm use system &>/dev/null; return 0 }
 chpwd_nvm_use
 chpwd_functions=( ${chpwd_functions} chpwd_nvm_use )
 alias node="node --harmony"
 if _has "npm"; then eval "$(npm completion)"; fi
+#if _has "gulp"; then eval "$(gulp --completion=zsh)"; fi
 ### END node ###
 
 
