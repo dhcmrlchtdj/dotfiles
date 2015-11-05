@@ -9,7 +9,7 @@ include */*.mk
 
 .PHONY: show
 show:
-	@make -nprR | sed -n -e '/^$$/{n' -e '/^[#.]/d' -e 's/:.*//' -e 'p' -e '}' | sort -u
+	@make -nprR | sed -ne '/^$$/{ n; /^[^#.]/{ s/:.*//; p; }; }' | sort -u
 
 
 .PHONY: install
