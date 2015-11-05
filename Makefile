@@ -1,7 +1,7 @@
 .PHONY: usage
 usage:
-	@echo "make install \t # install default"
-	@echo "make show \t # show available "
+	@echo "make install	# install default"
+	@echo "make show	# show available"
 
 
 include */*.mk
@@ -9,7 +9,7 @@ include */*.mk
 
 .PHONY: show
 show:
-	@make -nprR | gsed -n -e "/^$$/{n; /^[^.#].*:/{s/:.*//; p}}" | sort
+	@make -nprR | sed -n -e '/^$$/{n' -e '/^[#.]/d' -e 's/:.*//' -e 'p' -e '}' | sort -u
 
 
 .PHONY: install
