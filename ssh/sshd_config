@@ -24,15 +24,15 @@ PermitEmptyPasswords no
 
 GSSAPIAuthentication no
 HostbasedAuthentication no
+KerberosAuthentication no
 PasswordAuthentication no
+ChallengeResponseAuthentication yes
+KbdInteractiveAuthentication yes
+PubkeyAuthentication yes
+UsePAM yes
 
 AuthorizedKeysFile %h/.ssh/authorized_keys
-PubkeyAuthentication yes
-
-UsePAM yes
-#ChallengeResponseAuthentication no
-ChallengeResponseAuthentication yes
-#AuthenticationMethods publickey keyboard-interactive:pam  # TODO
+#AuthenticationMethods publickey keyboard-interactive:pam # TODO
 
 IgnoreRhosts yes
 
