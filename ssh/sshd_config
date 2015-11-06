@@ -19,8 +19,8 @@ StrictModes yes
 
 PermitEmptyPasswords no
 #PermitRootLogin no # TODO
+#AllowUsers <user> # TODO
 #AllowGroups <group> # TODO
-#AllowUsers <user>
 
 GSSAPIAuthentication no
 HostbasedAuthentication no
