@@ -237,6 +237,7 @@ set background=dark "深色背景
 set background=light "浅色背景
 let g:solarized_termcolors = 256
 let g:solarized_termtrans = 1
+let g:solarized_visibility = 'low'
 colorscheme solarized
 
 highlight clear SignColumn
