@@ -59,7 +59,7 @@ alias du="du -h"
 alias df="df -h"
 alias free="free -h"
 alias tree="tree -F --dirsfirst"
-alias sc="screen -R"
+alias sc="screen -dRR"
 
 alias j="jobs -dl"
 alias h="htop"
@@ -97,4 +97,4 @@ ttt() {
     fi
 }
 #if _is_ssh; then ttt; fi
-if _is_ssh && _has "screen" && [[ -z "$STY" ]]; then screen -R; fi
+if _is_ssh && _has "screen" && [[ -z "$STY" ]]; then sc; fi

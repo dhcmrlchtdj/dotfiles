@@ -2,3 +2,5 @@ startup_message off
 term "xterm-256color"
 hardstatus alwayslastline
 hardstatus string "%-Lw%{= BW}%50>[%n%f* %t]%{-}%+Lw%<"
+windowlist string "%4n %h%=%f"
+bind ^c stuff "screen -X chdir \$PWD;screen^M"
