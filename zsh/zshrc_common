@@ -96,5 +96,4 @@ ttt() {
         fi
     fi
 }
-#if _is_ssh; then ttt; fi
-if _is_ssh && _has "screen" && [[ -z "$STY" ]]; then sc; fi
+if _is_ssh && _has "screen" && [[ -z "$STY" && -z "$TMUX" ]]; then sc; fi
