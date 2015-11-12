@@ -80,9 +80,10 @@ alias curlw="curl -w '\ntime_namelookup:\t%{time_namelookup}\ntime_connect:\t\t%
 ### END alias ###
 
 
+alias zz="bsdtar cvaf"
 zzz() {
     for i in "$@"; do
-        7z a -tzip $i.zip $i;
+        zz $i.zip $i;
     done
 }
 
