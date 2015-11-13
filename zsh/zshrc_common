@@ -60,6 +60,7 @@ alias df="df -h"
 alias free="free -h"
 alias tree="tree -F --dirsfirst"
 alias sc="screen -dRR"
+alias zz="bsdtar cvaf"
 
 alias j="jobs -dl"
 alias h="htop"
@@ -80,7 +81,6 @@ alias curlw="curl -w '\ntime_namelookup:\t%{time_namelookup}\ntime_connect:\t\t%
 ### END alias ###
 
 
-alias zz="bsdtar cvaf"
 zzz() {
     for i in "$@"; do
         zz $i.zip $i;
@@ -97,4 +97,4 @@ ttt() {
         fi
     fi
 }
-if _is_ssh && _has "screen" && [[ -z "$STY" && -z "$TMUX" ]]; then sc; fi
+#if _is_ssh && _has "screen" && [[ -z "$STY" && -z "$TMUX" ]]; then sc; fi
