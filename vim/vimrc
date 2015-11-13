@@ -228,9 +228,9 @@ call neobundle#end()
 """ 插件设置
 filetype plugin indent on "载入文件类型 插件 缩进
 syntax enable "语法加亮
-au FileType htmldjango,jsp set ft=html
+"au FileType htmldjango,jsp set ft=html
 "au FileType json set ft=javascript
-au BufRead,BufNewFile *.ftl set ft=html
+"au BufRead,BufNewFile *.ftl set ft=html
 "au FileType text set ft=asciidoc
 
 set background=dark "深色背景
