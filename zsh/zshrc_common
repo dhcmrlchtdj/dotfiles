@@ -4,7 +4,7 @@ source ~/.zshrc_prompt
 
 # helper, from nvm
 _has() {
-  type "$1" &> /dev/null
+    type "$1" &> /dev/null
 }
 
 _is_ssh() {

@@ -25,7 +25,6 @@ install: \
 	mpv\
 	npm\
 	nvm\
-	pacapt\
 	screen\
 	siege\
 	sqlite\
