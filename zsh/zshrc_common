@@ -18,6 +18,8 @@ setopt HIST_IGNORE_SPACE
 export EDITOR="vim"
 export TERM="xterm-256color"
 
+export PATH="$HOME/.local/bin:$PATH"
+
 
 ### git for directoy ###
 chpwd_profile_default() {
