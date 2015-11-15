@@ -2,7 +2,7 @@ source ~/.zshrc_common
 
 
 ## alias
-alias pacman="pacman --color=auto"
+if [[ -f /etc/arch-release ]]; then alias pacman="pacman --color=auto"; fi
 alias tracepath="tracepath -b"
 
 alias cm="convmv -f cp936 -t utf8 --notest -r"

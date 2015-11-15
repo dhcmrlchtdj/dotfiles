@@ -4,6 +4,9 @@ usage:
 	@echo "make show	# show available"
 
 
+SHELL := /bin/bash
+
+
 include */*.mk
 
 

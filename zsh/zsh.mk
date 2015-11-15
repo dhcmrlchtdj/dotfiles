@@ -10,5 +10,5 @@ zsh:
 	rm -rf ~/.zshrc
 	ln -s `pwd`/zsh/zshrc_`uname | tr '[:upper:]' '[:lower:]'` ~/.zshrc
 	rm -rf ~/.zshrc_others
-	if [ -e "`pwd`/zsh/zshrc_others" ]; then ln -s `pwd`/zsh/zshrc_others ~/.zshrc_others; fi
+	if [ -f "`pwd`/zsh/zshrc_others" ]; then ln -s `pwd`/zsh/zshrc_others ~/.zshrc_others; fi
 	@echo
