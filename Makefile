@@ -17,7 +17,6 @@ show:
 
 .PHONY: install
 install: \
-	aria2\
 	eslint\
 	git\
 	htop\
