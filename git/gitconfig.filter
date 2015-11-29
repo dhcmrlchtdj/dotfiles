@@ -4,8 +4,8 @@
 
 [filter "sshconfig"]
     smudge = cat
-    clean = "sed -E '/(^Host |^ |^$)/d'"
+    clean = "sed -E '/^Host [^*]+|^ |^$/d'"
 
 [filter "htoprc"]
     smudge = cat
-    clean = "sed -E '/sort_key|tree_view/d'"
+    clean = "sed -E '/#|sort_key|tree_view/d'"

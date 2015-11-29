@@ -1,3 +1,4 @@
+Host *
 AddressFamily inet
 HashKnownHosts yes
 Compression yes
