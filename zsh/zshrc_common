@@ -33,12 +33,6 @@ chpwd_profiles
 #### END git for directoy ###
 
 
-### autocompletion ###
-fpath=(/usr/local/share/zsh-completions $fpath)
-compinit
-### END autocompletion ###
-
-
 ### node ###
 export NVM_DIR=~/.nvm
 source ~/.nvm/nvm.sh
