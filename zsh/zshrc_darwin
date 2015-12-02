@@ -9,6 +9,4 @@ export JAVA_HOME="$(/usr/libexec/java_home)"
 alias rm="grm -Irv"
 alias ls="gls --color=auto --group-directories-first -vF"
 
-alias h="sudo htop"
-
 alias dm="docker-machine --native-ssh"
