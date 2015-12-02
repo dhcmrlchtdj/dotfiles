@@ -7,19 +7,21 @@
 
 [core]
     editor = vim
-    quotepath = false
+    quotePath = false
     whitespace = space-before-tab,trailing-space
-    excludesfile = ~/.gitconfig.excludes
-    attributesfile = ~/.gitconfig.attributes
+    excludesFile = ~/.gitconfig.excludes
+    attributesFile = ~/.gitconfig.attributes
     eol = native
     autocrlf = input
     safecrlf = warn
     trustctime = false
-    precomposeunicode = false
-    ;pager = cat
 
 [color]
     ui = auto
+
+[grep]
+    lineNumber = true
+    extendedRegexp = true
 
 [push]
     default = simple
@@ -28,7 +30,7 @@
     rebase = true
 
 [branch]
-    autosetuprebase = always
+    autoSetupRebase = always
 
 [diff]
     tool = vimdiff
