@@ -210,7 +210,7 @@ NeoBundle 'hynek/vim-python-pep8-indent'
 "NeoBundle 'dagwieers/asciidoc-vim'
 
 " nginx
-NeoBundle 'evanmiller/nginx-vim-syntax'
+NeoBundle 'dhcmrlchtdj/nginx-vim-syntax'
 
 " colorscheme
 NeoBundle 'altercation/vim-colors-solarized'

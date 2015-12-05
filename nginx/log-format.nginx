@@ -1,0 +1,2 @@
+log_format loghost '$remote_addr - "$host" [$time_iso8601] '
+    '"$request" $status $body_bytes_sent "$http_referer" "$http_user_agent"';
