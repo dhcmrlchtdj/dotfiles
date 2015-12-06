@@ -3,8 +3,8 @@ zsh:
 	curl 'https://raw.githubusercontent.com/grml/grml-etc-core/master/etc/zsh/zshrc' -o `pwd`/zsh/zshrc_grml
 	rm -rf ~/.zshrc_grml
 	ln -s `pwd`/zsh/zshrc_grml ~/.zshrc_grml
-	rm -rf ~/.zshrc_prompt
-	ln -s `pwd`/zsh/zshrc_prompt ~/.zshrc_prompt
+	rm -rf ~/.zshrc_prompt_ooxx
+	ln -s `pwd`/zsh/zshrc_prompt_ooxx ~/.zshrc_prompt_ooxx
 	rm -rf ~/.zshrc_common
 	ln -s `pwd`/zsh/zshrc_common ~/.zshrc_common
 	rm -rf ~/.zshrc

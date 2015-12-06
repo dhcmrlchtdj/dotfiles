@@ -1,5 +1,6 @@
 source ~/.zshrc_grml
-source ~/.zshrc_prompt
+source ~/.zshrc_prompt_ooxx
+prompt ooxx
 
 
 # helper, from nvm
@@ -29,7 +30,7 @@ chpwd_profile_default() {
     unset GIT_COMMITTER_NAME
     unset GIT_COMMITTER_EMAIL
 }
-chpwd_profiles
+if _has "chpwd_profiles"; then chpwd_profiles; fi
 #### END git for directoy ###
 
 
