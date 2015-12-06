@@ -28,7 +28,7 @@ server {
     ssl_prefer_server_ciphers on;
     ssl_ciphers 'ECDHE-RSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-RSA-AES256-GCM-SHA384';
 
-    add_header Strict-Transport-Security 'max-age=31536000; includeSubdomains; preload';
+    add_header Strict-Transport-Security 'max-age=31536000; includeSubdomains';
     #add_header Public-Key-Pins 'pin-sha256="base64+primary=="; pin-sha256="base64+backup=="; max-age=86400; includeSubdomains';
 
     return 204;

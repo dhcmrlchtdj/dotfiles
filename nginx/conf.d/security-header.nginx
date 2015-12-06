@@ -8,6 +8,7 @@ server {
     add_header Public-Key-Pins 'pin-sha256="base64+primary=="; pin-sha256="base64+backup=="; max-age=86400; includeSubdomains';
 
     # https://developer.mozilla.org/en-US/docs/Web/Security/HTTP_strict_transport_security
+    # https://hstspreload.appspot.com/
     add_header Strict-Transport-Security 'max-age=31536000; includeSubdomains; preload';
 
     # https://developer.mozilla.org/en-US/docs/Web/Security/CSP/CSP_policy_directives
