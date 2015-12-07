@@ -17,16 +17,16 @@ show:
 
 .PHONY: install
 install: \
-	eslint\
-	git\
-	htop\
-	mitmproxy\
-	mpv\
-	npm\
-	nvm\
-	screen\
-	siege\
-	sqlite\
 	ssh\
 	vim\
 	zsh\
+	git\
+	htop\
+	screen\
+	eslint\
+	npm\
+	nvm\
+	siege\
+	sqlite\
+	mitmproxy\
+	mpv\
