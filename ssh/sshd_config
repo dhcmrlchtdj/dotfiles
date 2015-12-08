@@ -13,9 +13,9 @@ MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,h
 HostKey /etc/ssh/ssh_host_ed25519_key
 HostKey /etc/ssh/ssh_host_rsa_key
 
-UsePrivilegeSeparation sandbox
 LoginGraceTime 120
 StrictModes yes
+UsePrivilegeSeparation yes
 
 PermitEmptyPasswords no
 #PermitRootLogin no # TODO
