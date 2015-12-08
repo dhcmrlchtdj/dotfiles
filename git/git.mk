@@ -1,11 +1,6 @@
 .PHONY: git
 git:
-	rm -rf ~/.gitconfig
-	ln -s `pwd`/git/gitconfig ~/.gitconfig
-	rm -rf ~/.gitconfig.excludes
-	ln -s `pwd`/git/gitconfig.excludes ~/.gitconfig.excludes
-	rm -rf ~/.gitconfig.attributes
-	ln -s `pwd`/git/gitconfig.attributes ~/.gitconfig.attributes
-	rm -rf ~/.gitconfig.filter
-	ln -s `pwd`/git/gitconfig.filter ~/.gitconfig.filter
-	@echo
+	$(LN) `pwd`/git/gitconfig ~/.gitconfig
+	$(LN) `pwd`/git/gitconfig.excludes ~/.gitconfig.excludes
+	$(LN) `pwd`/git/gitconfig.attributes ~/.gitconfig.attributes
+	$(LN) `pwd`/git/gitconfig.filter ~/.gitconfig.filter

@@ -1,7 +1,4 @@
 .PHONY: eslint
 eslint:
-	rm -rf ~/.eslintrc
-	ln -s `pwd`/eslint/eslintrc.json ~/.eslintrc
-	rm -rf ~/.eslintignore
-	ln -s `pwd`/eslint/eslintignore ~/.eslintignore
-	@echo
+	$(LN) `pwd`/eslint/eslintrc.json ~/.eslintrc
+	$(LN) `pwd`/eslint/eslintignore ~/.eslintignore

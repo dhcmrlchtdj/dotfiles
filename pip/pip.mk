@@ -1,9 +1,7 @@
 .PHONY: pip
 pip:
 	mkdir ~/.pip
-	rm -rf ~/.pip/pip.conf
-	ln -s `pwd`/pip/pip.conf ~/.pip/pip.conf
-	@echo
+	$(LN) `pwd`/pip/pip.conf ~/.pip/pip.conf
 
 
 .PHONY: pipsi

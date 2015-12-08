@@ -1,5 +1,3 @@
 .PHONY: sqlite
 sqlite:
-	rm -rf ~/.sqliterc
-	ln -s `pwd`/sqlite/sqliterc ~/.sqliterc
-	@echo
+	$(LN) `pwd`/sqlite/sqliterc ~/.sqliterc
