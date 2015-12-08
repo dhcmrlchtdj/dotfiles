@@ -149,9 +149,7 @@ NeoBundle 'jeetsukumaran/vim-buffergator'
 NeoBundle 'tmhedberg/matchit'
 
 " undo
-NeoBundle 'omarkhan/gundo.vim'
-"NeoBundle 'sjl/gundo.vim'
-"NeoBundle 'mbbill/undotree'
+NeoBundle 'sjl/gundo.vim'
 
 " comment
 NeoBundle 'scrooloose/nerdcommenter'
