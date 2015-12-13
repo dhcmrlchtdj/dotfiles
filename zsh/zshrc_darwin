@@ -4,11 +4,10 @@ fpath=(
     $fpath
 )
 
-source ~/.zshrc_others
-source ~/.zshrc_common
-
 export JAVA_HOME="$(/usr/libexec/java_home)"
 
+source ~/.zshrc_others
+source ~/.zshrc_common
 
 ## alias
 alias rm="grm -Irv"
