@@ -281,15 +281,10 @@ let g:NERDTreeIndicatorMapCustom = {
 " gundo
 let g:gundo_preview_height = 10
 let g:gundo_help = 0
-let g:gundo_close_on_revert = 1
-let g:gundo_prefer_python3=1
+let g:gundo_close_on_revert = 0
+let g:gundo_return_on_revert = 0
+let g:gundo_prefer_python3 = 1
 nmap <silent> <F5> :silent! GundoToggle<CR>
-
-"undotree
-"let g:undotree_SplitWidth = 40
-"let g:undotree_DiffpanelHeight = 15
-"let g:undotree_SetFocusWhenToggle = 1
-"nmap <silent> <F5> :silent! UndotreeToggle<CR>
 
 " js beautify
 autocmd FileType javascript,json noremap <buffer> <Leader>ff :call JsBeautify()<CR>
@@ -316,10 +311,6 @@ let g:syntastic_style_warning_symbol = '⚠'
 let g:syntastic_html_checkers = []
 let g:syntastic_javascript_checkers = ['eslint']
 "let g:syntastic_scss_checkers = ['sassc']
-
-" vim-easy-align
-"vmap ga <Plug>(EasyAlign)
-"vmap <Enter> <Plug>(EasyAlign)
 
 " javascript-libraries-syntax.vim
 let g:used_javascript_libs = 'jquery,underscore,requirejs'
