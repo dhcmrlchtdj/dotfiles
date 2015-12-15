@@ -3,7 +3,7 @@
 
 prompt_ooxx_git_dirty() {
     [[ "$(command git rev-parse --is-inside-work-tree)" == "true" ]] || return
-    command git diff --quiet --no-ext-diff --ignore-submodules &>/dev/null
+    command git diff --quiet --no-ext-diff --ignore-submodules HEAD &>/dev/null
     (( $? )) && echo '*'
 }
 
