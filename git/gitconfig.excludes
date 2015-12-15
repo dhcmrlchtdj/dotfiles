@@ -16,6 +16,7 @@ __pycache__/
 node_modules/*
 coverage/*
 npm-debug.log
+.nyc_output/*
 
 # java
 *.iml
