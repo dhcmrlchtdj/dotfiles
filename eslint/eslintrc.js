@@ -204,7 +204,7 @@ module.exports = {
         'no-underscore-dangle': 0,
         'no-unneeded-ternary': 1,
         'object-curly-spacing': [1, 'always'],
-        'one-var': [1, 'never'],
+        'one-var': 0,
         'operator-assignment': 0,
         'operator-linebreak': [1, 'after'],
         'padded-blocks': 0,
