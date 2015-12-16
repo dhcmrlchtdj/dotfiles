@@ -61,8 +61,8 @@
     dff = diff HEAD
     dffs = diff --cached HEAD
     dfw = diff HEAD --word-diff
-    l = log --graph --decorate --date=iso --format=format:'%C(yellow)%h%Creset <%C(blue)%an%Creset@%C(cyan)%ad%Creset>%C(green)%d%Creset   %s'
     ll = log --graph --decorate --oneline -10
+    l = log --graph --decorate --date=iso --format=format:'%C(yellow)%h%Creset <%C(blue)%an%Creset@%C(cyan)%ad%Creset>%C(green)%d%Creset   %s'
     lc = log --graph --decorate --date=iso --format=format:'%C(yellow)%h%Creset <%C(blue)%cn%Creset@%C(cyan)%cd%Creset>%C(green)%d%Creset   %s'
     rc = rm --cached -rf .
     mt = mergetool
