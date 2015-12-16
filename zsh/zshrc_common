@@ -46,6 +46,7 @@ chpwd_functions=( ${chpwd_functions} chpwd_nvm_use )
 alias node="node --harmony"
 if _has "npm"; then eval "$(npm completion)"; fi
 #if _has "gulp"; then eval "$(gulp --completion=zsh)"; fi
+alias npmtaobao="npm --registry=https://registry.npm.taobao.org"
 ### END node ###
 
 
