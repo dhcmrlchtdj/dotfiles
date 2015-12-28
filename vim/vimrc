@@ -311,6 +311,7 @@ let g:syntastic_style_warning_symbol = '⚠'
 let g:syntastic_html_checkers = []
 let g:syntastic_javascript_checkers = ['eslint']
 "let g:syntastic_scss_checkers = ['sassc']
+nmap <F4> :SyntasticToggleMode<CR>
 
 " javascript-libraries-syntax.vim
 let g:used_javascript_libs = 'jquery,underscore,requirejs'
@@ -337,7 +338,7 @@ inoremap <expr><TAB> pumvisible() ? "<C-n>" : "<TAB>"
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 " Enable heavy omni completion.
 "if !exists('g:neocomplete#force_omni_input_patterns')
-    "let g:neocomplete#force_omni_input_patterns = {}
+"let g:neocomplete#force_omni_input_patterns = {}
 "endif
 
 " airline
