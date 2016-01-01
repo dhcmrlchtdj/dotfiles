@@ -1,3 +1,6 @@
 .echo ON
 .headers ON
+.mode list
+.mode tabs
 .mode line
+.mode column
