@@ -1,6 +1,6 @@
-.echo ON
-.headers ON
-.mode list
-.mode tabs
+.echo on
+.headers on
+.timer on
+.nullvalue NULL
 .mode line
 .mode column
