@@ -9,3 +9,7 @@
 [filter "htoprc"]
     smudge = cat
     clean = "sed -E '/#|sort_key|tree_view/d'"
+
+[filter "vnstat"]
+    smudge = cat
+    clean = "sed -E '/Interface/s/\"[^\"]+\"/\"eth0\"/'"

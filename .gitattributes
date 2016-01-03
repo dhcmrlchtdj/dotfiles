@@ -1,3 +1,4 @@
-npmrc filter=npmrc
+npm/npmrc filter=npmrc
 ssh/ssh_config filter=sshconfig
 htop/htoprc filter=htoprc
+vnstat/vnstatrc filter=vnstat
