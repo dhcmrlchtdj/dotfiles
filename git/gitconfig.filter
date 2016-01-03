@@ -12,4 +12,4 @@
 
 [filter "vnstat"]
     smudge = cat
-    clean = "sed -E '/Interface/s/\"[^\"]+\"/\"eth0\"/'"
+    clean = "sed -E '/Interface/s/\"[^\"]*\"/\"eth0\"/'"

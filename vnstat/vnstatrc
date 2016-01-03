@@ -1,4 +1,4 @@
-Interface ""
+Interface "eth0"
 
 QueryMode 0
 OutputStyle 3
