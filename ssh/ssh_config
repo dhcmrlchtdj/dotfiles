@@ -1,4 +1,5 @@
 Host *
+UseRoaming no
 AddressFamily inet
 HashKnownHosts yes
 Compression yes
