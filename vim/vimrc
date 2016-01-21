@@ -17,7 +17,7 @@ set guifont=Monaco:h14 "macvim
 set ambiwidth=single
 
 set t_Co=256 "颜色数目
-set t_vb='' "禁止错误信息响铃及出错屏幕闪烁
+set t_vb="" "禁止错误信息响铃及出错屏幕闪烁
 set noerrorbells "禁止错误信息响铃
 set novisualbell "禁止出错屏幕闪烁
 set ttyfast
