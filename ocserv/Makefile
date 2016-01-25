@@ -3,6 +3,9 @@
 build:
 	docker build -t "niris/ocserv" .
 
+run:
+	docker run --rm -it -p 4433:443 niris/ocserv
+
 define CA_TMPL
 	cn = "OCSERV CA CN"
 	organization = "OCSERV CA ORG"
