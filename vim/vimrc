@@ -88,8 +88,8 @@ nmap n nzzzv
 nmap N Nzzzv
 
 """ indent
-set expandtab "使用空格缩进
 set noexpandtab "使用tab缩进
+set expandtab "使用空格缩进
 set tabstop=4 "制表符\t的宽度
 set softtabstop=4 "tab键的宽度
 set shiftwidth=4 "空格缩进时宽度
