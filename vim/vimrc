@@ -14,7 +14,6 @@ set nocompatible "不兼容vi
 set modelines=0 "忽略 打开的文件 里的vim参数
 set autoread "macvim
 set guifont=Monaco:h14 "macvim
-set ambiwidth=single
 
 set t_Co=256 "颜色数目
 set t_vb="" "禁止错误信息响铃及出错屏幕闪烁
@@ -128,7 +127,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " ui
 NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'bling/vim-airline'
+NeoBundle 'vim-airline/vim-airline'
+NeoBundle 'vim-airline/vim-airline-themes'
 
 " git
 NeoBundle 'tpope/vim-fugitive'
