@@ -1,29 +1,34 @@
 'use strict';
 
-// eslint@1.10.3
-// eslint-plugin-react@3.11.3
+// eslint@2.2.0
 
 module.exports = {
-    ecmaFeatures: {
-        jsx: true
+    parserOptions: {
+        ecmaVersion: 6,
+        sourceType: 'module',
+        ecmaFeatures: {
+            globalReturn: false,
+            impliedStrict: true,
+            jsx: true,
+            experimentalObjectRestSpread: true
+        }
     },
-    parser: 'babel-eslint',
+    //parser: 'babel-eslint',
     env: {
         browser: true,
         node: true,
         commonjs: true,
+        'shared-node-browser': true,
+        es6: true,
         worker: true,
-        //amd: true,
-        jquery: true,
-        serviceworker: true,
-        es6: true
+        serviceworker: true
     },
     globals: {},
     plugins: [
         //'react'
     ],
-    //root: true,
-    //extends: [],
+    root: true,
+    extends: [],
     rules: {
         // Possible Errors
         'comma-dangle': [2, 'never'],
@@ -74,7 +79,6 @@ module.exports = {
         'no-case-declarations': 0,
         'no-div-regex': 0,
         'no-else-return': 0,
-        'no-empty-label': 1,
         'no-empty-pattern': 2,
         'no-eq-null': 2,
         'no-eval': 2,
@@ -147,6 +151,7 @@ module.exports = {
         'no-new-require': 2,
         'no-path-concat': 2,
         'no-process-exit': 1,
+        'no-restricted-imports': 0,
         'no-restricted-modules': 0,
         'no-sync': 0,
 
@@ -195,6 +200,10 @@ module.exports = {
         'no-multiple-empty-lines': 0,
         'no-negated-condition': 0,
         'no-nested-ternary': 0,
+        'keyword-spacing': [2, {
+            'before': true,
+            'after': true
+        }],
         'no-new-object': 2,
         'no-plusplus': 0,
         'no-restricted-syntax': [1, 'WithStatement'],
@@ -203,7 +212,7 @@ module.exports = {
         'no-trailing-spaces': 1,
         'no-underscore-dangle': 0,
         'no-unneeded-ternary': 1,
-        'object-curly-spacing': [1, 'always'],
+        'object-curly-spacing': 0,
         'one-var': 0,
         'operator-assignment': 0,
         'operator-linebreak': [1, 'after'],
@@ -217,13 +226,10 @@ module.exports = {
             'after': true
         }],
         'sort-vars': 0,
-        'space-after-keywords': [1, 'always'],
         'space-before-blocks': [1, 'always'],
         'space-before-function-paren': [1, 'never'],
-        'space-before-keywords': [2, 'always'],
         'space-in-parens': [1, 'never'],
         'space-infix-ops': 1,
-        'space-return-throw-case': 1,
         'space-unary-ops': [1, {
             'words': true,
             'nonwords': false
@@ -239,57 +245,24 @@ module.exports = {
             'after': true
         }],
         'constructor-super': 1,
-        'generator-star-spacing': [2, {
-            'before': false,
-            'after': true
-        }],
-        'no-arrow-condition': 2,
+        'generator-star-spacing': [2, 'after'],
         'no-class-assign': 2,
+        'no-confusing-arrow': 2,
         'no-const-assign': 2,
         'no-dupe-class-members': 2,
+        'no-new-symbol': 2,
         'no-this-before-super': 1,
+        'no-useless-constructor': 2,
         'no-var': 0,
         'object-shorthand': [2, 'never'],
         'prefer-arrow-callback': 0,
         'prefer-const': 0,
         'prefer-reflect': 0,
+        'prefer-rest-params': 0,
         'prefer-spread': 0,
         'prefer-template': 0,
-        'require-yield': 2
-
-        // react
-        //'react/display-name': 0,
-        //'react/forbid-prop-types': 0,
-        //'react/jsx-boolean-value': 0,
-        //'react/jsx-closing-bracket-location': 0,
-        //'react/jsx-curly-spacing': [2, 'always'],
-        //'react/jsx-handler-names': 0,
-        //'react/jsx-indent-props': 0,
-        //'react/jsx-key': 1,
-        //'react/jsx-max-props-per-line': 0,
-        //'react/jsx-no-bind': 0,
-        //'react/jsx-no-duplicate-props': 2,
-        //'react/jsx-no-literals': 0,
-        //'react/jsx-no-undef': 2,
-        //'react/jsx-pascal-case': 0,
-        //'react/jsx-quotes': 0,
-        //'react/jsx-sort-prop-types': 0,
-        //'react/jsx-sort-props': 0,
-        //'react/jsx-uses-react': 0,
-        //'react/jsx-uses-vars': 0,
-        //'react/no-danger': 0,
-        //'react/no-did-mount-set-state': 0,
-        //'react/no-did-update-set-state': 0,
-        //'react/no-direct-mutation-state': 0,
-        //'react/no-multi-comp': 0,
-        //'react/no-set-state': 0,
-        //'react/no-unknown-property': 0,
-        //'react/prefer-es6-class': 0,
-        //'react/prop-types': 0,
-        //'react/react-in-jsx-scope': 0,
-        //'react/require-extension': 0,
-        //'react/self-closing-comp': 0,
-        //'react/sort-comp': 0,
-        //'react/wrap-multilines': 0
+        'require-yield': 2,
+        'template-curly-spacing': 0,
+        'yield-star-spacing': [2, 'after']
     }
 };
