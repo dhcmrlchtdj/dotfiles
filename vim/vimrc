@@ -324,7 +324,8 @@ let g:unite_source_grep_command = 'ag'
 let g:unite_source_grep_default_opts = '--vimgrep --smart-case --nocolor --nogroup --hidden --ignore ".git"'
 let g:unite_source_rec_async_command = 'ag  --smart-case --nocolor --nogroup --hidden --ignore ".git" --ignore "node_modules" -g ""'
 nmap <C-p> :Unite buffer file_rec/async<CR>
-nmap <S-p> :Unite grep:.<CR>
+"nmap <S-p> :Unite grep:.<CR>
+nmap <C-p><C-p> :Unite grep:.<CR>
 nmap <Leader>p :Unite outline<CR>
 
 " neocomplete
