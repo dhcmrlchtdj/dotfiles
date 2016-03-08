@@ -178,9 +178,7 @@ NeoBundle 'othree/yajs.vim' "syntax highlight
 NeoBundle 'othree/javascript-libraries-syntax.vim' "highlight
 NeoBundle 'othree/jspc.vim' "complete
 NeoBundle 'maksimr/vim-jsbeautify' "format
-NeoBundle 'rschmukler/pangloss-vim-indent' "indent
-"NeoBundle 'pangloss/vim-javascript' "indent
-"NeoBundle 'buztard/vim-javascript', { 'rev' : 'dot-chained-calls' }
+NeoBundle 'pangloss/vim-javascript' "indent
 
 "json
 NeoBundle 'elzr/vim-json' "json syntax
