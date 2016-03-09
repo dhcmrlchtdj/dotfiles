@@ -25,10 +25,10 @@ module.exports = {
     },
     globals: {},
     plugins: [
-        //'react'
+        'react'
     ],
     root: true,
-    extends: [],
+    extends: ["plugin:react/recommended"]
     rules: {
         // Possible Errors
         'comma-dangle': [2, 'never'],
