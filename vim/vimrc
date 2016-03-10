@@ -57,7 +57,7 @@ set nowrap "不自动换行
 "set wrap "自动换行
 set textwidth=0 "行宽
 set colorcolumn=80 "行宽提示
-set cursorline "高亮当前行
+"set cursorline "高亮当前行
 "set scrolljump=-50 "翻页
 noremap <buffer> <silent> <Up> gk
 noremap <buffer> <silent> <Down> gj
@@ -162,9 +162,10 @@ NeoBundle 'godlygeek/tabular'
 "NeoBundle 'junegunn/vim-easy-align'
 
 " complete
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
+"NeoBundle 'Shougo/neocomplete.vim'
+"NeoBundle 'Shougo/neosnippet'
+"NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'Valloric/YouCompleteMe'
 
 " html5
 NeoBundle 'othree/html5.vim'
@@ -175,10 +176,11 @@ NeoBundle 'cakebaker/scss-syntax.vim'
 
 " javascript
 NeoBundle 'othree/yajs.vim' "syntax highlight
-NeoBundle 'othree/javascript-libraries-syntax.vim' "highlight
-NeoBundle 'othree/jspc.vim' "complete
-NeoBundle 'maksimr/vim-jsbeautify' "format
+"NeoBundle 'othree/javascript-libraries-syntax.vim' "highlight
+"NeoBundle 'othree/jspc.vim' "complete
+NeoBundle 'marijnh/tern_for_vim', {'build': {'others': 'npm install'}}
 NeoBundle 'pangloss/vim-javascript' "indent
+NeoBundle 'maksimr/vim-jsbeautify' "format
 
 "json
 NeoBundle 'elzr/vim-json' "json syntax
@@ -256,17 +258,17 @@ let g:NERDTreeIgnore = ["\.swp$"]
 nmap <silent> <F3> :silent! NERDTreeFind<CR>
 
 " nerdtree-git-plugin
-let g:NERDTreeIndicatorMapCustom = {
-            \ "Modified"  : "M",
-            \ "Staged"    : "S",
-            \ "Untracked" : "U",
-            \ "Renamed"   : "R",
-            \ "Unmerged"  : "u",
-            \ "Deleted"   : "",
-            \ "Dirty"     : "",
-            \ "Clean"     : "",
-            \ "Unknown"   : ""
-            \ }
+"let g:NERDTreeIndicatorMapCustom = {
+            "\ "Modified"  : "M",
+            "\ "Staged"    : "S",
+            "\ "Untracked" : "U",
+            "\ "Renamed"   : "R",
+            "\ "Unmerged"  : "u",
+            "\ "Deleted"   : "",
+            "\ "Dirty"     : "",
+            "\ "Clean"     : "",
+            "\ "Unknown"   : ""
+            "\ }
 
 "tagbar
 "let g:tagbar_width = 35
@@ -310,7 +312,7 @@ let g:syntastic_javascript_checkers = ['eslint']
 nmap <F4> :SyntasticToggleMode<CR>
 
 " javascript-libraries-syntax.vim
-let g:used_javascript_libs = 'jquery,underscore,requirejs'
+"let g:used_javascript_libs = 'jquery,underscore,requirejs'
 
 " unite
 "let g:unite_split_rule = 'botright'
@@ -328,15 +330,11 @@ nmap <Leader>p :Unite outline<CR>
 
 " neocomplete
 "let g:neocomplete#force_overwrite_completefunc = 1
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 1
-inoremap <expr><TAB> pumvisible() ? "<C-n>" : "<TAB>"
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-" Enable heavy omni completion.
-"if !exists('g:neocomplete#force_omni_input_patterns')
-"let g:neocomplete#force_omni_input_patterns = {}
-"endif
+"let g:neocomplete#enable_at_startup = 1
+"let g:neocomplete#enable_smart_case = 1
+"let g:neocomplete#sources#syntax#min_keyword_length = 1
+"inoremap <expr><TAB> pumvisible() ? "<C-n>" : "<TAB>"
+"imap <C-k> <Plug>(neosnippet_expand_or_jump)
 
 " airline
 let g:airline_theme="powerlineish"
@@ -357,11 +355,11 @@ highlight link GitGutterDelete CursorColumn
 highlight link GitGutterChangeDelete CursorColumn
 
 " clang_complete
-let g:clang_complete_auto = 0
-let g:clang_complete_macros = 1
-let g:clang_auto_select = 1
-let g:clang_hl_errors = 0
-let g:clang_library_path = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
+"let g:clang_complete_auto = 0
+"let g:clang_complete_macros = 1
+"let g:clang_auto_select = 1
+"let g:clang_hl_errors = 0
+"let g:clang_library_path = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
 
 " jedi-vim
 "let g:jedi#auto_vim_configuration = 0
