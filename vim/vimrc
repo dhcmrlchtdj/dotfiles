@@ -367,6 +367,9 @@ highlight link GitGutterChangeDelete CursorColumn
 "let g:jedi#popup_select_first = 0
 "let g:jedi#force_py_version = 3
 
+" ycm
+let g:ycm_min_num_of_chars_for_completion = 1
+
 
 """ 模板
 augroup templates
