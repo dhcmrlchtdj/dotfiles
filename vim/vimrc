@@ -163,8 +163,8 @@ NeoBundle 'godlygeek/tabular'
 
 " complete
 NeoBundle 'Shougo/neocomplete.vim'
-"NeoBundle 'Shougo/neosnippet'
-"NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 "NeoBundle 'Valloric/YouCompleteMe'
 
 " html5
