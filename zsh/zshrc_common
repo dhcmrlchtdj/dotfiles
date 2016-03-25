@@ -22,8 +22,6 @@ setopt HIST_IGNORE_SPACE
 export EDITOR="vim"
 export TERM="xterm-256color"
 
-export PATH="$HOME/.local/bin:$PATH"
-
 
 ### git for directoy ###
 chpwd_profile_default() {
@@ -38,15 +36,15 @@ if _has "chpwd_profiles"; then chpwd_profiles; fi
 
 
 ### node ###
-export NVM_DIR=~/.nvm
-source ~/.nvm/nvm.sh
+export NVM_DIR="$HOME/.nvm"
+source "$NVM_DIR/nvm.sh"
 chpwd_nvm_use() { nvm use &>/dev/null || nvm use system &>/dev/null; return 0 }
 chpwd_nvm_use
 chpwd_functions=( ${chpwd_functions} chpwd_nvm_use )
 alias node="node --harmony"
 if _has "npm"; then eval "$(npm completion)"; fi
 #if _has "gulp"; then eval "$(gulp --completion=zsh)"; fi
-alias npmtaobao="npm --registry=https://registry.npm.taobao.org"
+alias npmtaobao="npm --registry=https://registry.npm.taobao.org --disturl=https://npm.taobao.org/dist"
 ### END node ###
 
 
@@ -78,7 +76,7 @@ alias mmm="mitmproxy -i '~q | ~s'"
 #alias jj="mvn jetty:run"
 #alias jjj="mvn jetty:run &>/dev/null &"
 #alias css="cleancss --s0"
-CFLAGS="-Weverything"
+export CFLAGS="-Weverything"
 alias ccc="clang $CFLAGS"
 alias ujs="uglifyjs -m -c unsafe=true"
 alias www="webpack-dev-server"
