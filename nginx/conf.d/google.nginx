@@ -1,0 +1,10 @@
+server {
+    listen 443 ssl;
+    server_name g.example.com;
+    include ssl.config.file;
+
+    location / {
+        google on;
+        google_language en;
+    }
+}
