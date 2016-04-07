@@ -165,7 +165,7 @@ NeoBundle 'godlygeek/tabular'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
-"NeoBundle 'Valloric/YouCompleteMe'
+"NeoBundle 'Valloric/YouCompleteMe' " ./install.py --tern-completer
 
 " html5
 NeoBundle 'othree/html5.vim'
@@ -338,7 +338,7 @@ if !exists('g:neocomplete#sources#omni#input_patterns')
 endif
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-"imap <C-k> <Plug>(neosnippet_expand_or_jump)
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
 
 " airline
 let g:airline_theme="powerlineish"
