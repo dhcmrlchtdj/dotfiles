@@ -6,3 +6,5 @@ OutputStyle 3
 DayFormat "%F"
 MonthFormat "%Y-%m"
 TopFormat "%F"
+
+DatabaseDir "/usr/local/var/db/vnstat"
