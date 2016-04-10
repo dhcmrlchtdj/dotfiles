@@ -1,6 +1,6 @@
 pkgname=nginx-mainline-custom
-pkgver=1.9.12
-pkgrel=1
+pkgver=1.9.14
+pkgrel=2
 pkgdesc='Lightweight HTTP server and IMAP/POP3 proxy server, mainline release'
 arch=('i686' 'x86_64')
 url='http://nginx.org'
@@ -43,8 +43,6 @@ md5sums=('0afe4a7e589a0de43b7b54aa055a4351'
          'f8d104c44136fbd5f404018268f56419')
 
 _common_flags=(
---with-imap
---with-imap_ssl_module
 --with-ipv6
 --with-pcre-jit
 --with-file-aio
@@ -66,8 +64,11 @@ _common_flags=(
 
 _mainline_flags=(
 --with-http_v2_module
---with-threads
+--with-mail
+--with-mail_ssl_module
 --with-stream
+--with-stream_ssl_module
+--with-threads
 )
 
 build() {
