@@ -34,7 +34,7 @@ _modules=(
 --add-module=../ngx_http_substitutions_filter_module-0.6.4
 --add-module=../ngx_http_google_filter_module-0.2.0
 )
-md5sums=('0afe4a7e589a0de43b7b54aa055a4351'
+md5sums=('a25818039f34b5d54b017d44c76321c4'
          'ce9a06bcaf66ec4a3c4eb59b636e0dfd'
          '3441ce77cdd1aab6f0ab7e212698a8a7'
          'd91d7c0f9ce2c48e4786efa467176a4c'
