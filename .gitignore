@@ -2,3 +2,4 @@ zsh/zshrc_others
 zsh/zshrc_grml
 nvm/nvm.sh
 pacapt/pacapt
+dnsmasq/dnsmasq.d
