@@ -1,3 +1,3 @@
 .PHONY: vnstat
 vnstat:
-	$(LN) `pwd`/vnstat/vnstatrc ~/.vnstatrc
+	cp `pwd`/vnstat/vnstatrc ~/.vnstatrc
