@@ -165,7 +165,7 @@ call dein#add('Shougo/neosnippet-snippets')
 call dein#add('sheerun/vim-polyglot')
 
 ""css
-call dein#add('cakebaker/scss-syntax.vim')
+"call dein#add('cakebaker/scss-syntax.vim')
 
 "" javascript
 "call dein#add('othree/yajs.vim') "syntax highlight
@@ -174,7 +174,7 @@ call dein#add('marijnh/tern_for_vim', {'build': 'npm install'})
 call dein#add('maksimr/vim-jsbeautify') "format
 
 "" nginx
-call dein#add('othree/nginx-contrib-vim')
+"call dein#add('othree/nginx-contrib-vim')
 
 "" colorscheme
 call dein#add('altercation/vim-colors-solarized')
