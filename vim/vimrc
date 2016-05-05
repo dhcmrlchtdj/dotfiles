@@ -11,9 +11,10 @@
 "    ~~~~           \/__/       \/__/         \/__/         \/__/
 
 set nocompatible "不兼容vi
-set modelines=0 "忽略 打开的文件 里的vim参数
-set autoread "macvim
-set guifont=Monaco:h14 "macvim
+set autoread
+set nomodeline "忽略 打开的文件 里的vim参数
+set noerrorbells "禁止错误信息响铃
+set novisualbell "禁止出错屏幕闪烁
 
 set t_Co=256 "颜色数目
 set t_vb="" "禁止错误信息响铃及出错屏幕闪烁
@@ -29,9 +30,7 @@ set virtualedit=block "虚空间
 set backspace=indent,eol,start "insert模式下删除键可删除
 set showmatch "输入括号时显示匹配括号
 set completeopt=menu "补全窗口的样式
-"set autochdir "进入文件目录
-set conceallevel=2
-set concealcursor=i
+set conceallevel=0
 set cryptmethod=blowfish2
 
 """ 备份 撤销
@@ -53,8 +52,8 @@ set ambiwidth=single "宽度不明字符使用单倍字符宽度
 
 """ 行号 命令行 状态行
 set number "显示行号
+set wrap "自动换行
 set nowrap "不自动换行
-"set wrap "自动换行
 set textwidth=0 "行宽
 set colorcolumn=80 "行宽提示
 "set cursorline "高亮当前行
@@ -66,7 +65,7 @@ inoremap <buffer> <silent> <Down> <C-o>gj
 
 set cmdheight=1 "命令行行数
 set showcmd "在命令行显示目前执行的指令
-set history=1000 "命令行历史纪录
+set history=10000 "命令行历史纪录
 set wildmenu "命令行补全提示
 set wildmode=longest:full,full "补全方式
 
@@ -87,8 +86,8 @@ nmap n nzzzv
 nmap N Nzzzv
 
 """ indent
-set noexpandtab "使用tab缩进
 set expandtab "使用空格缩进
+set noexpandtab "使用tab缩进
 set tabstop=4 "制表符\t的宽度
 set softtabstop=4 "tab键的宽度
 set shiftwidth=4 "空格缩进时宽度
@@ -97,7 +96,8 @@ set smarttab "智能缩进
 set smartindent "智能选择缩进方式
 set cindent
 set list "显示特殊字符
-set listchars=tab:»\ ,eol:\ ,trail:·, "字符样式
+set listchars=tab:»\ ,trail:·, "字符样式
+autocmd FileType html,css,javascript,scss,json setl et
 
 """ fold
 set foldmethod=indent "折叠方式
@@ -106,12 +106,12 @@ set foldlevel=10 "打开小于10层的折叠
 set foldcolumn=1
 " 选定后用空格创建折叠 用于marker
 "vmap <silent> <Space> zf
-au FileType c,cpp,css,javascript,scss setl fdm=marker | setl fmr={,}
+autocmd FileType c,cpp,css,javascript,scss setl fdm=marker | setl fmr={,}
 "au FileType c,cpp set fdm=syntax
 
 """ split
-set splitright
 "set splitbelow
+set splitright
 
 """ location list
 nmap <silent> <F1> :silent! lopen<CR>
@@ -168,9 +168,7 @@ call dein#add('sheerun/vim-polyglot')
 "call dein#add('cakebaker/scss-syntax.vim')
 
 "" javascript
-"call dein#add('othree/yajs.vim') "syntax highlight
 call dein#add('marijnh/tern_for_vim', {'build': 'npm install'})
-"call dein#add('pangloss/vim-javascript') "indent
 call dein#add('maksimr/vim-jsbeautify') "format
 
 "" nginx
@@ -185,7 +183,7 @@ call dein#end()
 filetype plugin indent on "载入文件类型 插件 缩进
 syntax enable "语法加亮
 "au FileType json set ft=javascript
-au BufRead,BufNewFile *.vue set ft=html
+autocmd BufRead,BufNewFile *.vue set ft=html
 
 set background=dark "深色背景
 set background=light "浅色背景
@@ -209,7 +207,6 @@ nmap <silent> <F2> :BuffergatorOpen<CR>
 " nerd tree
 let g:NERDTreeCaseSensitiveSort = 1
 let g:NERDTreeChDirMode = 2
-"let g:NERDTreeShowHidden = 1
 let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeSortHiddenFirst = 1
 let g:NERDTreeIgnore = ["\.swp$"]
@@ -228,18 +225,11 @@ nmap <silent> <F3> :silent! NERDTreeFind<CR>
             "\ "Unknown"   : ""
             "\ }
 
-"tagbar
-"let g:tagbar_width = 35
-"let g:tagbar_foldlevel = 1
-"let g:tagbar_sort = 0
-"nmap <silent> <F4> :TagbarOpen fj<CR>
-
 " gundo
 let g:gundo_preview_height = 10
 let g:gundo_help = 0
 let g:gundo_close_on_revert = 0
 let g:gundo_return_on_revert = 0
-"let g:gundo_prefer_python3 = 1
 nmap <silent> <F5> :silent! GundoToggle<CR>
 
 " js beautify
@@ -250,9 +240,6 @@ autocmd FileType html vnoremap <buffer> <Leader>ff :call RangeHtmlBeautify()<CR>
 autocmd FileType css,scss noremap <buffer> <Leader>ff :call CSSBeautify()<CR>
 autocmd FileType css,scss vnoremap <buffer> <Leader>ff :call RangeCSSBeautify()<CR>
 
-" a.vim
-"autocmd FileType c,cpp nmap <Leader>a :A<CR>
-
 " syntastic
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
@@ -262,18 +249,11 @@ let g:syntastic_error_symbol = '✗'
 let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_style_error_symbol = '✗'
 let g:syntastic_style_warning_symbol = '⚠'
-"let g:syntastic_python_python_exec = 'python3'
-"let g:syntastic_python_flake8_args = '--ignore=W391,E261,E265,E301,E302,E303,E501,E701'
 let g:syntastic_html_checkers = []
 let g:syntastic_javascript_checkers = ['eslint']
-"let g:syntastic_scss_checkers = ['sassc']
 nmap <F4> :SyntasticToggleMode<CR>
 
-" javascript-libraries-syntax.vim
-"let g:used_javascript_libs = 'jquery,underscore,requirejs'
-
 " unite
-"let g:unite_split_rule = 'botright'
 let g:unite_enable_start_insert = 1
 let g:unite_prompt = '» '
 let g:unite_winwidth = 30
@@ -315,22 +295,7 @@ highlight link GitGutterChange CursorColumn
 highlight link GitGutterDelete CursorColumn
 highlight link GitGutterChangeDelete CursorColumn
 
-" clang_complete
-"let g:clang_complete_auto = 0
-"let g:clang_complete_macros = 1
-"let g:clang_auto_select = 1
-"let g:clang_hl_errors = 0
-"let g:clang_library_path = '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
-
-" jedi-vim
-"let g:jedi#auto_vim_configuration = 0
-"let g:jedi#popup_on_dot = 0
-"let g:jedi#popup_select_first = 0
-"let g:jedi#force_py_version = 3
-
-" ycm
-"let g:ycm_min_num_of_chars_for_completion = 1
-
+" tern
 let g:tern_show_signature_in_pum = 1
 
 """ 模板
