@@ -246,6 +246,7 @@ let g:syntastic_style_error_symbol = '✗'
 let g:syntastic_style_warning_symbol = '⚠'
 let g:syntastic_html_checkers = []
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_lua_checkers = ['luac', 'luacheck']
 nmap <F4> :SyntasticToggleMode<CR>
 
 " unite
