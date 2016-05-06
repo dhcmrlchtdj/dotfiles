@@ -169,6 +169,8 @@ call dein#add('sheerun/vim-polyglot')
 call dein#add('marijnh/tern_for_vim', {'build': 'npm install'})
 call dein#add('maksimr/vim-jsbeautify')
 
+call dein#add('kballard/vim-swift')
+
 "" colorscheme
 call dein#add('altercation/vim-colors-solarized')
 
