@@ -7,4 +7,3 @@ aria2:
 	sed -e "s@~@${HOME}@" \
 		-e "s@<secret>@`LC_CTYPE=C tr -dc '[:alnum:]' < /dev/urandom | head -c 16`@" \
 		`pwd`/aria2/aria2.conf > ~/.aria2/aria2.conf
-	@echo

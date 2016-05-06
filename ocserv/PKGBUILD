@@ -12,17 +12,17 @@ source=("$pkgname-$pkgver.tar.gz::https://gitlab.com/ocserv/ocserv/repository/ar
 sha256sums=('8d6ca6e529468015baac3c1f9351651baa0d479fbd9a6bf280a6672a78af0938')
 
 prepare() {
-  cd ${pkgname}-${pkgname}_*
-  autoreconf -fiv
+	cd ${pkgname}-${pkgname}_*
+	autoreconf -fiv
 }
 
 build() {
-  cd ${pkgname}-${pkgname}_*
-  ./configure --prefix=/usr --sbindir=/usr/bin
-  make
+	cd ${pkgname}-${pkgname}_*
+	./configure --prefix=/usr --sbindir=/usr/bin
+	make
 }
 
 package() {
-  cd ${pkgname}-${pkgname}_*
-  make DESTDIR="$pkgdir" install
+	cd ${pkgname}-${pkgname}_*
+	make DESTDIR="$pkgdir" install
 }

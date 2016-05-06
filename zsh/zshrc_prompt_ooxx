@@ -2,47 +2,47 @@
 # https://github.com/mathiasbynens/dotfiles/
 
 prompt_ooxx_git_dirty() {
-    [[ "$(command git rev-parse --is-inside-work-tree)" == "true" ]] || return
-    command git diff --quiet --no-ext-diff --ignore-submodules HEAD &>/dev/null
-    (( $? )) && echo '*'
+	[[ "$(command git rev-parse --is-inside-work-tree)" == "true" ]] || return
+	command git diff --quiet --no-ext-diff --ignore-submodules HEAD &>/dev/null
+	(( $? )) && echo '*'
 }
 
 prompt_ooxx_precmd() {
-    setopt prompt_subst
+	setopt prompt_subst
 
-    (( ${+functions[vcs_info]} )) && vcs_info
+	(( ${+functions[vcs_info]} )) && vcs_info
 
-    p0=""
-    p1=""
+	p0=""
+	p1=""
 
-    p0+="%F{blue}%n%f "
-    p0+="at %F{cyan}%m%f "
-    if [[ $vcs_info_msg_0_ != "" ]]; then
-        p0+="on %F{green}$vcs_info_msg_0_%f$(prompt_ooxx_git_dirty) "
-    fi
-    p0+="in %F{red}%~%f "
-    p0+="%(?,,[%F{red}%B%?%b%f] ) "
-    p0+="%(1j,[%j running] ,) "
+	p0+="%F{blue}%n%f "
+	p0+="at %F{cyan}%m%f "
+	if [[ $vcs_info_msg_0_ != "" ]]; then
+		p0+="on %F{green}$vcs_info_msg_0_%f$(prompt_ooxx_git_dirty) "
+	fi
+	p0+="in %F{red}%~%f "
+	p0+="%(?,,[%F{red}%B%?%b%f] ) "
+	p0+="%(1j,[%j running] ,) "
 
-    if (( EUID == 0 )); then
-        p1+="%F{magenta}#%f "
-    else
-        p1+="%F{magenta}❯%f "
-    fi
+	if (( EUID == 0 )); then
+		p1+="%F{magenta}#%f "
+	else
+		p1+="%F{magenta}❯%f "
+	fi
 
-    PROMPT=$'$p0\n$p1'
+	PROMPT=$'$p0\n$p1'
 }
 
 prompt_ooxx_setup() {
-    autoload -Uz vcs_info
-    autoload -Uz add-zsh-hook
-    add-zsh-hook precmd prompt_ooxx_precmd
+	autoload -Uz vcs_info
+	autoload -Uz add-zsh-hook
+	add-zsh-hook precmd prompt_ooxx_precmd
 
-    zstyle ':vcs_info:*' enable git
-    zstyle ':vcs_info:*' use-simple true
-    zstyle ':vcs_info:*' max-exports 2
-    zstyle ':vcs_info:git*' formats '%b' 'x%R'
-    zstyle ':vcs_info:git*' actionformats '%b|%a' 'x%R'
+	zstyle ':vcs_info:*' enable git
+	zstyle ':vcs_info:*' use-simple true
+	zstyle ':vcs_info:*' max-exports 2
+	zstyle ':vcs_info:git*' formats '%b' 'x%R'
+	zstyle ':vcs_info:git*' actionformats '%b|%a' 'x%R'
 }
 
 autoload -Uz promptinit

@@ -1,7 +1,7 @@
 [filter "npmrc"]
-    smudge = cat
-    clean = "sed -E '/^[@/]/d'"
+	smudge = cat
+	clean = "sed -E '/^[@/]/d'"
 
 [filter "sshconfig"]
-    smudge = cat
-    clean = "sed -E '/^#|^Host [^*]+|^ |^$/d'"
+	smudge = cat
+	clean = "sed -E '/^#|^Host [^*]+|^[[:space:]]|^$/d'"

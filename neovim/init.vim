@@ -206,16 +206,16 @@ nmap <silent> <F3> :silent! NERDTreeFind<CR>
 
 " nerdtree-git-plugin
 "let g:NERDTreeIndicatorMapCustom = {
-            "\ "Modified"  : "M",
-            "\ "Staged"    : "S",
-            "\ "Untracked" : "U",
-            "\ "Renamed"   : "R",
-            "\ "Unmerged"  : "u",
-            "\ "Deleted"   : "",
-            "\ "Dirty"     : "",
-            "\ "Clean"     : "",
-            "\ "Unknown"   : ""
-            "\ }
+"\ "Modified"  : "M",
+"\ "Staged"    : "S",
+"\ "Untracked" : "U",
+"\ "Renamed"   : "R",
+"\ "Unmerged"  : "u",
+"\ "Deleted"   : "",
+"\ "Dirty"     : "",
+"\ "Clean"     : "",
+"\ "Unknown"   : ""
+"\ }
 
 " gundo
 let g:gundo_preview_height = 10
@@ -295,38 +295,38 @@ augroup END
 " 调整文件
 nmap <silent> <F6> :call ReStructureFile()<CR>
 function! ReStructureFile()
-    let l = line('.')
-    let c = col('.')
+	let l = line('.')
+	let c = col('.')
 
-    " 调整缩进
-    if (&ft !~ 'python\|markdown\|text')
-        exe 'normal gg=G``'
-    endif
-    exe 'silent! :retab'
+	" 调整缩进
+	if (&ft !~ 'python\|markdown\|text')
+		exe 'normal gg=G``'
+	endif
+	exe 'silent! :retab'
 
-    " 使用\n换行
-    let &ff = 'unix'
+	" 使用\n换行
+	let &ff = 'unix'
 
-    " 使用utf-8编码
-    let &fenc = 'utf8'
-    " 去除 BOM
-    exe 'set nobomb'
+	" 使用utf-8编码
+	let &fenc = 'utf8'
+	" 去除 BOM
+	exe 'set nobomb'
 
-    " 删除行尾空格
-    exe 'silent! :%s/\s\+$//g'
+	" 删除行尾空格
+	exe 'silent! :%s/\s\+$//g'
 
-    " 删除末尾空行
-    let lnum = line('$')
-    while lnum
-        if !empty(getline(lnum))
-            if lnum != line('$')
-                exe 'normal '.(lnum+1).'ggdG'
-            endif
-            break
-        endif
-        let lnum -= 1
-    endwhile
+	" 删除末尾空行
+	let lnum = line('$')
+	while lnum
+		if !empty(getline(lnum))
+			if lnum != line('$')
+				exe 'normal '.(lnum+1).'ggdG'
+			endif
+			break
+		endif
+		let lnum -= 1
+	endwhile
 
-    call cursor(l, c)
-    exe 'normal zz'
+	call cursor(l, c)
+	exe 'normal zz'
 endfunction

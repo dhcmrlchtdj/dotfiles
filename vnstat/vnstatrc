@@ -1,4 +1,4 @@
-Interface ""
+Interface "en0"
 
 QueryMode 0
 OutputStyle 3
@@ -7,4 +7,4 @@ DayFormat "%F"
 MonthFormat "%Y-%m"
 TopFormat "%F"
 
-# DatabaseDir ""
+# DatabaseDir "/usr/local/var/db/vnstat"
