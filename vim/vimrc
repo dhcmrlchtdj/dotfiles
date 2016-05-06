@@ -214,16 +214,16 @@ nmap <silent> <F3> :silent! NERDTreeFind<CR>
 
 " nerdtree-git-plugin
 "let g:NERDTreeIndicatorMapCustom = {
-            "\ "Modified"  : "M",
-            "\ "Staged"    : "S",
-            "\ "Untracked" : "U",
-            "\ "Renamed"   : "R",
-            "\ "Unmerged"  : "u",
-            "\ "Deleted"   : "",
-            "\ "Dirty"     : "",
-            "\ "Clean"     : "",
-            "\ "Unknown"   : ""
-            "\ }
+"\ "Modified"  : "M",
+"\ "Staged"    : "S",
+"\ "Untracked" : "U",
+"\ "Renamed"   : "R",
+"\ "Unmerged"  : "u",
+"\ "Deleted"   : "",
+"\ "Dirty"     : "",
+"\ "Clean"     : "",
+"\ "Unknown"   : ""
+"\ }
 
 " gundo
 let g:gundo_preview_height = 10
@@ -271,7 +271,7 @@ let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#min_keyword_length = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 1
 if !exists('g:neocomplete#sources#omni#input_patterns')
-    let g:neocomplete#sources#omni#input_patterns = {}
+	let g:neocomplete#sources#omni#input_patterns = {}
 endif
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
@@ -296,11 +296,12 @@ highlight link GitGutterDelete CursorColumn
 highlight link GitGutterChangeDelete CursorColumn
 
 " tern
+let g:tern_request_timeout = 1
 let g:tern_show_signature_in_pum = 1
 
 """ 模板
 augroup templates
-    autocmd BufNewFile * silent! execute '0r ~/.vim/templates/skeleton.'.expand('<afile>:e')
+	autocmd BufNewFile * silent! execute '0r ~/.vim/templates/skeleton.'.expand('<afile>:e')
 augroup END
 
 
@@ -308,38 +309,38 @@ augroup END
 " 调整文件
 nmap <silent> <F6> :call ReStructureFile()<CR>
 function! ReStructureFile()
-    let l = line('.')
-    let c = col('.')
+	let l = line('.')
+	let c = col('.')
 
-    " 调整缩进
-    if (&ft !~ 'python\|markdown\|text')
-        exe 'normal gg=G``'
-    endif
-    exe 'silent! :retab'
+	" 调整缩进
+	if (&ft !~ 'python\|markdown\|text')
+		exe 'normal gg=G``'
+	endif
+	exe 'silent! :retab'
 
-    " 使用\n换行
-    let &ff = 'unix'
+	" 使用\n换行
+	let &ff = 'unix'
 
-    " 使用utf-8编码
-    let &fenc = 'utf8'
-    " 去除 BOM
-    exe 'set nobomb'
+	" 使用utf-8编码
+	let &fenc = 'utf8'
+	" 去除 BOM
+	exe 'set nobomb'
 
-    " 删除行尾空格
-    exe 'silent! :%s/\s\+$//g'
+	" 删除行尾空格
+	exe 'silent! :%s/\s\+$//g'
 
-    " 删除末尾空行
-    let lnum = line('$')
-    while lnum
-        if !empty(getline(lnum))
-            if lnum != line('$')
-                exe 'normal '.(lnum+1).'ggdG'
-            endif
-            break
-        endif
-        let lnum -= 1
-    endwhile
+	" 删除末尾空行
+	let lnum = line('$')
+	while lnum
+		if !empty(getline(lnum))
+			if lnum != line('$')
+				exe 'normal '.(lnum+1).'ggdG'
+			endif
+			break
+		endif
+		let lnum -= 1
+	endwhile
 
-    call cursor(l, c)
-    exe 'normal zz'
+	call cursor(l, c)
+	exe 'normal zz'
 endfunction

@@ -1,7 +1,9 @@
 .PHONY: vim
+
 vim:
-	$(LN) `pwd`/vim ~/.vim
+	mkdir -p ~/.vim/{backup,undo}
 	$(LN) `pwd`/vim/vimrc ~/.vimrc
+	$(LN) `pwd`/vim/templates ~/.vim/templates
 	$(LN) `pwd`/vim/tern.json ~/.tern-project
 	if [ ! -d ~/.vim/bundle/repos/github.com/Shougo/dein.vim ]; then \
 		git clone https://github.com/Shougo/dein.vim \

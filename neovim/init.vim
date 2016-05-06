@@ -285,6 +285,12 @@ let g:tern_request_timeout = 1
 let g:tern_show_signature_in_pum = 1
 
 
+""" 模板
+augroup templates
+	autocmd BufNewFile * silent! execute '0r ~/.vim/templates/skeleton.'.expand('<afile>:e')
+augroup END
+
+
 """ 其他
 " 调整文件
 nmap <silent> <F6> :call ReStructureFile()<CR>
