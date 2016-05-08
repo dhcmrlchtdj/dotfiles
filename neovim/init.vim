@@ -119,6 +119,7 @@ call dein#add('nathanaelkane/vim-indent-guides')
 call dein#add('vim-airline/vim-airline')
 call dein#add('vim-airline/vim-airline-themes')
 
+"" git
 call dein#add('tpope/vim-fugitive')
 call dein#add('airblade/vim-gitgutter')
 
@@ -127,9 +128,9 @@ call dein#add('Shougo/unite.vim')
 call dein#add('Shougo/unite-outline')
 
 "" navigator
+call dein#add('jeetsukumaran/vim-buffergator')
 call dein#add('scrooloose/nerdtree')
 "NeoBundle 'Xuyuanp/nerdtree-git-plugin'
-call dein#add('jeetsukumaran/vim-buffergator')
 
 "" motion
 "call dein#add('Lokaltog/vim-easymotion')
@@ -148,24 +149,20 @@ call dein#add('scrooloose/syntastic')
 call dein#add('godlygeek/tabular')
 
 "" complete
-"call dein#add('Shougo/neocomplete.vim')
 call dein#add('Shougo/deoplete.nvim')
-call dein#add('Shougo/neosnippet')
-call dein#add('Shougo/neosnippet-snippets')
+"call dein#add('Shougo/neocomplete.vim')
+"call dein#add('Shougo/neosnippet')
+"call dein#add('Shougo/neosnippet-snippets')
 
 " syntax
 call dein#add('sheerun/vim-polyglot')
 
-""css
-"call dein#add('cakebaker/scss-syntax.vim')
-
 "" javascript
-"call dein#add('marijnh/tern_for_vim', {'build': 'npm install'})
-call dein#add('carlitux/deoplete-ternjs', {'build': 'npm install'})
+call dein#add('marijnh/tern_for_vim', {'build': 'npm install'})
 call dein#add('maksimr/vim-jsbeautify') "format
 
-"" nginx
-"call dein#add('othree/nginx-contrib-vim')
+call dein#add('kballard/vim-swift')
+call dein#add('kovisoft/slimv')
 
 "" colorscheme
 call dein#add('altercation/vim-colors-solarized')
@@ -243,6 +240,7 @@ let g:syntastic_style_error_symbol = '✗'
 let g:syntastic_style_warning_symbol = '⚠'
 let g:syntastic_html_checkers = []
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_lua_checkers = ['luac', 'luacheck']
 nmap <F4> :SyntasticToggleMode<CR>
 
 
@@ -284,6 +282,10 @@ highlight link GitGutterChangeDelete CursorColumn
 let g:tern_request_timeout = 1
 let g:tern_show_signature_in_pum = 1
 
+" swift
+let g:swift_no_conceal = 1
+let g:swift_no_fold = 2
+let g:swift_suppress_showmatch_warning = 1
 
 """ 模板
 augroup templates

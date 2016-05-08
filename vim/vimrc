@@ -21,11 +21,11 @@ set t_vb="" "禁止错误信息响铃及出错屏幕闪烁
 set noerrorbells "禁止错误信息响铃
 set novisualbell "禁止出错屏幕闪烁
 set ttyfast
-set display=lastline,uhex
+set display=lastline,uhex "不可见字符用 hex 形式展示
 
 set mouse="" "鼠标支持
 set lazyredraw
-set clipboard=unnamed,unnamedplus,autoselect,autoselectplus "剪贴板
+set clipboard=unnamed,unnamedplus "剪贴板
 set virtualedit=block "虚空间
 set backspace=indent,eol,start "insert模式下删除键可删除
 set showmatch "输入括号时显示匹配括号
