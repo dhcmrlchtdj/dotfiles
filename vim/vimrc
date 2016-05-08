@@ -180,7 +180,6 @@ call dein#end()
 """ 插件设置
 filetype plugin indent on "载入文件类型 插件 缩进
 syntax enable "语法加亮
-"au FileType json set ft=javascript
 autocmd BufRead,BufNewFile *.vue set ft=html
 
 set background=dark "深色背景
@@ -297,6 +296,12 @@ highlight link GitGutterChangeDelete CursorColumn
 " tern
 let g:tern_request_timeout = 1
 let g:tern_show_signature_in_pum = 1
+
+" swift
+let g:swift_no_conceal = 1
+let g:swift_no_fold = 2
+let g:swift_suppress_showmatch_warning = 1
+
 
 """ 模板
 augroup templates
