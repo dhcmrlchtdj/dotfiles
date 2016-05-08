@@ -169,6 +169,10 @@ call dein#add('altercation/vim-colors-solarized')
 
 call dein#end()
 
+if dein#check_install()
+	call dein#install()
+endif
+
 """ 插件设置
 filetype plugin indent on "载入文件类型 插件 缩进
 syntax enable "语法加亮
@@ -201,21 +205,9 @@ let g:NERDTreeSortHiddenFirst = 1
 let g:NERDTreeIgnore = ["\.swp$"]
 nmap <silent> <F3> :silent! NERDTreeFind<CR>
 
-" nerdtree-git-plugin
-"let g:NERDTreeIndicatorMapCustom = {
-"\ "Modified"  : "M",
-"\ "Staged"    : "S",
-"\ "Untracked" : "U",
-"\ "Renamed"   : "R",
-"\ "Unmerged"  : "u",
-"\ "Deleted"   : "",
-"\ "Dirty"     : "",
-"\ "Clean"     : "",
-"\ "Unknown"   : ""
-"\ }
-
 " gundo
-let g:gundo_preview_height = 10
+let g:gundo_prefer_python3 = 1
+let g:gundo_width = 30
 let g:gundo_help = 0
 let g:gundo_close_on_revert = 0
 let g:gundo_return_on_revert = 0
@@ -243,7 +235,6 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_lua_checkers = ['luac', 'luacheck']
 nmap <F4> :SyntasticToggleMode<CR>
 
-
 " unite
 let g:unite_enable_start_insert = 1
 let g:unite_prompt = '» '
@@ -252,13 +243,14 @@ let g:unite_winheight = 20
 let g:unite_source_grep_command = 'ag'
 let g:unite_source_grep_default_opts = '--vimgrep --smart-case --nocolor --nogroup --hidden --ignore ".git"'
 let g:unite_source_rec_async_command = 'ag  --smart-case --nocolor --nogroup --hidden --ignore ".git" --ignore "node_modules" -g ""'
-nmap <C-p> :Unite buffer file_rec/async<CR>
+nmap <C-p> :Unite buffer file_rec<CR>
 nmap <C-p><C-p> :Unite grep:.<CR>
 nmap <Leader>p :Unite outline<CR>
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_start_length = 1
+inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : deoplete#mappings#manual_complete()
 
 " airline
 let g:airline_theme="powerlineish"
