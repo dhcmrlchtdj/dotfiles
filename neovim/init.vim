@@ -97,7 +97,7 @@ set foldlevel=10 "打开小于10层的折叠
 set foldcolumn=1
 " 选定后用空格创建折叠 用于marker
 "vmap <silent> <Space> zf
-autocmd FileType c,cpp,css,javascript,scss setl fdm=marker | setl fmr={,}
+"autocmd FileType c,cpp,css,javascript,scss setl fdm=marker | setl fmr={,}
 "au FileType c,cpp set fdm=syntax
 
 """ split
@@ -116,28 +116,22 @@ call dein#begin(expand('~/.config/nvim/bundle/'))
 call dein#add('Shougo/dein.vim')
 
 call dein#add('nathanaelkane/vim-indent-guides')
+
+" statusline
 call dein#add('vim-airline/vim-airline')
 call dein#add('vim-airline/vim-airline-themes')
-
-"" git
 call dein#add('tpope/vim-fugitive')
-call dein#add('airblade/vim-gitgutter')
 
-"call dein#add('Shougo/vimproc.vim', {'build': 'make'})
+" unite
 call dein#add('Shougo/unite.vim')
 call dein#add('Shougo/unite-outline')
 
-"" navigator
+" navigation
+call dein#add('airblade/vim-gitgutter')
+call dein#add('sjl/gundo.vim')
 call dein#add('jeetsukumaran/vim-buffergator')
 call dein#add('scrooloose/nerdtree')
-"NeoBundle 'Xuyuanp/nerdtree-git-plugin'
-
-"" motion
-"call dein#add('Lokaltog/vim-easymotion')
-"call dein#add('tmhedberg/matchit')
-
-"" undo
-call dein#add('sjl/gundo.vim')
+call dein#add('Xuyuanp/nerdtree-git-plugin')
 
 "" comment
 call dein#add('scrooloose/nerdcommenter')
@@ -150,22 +144,17 @@ call dein#add('godlygeek/tabular')
 
 "" complete
 call dein#add('Shougo/deoplete.nvim')
-"call dein#add('Shougo/neocomplete.vim')
-"call dein#add('Shougo/neosnippet')
-"call dein#add('Shougo/neosnippet-snippets')
+
+" colorscheme
+call dein#add('altercation/vim-colors-solarized')
 
 " syntax
 call dein#add('sheerun/vim-polyglot')
 
-"" javascript
+" lang
 call dein#add('marijnh/tern_for_vim', {'build': 'npm install'})
 call dein#add('maksimr/vim-jsbeautify') "format
-
-call dein#add('kballard/vim-swift')
 call dein#add('kovisoft/slimv')
-
-"" colorscheme
-call dein#add('altercation/vim-colors-solarized')
 
 call dein#end()
 
@@ -213,14 +202,6 @@ let g:gundo_close_on_revert = 0
 let g:gundo_return_on_revert = 0
 nmap <silent> <F5> :silent! GundoToggle<CR>
 
-" js beautify
-autocmd FileType javascript,json noremap <buffer> <Leader>ff :call JsBeautify()<CR>
-autocmd FileType javascript,json vnoremap <buffer> <Leader>ff :call RangeJsBeautify()<CR>
-autocmd FileType html noremap <buffer> <Leader>ff :call HtmlBeautify()<CR>
-autocmd FileType html vnoremap <buffer> <Leader>ff :call RangeHtmlBeautify()<CR>
-autocmd FileType css,scss noremap <buffer> <Leader>ff :call CSSBeautify()<CR>
-autocmd FileType css,scss vnoremap <buffer> <Leader>ff :call RangeCSSBeautify()<CR>
-
 " syntastic
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
@@ -242,7 +223,7 @@ let g:unite_winwidth = 30
 let g:unite_winheight = 20
 let g:unite_source_grep_command = 'ag'
 let g:unite_source_grep_default_opts = '--vimgrep --smart-case --nocolor --nogroup --hidden --ignore ".git"'
-let g:unite_source_rec_async_command = 'ag  --smart-case --nocolor --nogroup --hidden --ignore ".git" --ignore "node_modules" -g ""'
+let g:unite_source_rec_async_command = ['ag', '--smart-case', '--nocolor', '--nogroup', '--hidden', '--ignore', '".git"', '--ignore', '"node_modules"', '-g', '']
 nmap <C-p> :Unite buffer file_rec<CR>
 nmap <C-p><C-p> :Unite grep:.<CR>
 nmap <Leader>p :Unite outline<CR>
@@ -250,7 +231,8 @@ nmap <Leader>p :Unite outline<CR>
 " deoplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_start_length = 1
-inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : deoplete#mappings#manual_complete()
+let g:deoplete#file#enable_buffer_path = 1
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 
 " airline
 let g:airline_theme="powerlineish"
@@ -269,6 +251,14 @@ highlight link GitGutterAdd CursorColumn
 highlight link GitGutterChange CursorColumn
 highlight link GitGutterDelete CursorColumn
 highlight link GitGutterChangeDelete CursorColumn
+
+" js beautify
+autocmd FileType javascript,json noremap <buffer> <Leader>ff :call JsBeautify()<CR>
+autocmd FileType javascript,json vnoremap <buffer> <Leader>ff :call RangeJsBeautify()<CR>
+autocmd FileType html noremap <buffer> <Leader>ff :call HtmlBeautify()<CR>
+autocmd FileType html vnoremap <buffer> <Leader>ff :call RangeHtmlBeautify()<CR>
+autocmd FileType css,scss noremap <buffer> <Leader>ff :call CSSBeautify()<CR>
+autocmd FileType css,scss vnoremap <buffer> <Leader>ff :call RangeCSSBeautify()<CR>
 
 " tern
 let g:tern_request_timeout = 1
@@ -305,6 +295,9 @@ function! ReStructureFile()
 	let &fenc = 'utf8'
 	" 去除 BOM
 	exe 'set nobomb'
+
+	" delete <0d>
+	exe 'silent! :%s/\r//g'
 
 	" 删除行尾空格
 	exe 'silent! :%s/\s\+$//g'
