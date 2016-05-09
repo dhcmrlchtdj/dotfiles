@@ -28,6 +28,7 @@ show:
 install: \
 	ssh\
 	vim\
+	neovim\
 	zsh\
 	git\
 	htop\
@@ -35,7 +36,4 @@ install: \
 	eslint\
 	npm\
 	nvm\
-	siege\
-	sqlite\
 	mitmproxy\
-	mpv\
