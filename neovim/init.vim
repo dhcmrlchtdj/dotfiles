@@ -13,10 +13,10 @@
 set nomodeline "忽略 打开的文件 里的vim参数
 set noerrorbells "禁止错误信息响铃
 set novisualbell "禁止出错屏幕闪烁
-
-set display=lastline,uhex "不可见字符用 hex 形式展示
+noremap Q gq
 
 set mouse="" "鼠标支持
+set display=lastline,uhex "不可见字符用 hex 形式展示
 set lazyredraw
 set clipboard=unnamed,unnamedplus "剪贴板
 set virtualedit=block "虚空间
@@ -112,49 +112,40 @@ autocmd FileType qf nmap <buffer> q :q<CR>
 
 """ plugin
 set runtimepath+=~/.config/nvim/bundle/repos/github.com/Shougo/dein.vim/
-call dein#begin(expand('~/.config/nvim/bundle/'))
-call dein#add('Shougo/dein.vim')
+call dein#begin(expand("~/.config/nvim/bundle/"))
+call dein#add("Shougo/dein.vim")
 
-call dein#add('nathanaelkane/vim-indent-guides')
-
-" statusline
-call dein#add('vim-airline/vim-airline')
-call dein#add('vim-airline/vim-airline-themes')
-call dein#add('tpope/vim-fugitive')
+" status line
+call dein#add("vim-airline/vim-airline")
+call dein#add("vim-airline/vim-airline-themes")
+call dein#add("tpope/vim-fugitive")
 
 " unite
-call dein#add('Shougo/unite.vim')
-call dein#add('Shougo/unite-outline')
+call dein#add("Shougo/unite.vim")
+call dein#add("Shougo/unite-outline")
 
 " navigation
-call dein#add('airblade/vim-gitgutter')
-call dein#add('sjl/gundo.vim')
-call dein#add('jeetsukumaran/vim-buffergator')
-call dein#add('scrooloose/nerdtree')
-call dein#add('Xuyuanp/nerdtree-git-plugin')
+call dein#add("airblade/vim-gitgutter")
+call dein#add("sjl/gundo.vim")
+call dein#add("jeetsukumaran/vim-buffergator")
+call dein#add("scrooloose/nerdtree")
+call dein#add("Xuyuanp/nerdtree-git-plugin")
 
-"" comment
-call dein#add('scrooloose/nerdcommenter')
-
-"" syntax check
-call dein#add('scrooloose/syntastic')
-
-"" align
-call dein#add('godlygeek/tabular')
-
-"" complete
-call dein#add('Shougo/deoplete.nvim')
-
-" colorscheme
-call dein#add('altercation/vim-colors-solarized')
+call dein#add("scrooloose/nerdcommenter") " comment
+call dein#add("scrooloose/syntastic") " syntax check
+call dein#add("godlygeek/tabular") " align
+call dein#add("Shougo/deoplete.nvim") "complete
+call dein#add("nathanaelkane/vim-indent-guides") "indent
+call dein#add("altercation/vim-colors-solarized") "colorscheme
 
 " syntax
-call dein#add('sheerun/vim-polyglot')
+call dein#add("sheerun/vim-polyglot")
 
 " lang
-call dein#add('marijnh/tern_for_vim', {'build': 'npm install'})
-call dein#add('maksimr/vim-jsbeautify') "format
-call dein#add('kovisoft/slimv')
+call dein#add("marijnh/tern_for_vim", {"build": "npm install"}) " js
+call dein#add("maksimr/vim-jsbeautify") " js format
+call dein#add("kovisoft/slimv") " scheme
+call dein#add("tbastos/vim-lua") " lua
 
 call dein#end()
 
@@ -171,7 +162,7 @@ set background=dark "深色背景
 set background=light "浅色背景
 let g:solarized_termcolors = 256
 let g:solarized_termtrans = 1
-let g:solarized_visibility = 'low'
+let g:solarized_visibility = "low"
 colorscheme solarized
 
 highlight clear SignColumn
@@ -179,7 +170,7 @@ highlight link SignColumn CursorColumn
 
 " indent guide
 let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'unite']
+let g:indent_guides_exclude_filetypes = ["help", "nerdtree", "unite"]
 let g:indent_guides_default_mapping = 0
 
 " vim-buffergator
@@ -207,23 +198,23 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 1
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_error_symbol = '✗'
-let g:syntastic_warning_symbol = '⚠'
-let g:syntastic_style_error_symbol = '✗'
-let g:syntastic_style_warning_symbol = '⚠'
+let g:syntastic_error_symbol = "✗"
+let g:syntastic_warning_symbol = "⚠"
+let g:syntastic_style_error_symbol = "✗"
+let g:syntastic_style_warning_symbol = "⚠"
 let g:syntastic_html_checkers = []
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_lua_checkers = ['luac', 'luacheck']
+let g:syntastic_javascript_checkers = ["eslint"]
+let g:syntastic_lua_checkers = ["luac", "luacheck"]
 nmap <F4> :SyntasticToggleMode<CR>
 
 " unite
 let g:unite_enable_start_insert = 1
-let g:unite_prompt = '» '
+let g:unite_prompt = "» "
 let g:unite_winwidth = 30
 let g:unite_winheight = 20
-let g:unite_source_grep_command = 'ag'
-let g:unite_source_grep_default_opts = '--vimgrep --smart-case --nocolor --nogroup --hidden --ignore ".git"'
-let g:unite_source_rec_async_command = ['ag', '--smart-case', '--nocolor', '--nogroup', '--hidden', '--ignore', '".git"', '--ignore', '"node_modules"', '-g', '']
+let g:unite_source_grep_command = "ag"
+let g:unite_source_grep_default_opts = "--vimgrep --smart-case --nocolor --nogroup --hidden --ignore '.git'"
+let g:unite_source_rec_async_command = ["ag", "--smart-case", "--nocolor", "--nogroup", "--hidden", "--ignore", "'.git'", "--ignore", "'node_modules'", "-g", ""]
 nmap <C-p> :Unite buffer file_rec<CR>
 nmap <C-p><C-p> :Unite grep:.<CR>
 nmap <Leader>p :Unite outline<CR>
@@ -236,21 +227,33 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 
 " airline
 let g:airline_theme="powerlineish"
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_symbols = { 'linenr': '¶', 'paste': 'ρ', 'branch': '⎇', 'whitespace': 'Ξ'}
+let g:airline_left_sep = ""
+let g:airline_right_sep = ""
+let g:airline_symbols = { "linenr": "¶", "paste": "ρ", "branch": "⎇", "whitespace": "Ξ"}
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 
 " git gutter
-let g:gitgutter_sign_added = '+'
-let g:gitgutter_sign_modified = '~'
-let g:gitgutter_sign_removed = '-'
-let g:gitgutter_sign_modified_removed = '!'
+let g:gitgutter_sign_added = "+"
+let g:gitgutter_sign_modified = "~"
+let g:gitgutter_sign_removed = "-"
+let g:gitgutter_sign_modified_removed = "!"
 highlight link GitGutterAdd CursorColumn
 highlight link GitGutterChange CursorColumn
 highlight link GitGutterDelete CursorColumn
 highlight link GitGutterChangeDelete CursorColumn
+
+let g:NERDTreeIndicatorMapCustom = {
+			\ "Modified"  : "M",
+			\ "Staged"    : "S",
+			\ "Untracked" : "U",
+			\ "Renamed"   : "R",
+			\ "Unmerged"  : "N",
+			\ "Deleted"   : "D",
+			\ "Dirty"     : "*",
+			\ "Clean"     : "C",
+			\ "Unknown"   : "?"
+			\ }
 
 " js beautify
 autocmd FileType javascript,json noremap <buffer> <Leader>ff :call JsBeautify()<CR>
@@ -271,7 +274,7 @@ let g:swift_suppress_showmatch_warning = 1
 
 """ 模板
 augroup templates
-	autocmd BufNewFile * silent! execute '0r ~/.vim/templates/skeleton.'.expand('<afile>:e')
+	autocmd BufNewFile * silent! execute "0r ~/.vim/templates/skeleton.".expand("<afile>:e")
 augroup END
 
 
@@ -279,35 +282,35 @@ augroup END
 " 调整文件
 nmap <silent> <F6> :call ReStructureFile()<CR>
 function! ReStructureFile()
-	let l = line('.')
-	let c = col('.')
+	let l = line(".")
+	let c = col(".")
 
 	" 调整缩进
-	if (&ft !~ 'python\|markdown\|text')
-		exe 'normal gg=G``'
+	if (&ft !~ "python\|markdown\|text")
+		exe "normal gg=G``"
 	endif
-	exe 'silent! :retab'
+	exe "silent! :retab"
 
 	" 使用\n换行
-	let &ff = 'unix'
+	let &ff = "unix"
 
 	" 使用utf-8编码
-	let &fenc = 'utf8'
+	let &fenc = "utf8"
 	" 去除 BOM
-	exe 'set nobomb'
+	exe "set nobomb"
 
 	" delete <0d>
-	exe 'silent! :%s/\r//g'
+	exe "silent! :%s/\r//g"
 
 	" 删除行尾空格
-	exe 'silent! :%s/\s\+$//g'
+	exe "silent! :%s/\s\+$//g"
 
 	" 删除末尾空行
-	let lnum = line('$')
+	let lnum = line("$")
 	while lnum
 		if !empty(getline(lnum))
-			if lnum != line('$')
-				exe 'normal '.(lnum+1).'ggdG'
+			if lnum != line("$")
+				exe "normal ".(lnum+1)."ggdG"
 			endif
 			break
 		endif
@@ -315,5 +318,5 @@ function! ReStructureFile()
 	endwhile
 
 	call cursor(l, c)
-	exe 'normal zz'
+	exe "normal zz"
 endfunction
