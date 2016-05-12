@@ -88,7 +88,6 @@ set smartindent "智能选择缩进方式
 set cindent
 set list "显示特殊字符
 set listchars=tab:»\ ,trail:·, "字符样式
-autocmd FileType html,css,javascript,scss,json setl et
 
 """ fold
 set foldmethod=indent "折叠方式
@@ -97,18 +96,14 @@ set foldlevel=10 "打开小于10层的折叠
 set foldcolumn=1
 " 选定后用空格创建折叠 用于marker
 "vmap <silent> <Space> zf
-"autocmd FileType c,cpp,css,javascript,scss setl fdm=marker | setl fmr={,}
-"au FileType c,cpp set fdm=syntax
 
 """ split
-"set splitbelow
 set splitright
 
 """ location list
 nmap <silent> <F1> :silent! lopen<CR>
 autocmd FileType qf nmap <buffer> <CR> <CR>:lclose<CR>
 autocmd FileType qf nmap <buffer> q :q<CR>
-
 
 """ plugin
 set runtimepath+=~/.config/nvim/bundle/repos/github.com/Shougo/dein.vim/
@@ -131,20 +126,19 @@ call dein#add("jeetsukumaran/vim-buffergator")
 call dein#add("scrooloose/nerdtree")
 call dein#add("Xuyuanp/nerdtree-git-plugin")
 
+"
+call dein#add("altercation/vim-colors-solarized") "colorscheme
+call dein#add("nathanaelkane/vim-indent-guides") "indent
 call dein#add("scrooloose/nerdcommenter") " comment
-call dein#add("scrooloose/syntastic") " syntax check
 call dein#add("godlygeek/tabular") " align
 call dein#add("Shougo/deoplete.nvim") "complete
-call dein#add("nathanaelkane/vim-indent-guides") "indent
-call dein#add("altercation/vim-colors-solarized") "colorscheme
+call dein#add("neomake/neomake") "lint
 
-" syntax
+"
 call dein#add("sheerun/vim-polyglot")
-
-" lang
 call dein#add("marijnh/tern_for_vim", {"build": "npm install"}) " js
 call dein#add("maksimr/vim-jsbeautify") " js format
-call dein#add("kovisoft/slimv") " scheme
+"call dein#add("kovisoft/slimv") " scheme
 call dein#add("tbastos/vim-lua") " lua
 
 call dein#end()
@@ -157,6 +151,7 @@ endif
 filetype plugin indent on "载入文件类型 插件 缩进
 syntax enable "语法加亮
 autocmd BufRead,BufNewFile *.vue set ft=html
+autocmd FileType html,css,javascript,scss,json setl et
 
 set background=dark "深色背景
 set background=light "浅色背景
@@ -193,19 +188,12 @@ let g:gundo_close_on_revert = 0
 let g:gundo_return_on_revert = 0
 nmap <silent> <F5> :silent! GundoToggle<CR>
 
-" syntastic
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_error_symbol = "✗"
-let g:syntastic_warning_symbol = "⚠"
-let g:syntastic_style_error_symbol = "✗"
-let g:syntastic_style_warning_symbol = "⚠"
-let g:syntastic_html_checkers = []
-let g:syntastic_javascript_checkers = ["eslint"]
-let g:syntastic_lua_checkers = ["luac", "luacheck"]
-nmap <F4> :SyntasticToggleMode<CR>
+" neomake
+let g:neomake_error_sign = { 'texthl': 'CursorColumn' }
+let g:neomake_warning_sign = { 'texthl': 'CursorColumn' }
+let g:neomake_html_enabled_makers = []
+let g:neomake_javascript_enabled_makers = ['eslint']
+autocmd BufRead,BufWritePost * Neomake
 
 " unite
 let g:unite_enable_start_insert = 1
@@ -267,16 +255,10 @@ autocmd FileType css,scss vnoremap <buffer> <Leader>ff :call RangeCSSBeautify()<
 let g:tern_request_timeout = 1
 let g:tern_show_signature_in_pum = 1
 
-" swift
-let g:swift_no_conceal = 1
-let g:swift_no_fold = 2
-let g:swift_suppress_showmatch_warning = 1
-
 """ 模板
 augroup templates
 	autocmd BufNewFile * silent! execute "0r ~/.vim/templates/skeleton.".expand("<afile>:e")
 augroup END
-
 
 """ 其他
 " 调整文件
