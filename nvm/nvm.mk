@@ -1,6 +1,7 @@
-.PHONY: nvm
+.PHONY: nvm nvmrc
 nvm:
 	mkdir -p ~/.nvm
-	curl 'https://raw.githubusercontent.com/creationix/nvm/master/nvm.sh' -o `pwd`/nvm/nvm.sh
-	$(LN) `pwd`/nvm/nvm.sh ~/.nvm/nvm.sh
-	if [ "Darwin" != `uname` ]; then $(LN) `pwd`/nvm/nvmrc ~/.nvmrc; fi
+	curl 'https://raw.githubusercontent.com/creationix/nvm/master/nvm.sh' -o ~/.nvm/nvm.sh
+
+nvmrc:
+	$(LN) `pwd`/nvm/nvmrc ~/.nvmrc
