@@ -92,7 +92,6 @@ set listchars=tab:»\ ,trail:·, "字符样式
 """ fold
 set foldmethod=indent "折叠方式
 set nofoldenable "关闭折叠
-set foldlevel=10 "打开小于10层的折叠
 set foldcolumn=1
 " 选定后用空格创建折叠 用于marker
 "vmap <silent> <Space> zf
@@ -115,16 +114,16 @@ call dein#add("vim-airline/vim-airline")
 call dein#add("vim-airline/vim-airline-themes")
 call dein#add("tpope/vim-fugitive")
 
-" unite
-call dein#add("Shougo/unite.vim")
-call dein#add("Shougo/unite-outline")
-
 " navigation
 call dein#add("airblade/vim-gitgutter")
 call dein#add("sjl/gundo.vim")
 call dein#add("jeetsukumaran/vim-buffergator")
 call dein#add("scrooloose/nerdtree")
 call dein#add("Xuyuanp/nerdtree-git-plugin")
+
+" unite
+call dein#add("Shougo/unite.vim")
+call dein#add("Shougo/unite-outline")
 
 "
 call dein#add("altercation/vim-colors-solarized") "colorscheme
@@ -134,11 +133,14 @@ call dein#add("godlygeek/tabular") " align
 call dein#add("Shougo/deoplete.nvim") "complete
 call dein#add("neomake/neomake") "lint
 
+" complete
+call dein#add("carlitux/deoplete-ternjs") " js
+call dein#add("Rip-Rip/clang_complete") " c
+
 "
-call dein#add("sheerun/vim-polyglot")
-call dein#add("marijnh/tern_for_vim", {"build": "npm install"}) " js
+call dein#add("sheerun/vim-polyglot") " syntax/indent
 call dein#add("maksimr/vim-jsbeautify") " js format
-"call dein#add("kovisoft/slimv") " scheme
+call dein#add("kovisoft/slimv") " scheme
 call dein#add("tbastos/vim-lua") " lua
 
 call dein#end()
@@ -255,6 +257,9 @@ autocmd FileType css,scss vnoremap <buffer> <Leader>ff :call RangeCSSBeautify()<
 let g:tern_request_timeout = 1
 let g:tern_show_signature_in_pum = 1
 
+" clang
+let g:clang_library_path = "/Library/Developer/CommandLineTools/usr/lib/libclang.dylib"
+
 """ 模板
 augroup templates
 	autocmd BufNewFile * silent! execute "0r ~/.vim/templates/skeleton.".expand("<afile>:e")
@@ -262,8 +267,8 @@ augroup END
 
 """ 其他
 " 调整文件
-nmap <silent> <F6> :call ReStructureFile()<CR>
-function! ReStructureFile()
+nmap <silent> <F6> :call FormatFile()<CR>
+function! FormatFile()
 	let l = line(".")
 	let c = col(".")
 
