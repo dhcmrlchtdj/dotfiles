@@ -13,7 +13,7 @@
 set nomodeline "忽略 打开的文件 里的vim参数
 set noerrorbells "禁止错误信息响铃
 set novisualbell "禁止出错屏幕闪烁
-noremap Q gq
+nmap Q <Nop>
 
 set mouse="" "鼠标支持
 set display=lastline,uhex "不可见字符用 hex 形式展示
@@ -50,10 +50,10 @@ set textwidth=0 "行宽
 set colorcolumn=80 "行宽提示
 "set cursorline "高亮当前行
 "set scrolljump=-50 "翻页
-noremap <buffer> <silent> <Up> gk
-noremap <buffer> <silent> <Down> gj
-inoremap <buffer> <silent> <Up> <C-o>gk
-inoremap <buffer> <silent> <Down> <C-o>gj
+nmap <buffer> <silent> <Up> gk
+nmap <buffer> <silent> <Down> gj
+imap <buffer> <silent> <Up> <C-o>gk
+imap <buffer> <silent> <Down> <C-o>gj
 
 set cmdheight=1 "命令行行数
 set showcmd "在命令行显示目前执行的指令
@@ -134,8 +134,11 @@ call dein#add("Shougo/deoplete.nvim") "complete
 call dein#add("neomake/neomake") "lint
 
 " complete
-call dein#add("carlitux/deoplete-ternjs") " js
-call dein#add("Rip-Rip/clang_complete") " c
+call dein#add("Shougo/neosnippet.vim")
+call dein#add("Shougo/neosnippet-snippets")
+call dein#add("carlitux/deoplete-ternjs") " js, require tern
+call dein#add("Rip-Rip/clang_complete") " c, require clang
+call dein#add("mitsuse/autocomplete-swift") " swift, require SourceKitten
 
 "
 call dein#add("sheerun/vim-polyglot") " syntax/indent
@@ -182,6 +185,18 @@ let g:NERDTreeSortHiddenFirst = 1
 let g:NERDTreeIgnore = ["\.swp$"]
 nmap <silent> <F3> :silent! NERDTreeFind<CR>
 
+let g:NERDTreeIndicatorMapCustom = {
+			\ "Modified"  : "M",
+			\ "Staged"    : "S",
+			\ "Untracked" : "U",
+			\ "Renamed"   : "R",
+			\ "Unmerged"  : "N",
+			\ "Deleted"   : "D",
+			\ "Dirty"     : "*",
+			\ "Clean"     : "C",
+			\ "Unknown"   : "?"
+			\ }
+
 " gundo
 let g:gundo_prefer_python3 = 1
 let g:gundo_width = 30
@@ -209,12 +224,6 @@ nmap <C-p> :Unite buffer file_rec<CR>
 nmap <C-p><C-p> :Unite grep:.<CR>
 nmap <Leader>p :Unite outline<CR>
 
-" deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_complete_start_length = 1
-let g:deoplete#file#enable_buffer_path = 1
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-
 " airline
 let g:airline_theme="powerlineish"
 let g:airline_left_sep = ""
@@ -233,30 +242,28 @@ highlight link GitGutterChange CursorColumn
 highlight link GitGutterDelete CursorColumn
 highlight link GitGutterChangeDelete CursorColumn
 
-let g:NERDTreeIndicatorMapCustom = {
-			\ "Modified"  : "M",
-			\ "Staged"    : "S",
-			\ "Untracked" : "U",
-			\ "Renamed"   : "R",
-			\ "Unmerged"  : "N",
-			\ "Deleted"   : "D",
-			\ "Dirty"     : "*",
-			\ "Clean"     : "C",
-			\ "Unknown"   : "?"
-			\ }
-
 " js beautify
-autocmd FileType javascript,json noremap <buffer> <Leader>ff :call JsBeautify()<CR>
-autocmd FileType javascript,json vnoremap <buffer> <Leader>ff :call RangeJsBeautify()<CR>
-autocmd FileType html noremap <buffer> <Leader>ff :call HtmlBeautify()<CR>
-autocmd FileType html vnoremap <buffer> <Leader>ff :call RangeHtmlBeautify()<CR>
-autocmd FileType css,scss noremap <buffer> <Leader>ff :call CSSBeautify()<CR>
-autocmd FileType css,scss vnoremap <buffer> <Leader>ff :call RangeCSSBeautify()<CR>
+autocmd FileType javascript,json nmap <buffer> <Leader>ff :call JsBeautify()<CR>
+autocmd FileType javascript,json vmap <buffer> <Leader>ff :call RangeJsBeautify()<CR>
+autocmd FileType html nmap <buffer> <Leader>ff :call HtmlBeautify()<CR>
+autocmd FileType html vmap <buffer> <Leader>ff :call RangeHtmlBeautify()<CR>
+autocmd FileType css,scss nmap <buffer> <Leader>ff :call CSSBeautify()<CR>
+autocmd FileType css,scss vmap <buffer> <Leader>ff :call RangeCSSBeautify()<CR>
+
+" deoplete
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_complete_start_length = 1
+let g:deoplete#file#enable_buffer_path = 1
+"imap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+imap <expr> <Tab>
+			\ pumvisible() ? "\<C-n>" :
+			\ neosnippet#expandable_or_jumpable() ?
+			\ "\<Plug>(neosnippet_expand_or_jump)" : "\<Tab>"
 
 " tern
 let g:tern_request_timeout = 1
 let g:tern_show_signature_in_pum = 1
-
 " clang
 let g:clang_library_path = "/Library/Developer/CommandLineTools/usr/lib/libclang.dylib"
 
