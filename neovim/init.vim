@@ -254,12 +254,13 @@ autocmd FileType css,scss vmap <buffer> <Leader>ff :call RangeCSSBeautify()<CR>
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_start_length = 1
 let g:deoplete#file#enable_buffer_path = 1
-"imap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+"imap <expr><BS> deoplete#mappings#smart_close_popup()."\<C-h>"
+"imap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
-imap <expr> <Tab>
+imap <expr> <TAB>
 			\ pumvisible() ? "\<C-n>" :
 			\ neosnippet#expandable_or_jumpable() ?
-			\ "\<Plug>(neosnippet_expand_or_jump)" : "\<Tab>"
+			\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 " tern
 let g:tern_request_timeout = 1
