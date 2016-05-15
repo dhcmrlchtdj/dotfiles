@@ -138,6 +138,7 @@ call dein#add("Shougo/neosnippet.vim")
 call dein#add("Shougo/neosnippet-snippets")
 call dein#add("carlitux/deoplete-ternjs") " js, require tern
 call dein#add("Rip-Rip/clang_complete") " c, require clang
+call dein#add("racer-rust/vim-racer") " rust
 call dein#add("mitsuse/autocomplete-swift") " swift, require SourceKitten
 
 "
@@ -268,6 +269,8 @@ let g:tern_request_timeout = 1
 let g:tern_show_signature_in_pum = 1
 " clang
 let g:clang_library_path = "/Library/Developer/CommandLineTools/usr/lib/libclang.dylib"
+" rust
+let g:rust_recommended_style = 0
 
 """ 模板
 augroup templates
