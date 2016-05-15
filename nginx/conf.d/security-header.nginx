@@ -2,7 +2,7 @@
 
 server {
 	listen 80;
-	server .example.com;
+	server_name .example.com;
 
 	# https://developer.mozilla.org/en-US/docs/Web/Security/Public_Key_Pinning
 	add_header Public-Key-Pins 'pin-sha256="base64+primary=="; pin-sha256="base64+backup=="; max-age=86400; includeSubdomains';
