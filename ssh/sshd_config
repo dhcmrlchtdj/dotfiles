@@ -1,8 +1,8 @@
 Port 22 # TODO
 
 SyslogFacility AUTH
-#LogLevel VERBOSE
-LogLevel DEBUG3
+LogLevel VERBOSE
+#LogLevel DEBUG3
 
 Compression yes
 AddressFamily inet
