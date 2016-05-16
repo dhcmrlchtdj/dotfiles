@@ -49,7 +49,6 @@ set nowrap "不自动换行
 set textwidth=0 "行宽
 set colorcolumn=80 "行宽提示
 "set cursorline "高亮当前行
-"set scrolljump=-50 "翻页
 nmap <buffer> <silent> <Up> gk
 nmap <buffer> <silent> <Down> gj
 imap <buffer> <silent> <Up> <C-o>gk
@@ -92,6 +91,7 @@ set listchars=tab:»\ ,trail:·, "字符样式
 """ fold
 set foldmethod=indent "折叠方式
 set nofoldenable "关闭折叠
+set foldlevel=99
 set foldcolumn=1
 " 选定后用空格创建折叠 用于marker
 "vmap <silent> <Space> zf
