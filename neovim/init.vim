@@ -136,7 +136,7 @@ call dein#add("Shougo/neosnippet.vim") " snippet
 call dein#add("Shougo/neosnippet-snippets") " snippet
 call dein#add("carlitux/deoplete-ternjs") " js, require tern
 call dein#add("Rip-Rip/clang_complete") " c, require clang
-call dein#add("racer-rust/vim-racer") " rust
+"call dein#add("racer-rust/vim-racer") " rust
 call dein#add("mitsuse/autocomplete-swift") " swift, require SourceKitten
 
 "
