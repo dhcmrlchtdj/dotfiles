@@ -1,4 +1,4 @@
-.PHONY: vim
+.PHONY: vim neovim
 
 vim:
 	mkdir -p ~/.vim/{backup,undo}
@@ -8,4 +8,12 @@ vim:
 	if [ ! -d ~/.vim/bundle/repos/github.com/Shougo/dein.vim ]; then \
 		git clone https://github.com/Shougo/dein.vim \
 		~/.vim/bundle/repos/github.com/Shougo/dein.vim; \
+		fi
+
+neovim: vim
+	mkdir -p ~/.config/nvim/{backup,undo}
+	$(LN) `pwd`/vim/neovim.vim ~/.config/nvim/init.vim
+	if [ ! -d ~/.config/nvim/bundle/repos/github.com/Shougo/dein.vim ]; then \
+		git clone https://github.com/Shougo/dein.vim \
+		~/.config/nvim/bundle/repos/github.com/Shougo/dein.vim; \
 		fi
