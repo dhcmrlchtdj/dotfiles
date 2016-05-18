@@ -109,33 +109,31 @@ set runtimepath+=~/.config/nvim/bundle/repos/github.com/Shougo/dein.vim/
 call dein#begin(expand("~/.config/nvim/bundle/"))
 call dein#add("Shougo/dein.vim")
 
-" status line
-call dein#add("vim-airline/vim-airline")
-call dein#add("vim-airline/vim-airline-themes")
-call dein#add("tpope/vim-fugitive")
-
-" navigation
-call dein#add("airblade/vim-gitgutter")
-call dein#add("sjl/gundo.vim")
-call dein#add("jeetsukumaran/vim-buffergator")
-call dein#add("scrooloose/nerdtree")
-call dein#add("Xuyuanp/nerdtree-git-plugin")
-
-" unite
-call dein#add("Shougo/unite.vim")
-call dein#add("Shougo/unite-outline")
-
-"
+" theme
+call dein#add("vim-airline/vim-airline") " statusline
+call dein#add("vim-airline/vim-airline-themes") " statusline theme
+call dein#add("tpope/vim-fugitive") " statusline git
+call dein#add("airblade/vim-gitgutter") " git status
 call dein#add("altercation/vim-colors-solarized") "colorscheme
 call dein#add("nathanaelkane/vim-indent-guides") "indent
+
+" navigation
+call dein#add("jeetsukumaran/vim-buffergator") " buffer
+call dein#add("scrooloose/nerdtree") " filesystem
+call dein#add("Xuyuanp/nerdtree-git-plugin") " filesystem git
+call dein#add("sjl/gundo.vim") " undo
+
 call dein#add("scrooloose/nerdcommenter") " comment
 call dein#add("godlygeek/tabular") " align
-call dein#add("Shougo/deoplete.nvim") "complete
-call dein#add("neomake/neomake") "lint
+call dein#add("Shougo/unite.vim")
+call dein#add("Shougo/unite-outline")
+call dein#add('scrooloose/syntastic')
+"call dein#add("neomake/neomake") "lint
 
 " complete
-call dein#add("Shougo/neosnippet.vim")
-call dein#add("Shougo/neosnippet-snippets")
+call dein#add("Shougo/deoplete.nvim") " complete
+call dein#add("Shougo/neosnippet.vim") " snippet
+call dein#add("Shougo/neosnippet-snippets") " snippet
 call dein#add("carlitux/deoplete-ternjs") " js, require tern
 call dein#add("Rip-Rip/clang_complete") " c, require clang
 call dein#add("racer-rust/vim-racer") " rust
@@ -207,12 +205,26 @@ let g:gundo_close_on_revert = 0
 let g:gundo_return_on_revert = 0
 nmap <silent> <F5> :silent! GundoToggle<CR>
 
-" neomake
-let g:neomake_error_sign = { 'texthl': 'CursorColumn' }
-let g:neomake_warning_sign = { 'texthl': 'CursorColumn' }
-let g:neomake_html_enabled_makers = []
-let g:neomake_javascript_enabled_makers = ['eslint']
-autocmd BufRead,BufWritePost * Neomake
+" syntastic
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_aggregate_errors = 1
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_error_symbol = '✖'
+let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_style_error_symbol = '✖'
+let g:syntastic_style_warning_symbol = '⚠'
+let g:syntastic_html_checkers = []
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_lua_checkers = ['luac', 'luacheck']
+nmap <F4> :SyntasticToggleMode<CR>
+
+"" neomake
+"let g:neomake_error_sign = { 'texthl': 'CursorColumn' }
+"let g:neomake_warning_sign = { 'texthl': 'CursorColumn' }
+"let g:neomake_html_enabled_makers = []
+"let g:neomake_javascript_enabled_makers = ['eslint']
+"autocmd BufRead,BufWritePost * Neomake
 
 " unite
 let g:unite_enable_start_insert = 1
