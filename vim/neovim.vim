@@ -216,6 +216,7 @@ let g:syntastic_style_warning_symbol = '⚠'
 let g:syntastic_html_checkers = []
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_lua_checkers = ['luac', 'luacheck']
+let g:syntastic_python_python_exec = '/usr/local/bin/python3'
 nmap <F4> :SyntasticToggleMode<CR>
 
 "" neomake
