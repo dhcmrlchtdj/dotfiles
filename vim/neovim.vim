@@ -143,7 +143,6 @@ call dein#add("mitsuse/autocomplete-swift") " swift, require SourceKitten
 call dein#add("sheerun/vim-polyglot") " syntax/indent
 call dein#add("maksimr/vim-jsbeautify") " js format
 call dein#add("kovisoft/slimv") " scheme
-call dein#add("tbastos/vim-lua") " lua
 
 call dein#end()
 
