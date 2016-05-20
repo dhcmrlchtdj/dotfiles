@@ -31,7 +31,7 @@ module.exports = {
     //extends: ["plugin:react/recommended"]
     rules: {
         // Possible Errors
-        'comma-dangle': [2, 'never'],
+        'comma-dangle': [0, 'never'],
         'no-cond-assign': [2, 'except-parens'],
         'no-console': 0,
         'no-constant-condition': 2,
@@ -176,7 +176,7 @@ module.exports = {
         'func-style': 0,
         'id-length': 0,
         'id-match': 0,
-        'indent': [1, 4, {
+        'indent': [0, 4, {
             'SwitchCase': 1
         }],
         'jsx-quotes': [1, 'prefer-double'],
@@ -220,7 +220,7 @@ module.exports = {
         'quote-props': [0, 'as-needed'],
         'quotes': [1, 'single', 'avoid-escape'],
         'require-jsdoc': 0,
-        'semi': [2, 'always'],
+        'semi': [0, 'always'],
         'semi-spacing': [2, {
             'before': false,
             'after': true
