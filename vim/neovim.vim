@@ -154,7 +154,7 @@ endif
 filetype plugin indent on "载入文件类型 插件 缩进
 syntax enable "语法加亮
 autocmd BufRead,BufNewFile *.vue set ft=html
-"autocmd FileType html,css,javascript,scss,json setl et
+autocmd FileType html,css,javascript,scss,json setl et
 autocmd FileType markdown setl omnifunc=""
 
 set background=dark "深色背景
