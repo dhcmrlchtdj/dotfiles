@@ -204,6 +204,10 @@ let g:gundo_close_on_revert = 0
 let g:gundo_return_on_revert = 0
 nmap <silent> <F5> :silent! GundoToggle<CR>
 
+" nerd comment
+let g:NERDSpaceDelims = 1
+"let g:NERDCompactSexyComs = 1
+
 " syntastic
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
