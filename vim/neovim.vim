@@ -142,6 +142,7 @@ call dein#add("Rip-Rip/clang_complete") " c, require clang
 "
 call dein#add("sheerun/vim-polyglot") " syntax/indent
 call dein#add("rhysd/vim-clang-format") " formatter
+" call dein#add("Chiel92/vim-autoformat") " formatter
 " call dein#add("maksimr/vim-jsbeautify") " js format
 " call dein#add("kovisoft/slimv") " scheme
 
@@ -273,19 +274,25 @@ imap <expr> <TAB>
 			\ neosnippet#expandable_or_jumpable() ?
 			\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
+" autoformat
+" let g:formatdef_clangformat = "'clang-format -lines='.a:firstline.':'.a:lastline.' --assume-filename=\"'.expand('%:p').'\" -style=\"{BasedOnStyle: LLVM, AllowShortFunctionsOnASingleLine: None, AllowShortIfStatementsOnASingleLine: true, AllowShortLoopsOnASingleLine: true, KeepEmptyLinesAtTheStartOfBlocks: false, ColumnLimit: 0, IndentWidth: 4, TabWidth: 4, UseTab: Always\"'"
+" nmap <buffer> <silent> <Leader>ff :Autoformat<CR>
+" vmap <buffer> <silent> <Leader>ff :Autoformat<CR>
+
 " clang-format
-let g:clang_format#code_style = "llvm"
+let g:clang_format#code_style = "LLVM"
 let g:clang_format#style_options = {
 			\ "AllowShortFunctionsOnASingleLine": "None",
 			\ "AllowShortIfStatementsOnASingleLine": "true",
 			\ "AllowShortLoopsOnASingleLine": "true",
+			\ "KeepEmptyLinesAtTheStartOfBlocks": "false",
 			\ "ColumnLimit": 0,
 			\ "IndentWidth": 4,
 			\ "TabWidth": 4,
 			\ "UseTab": "Always",
 			\ }
-nmap <buffer> <silent> <Leader>ff :ClangFormat<CR>
-vmap <buffer> <silent> <Leader>ff :ClangFormat<CR>
+autocmd FileType c nmap <buffer> <silent> <Leader>ff :ClangFormat<CR>
+autocmd FileType c vmap <buffer> <silent> <Leader>ff :ClangFormat<CR>
 
 " tern
 let g:tern_request_timeout = 1
