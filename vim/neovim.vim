@@ -48,7 +48,7 @@ set wrap "自动换行
 set nowrap "不自动换行
 set textwidth=0 "行宽
 set colorcolumn=80 "行宽提示
-"set cursorline "高亮当前行
+" set cursorline "高亮当前行
 nmap <buffer> <silent> <Up> gk
 nmap <buffer> <silent> <Down> gj
 imap <buffer> <silent> <Up> <C-o>gk
@@ -63,7 +63,7 @@ set wildmode=longest:full,full "补全方式
 set laststatus=2 "总是显示状态行
 set noshowmode "隐藏信息
 set shortmess=atI "状态行信息
-"set statusline=%<%F\ %y\ (%{&ff})\ %h%m%r%w%=%-14.(%l,%c%)%p%% "状态行
+" set statusline=%<%F\ %y\ (%{&ff})\ %h%m%r%w%=%-14.(%l,%c%)%p%% "状态行
 
 """ search
 "清除高亮
@@ -94,7 +94,7 @@ set nofoldenable "关闭折叠
 set foldlevel=99
 set foldcolumn=1
 " 选定后用空格创建折叠 用于marker
-"vmap <silent> <Space> zf
+" vmap <silent> <Space> zf
 
 """ split
 set splitright
@@ -136,13 +136,14 @@ call dein#add("Shougo/neosnippet.vim") " snippet
 call dein#add("Shougo/neosnippet-snippets") " snippet
 call dein#add("carlitux/deoplete-ternjs") " js, require tern
 call dein#add("Rip-Rip/clang_complete") " c, require clang
-"call dein#add("racer-rust/vim-racer") " rust
-call dein#add("mitsuse/autocomplete-swift") " swift, require SourceKitten
+" call dein#add("racer-rust/vim-racer") " rust
+" call dein#add("mitsuse/autocomplete-swift") " swift, require SourceKitten
 
 "
 call dein#add("sheerun/vim-polyglot") " syntax/indent
-call dein#add("maksimr/vim-jsbeautify") " js format
-call dein#add("kovisoft/slimv") " scheme
+call dein#add("rhysd/vim-clang-format") " formatter
+" call dein#add("maksimr/vim-jsbeautify") " js format
+" call dein#add("kovisoft/slimv") " scheme
 
 call dein#end()
 
@@ -206,7 +207,6 @@ nmap <silent> <F5> :silent! GundoToggle<CR>
 
 " nerd comment
 let g:NERDSpaceDelims = 1
-"let g:NERDCompactSexyComs = 1
 
 " syntastic
 let g:syntastic_check_on_open = 1
@@ -222,13 +222,6 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_lua_checkers = ['luac', 'luacheck']
 let g:syntastic_python_python_exec = '/usr/local/bin/python3'
 nmap <F4> :SyntasticToggleMode<CR>
-
-"" neomake
-"let g:neomake_error_sign = { 'texthl': 'CursorColumn' }
-"let g:neomake_warning_sign = { 'texthl': 'CursorColumn' }
-"let g:neomake_html_enabled_makers = []
-"let g:neomake_javascript_enabled_makers = ['eslint']
-"autocmd BufRead,BufWritePost * Neomake
 
 " unite
 let g:unite_enable_start_insert = 1
@@ -261,24 +254,38 @@ highlight link GitGutterDelete CursorColumn
 highlight link GitGutterChangeDelete CursorColumn
 
 " js beautify
-autocmd FileType javascript,json nmap <buffer> <Leader>ff :call JsBeautify()<CR>
-autocmd FileType javascript,json vmap <buffer> <Leader>ff :call RangeJsBeautify()<CR>
-autocmd FileType html nmap <buffer> <Leader>ff :call HtmlBeautify()<CR>
-autocmd FileType html vmap <buffer> <Leader>ff :call RangeHtmlBeautify()<CR>
-autocmd FileType css,scss nmap <buffer> <Leader>ff :call CSSBeautify()<CR>
-autocmd FileType css,scss vmap <buffer> <Leader>ff :call RangeCSSBeautify()<CR>
+" autocmd FileType javascript,json nmap <buffer> <Leader>ff :call JsBeautify()<CR>
+" autocmd FileType javascript,json vmap <buffer> <Leader>ff :call RangeJsBeautify()<CR>
+" autocmd FileType html nmap <buffer> <Leader>ff :call HtmlBeautify()<CR>
+" autocmd FileType html vmap <buffer> <Leader>ff :call RangeHtmlBeautify()<CR>
+" autocmd FileType css,scss nmap <buffer> <Leader>ff :call CSSBeautify()<CR>
+" autocmd FileType css,scss vmap <buffer> <Leader>ff :call RangeCSSBeautify()<CR>
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_start_length = 1
 let g:deoplete#file#enable_buffer_path = 1
-"imap <expr><BS> deoplete#mappings#smart_close_popup()."\<C-h>"
-"imap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+" imap <expr><BS> deoplete#mappings#smart_close_popup()."\<C-h>"
+" imap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 imap <expr> <TAB>
 			\ pumvisible() ? "\<C-n>" :
 			\ neosnippet#expandable_or_jumpable() ?
 			\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" clang-format
+let g:clang_format#code_style = "llvm"
+let g:clang_format#style_options = {
+			\ "AllowShortFunctionsOnASingleLine": "None",
+			\ "AllowShortIfStatementsOnASingleLine": "true",
+			\ "AllowShortLoopsOnASingleLine": "true",
+			\ "ColumnLimit": 0,
+			\ "IndentWidth": 4,
+			\ "TabWidth": 4,
+			\ "UseTab": "Always",
+			\ }
+nmap <buffer> <silent> <Leader>ff :ClangFormat<CR>
+vmap <buffer> <silent> <Leader>ff :ClangFormat<CR>
 
 " tern
 let g:tern_request_timeout = 1
@@ -286,7 +293,7 @@ let g:tern_show_signature_in_pum = 1
 " clang
 let g:clang_library_path = "/Library/Developer/CommandLineTools/usr/lib/libclang.dylib"
 " rust
-let g:rust_recommended_style = 0
+" let g:rust_recommended_style = 0
 
 """ 模板
 augroup templates
