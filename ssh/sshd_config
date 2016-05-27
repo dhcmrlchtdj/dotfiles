@@ -2,7 +2,7 @@ Port 22 # TODO
 
 SyslogFacility AUTH
 LogLevel VERBOSE
-#LogLevel DEBUG3
+# LogLevel DEBUG3
 
 Compression yes
 AddressFamily inet
@@ -12,30 +12,35 @@ KexAlgorithms curve25519-sha256@libssh.org
 Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes256-ctr
 MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-512
 HostKey /etc/ssh/ssh_host_ed25519_key
-#Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
-#MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
-#HostKey /etc/ssh/ssh_host_rsa_key
+# Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
+# MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-sha2-512,hmac-sha2-256
+# HostKey /etc/ssh/ssh_host_rsa_key
 
 LoginGraceTime 60
 StrictModes yes
 UsePrivilegeSeparation sandbox
 
 PermitEmptyPasswords no
-#PermitRootLogin no # TODO
-#AllowUsers <user> # TODO
-#AllowGroups <group> # TODO
+# PermitRootLogin no # TODO
+# AllowUsers <user> # TODO
+# AllowGroups <group> # TODO
 
 GSSAPIAuthentication no
 HostbasedAuthentication no
 KerberosAuthentication no
 PasswordAuthentication no
-ChallengeResponseAuthentication yes
-KbdInteractiveAuthentication yes
-UsePAM yes
+ChallengeResponseAuthentication no
+KbdInteractiveAuthentication no
+UsePAM no
 
 PubkeyAuthentication yes
 AuthorizedKeysFile %h/.ssh/authorized_keys
-#AuthenticationMethods publickey keyboard-interactive:pam # TODO
+AuthenticationMethods publickey
+
+# KbdInteractiveAuthentication yes
+# ChallengeResponseAuthentication yes
+# UsePAM yes
+# AuthenticationMethods publickey keyboard-interactive:pam # TODO
 
 IgnoreRhosts yes
 
