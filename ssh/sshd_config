@@ -18,7 +18,7 @@ HostKey /etc/ssh/ssh_host_ed25519_key
 
 LoginGraceTime 60
 StrictModes yes
-UsePrivilegeSeparation yes
+UsePrivilegeSeparation sandbox
 
 PermitEmptyPasswords no
 #PermitRootLogin no # TODO
@@ -31,9 +31,9 @@ KerberosAuthentication no
 PasswordAuthentication no
 ChallengeResponseAuthentication yes
 KbdInteractiveAuthentication yes
-PubkeyAuthentication yes
 UsePAM yes
 
+PubkeyAuthentication yes
 AuthorizedKeysFile %h/.ssh/authorized_keys
 #AuthenticationMethods publickey keyboard-interactive:pam # TODO
 
