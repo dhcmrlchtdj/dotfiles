@@ -158,6 +158,7 @@ syntax enable "语法加亮
 autocmd BufRead,BufNewFile *.vue set ft=html
 autocmd FileType html,css,javascript,scss,json setl et
 autocmd FileType markdown setl omnifunc=""
+autocmd FileType scheme setl et ts=2 sts=2 sw=2
 
 set background=dark "深色背景
 set background=light "浅色背景
