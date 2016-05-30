@@ -1,6 +1,6 @@
 [filter "npmrc"]
 	smudge = cat
-	clean = "sed -E '/^[@/]/d'"
+	clean = "sed -E '/^$/,$d'"
 
 [filter "sshconfig"]
 	smudge = cat
