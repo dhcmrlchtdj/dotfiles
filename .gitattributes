@@ -1,2 +1,1 @@
-npm/npmrc filter=npmrc
 ssh/ssh_config filter=sshconfig

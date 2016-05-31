@@ -1,3 +1,3 @@
 .PHONY: npm
 npm:
-	$(LN) `pwd`/npm/npmrc ~/.npmrc
+	cp `pwd`/npm/npmrc ~/.npmrc
