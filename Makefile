@@ -34,6 +34,3 @@ install: \
 	htop\
 	screen\
 	eslint\
-	npm\
-	nvm\
-	mitmproxy\
