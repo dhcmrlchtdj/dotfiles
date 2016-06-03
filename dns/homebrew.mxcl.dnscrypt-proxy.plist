@@ -14,7 +14,7 @@
       <string>--ephemeral-keys</string>
       <string>--resolvers-list=/usr/local/opt/dnscrypt-proxy/share/dnscrypt-proxy/dnscrypt-resolvers.csv</string>
       <string>--resolver-name=cisco</string>
-      <string>--local-address=127.0.0.1:5553</string>
+      <string>--local-address=127.0.0.1:553</string>
       <string>--user=nobody</string>
     </array>
     <key>UserName</key>
