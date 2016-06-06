@@ -4,7 +4,7 @@
 	signingKey = D4F5DB25
 
 [commit]
-	gpgSign = true
+	gpgSign = false
 
 [gpg]
 	program = /usr/local/bin/gpg2
