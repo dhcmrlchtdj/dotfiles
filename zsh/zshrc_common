@@ -34,16 +34,6 @@ if _has "chpwd_profiles"; then chpwd_profiles; fi
 #### END git for directoy ###
 
 
-### node ###
-export NVM_DIR="$HOME/.nvm"
-source "$NVM_DIR/nvm.sh"
-chpwd_nvm_use() { nvm use &>/dev/null || nvm use system &>/dev/null; return 0 }
-chpwd_nvm_use
-chpwd_functions=( ${chpwd_functions} chpwd_nvm_use )
-if _has "npm"; then eval "$(npm completion)"; fi
-### END node ###
-
-
 ### alias ###
 alias cp="cp -r"
 alias rm="rm -Irv"
@@ -70,9 +60,6 @@ alias xx="unar"
 alias sss="python3 -m http.server"
 alias mm="mitmproxy -p 8888"
 alias mmm="mitmproxy -p 8888 -i '~q | ~s'"
-#alias jj="mvn jetty:run"
-#alias jjj="mvn jetty:run &>/dev/null &"
-#alias css="cleancss --s0"
 alias ccc="clang -Weverything -Wno-missing-prototypes"
 alias ujs="uglifyjs -m -c unsafe=true"
 alias www="webpack-dev-server"
@@ -97,4 +84,14 @@ ttt() {
 		fi
 	fi
 }
-#if _is_ssh && _has "screen" && [[ -z "$STY" && -z "$TMUX" ]]; then sc; fi
+
+
+### node ###
+export NVM_DIR="$HOME/.nvm"
+alias nnn="source $NVM_DIR/nvm.sh"
+# source "$NVM_DIR/nvm.sh"
+chpwd_nvm_use() { nvm use &>/dev/null || nvm use system &>/dev/null; return 0 }
+chpwd_nvm_use
+chpwd_functions=( ${chpwd_functions} chpwd_nvm_use )
+# if _has "npm"; then eval "$(npm completion)"; fi
+### END node ###
