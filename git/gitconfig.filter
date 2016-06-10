@@ -1,3 +1,0 @@
-[filter "sshconfig"]
-	smudge = cat
-	clean = "sed -E '/^#|^Host [^*]+|^[[:space:]]|^$/d'"

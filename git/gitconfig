@@ -1,23 +1,15 @@
 [user]
 	name = niris
 	email = nirisix@gmail.com
-	signingKey = D4F5DB25
 
 [commit]
 	gpgSign = false
-
-[gpg]
-	program = /usr/local/bin/gpg2
-
-[include]
-	path = ~/.gitconfig.filter
 
 [core]
 	editor = vim
 	quotePath = false
 	whitespace = space-before-tab,trailing-space
 	excludesFile = ~/.gitconfig.excludes
-	attributesFile = ~/.gitconfig.attributes
 	eol = native
 	autocrlf = input
 	safecrlf = warn
@@ -42,8 +34,6 @@
 [diff]
 	tool = vimdiff
 	algorithm = minimal
-	;algorithm = patience
-	;algorithm = histogram
 
 [difftool]
 	prompt = false

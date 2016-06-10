@@ -1,4 +1,4 @@
 .PHONY: ssh
 ssh:
 	mkdir -p ~/.ssh
-	$(LN) `pwd`/ssh/ssh_config ~/.ssh/config
+	cp `pwd`/ssh/ssh_config ~/.ssh/config
