@@ -1,8 +1,8 @@
-log_format loghost '$remote_addr - "$scheme://$host" [$time_iso8601] '
+log_format log_host '$remote_addr - "$scheme://$host" [$time_iso8601] '
 	'"$request" $status $body_bytes_sent '
 	'"$http_referer" "$http_user_agent"';
 
-log_format log_attacker '$remote_addr - BLOCK - '
+log_format log_block '$remote_addr - BLOCK - '
 	'"$scheme://$host" [$time_iso8601] '
 	'"$request" $status $body_bytes_sent '
 	'"$http_referer" "$http_user_agent"';
