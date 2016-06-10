@@ -16,7 +16,7 @@ set ttyfast
 set nomodeline "忽略 打开的文件 里的vim参数
 set noerrorbells "禁止错误信息响铃
 set novisualbell "禁止出错屏幕闪烁
-nmap Q <Nop>
+nmap Q <NOP>
 
 set t_Co=256 "颜色数目
 set t_vb="" "禁止错误信息响铃及出错屏幕闪烁
@@ -58,11 +58,10 @@ set nowrap "不自动换行
 set textwidth=0 "行宽
 set colorcolumn=80 "行宽提示
 " set cursorline "高亮当前行
-" set scrolljump=-50 "翻页
-noremap <buffer> <silent> <Up> gk
-noremap <buffer> <silent> <Down> gj
-inoremap <buffer> <silent> <Up> <C-o>gk
-inoremap <buffer> <silent> <Down> <C-o>gj
+noremap <Up> gk
+noremap <Down> gj
+inoremap <Up> <C-o>gk
+inoremap <Down> <C-o>gj
 
 set cmdheight=1 "命令行行数
 set showcmd "在命令行显示目前执行的指令
@@ -100,14 +99,16 @@ set list "显示特殊字符
 set listchars=tab:»\ ,trail:·, "字符样式
 
 """ fold
-set foldmethod=indent "折叠方式
 set nofoldenable "关闭折叠
-set foldlevel=99 "打开小于99层的折叠
+set foldmethod=indent "折叠方式
+set foldlevel=100 "打开小于100层的折叠
 set foldcolumn=1
+set foldnestmax=1
 " 选定后用空格创建折叠 用于marker
 " vmap <silent> <Space> zf
 
 """ split
+set splitbelow
 set splitright
 
 """ location list
