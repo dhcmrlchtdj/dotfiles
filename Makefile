@@ -19,10 +19,9 @@ show:
 .PHONY: install
 install: \
 	ssh\
-	vim\
-	neovim\
 	zsh\
+	vim\
 	git\
-	htop\
 	screen\
+	htop\
 	eslint\
