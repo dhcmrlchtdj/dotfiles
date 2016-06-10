@@ -1,4 +1,4 @@
 .PHONY: ssh
 ssh:
 	mkdir -p ~/.ssh
-	cp `pwd`/ssh/ssh_config ~/.ssh/config
+	if [[ ! -e ~/.ssh/config ]]; then cp `pwd`/ssh/ssh_config ~/.ssh/config; fi

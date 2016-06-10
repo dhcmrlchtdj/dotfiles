@@ -1,3 +1,3 @@
 .PHONY: npm
 npm:
-	cp `pwd`/npm/npmrc ~/.npmrc
+	if [[ ! -e ~/.npmrc ]]; then cp `pwd`/npm/npmrc ~/.npmrc; fi
