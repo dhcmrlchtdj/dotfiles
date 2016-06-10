@@ -105,6 +105,7 @@ autocmd FileType qf nmap <buffer> <CR> <CR>:lclose<CR>
 autocmd FileType qf nmap <buffer> q :q<CR>
 
 """ plugin
+let g:dein#types#git#clone_depth = 1
 set runtimepath+=~/.config/nvim/bundle/repos/github.com/Shougo/dein.vim/
 call dein#begin(expand("~/.config/nvim/bundle/"))
 call dein#add("Shougo/dein.vim")
@@ -125,10 +126,9 @@ call dein#add("sjl/gundo.vim") " undo
 
 call dein#add("scrooloose/nerdcommenter") " comment
 call dein#add("godlygeek/tabular") " align
+call dein#add('scrooloose/syntastic')
 call dein#add("Shougo/unite.vim")
 call dein#add("Shougo/unite-outline")
-call dein#add('scrooloose/syntastic')
-"call dein#add("neomake/neomake") "lint
 
 " complete
 call dein#add("Shougo/deoplete.nvim") " complete
@@ -255,14 +255,6 @@ highlight link GitGutterChange CursorColumn
 highlight link GitGutterDelete CursorColumn
 highlight link GitGutterChangeDelete CursorColumn
 
-" js beautify
-" autocmd FileType javascript,json nmap <buffer> <Leader>ff :call JsBeautify()<CR>
-" autocmd FileType javascript,json vmap <buffer> <Leader>ff :call RangeJsBeautify()<CR>
-" autocmd FileType html nmap <buffer> <Leader>ff :call HtmlBeautify()<CR>
-" autocmd FileType html vmap <buffer> <Leader>ff :call RangeHtmlBeautify()<CR>
-" autocmd FileType css,scss nmap <buffer> <Leader>ff :call CSSBeautify()<CR>
-" autocmd FileType css,scss vmap <buffer> <Leader>ff :call RangeCSSBeautify()<CR>
-
 " deoplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete_start_length = 1
@@ -274,11 +266,6 @@ imap <expr> <TAB>
 			\ pumvisible() ? "\<C-n>" :
 			\ neosnippet#expandable_or_jumpable() ?
 			\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-" autoformat
-" let g:formatdef_clangformat = "'clang-format -lines='.a:firstline.':'.a:lastline.' --assume-filename=\"'.expand('%:p').'\" -style=\"{BasedOnStyle: LLVM, AllowShortFunctionsOnASingleLine: None, AllowShortIfStatementsOnASingleLine: true, AllowShortLoopsOnASingleLine: true, KeepEmptyLinesAtTheStartOfBlocks: false, ColumnLimit: 0, IndentWidth: 4, TabWidth: 4, UseTab: Always\"'"
-" nmap <buffer> <silent> <Leader>ff :Autoformat<CR>
-" vmap <buffer> <silent> <Leader>ff :Autoformat<CR>
 
 " clang-format
 let g:clang_format#code_style = "LLVM"
@@ -298,10 +285,9 @@ autocmd FileType c vmap <buffer> <silent> <Leader>ff :ClangFormat<CR>
 " tern
 let g:tern_request_timeout = 1
 let g:tern_show_signature_in_pum = 1
+
 " clang
 let g:clang_library_path = "/Library/Developer/CommandLineTools/usr/lib/libclang.dylib"
-" rust
-" let g:rust_recommended_style = 0
 
 """ 模板
 augroup templates
