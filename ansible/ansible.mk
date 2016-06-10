@@ -1,3 +1,3 @@
 .PHONY: ansible
 ansible:
-	$(LN) `pwd`/ansible/ansible.cfg ~/.ansible.cfg
+	cp `pwd`/ansible/ansible.cfg ~/.ansible.cfg
