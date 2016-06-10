@@ -1,3 +1,3 @@
 .PHONY: sqlite
 sqlite:
-	$(LN) `pwd`/sqlite/sqliterc ~/.sqliterc
+	cp `pwd`/sqlite/sqliterc ~/.sqliterc

@@ -1,3 +1,3 @@
 .PHONY: siege
 siege:
-	$(LN) `pwd`/siege/siegerc ~/.siegerc
+	cp `pwd`/siege/siegerc ~/.siegerc
