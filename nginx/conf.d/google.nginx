@@ -1,7 +1,8 @@
 server {
 	listen 443 ssl;
 	server_name g.example.com;
-	include ssl.config.file;
+
+	include ssl.config.nginx;
 
 	location / {
 		google on;

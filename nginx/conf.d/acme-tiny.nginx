@@ -1,9 +1,4 @@
-server {
-	listen 80;
-	server_name .yoursite.com;
-
-	location /.well-known/acme-challenge/ {
-		alias /path/to/challenges/;
-		try_files $uri =404;
-	}
+location /.well-known/acme-challenge/ {
+	alias /path/to/challenges/;
+	try_files $uri =404;
 }

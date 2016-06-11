@@ -1,8 +1,4 @@
-server {
-	listen 80;
-
-	location /robots.txt {
-		add_header 'Content-Type' 'text/plain';
-		return 200 'User-agent: *\nDisallow: /\n';
-	}
+location /robots.txt {
+	add_header 'Content-Type' 'text/plain';
+	return 200 'User-agent: *\nDisallow: /\n';
 }
