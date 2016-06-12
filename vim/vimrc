@@ -107,7 +107,7 @@ set foldcolumn=1
 " vmap <silent> <Space> zf
 
 """ split
-set splitbelow
+set nosplitbelow
 set splitright
 
 """ location list
@@ -320,7 +320,7 @@ function! ReStructureFile()
 	exe "silent! :%s/\r//g"
 
 	" 删除行尾空格
-	exe "silent! :%s/\s\+$//g"
+	exe "silent! :%s/\\s\\+$//g"
 
 	" 删除末尾空行
 	let lnum = line("$")
