@@ -103,7 +103,6 @@ set nofoldenable "关闭折叠
 set foldmethod=indent "折叠方式
 set foldlevel=100 "打开小于100层的折叠
 set foldcolumn=1
-set foldnestmax=1
 " 选定后用空格创建折叠 用于marker
 " vmap <silent> <Space> zf
 
