@@ -1,8 +1,5 @@
 fpath=(/usr/local/share/zsh-completions /usr/local/share/zsh/functions $fpath)
 
-# export JAVA_HOME="$(/usr/libexec/java_home)"
-# export SDKROOT="$(xcodebuild -version -sdk macosx Path)"
-
 source ~/.zshrc_common
 
 ## alias

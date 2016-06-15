@@ -1,11 +1,7 @@
 source ~/.zshrc_common
+
 if [[ -f "/usr/share/doc/pkgfile/command-not-found.zsh" ]]; then
 	source /usr/share/doc/pkgfile/command-not-found.zsh
 fi
 
-
-## alias
 if [[ -f /etc/arch-release ]]; then alias pacman="pacman --color=auto"; fi
-alias tracepath="tracepath -b"
-
-alias cm="convmv -f cp936 -t utf8 --notest -r"

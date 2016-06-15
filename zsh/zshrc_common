@@ -14,6 +14,10 @@ source ~/.zshrc_prompt_ooxx
 prompt ooxx
 
 
+autoload -Uz compinit
+compinit
+
+
 # command start with space will not be saved
 setopt HIST_IGNORE_SPACE
 
