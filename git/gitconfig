@@ -34,6 +34,7 @@
 [diff]
 	tool = vimdiff
 	algorithm = minimal
+	compactionHeuristic = true
 
 [difftool]
 	prompt = false
