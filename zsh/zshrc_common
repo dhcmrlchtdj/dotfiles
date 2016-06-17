@@ -15,7 +15,7 @@ prompt ooxx
 
 
 autoload -Uz compinit
-compinit
+# compinit
 
 
 # command start with space will not be saved
