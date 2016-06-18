@@ -1,0 +1,15 @@
+# https://www.owasp.org/index.php/List_of_useful_HTTP_headers
+
+# https://developer.mozilla.org/en-US/docs/Web/Security/Public_Key_Pinning
+add_header Public-Key-Pins 'pin-sha256="base64+primary=="; pin-sha256="base64+backup=="; max-age=86400; includeSubdomains';
+
+# https://developer.mozilla.org/en-US/docs/Web/Security/HTTP_strict_transport_security
+# https://hstspreload.appspot.com/
+add_header Strict-Transport-Security 'max-age=31536000; includeSubdomains; preload';
+
+# https://developer.mozilla.org/en-US/docs/Web/Security/CSP/CSP_policy_directives
+#add_header Content-Security-Policy "default-src 'self'";
+
+add_header X-Content-Type-Options nosniff;
+add_header X-Frame-Options DENY;
+add_header X-XSS-Protection '1; mode=block';
