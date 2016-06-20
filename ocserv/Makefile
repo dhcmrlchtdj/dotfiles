@@ -1,4 +1,14 @@
-.PHONY: build configs first
+.PHONY: build configs first route
+
+
+route:
+	rm 'delegated-all-latest'
+	curl 'http://ftp.afrinic.net/pub/stats/afrinic/delegated-afrinic-extended-latest' >> delegated-all-latest
+	curl 'http://ftp.apnic.net/apnic/stats/apnic/delegated-apnic-extended-latest' >> delegated-all-latest
+	curl 'http://ftp.arin.net/pub/stats/arin/delegated-arin-extended-latest' >> delegated-all-latest
+	curl 'http://ftp.lacnic.net/pub/stats/lacnic/delegated-lacnic-extended-latest' >> delegated-all-latest
+	curl 'http://ftp.ripe.net/pub/stats/ripencc/delegated-ripencc-extended-latest' >> delegated-all-latest
+	grep 'CN' delegated-all-latest | grep 'ipv4' | awk -F\| '{ printf("%s/%d\n", $$4, 32-log($$5)/log(2)) }' > chn-route
 
 build:
 	docker build -t "niris/ocserv" .
