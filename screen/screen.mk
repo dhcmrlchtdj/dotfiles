@@ -1,3 +1,3 @@
 .PHONY: screen
 screen:
-	cp -n `pwd`/screen/screenrc ~/.screenrc
+	-cp -n `pwd`/screen/screenrc ~/.screenrc

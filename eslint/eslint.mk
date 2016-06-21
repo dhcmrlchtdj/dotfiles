@@ -1,3 +1,3 @@
 .PHONY: eslint
 eslint:
-	cp -n `pwd`/eslint/eslintrc.js ~/.eslintrc.js
+	-cp -n `pwd`/eslint/eslintrc.js ~/.eslintrc.js
