@@ -151,9 +151,7 @@ call dein#add("Rip-Rip/clang_complete") " c, require clang
 
 "
 call dein#add("sheerun/vim-polyglot") " syntax/indent
-" call dein#add("rhysd/vim-clang-format") " formatter
-" call dein#add("Chiel92/vim-autoformat") " formatter
-" call dein#add("maksimr/vim-jsbeautify") " js format
+call dein#add("Chiel92/vim-autoformat") " formatter
 
 call dein#end()
 
@@ -233,7 +231,7 @@ let g:syntastic_style_error_symbol = "✖"
 let g:syntastic_style_warning_symbol = "⚠"
 let g:syntastic_html_checkers = []
 let g:syntastic_javascript_checkers = ["eslint"]
-let g:syntastic_lua_checkers = ["luac", "luacheck"]
+" let g:syntastic_lua_checkers = ["luac", "luacheck"]
 " let g:syntastic_python_python_exec = "/usr/local/bin/python3"
 nmap <F4> :SyntasticToggleMode<CR>
 
@@ -287,6 +285,10 @@ let g:tern_show_signature_in_pum = 1
 
 " clang
 let g:clang_library_path = "/Library/Developer/CommandLineTools/usr/lib/libclang.dylib"
+
+" autoformat
+noremap <Leader>ff :Autoformat<CR>
+
 
 """ 模板
 augroup templates
