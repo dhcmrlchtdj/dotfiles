@@ -1,3 +1,3 @@
 .PHONY: sqlite
 sqlite:
-	cp `pwd`/sqlite/sqliterc ~/.sqliterc
+	cp -n `pwd`/sqlite/sqliterc ~/.sqliterc

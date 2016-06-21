@@ -5,4 +5,4 @@ nvm:
 		sed -e '/nvm_process_parameters /d' > ~/.nvm/nvm.sh
 
 nvmrc:
-	cp `pwd`/nvm/nvmrc ~/.nvmrc
+	cp -n `pwd`/nvm/nvmrc ~/.nvmrc

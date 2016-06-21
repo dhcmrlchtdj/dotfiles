@@ -1,4 +1,4 @@
 .PHONY: git
 git:
-	if [[ ! -e ~/.gitconfig ]]; then cp `pwd`/git/gitconfig ~/.gitconfig; fi
-	cp `pwd`/git/gitconfig.excludes ~/.gitconfig.excludes
+	cp -n `pwd`/git/gitconfig ~/.gitconfig
+	cp -n `pwd`/git/gitconfig.excludes ~/.gitconfig.excludes

@@ -1,4 +1,4 @@
 .PHONY: mitmproxy
 mitmproxy:
 	mkdir -p ~/.mitmproxy
-	cp `pwd`/mitmproxy/mitmproxy.conf ~/.mitmproxy/mitmproxy.conf
+	cp -n `pwd`/mitmproxy/mitmproxy.conf ~/.mitmproxy/mitmproxy.conf

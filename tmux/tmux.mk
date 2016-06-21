@@ -1,3 +1,3 @@
 .PHONY: tmux
 tmux:
-	cp `pwd`/tmux/tmux.conf ~/.tmux.conf
+	cp -n `pwd`/tmux/tmux.conf ~/.tmux.conf
