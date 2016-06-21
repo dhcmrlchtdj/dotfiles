@@ -1,9 +1,9 @@
 .PHONY: vim neovim
 
 vim:
-	mkdir -p ~/.vim/{backup,undo}
+	mkdir -p ~/.vim/{backup,undo,templates}
 	-cp -n `pwd`/vim/vimrc ~/.vimrc
-	-cp -n `pwd`/vim/templates ~/.vim/
+	-cp -n `pwd`/vim/templates/* ~/.vim/templates/
 	-cp -n `pwd`/vim/tern.json ~/.tern-project
 	-cp -n `pwd`/vim/jsbeautifyrc.json ~/.jsbeautifyrc
 	-cp -n `pwd`/vim/clang-format ~/.clang-format
