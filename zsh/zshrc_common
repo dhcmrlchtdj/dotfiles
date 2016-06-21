@@ -62,7 +62,6 @@ alias mmm="mitmproxy -p 8888 -i '~q | ~s'"
 alias ccc="clang -Weverything -Wno-missing-prototypes"
 alias ujs="uglifyjs -m -c unsafe=true"
 alias www="webpack-dev-server"
-alias marked="marked --gfm --breaks --smart-lists"
 alias curlw="curl -w '\ntime_namelookup:\t%{time_namelookup}\ntime_connect:\t\t%{time_connect}\ntime_appconnect:\t%{time_appconnect}\ntime_pretransfer:\t%{time_pretransfer}\ntime_redirect:\t\t%{time_redirect}\ntime_starttransfer:\t%{time_starttransfer}\n------\ntime_total:\t\t%{time_total}\n'"
 ### END alias ###
 
