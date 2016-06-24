@@ -12,5 +12,4 @@ unbound:
 		/usr/local/etc/unbound/
 	curl 'https://www.internic.net/domain/named.cache' \
 		 -o '/usr/local/etc/unbound/root.hints'
-	cp ./unbound.conf \
-		/usr/local/etc/unbound/
+	-cp -n ./unbound.conf /usr/local/etc/unbound/
