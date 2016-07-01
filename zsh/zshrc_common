@@ -35,6 +35,7 @@ if _has "chpwd_profiles"; then chpwd_profiles; fi
 
 
 ### alias ###
+alias sudo="sudo "
 alias cp="cp -r"
 alias rm="rm -Irv"
 alias ls="ls --color=auto --group-directories-first -vF"
