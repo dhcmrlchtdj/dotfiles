@@ -1,5 +1,3 @@
-'use strict';
-
 // eslint@2.13.1
 
 module.exports = {
@@ -31,7 +29,7 @@ module.exports = {
     //extends: ["plugin:react/recommended"]
     rules: {
         // Possible Errors
-        'comma-dangle': [0, 'never'],
+        'comma-dangle': [2, 'only-multiline'],
         'no-cond-assign': [2, 'except-parens'],
         'no-console': 0,
         'no-constant-condition': 2,
