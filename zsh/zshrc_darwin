@@ -9,3 +9,5 @@ alias rm="grm -Irv"
 alias ls="gls --color=auto --group-directories-first -vF"
 
 alias dm="docker-machine --native-ssh"
+alias danger_chrome="open -a Google\ Chrome\ Canary --args --disable-web-security --user-data-dir --allow-file-access-from-files"
+if _has "gpg2"; then alias gpg="gpg2"; fi
