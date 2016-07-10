@@ -239,7 +239,7 @@ module.exports = {
         'quote-props': [0, 'as-needed'],
         'quotes': [1, 'single', 'avoid-escape'],
         'require-jsdoc': 0,
-        'semi': [0, 'always'],
+        'semi': [2, 'always'],
         'semi-spacing': [2, {
             'before': false,
             'after': true
