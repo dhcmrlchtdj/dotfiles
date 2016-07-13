@@ -1,3 +1,6 @@
+export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:=/run/user/$UID}"
+export DBUS_SESSION_BUS_ADDRESS="${DBUS_SESSION_BUS_ADDRESS:=unix:path=${XDG_RUNTIME_DIR}/bus}"
+
 source ~/.zshrc_common
 
 if [[ -f "/usr/share/doc/pkgfile/command-not-found.zsh" ]]; then
