@@ -8,8 +8,8 @@ module.exports = {
             globalReturn: false,
             impliedStrict: true,
             jsx: false,
-            experimentalObjectRestSpread: false
-        }
+            experimentalObjectRestSpread: false,
+        },
     },
     //parser: 'babel-eslint',
     env: {
@@ -19,7 +19,8 @@ module.exports = {
         'shared-node-browser': true,
         es6: true,
         worker: true,
-        serviceworker: true
+        serviceworker: true,
+        mocha: true,
     },
     globals: {},
     plugins: [
@@ -288,6 +289,6 @@ module.exports = {
         'rest-spread-spacing': [2, 'never'],
         'sort-imports': 0,
         'template-curly-spacing': 0,
-        'yield-star-spacing': [2, 'after']
-    }
+        'yield-star-spacing': [2, 'after'],
+    },
 };
