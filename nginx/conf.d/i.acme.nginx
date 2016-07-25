@@ -1,4 +1,3 @@
 location /.well-known/acme-challenge/ {
 	alias /path/to/challenges/;
-	try_files $uri =404;
 }
