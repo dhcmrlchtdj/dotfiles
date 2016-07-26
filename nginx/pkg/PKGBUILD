@@ -1,11 +1,12 @@
-pkgname=nginx-mainline-custom
-pkgver=1.11.1
-pkgrel=2
+pkgname=nginx-mainline-mod-niris
+pkgver=1.11.2
+pkgrel=1
 pkgdesc='Lightweight HTTP server and IMAP/POP3 proxy server, mainline release'
 arch=('i686' 'x86_64')
 url='http://nginx.org'
 license=('custom')
 depends=('pcre' 'zlib' 'openssl' 'geoip')
+makedepends=('hardening-wrapper')
 backup=('etc/nginx/fastcgi.conf'
 'etc/nginx/fastcgi_params'
 'etc/nginx/koi-win'
@@ -26,7 +27,7 @@ headers-more-nginx-module-0.30.tar.gz::https://github.com/openresty/headers-more
 echo-nginx-module-0.59.tar.gz::https://github.com/openresty/echo-nginx-module/archive/v0.59.tar.gz
 ngx_http_substitutions_filter_module-0.6.4.tar.gz::https://github.com/yaoweibin/ngx_http_substitutions_filter_module/archive/v0.6.4.tar.gz
 ngx_http_google_filter_module-0.2.0.tar.gz::https://github.com/cuber/ngx_http_google_filter_module/archive/0.2.0.tar.gz)
-md5sums=('0f3900165b11c417854535f3538913cb'
+md5sums=('9db11337a924a665ff68c1785bcf314e'
 'ce9a06bcaf66ec4a3c4eb59b636e0dfd'
 '3441ce77cdd1aab6f0ab7e212698a8a7'
 'a223ba5180ec796a23686962e5732ff8'
@@ -123,4 +124,9 @@ package() {
 
 	install -d "$pkgdir"/usr/share/man/man8/
 	gzip -9c man/nginx.8 > "$pkgdir"/usr/share/man/man8/nginx.8.gz
+
+	for i in ftdetect indent syntax; do
+		install -Dm644 contrib/vim/${i}/nginx.vim \
+			"${pkgdir}/usr/share/vim/vimfiles/${i}/nginx.vim"
+	done
 }
