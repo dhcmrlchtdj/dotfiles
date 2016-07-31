@@ -28,7 +28,7 @@ verify:
 	mkdir -p $(challenges)
 	if [[ ! -f $(certs)/acme_tiny.py ]]; then \
 		curl -s 'https://raw.githubusercontent.com/diafygi/acme-tiny/master/acme_tiny.py' \
-		-o $(certs)/acme-tiny.py; fi
+		-o $(certs)/acme_tiny.py; fi
 	python $(certs)/acme_tiny.py --account-key $(certs)/account.key \
 		--csr $(certs)/$(CN)/domain.csr --acme-dir $(challenges) \
 		> $(certs)/$(CN)/signed.crt
