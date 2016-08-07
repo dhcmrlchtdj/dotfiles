@@ -7,6 +7,18 @@ prompt_ooxx_git_dirty() {
 	(( $? )) && echo '*'
 }
 
+prompt_ooxx_git() {
+	if [[ $vcs_info_msg_0_ != "" ]]; then
+		echo "on %F{green}$vcs_info_msg_0_%f$(prompt_ooxx_git_dirty) "
+	fi
+}
+
+prompt_ooxx_pyvenv() {
+	if [[ $VIRTUAL_ENV != "" ]]; then
+		echo "use %F{yellow}$(basename $VIRTUAL_ENV)%f "
+	fi
+}
+
 prompt_ooxx_precmd() {
 	setopt prompt_subst
 
@@ -17,14 +29,13 @@ prompt_ooxx_precmd() {
 
 	p0+="%F{blue}%n%f "
 	p0+="at %F{cyan}%m%f "
-	if [[ $vcs_info_msg_0_ != "" ]]; then
-		p0+="on %F{green}$vcs_info_msg_0_%f$(prompt_ooxx_git_dirty) "
-	fi
+	p0+="$(prompt_ooxx_git)"
+	p0+="$(prompt_ooxx_pyvenv)"
 	p0+="in %F{red}%~%f "
 	p0+="%(?,,[%F{red}%B%?%b%f] ) "
 	p0+="%(1j,[%j running] ,) "
 
-	if (( EUID == 0 )); then
+	if (( $EUID == 0 )); then
 		p1+="%F{magenta}#%f "
 	else
 		p1+="%F{magenta}❯%f "
