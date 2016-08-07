@@ -2,6 +2,7 @@ fpath=(/usr/local/share/zsh-completions /usr/local/share/zsh/functions $fpath)
 
 export PATH="/usr/local/sbin:$PATH"
 export SDKROOT=macosx
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 
 source ~/.zshrc_common
 

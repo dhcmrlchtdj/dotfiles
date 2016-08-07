@@ -2,6 +2,7 @@ _has() {
 	type "$1" &> /dev/null
 }
 
+export PATH="$HOME/.local/bin:$PATH"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export TERM="xterm-256color"
@@ -74,7 +75,7 @@ zzz() {
 }
 
 ttt() {
-	if _has "tmux" && [[ -z "$TMUX" ]] ;then
+	if _has "tmux" && [[ -z "$TMUX" ]]; then
 		ID=$(tmux ls | grep -vm1 attached | cut -d: -f1) # get the id of a deattached session
 		if [[ -z "$ID" ]] ;then # if not available create a new one
 			tmux -CC
@@ -86,10 +87,20 @@ ttt() {
 
 
 ### node ###
-export NVM_DIR="$HOME/.nvm"
-if [[ -f "$NVM_DIR/nvm.sh" ]]; then source "$NVM_DIR/nvm.sh"; fi
+if [[ -f "$NVM_DIR/nvm.sh" ]]; then
+	export NVM_DIR="$HOME/.nvm";
+	source "$NVM_DIR/nvm.sh";
+fi
 # chpwd_nvm_use() { nvm use &>/dev/null || nvm use system &>/dev/null; return 0 }
 # chpwd_nvm_use
 # chpwd_functions=( ${chpwd_functions} chpwd_nvm_use )
 # if _has "npm"; then eval "$(npm completion)"; fi
 ### END node ###
+
+
+### python virtualenvwrapper ###
+if _has "virtualenvwrapper_lazy.sh"; then
+	export WORKON_HOME=$HOME/.virtualenvwrapper;
+	source virtualenvwrapper_lazy.sh;
+fi
+### END python virtualenvwrapper ###
