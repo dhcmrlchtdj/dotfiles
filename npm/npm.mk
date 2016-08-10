@@ -2,5 +2,5 @@
 npm:
 	-cp -n `pwd`/npm/npmrc ~/.npmrc
 
-npm_taobao: npm
-	cat `pwd`/npm/taobao-mirror.npmrc >> ~/.npmrc
+npm_mirror: npm
+	cat `pwd`/npm/mirror.npmrc >> ~/.npmrc
