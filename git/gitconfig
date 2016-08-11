@@ -1,7 +1,7 @@
 [user]
 	name = niris
 	email = nirisix@gmail.com
-	signingKey = B2D67F50
+	signingKey = 0x0006DD9CB2D67F50
 
 [commit]
 	gpgSign = false
