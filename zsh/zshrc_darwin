@@ -4,9 +4,8 @@ export PATH="/usr/local/sbin:$PATH"
 export SDKROOT=macosx
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 
-# https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/
-# export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
-export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
+# export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 
 source ~/.zshrc_common
 
