@@ -147,6 +147,7 @@ call dein#add("Shougo/unite-outline")
 call dein#add("Shougo/neocomplete.vim") " complete
 call dein#add("Shougo/neosnippet.vim") " snippet
 call dein#add("Shougo/neosnippet-snippets") " snippet
+" language
 call dein#add("Rip-Rip/clang_complete") " c, require clang
 call dein#add("ternjs/tern_for_vim", {"build": "npm i"})
 
