@@ -149,6 +149,7 @@ call dein#add("Shougo/neosnippet.vim") " snippet
 call dein#add("Shougo/neosnippet-snippets") " snippet
 " language
 call dein#add("Rip-Rip/clang_complete") " c, require clang
+call dein#add("davidhalter/jedi-vim")
 call dein#add("ternjs/tern_for_vim", {"build": "npm i"})
 
 "
@@ -211,7 +212,7 @@ let g:NERDTreeIndicatorMapCustom = {
 			\ }
 
 " gundo
-" let g:gundo_prefer_python3 = 1
+let g:gundo_prefer_python3 = 1
 let g:gundo_width = 40
 let g:gundo_preview_height = 10
 let g:gundo_help = 0
@@ -257,6 +258,9 @@ let g:neocomplete#sources#syntax#min_keyword_length = 1
 if !exists("g:neocomplete#sources#omni#input_patterns")
 	let g:neocomplete#sources#omni#input_patterns = {}
 endif
+if !exists("g:neocomplete#force_omni_input_patterns")
+	let g:neocomplete#force_omni_input_patterns = {}
+endif
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 imap <expr> <TAB>
 			\ pumvisible() ? "\<C-n>" :
@@ -287,6 +291,14 @@ let g:tern_show_argument_hints = "on_hold"
 
 " clang_complete
 let g:clang_library_path = "/Library/Developer/CommandLineTools/usr/lib/libclang.dylib"
+
+" jedi
+autocmd FileType python setlocal omnifunc=jedi#completions
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#smart_auto_mappings = 0
+let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+" let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
 
 " autoformat
 noremap <Leader>ff :Autoformat<CR>
