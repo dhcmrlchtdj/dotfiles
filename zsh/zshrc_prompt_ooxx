@@ -15,7 +15,7 @@ prompt_ooxx_git() {
 
 prompt_ooxx_pyvenv() {
 	if [[ $VIRTUAL_ENV != "" ]]; then
-		echo "use %F{yellow}$(basename $VIRTUAL_ENV)%f "
+		echo "use %F{magenta}$(basename $VIRTUAL_ENV)%f "
 	fi
 }
 

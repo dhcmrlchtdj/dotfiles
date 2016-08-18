@@ -303,6 +303,8 @@ let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*f
 " autoformat
 noremap <Leader>ff :Autoformat<CR>
 
+let g:jsx_ext_required = 0
+
 
 """ 模板
 augroup templates
