@@ -49,10 +49,10 @@ set nowrap "不自动换行
 set textwidth=0 "行宽
 set colorcolumn=80 "行宽提示
 " set cursorline "高亮当前行
-nmap <buffer> <silent> <Up> gk
-nmap <buffer> <silent> <Down> gj
-imap <buffer> <silent> <Up> <C-o>gk
-imap <buffer> <silent> <Down> <C-o>gj
+noremap <Up> gk
+noremap <Down> gj
+inoremap <Up> <C-o>gk
+inoremap <Down> <C-o>gj
 
 set cmdheight=1 "命令行行数
 set showcmd "在命令行显示目前执行的指令
@@ -89,20 +89,22 @@ set list "显示特殊字符
 set listchars=tab:»\ ,trail:·, "字符样式
 
 """ fold
-set foldmethod=indent "折叠方式
 set nofoldenable "关闭折叠
-set foldlevel=99
+set foldmethod=indent "折叠方式
+set foldlevel=100
 set foldcolumn=1
 " 选定后用空格创建折叠 用于marker
 " vmap <silent> <Space> zf
 
 """ split
+set nosplitbelow
 set splitright
 
 """ location list
 nmap <silent> <F1> :silent! lopen<CR>
 autocmd FileType qf nmap <buffer> <CR> <CR>:lclose<CR>
 autocmd FileType qf nmap <buffer> q :q<CR>
+
 
 """ plugin
 let g:dein#types#git#clone_depth = 1
@@ -126,7 +128,7 @@ call dein#add("sjl/gundo.vim") " undo
 
 call dein#add("scrooloose/nerdcommenter") " comment
 call dein#add("godlygeek/tabular") " align
-call dein#add('scrooloose/syntastic')
+call dein#add("scrooloose/syntastic") " syntax check
 call dein#add("Shougo/unite.vim")
 call dein#add("Shougo/unite-outline")
 
@@ -134,17 +136,13 @@ call dein#add("Shougo/unite-outline")
 call dein#add("Shougo/deoplete.nvim") " complete
 call dein#add("Shougo/neosnippet.vim") " snippet
 call dein#add("Shougo/neosnippet-snippets") " snippet
-call dein#add("carlitux/deoplete-ternjs") " js, require tern
-call dein#add("Rip-Rip/clang_complete") " c, require clang
-" call dein#add("racer-rust/vim-racer") " rust
-" call dein#add("mitsuse/autocomplete-swift") " swift, require SourceKitten
+" language
+" call dein#add("carlitux/deoplete-ternjs") " js, require tern
+" call dein#add("Rip-Rip/clang_complete") " c, require clang
 
 "
 call dein#add("sheerun/vim-polyglot") " syntax/indent
-call dein#add("rhysd/vim-clang-format") " formatter
-" call dein#add("Chiel92/vim-autoformat") " formatter
-" call dein#add("maksimr/vim-jsbeautify") " js format
-" call dein#add("kovisoft/slimv") " scheme
+call dein#add("Chiel92/vim-autoformat") " formatter
 
 call dein#end()
 
@@ -187,6 +185,7 @@ let g:NERDTreeSortHiddenFirst = 1
 let g:NERDTreeIgnore = ["\.swp$"]
 nmap <silent> <F3> :silent! NERDTreeFind<CR>
 
+" nerdtree-git-plugin
 let g:NERDTreeIndicatorMapCustom = {
 			\ "Modified"  : "M",
 			\ "Staged"    : "S",
@@ -201,7 +200,8 @@ let g:NERDTreeIndicatorMapCustom = {
 
 " gundo
 let g:gundo_prefer_python3 = 1
-let g:gundo_width = 30
+let g:gundo_width = 40
+let g:gundo_preview_height = 10
 let g:gundo_help = 0
 let g:gundo_close_on_revert = 0
 let g:gundo_return_on_revert = 0
@@ -224,18 +224,6 @@ let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_lua_checkers = ['luac', 'luacheck']
 let g:syntastic_python_python_exec = '/usr/local/bin/python3'
 nmap <F4> :SyntasticToggleMode<CR>
-
-" unite
-let g:unite_enable_start_insert = 1
-let g:unite_prompt = "» "
-let g:unite_winwidth = 30
-let g:unite_winheight = 20
-let g:unite_source_grep_command = "ag"
-let g:unite_source_grep_default_opts = "--vimgrep --smart-case --nocolor --nogroup --hidden --ignore '.git'"
-let g:unite_source_rec_async_command = ["ag", "--smart-case", "--nocolor", "--nogroup", "--hidden", "--ignore", "'.git'", "--ignore", "'node_modules'", "-g", ""]
-nmap <C-p> :Unite buffer file_rec<CR>
-nmap <C-p><C-p> :Unite grep:.<CR>
-nmap <Leader>p :Unite outline<CR>
 
 " airline
 let g:airline_theme="powerlineish"
@@ -267,27 +255,18 @@ imap <expr> <TAB>
 			\ neosnippet#expandable_or_jumpable() ?
 			\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
-" clang-format
-let g:clang_format#code_style = "LLVM"
-let g:clang_format#style_options = {
-			\ "AllowShortFunctionsOnASingleLine": "None",
-			\ "AllowShortIfStatementsOnASingleLine": "true",
-			\ "AllowShortLoopsOnASingleLine": "true",
-			\ "KeepEmptyLinesAtTheStartOfBlocks": "false",
-			\ "ColumnLimit": 0,
-			\ "IndentWidth": 4,
-			\ "TabWidth": 4,
-			\ "UseTab": "Always",
-			\ }
-autocmd FileType c nmap <buffer> <silent> <Leader>ff :ClangFormat<CR>
-autocmd FileType c vmap <buffer> <silent> <Leader>ff :ClangFormat<CR>
 
 " tern
-let g:tern_request_timeout = 1
 let g:tern_show_signature_in_pum = 1
+let g:tern_show_argument_hints = "on_hold"
 
-" clang
+" clang_complete
 let g:clang_library_path = "/Library/Developer/CommandLineTools/usr/lib/libclang.dylib"
+
+" autoformat
+noremap <Leader>ff :Autoformat<CR>
+
+let g:jsx_ext_required = 0
 
 """ 模板
 augroup templates
