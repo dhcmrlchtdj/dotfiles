@@ -139,9 +139,9 @@ call dein#add("sjl/gundo.vim") " undo
 call dein#add("scrooloose/nerdcommenter") " comment
 call dein#add("godlygeek/tabular") " align
 call dein#add("scrooloose/syntastic") " syntax check
-call dein#add("Shougo/vimproc.vim", {"build": "make"})
 call dein#add("Shougo/unite.vim")
 call dein#add("Shougo/unite-outline")
+call dein#add("Shougo/vimproc.vim", {"build": "make"})
 
 " complete
 call dein#add("Shougo/neocomplete.vim") " complete
@@ -314,8 +314,8 @@ augroup END
 
 """ 其他
 " 调整文件
-nmap <silent> <F6> :call ReStructureFile()<CR>
-function! ReStructureFile()
+nmap <silent> <F6> :call FormatFile()<CR>
+function! FormatFile()
 	let l = line(".")
 	let c = col(".")
 
