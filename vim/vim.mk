@@ -7,6 +7,7 @@ vim:
 	-cp -n `pwd`/vim/tern.json ~/.tern-project
 	-cp -n `pwd`/vim/jsbeautifyrc.json ~/.jsbeautifyrc
 	-cp -n `pwd`/vim/clang-format ~/.clang-format
+	-cp -n `pwd`/vim/pep8 ~/.config/pep8
 	if [ ! -d ~/.vim/bundle/repos/github.com/Shougo/dein.vim ]; then \
 		git clone --depth=1 https://github.com/Shougo/dein.vim \
 		~/.vim/bundle/repos/github.com/Shougo/dein.vim; \
