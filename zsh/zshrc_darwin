@@ -1,5 +1,6 @@
 fpath=(/usr/local/share/zsh-completions /usr/local/share/zsh/functions $fpath)
 
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:=$HOME/.config}"
 export PATH="/usr/local/sbin:$PATH"
 export SDKROOT=macosx
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
