@@ -148,9 +148,9 @@ call dein#add("Shougo/neocomplete.vim") " complete
 call dein#add("Shougo/neosnippet.vim") " snippet
 call dein#add("Shougo/neosnippet-snippets") " snippet
 " language
-call dein#add("Rip-Rip/clang_complete") " c, require clang
-call dein#add("davidhalter/jedi-vim")
-call dein#add("ternjs/tern_for_vim", {"build": "npm i"})
+call dein#add("Rip-Rip/clang_complete") " c
+call dein#add("davidhalter/jedi-vim") " python
+call dein#add("ternjs/tern_for_vim", {"build": "npm i"}) " js
 
 "
 call dein#add("sheerun/vim-polyglot") " syntax/indent
@@ -170,6 +170,8 @@ autocmd BufRead,BufNewFile *.vue set ft=html
 autocmd FileType html,css,javascript,scss,json setl et
 autocmd FileType markdown setl omnifunc=""
 autocmd FileType scheme setl et ts=2 sts=2 sw=2
+let g:jsx_ext_required = 0
+let python_highlight_all = 1
 
 set background=dark "深色背景
 set background=light "浅色背景
@@ -304,8 +306,6 @@ let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*f
 " autoformat
 noremap <Leader>ff :Autoformat<CR>
 
-let g:jsx_ext_required = 0
-
 
 """ 模板
 augroup templates
@@ -356,3 +356,6 @@ function! FormatFile()
 	call cursor(l, c)
 	exe "normal zz"
 endfunction
+
+" debug highlight
+" map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
