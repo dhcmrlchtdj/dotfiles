@@ -3,6 +3,7 @@ _has() {
 }
 
 export PATH="$HOME/.local/bin:$PATH"
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:=$HOME/.config}"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export TERM="xterm-256color"
@@ -94,8 +95,8 @@ ppp() {
 }
 
 ### node ###
-export NVM_DIR="$HOME/.nvm";
 if [[ -f "$NVM_DIR/nvm.sh" ]]; then
+	export NVM_DIR="$HOME/.nvm";
 	source "$NVM_DIR/nvm.sh";
 fi
 # chpwd_nvm_use() { nvm use &>/dev/null || nvm use system &>/dev/null; return 0 }

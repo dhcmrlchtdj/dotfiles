@@ -1,12 +1,11 @@
 fpath=(/usr/local/share/zsh-completions /usr/local/share/zsh/functions $fpath)
 
-export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:=$HOME/.config}"
 export PATH="/usr/local/sbin:$PATH"
 export SDKROOT=macosx
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 
-export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
-# export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
+# export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
 
 source ~/.zshrc_common
 
@@ -17,6 +16,7 @@ alias ls="gls --color=auto --group-directories-first -vF"
 if _has "gpg2"; then alias gpg="gpg2"; fi
 alias dm="docker-machine --native-ssh"
 alias danger_chrome="open -a 'Google Chrome Canary' --args --disable-web-security --user-data-dir --allow-file-access-from-files"
+alias mosh="mosh --predict=experimental"
 
 # forward f port remote-port remote-host
 # forward c port remote-port remote-host

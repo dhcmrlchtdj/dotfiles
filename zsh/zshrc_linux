@@ -6,5 +6,3 @@ source ~/.zshrc_common
 if [[ -f "/usr/share/doc/pkgfile/command-not-found.zsh" ]]; then
 	source /usr/share/doc/pkgfile/command-not-found.zsh
 fi
-
-if [[ -f /etc/arch-release ]]; then alias pacman="pacman --color=auto"; fi
