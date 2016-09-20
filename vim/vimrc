@@ -139,14 +139,15 @@ call dein#add("sjl/gundo.vim") " undo
 call dein#add("scrooloose/nerdcommenter") " comment
 call dein#add("godlygeek/tabular") " align
 call dein#add("scrooloose/syntastic") " syntax check
+call dein#add("Shougo/vimproc.vim", {"build": "make"})
 call dein#add("Shougo/unite.vim")
 call dein#add("Shougo/unite-outline")
-call dein#add("Shougo/vimproc.vim", {"build": "make"})
 
 " complete
 call dein#add("Shougo/neocomplete.vim") " complete
 call dein#add("Shougo/neosnippet.vim") " snippet
 call dein#add("Shougo/neosnippet-snippets") " snippet
+
 " language
 call dein#add("Rip-Rip/clang_complete") " c
 call dein#add("davidhalter/jedi-vim") " python
@@ -170,7 +171,7 @@ autocmd BufRead,BufNewFile *.vue set ft=html
 autocmd FileType html,css,javascript,scss,json setl et
 autocmd FileType markdown setl omnifunc=""
 autocmd FileType scheme setl et ts=2 sts=2 sw=2
-let g:jsx_ext_required = 0
+let g:jsx_ext_required = 1
 let python_highlight_all = 1
 
 set background=dark "深色背景
