@@ -273,7 +273,7 @@ noremap <Leader>ff :Autoformat<CR>
 
 """ 模板
 augroup templates
-	autocmd BufNewFile * silent! execute "0r ~/.vim/templates/skeleton.".expand("<afile>:e")
+	autocmd BufNewFile * silent! execute "0r ~/.config/nvim/templates/skeleton.".expand("<afile>:e")
 augroup END
 
 
