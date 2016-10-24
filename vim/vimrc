@@ -16,7 +16,7 @@ set ttyfast
 set nomodeline "忽略 打开的文件 里的vim参数
 set noerrorbells "禁止错误信息响铃
 set novisualbell "禁止出错屏幕闪烁
-nmap Q <NOP>
+nmap Q <Nop>
 
 set t_Co=256 "颜色数目
 set t_vb="" "禁止错误信息响铃及出错屏幕闪烁
@@ -266,10 +266,10 @@ if !exists("g:neocomplete#force_omni_input_patterns")
 	let g:neocomplete#force_omni_input_patterns = {}
 endif
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
-imap <expr> <TAB>
+imap <expr> <Tab>
 			\ pumvisible() ? "\<C-n>" :
 			\ neosnippet#expandable_or_jumpable() ?
-			\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+			\ "\<Plug>(neosnippet_expand_or_jump)" : "\<Tab>"
 
 " airline
 let g:airline_theme="powerlineish"
@@ -321,12 +321,6 @@ function! FormatFile()
 	let l = line(".")
 	let c = col(".")
 
-	" 调整缩进
-	if (&ft !~ "python\|markdown\|text")
-		exe "normal gg=G``"
-	endif
-	exe "silent! :retab"
-
 	" 使用\n换行
 	let &ff = "unix"
 
@@ -353,6 +347,12 @@ function! FormatFile()
 		endif
 		let lnum -= 1
 	endwhile
+
+	" 调整缩进
+	if (&ft !~ "python\|markdown\|text")
+		exe "normal gg=G``"
+	endif
+	exe "silent! :retab"
 
 	call cursor(l, c)
 	exe "normal zz"

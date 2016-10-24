@@ -91,7 +91,7 @@ set listchars=tab:»\ ,trail:·, "字符样式
 """ fold
 set nofoldenable "关闭折叠
 set foldmethod=indent "折叠方式
-set foldlevel=100
+set foldlevel=100 "打开小于100层的折叠
 set foldcolumn=1
 " 选定后用空格创建折叠 用于marker
 " vmap <silent> <Space> zf
@@ -136,6 +136,7 @@ call dein#add("Shougo/unite-outline")
 call dein#add("Shougo/deoplete.nvim") " complete
 call dein#add("Shougo/neosnippet.vim") " snippet
 call dein#add("Shougo/neosnippet-snippets") " snippet
+
 " language
 " call dein#add("carlitux/deoplete-ternjs") " js, require tern
 " call dein#add("Rip-Rip/clang_complete") " c, require clang
@@ -157,6 +158,8 @@ autocmd BufRead,BufNewFile *.vue set ft=html
 autocmd FileType html,css,javascript,scss,json setl et
 autocmd FileType markdown setl omnifunc=""
 autocmd FileType scheme setl et ts=2 sts=2 sw=2
+let g:jsx_ext_required = 1
+let python_highlight_all = 1
 
 set background=dark "深色背景
 set background=light "浅色背景
@@ -215,14 +218,15 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_error_symbol = '✖'
-let g:syntastic_warning_symbol = '⚠'
-let g:syntastic_style_error_symbol = '✖'
-let g:syntastic_style_warning_symbol = '⚠'
+let g:syntastic_error_symbol = "✖"
+let g:syntastic_warning_symbol = "⚠"
+let g:syntastic_style_error_symbol = "✖"
+let g:syntastic_style_warning_symbol = "⚠"
 let g:syntastic_html_checkers = []
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_lua_checkers = ['luac', 'luacheck']
-let g:syntastic_python_python_exec = '/usr/local/bin/python3'
+let g:syntastic_javascript_checkers = ["eslint"]
+" let g:syntastic_lua_checkers = ["luac", "luacheck"]
+let g:syntastic_python_python_exec = "/usr/local/bin/python3"
+let g:syntastic_python_flake8_args='--ignore=E501,E701'
 nmap <F4> :SyntasticToggleMode<CR>
 
 " airline
@@ -266,12 +270,12 @@ let g:clang_library_path = "/Library/Developer/CommandLineTools/usr/lib/libclang
 " autoformat
 noremap <Leader>ff :Autoformat<CR>
 
-let g:jsx_ext_required = 0
 
 """ 模板
 augroup templates
 	autocmd BufNewFile * silent! execute "0r ~/.vim/templates/skeleton.".expand("<afile>:e")
 augroup END
+
 
 """ 其他
 " 调整文件
@@ -291,6 +295,7 @@ function! FormatFile()
 
 	" 使用utf-8编码
 	let &fenc = "utf8"
+
 	" 去除 BOM
 	exe "set nobomb"
 
