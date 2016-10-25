@@ -248,13 +248,22 @@ highlight link GitGutterChangeDelete CursorColumn
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
-" let g:deoplete#auto_complete_start_length = 1
 let g:deoplete#file#enable_buffer_path = 1
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 imap <expr> <Tab>
 			\ pumvisible() ? "\<C-n>" :
 			\ neosnippet#expandable_or_jumpable() ?
 			\ "\<Plug>(neosnippet_expand_or_jump)" : "\<Tab>"
+
+" denite
+call denite#custom#var("file_rec", "command", ["rg", "--files"])
+call denite#custom#var("grep", "command", ["rg"])
+call denite#custom#var("grep", "recursive_opts", [])
+call denite#custom#var("grep", "final_opts", [])
+call denite#custom#var("grep", "separator", ["--"])
+call denite#custom#var("grep", "default_opts", ["--vimgrep", "--no-heading"])
+nmap <C-p> :Denite buffer file_rec<CR>
+nmap <C-p><C-p> :Denite grep:.<CR>
 
 " autoformat
 noremap <Leader>ff :Autoformat<CR>
