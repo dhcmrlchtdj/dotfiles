@@ -106,6 +106,10 @@ autocmd FileType qf nmap <buffer> <CR> <CR>:lclose<CR>
 autocmd FileType qf nmap <buffer> q :q<CR>
 
 
+let g:python_host_prog = '/usr/local/bin/python2'
+let g:python3_host_prog = '/usr/local/bin/python3'
+
+
 """ plugin
 let g:dein#types#git#clone_depth = 1
 set runtimepath+=~/.config/nvim/bundle/repos/github.com/Shougo/dein.vim/
@@ -137,7 +141,8 @@ call dein#add("Shougo/neosnippet.vim") " snippet
 call dein#add("Shougo/neosnippet-snippets") " snippet
 
 " language
-" call dein#add("carlitux/deoplete-ternjs") " js, require tern
+call dein#add("zchee/deoplete-jedi") " py
+call dein#add("carlitux/deoplete-ternjs") " js, require tern
 " call dein#add("Rip-Rip/clang_complete") " c, require clang
 
 "
