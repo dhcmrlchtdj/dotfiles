@@ -151,7 +151,7 @@ call dein#add("Shougo/neosnippet-snippets") " snippet
 " language
 call dein#add("Rip-Rip/clang_complete") " c
 call dein#add("davidhalter/jedi-vim") " python
-call dein#add("ternjs/tern_for_vim", {"build": "npm i"}) " js
+call dein#add("ternjs/tern_for_vim") " js
 
 "
 call dein#add("sheerun/vim-polyglot") " syntax/indent
