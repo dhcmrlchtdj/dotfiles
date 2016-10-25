@@ -129,8 +129,7 @@ call dein#add("sjl/gundo.vim") " undo
 call dein#add("scrooloose/nerdcommenter") " comment
 call dein#add("godlygeek/tabular") " align
 call dein#add("scrooloose/syntastic") " syntax check
-call dein#add("Shougo/unite.vim")
-call dein#add("Shougo/unite-outline")
+call dein#add("Shougo/denite.nvim")
 
 " complete
 call dein#add("Shougo/deoplete.nvim") " complete
@@ -249,23 +248,13 @@ highlight link GitGutterChangeDelete CursorColumn
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_complete_start_length = 1
+" let g:deoplete#auto_complete_start_length = 1
 let g:deoplete#file#enable_buffer_path = 1
-" imap <expr><BS> deoplete#mappings#smart_close_popup()."\<C-h>"
-" imap <expr> <TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
-imap <expr> <TAB>
+imap <expr> <Tab>
 			\ pumvisible() ? "\<C-n>" :
 			\ neosnippet#expandable_or_jumpable() ?
-			\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-
-" tern
-let g:tern_show_signature_in_pum = 1
-let g:tern_show_argument_hints = "on_hold"
-
-" clang_complete
-let g:clang_library_path = "/Library/Developer/CommandLineTools/usr/lib/libclang.dylib"
+			\ "\<Plug>(neosnippet_expand_or_jump)" : "\<Tab>"
 
 " autoformat
 noremap <Leader>ff :Autoformat<CR>
