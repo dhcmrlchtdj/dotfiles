@@ -1,0 +1,10 @@
+[Unit]
+Description=aria2 - The next generation download utility
+
+[Service]
+Restart=on-failure
+Type=simple
+ExecStart=/usr/bin/aria2c --conf-path=%h/.aria2/aria2.conf
+
+[Install]
+WantedBy=default.target
