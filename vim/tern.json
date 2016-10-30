@@ -1,10 +1,15 @@
 {
+    "ecmaVersion": 7,
     "libs": [
+        "ecmascript",
         "browser",
-        "ecma5",
-        "ecma6"
+        "underscore"
     ],
     "plugins": {
+        "commonjs": {},
+        "complete_strings": {},
+        "doc_comment": {},
+        "es_modules": {},
         "node": {}
     }
 }
