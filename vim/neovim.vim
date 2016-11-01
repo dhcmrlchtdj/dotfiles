@@ -129,6 +129,7 @@ call dein#add("jeetsukumaran/vim-buffergator") " buffer
 call dein#add("scrooloose/nerdtree") " filesystem
 call dein#add("Xuyuanp/nerdtree-git-plugin") " filesystem git
 call dein#add("sjl/gundo.vim") " undo
+call dein#add("majutsushi/tagbar") " tagbar, require ctags/jsctags
 
 call dein#add("scrooloose/nerdcommenter") " comment
 call dein#add("godlygeek/tabular") " align
@@ -232,6 +233,9 @@ let g:syntastic_javascript_checkers = ["eslint"]
 let g:syntastic_python_python_exec = "/usr/local/bin/python3"
 let g:syntastic_python_flake8_args='--ignore=E501,E701'
 nmap <F4> :SyntasticToggleMode<CR>
+
+" tagbar
+nmap <Leader>p :TagbarOpen fj<CR>
 
 " airline
 let g:airline_theme="powerlineish"
