@@ -1,10 +1,11 @@
 .PHONY: vim-common vim neovim
 
 vim-common:
-	-cp -n `pwd`/vim/tern.json ~/.tern-project # tern
-	-cp -n `pwd`/vim/jsbeautifyrc.json ~/.jsbeautifyrc # js-beautify
-	-cp -n `pwd`/vim/clang-format ~/.clang-format # clang-format
-	-cp -n `pwd`/vim/pep8 ~/.config/pep8 # autopep8
+	-cp -n `pwd`/vim/conf/ycm_extra_conf.py  ~/.ycm_extra_conf.py # ycm
+	-cp -n `pwd`/vim/conf/tern.json ~/.tern-project # tern
+	-cp -n `pwd`/vim/conf/jsbeautifyrc.json ~/.jsbeautifyrc # js-beautify
+	-cp -n `pwd`/vim/conf/clang-format ~/.clang-format # clang-format
+	-cp -n `pwd`/vim/conf/pep8 ~/.config/pep8 # autopep8
 
 vim: vim-common
 	mkdir -p ~/.vim/{backup,undo,templates}
