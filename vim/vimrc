@@ -74,7 +74,6 @@ set noshowmode "隐藏信息
 set shortmess=atI "状态行信息
 " set statusline=%<%F\ %y\ (%{&ff})\ %h%m%r%w%=%-14.(%l,%c%)%p%% "状态行
 
-
 """ search
 "清除高亮
 nmap <silent> <Space> :nohlsearch<CR>
@@ -135,13 +134,12 @@ call dein#add("jeetsukumaran/vim-buffergator") " buffer
 call dein#add("scrooloose/nerdtree") " filesystem
 call dein#add("Xuyuanp/nerdtree-git-plugin") " filesystem git
 call dein#add("sjl/gundo.vim") " undo
+call dein#add("majutsushi/tagbar") " tagbar, require ctags/jsctags
 
 call dein#add("scrooloose/nerdcommenter") " comment
 call dein#add("godlygeek/tabular") " align
 call dein#add("scrooloose/syntastic") " syntax check
-call dein#add("Shougo/vimproc.vim", {"build": "make"})
-call dein#add("Shougo/unite.vim")
-call dein#add("majutsushi/tagbar") " tagbar, require ctags/jsctags
+call dein#add("Shougo/denite.nvim")
 
 " complete
 call dein#add("Shougo/neocomplete.vim") " complete
@@ -242,17 +240,20 @@ let g:syntastic_python_python_exec = "/usr/local/bin/python3"
 let g:syntastic_python_flake8_args='--ignore=E501,E701'
 nmap <F4> :SyntasticToggleMode<CR>
 
-" unite
-let g:unite_enable_start_insert = 1
-let g:unite_prompt = "» "
-let g:unite_winwidth = 30
-let g:unite_winheight = 20
-let g:unite_source_grep_command = "rg"
-let g:unite_source_grep_default_opts = "--vimgrep --no-heading"
-let g:unite_source_grep_recursive_opt = ''
-let g:unite_source_rec_async_command = ["rg", "--files"]
-nmap <C-p> :Unite buffer file_rec/async<CR>
-nmap <C-p><C-p> :Unite grep:.<CR>
+" denite
+call denite#custom#var("file_rec", "command", ["rg", "--files"])
+nmap <C-p> :Denite buffer file_rec<CR>
+call denite#custom#var("grep", "command", ["rg"])
+call denite#custom#var("grep", "recursive_opts", [])
+call denite#custom#var("grep", "final_opts", [])
+call denite#custom#var("grep", "separator", ["--"])
+call denite#custom#var("grep", "default_opts", ["--vimgrep", "--no-heading"])
+nmap <C-p><C-p> :Denite grep:.<CR>
+call denite#custom#map("_", "\<Up>", "move_to_prev_line")
+call denite#custom#map("_", "\<Down>", "move_to_next_line")
+call denite#custom#map("_", "\<Esc>", "enter_mode:normal")
+call denite#custom#map("normal", "a", "enter_mode:insert")
+call denite#custom#option("default", "prompt", "»")
 
 " tagbar
 nmap <Leader>p :TagbarOpen fj<CR>

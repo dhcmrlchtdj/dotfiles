@@ -156,6 +156,7 @@ if dein#check_install()
 	call dein#install()
 endif
 
+
 """ 插件设置
 filetype plugin indent on "载入文件类型 插件 缩进
 syntax enable "语法加亮
@@ -234,8 +235,32 @@ let g:syntastic_python_python_exec = "/usr/local/bin/python3"
 let g:syntastic_python_flake8_args='--ignore=E501,E701'
 nmap <F4> :SyntasticToggleMode<CR>
 
+" denite
+call denite#custom#var("file_rec", "command", ["rg", "--files"])
+nmap <C-p> :Denite buffer file_rec<CR>
+call denite#custom#var("grep", "command", ["rg"])
+call denite#custom#var("grep", "recursive_opts", [])
+call denite#custom#var("grep", "final_opts", [])
+call denite#custom#var("grep", "separator", ["--"])
+call denite#custom#var("grep", "default_opts", ["--vimgrep", "--no-heading"])
+nmap <C-p><C-p> :Denite grep:.<CR>
+call denite#custom#map("_", "\<Up>", "move_to_prev_line")
+call denite#custom#map("_", "\<Down>", "move_to_next_line")
+call denite#custom#map("_", "\<Esc>", "enter_mode:normal")
+call denite#custom#map("normal", "a", "enter_mode:insert")
+call denite#custom#option("default", "prompt", "»")
+
 " tagbar
 nmap <Leader>p :TagbarOpen fj<CR>
+
+" deoplete
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#file#enable_buffer_path = 1
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+imap <expr> <Tab>
+			\ pumvisible() ? "\<C-n>" :
+			\ neosnippet#expandable_or_jumpable() ?
+			\ "\<Plug>(neosnippet_expand_or_jump)" : "\<Tab>"
 
 " airline
 let g:airline_theme="powerlineish"
@@ -255,25 +280,6 @@ highlight link GitGutterChange CursorColumn
 highlight link GitGutterDelete CursorColumn
 highlight link GitGutterChangeDelete CursorColumn
 
-" deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#file#enable_buffer_path = 1
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-imap <expr> <Tab>
-			\ pumvisible() ? "\<C-n>" :
-			\ neosnippet#expandable_or_jumpable() ?
-			\ "\<Plug>(neosnippet_expand_or_jump)" : "\<Tab>"
-
-" denite
-call denite#custom#var("file_rec", "command", ["rg", "--files"])
-call denite#custom#var("grep", "command", ["rg"])
-call denite#custom#var("grep", "recursive_opts", [])
-call denite#custom#var("grep", "final_opts", [])
-call denite#custom#var("grep", "separator", ["--"])
-call denite#custom#var("grep", "default_opts", ["--vimgrep", "--no-heading"])
-nmap <C-p> :Denite buffer file_rec<CR>
-nmap <C-p><C-p> :Denite grep:.<CR>
-
 " autoformat
 noremap <Leader>ff :Autoformat<CR>
 
@@ -290,12 +296,6 @@ nmap <silent> <F6> :call FormatFile()<CR>
 function! FormatFile()
 	let l = line(".")
 	let c = col(".")
-
-	" 调整缩进
-	if (&ft !~ "python\|markdown\|text")
-		exe "normal gg=G``"
-	endif
-	exe "silent! :retab"
 
 	" 使用\n换行
 	let &ff = "unix"
@@ -323,6 +323,12 @@ function! FormatFile()
 		endif
 		let lnum -= 1
 	endwhile
+
+	" 调整缩进
+	if (&ft !~ "python\|markdown\|text")
+		exe "normal gg=G``"
+	endif
+	exe "silent! :retab"
 
 	call cursor(l, c)
 	exe "normal zz"
