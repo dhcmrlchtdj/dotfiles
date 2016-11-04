@@ -105,11 +105,6 @@ nmap <silent> <F1> :silent! lopen<CR>
 autocmd FileType qf nmap <buffer> <CR> <CR>:lclose<CR>
 autocmd FileType qf nmap <buffer> q :q<CR>
 
-
-let g:python_host_prog = '/usr/local/bin/python2'
-let g:python3_host_prog = '/usr/local/bin/python3'
-
-
 """ plugin
 let g:dein#types#git#clone_depth = 1
 set runtimepath+=~/.config/nvim/bundle/repos/github.com/Shougo/dein.vim/
@@ -138,13 +133,6 @@ call dein#add("Shougo/denite.nvim")
 
 " complete
 call dein#add("Shougo/deoplete.nvim") " complete
-call dein#add("Shougo/neosnippet.vim") " snippet
-call dein#add("Shougo/neosnippet-snippets") " snippet
-
-" language
-call dein#add("zchee/deoplete-jedi") " py
-call dein#add("carlitux/deoplete-ternjs") " js, require tern
-" call dein#add("Rip-Rip/clang_complete") " c, require clang
 
 "
 call dein#add("sheerun/vim-polyglot") " syntax/indent
@@ -173,6 +161,9 @@ let g:solarized_termcolors = 256
 let g:solarized_termtrans = 1
 let g:solarized_visibility = "low"
 colorscheme solarized
+
+let g:python_host_prog = '/usr/local/bin/python2'
+let g:python3_host_prog = '/usr/local/bin/python3'
 
 highlight clear SignColumn
 highlight link SignColumn CursorColumn
@@ -233,25 +224,25 @@ let g:syntastic_javascript_checkers = ["eslint"]
 " let g:syntastic_lua_checkers = ["luac", "luacheck"]
 let g:syntastic_python_python_exec = "/usr/local/bin/python3"
 let g:syntastic_python_flake8_args='--ignore=E501,E701'
-nmap <F4> :SyntasticToggleMode<CR>
+" nmap <F4> :SyntasticToggleMode<CR>
+
+" tagbar
+nmap <silent> <F4> :TagbarOpen fj<CR>
 
 " denite
 call denite#custom#var("file_rec", "command", ["rg", "--files"])
-nmap <C-p> :Denite buffer file_rec<CR>
+nmap <C-p><C-p> :Denite file_rec<CR>
 call denite#custom#var("grep", "command", ["rg"])
 call denite#custom#var("grep", "recursive_opts", [])
 call denite#custom#var("grep", "final_opts", [])
 call denite#custom#var("grep", "separator", ["--"])
 call denite#custom#var("grep", "default_opts", ["--vimgrep", "--no-heading"])
-nmap <C-p><C-p> :Denite grep:.<CR>
+nmap <C-p> :Denite grep:.<CR>
 call denite#custom#map("_", "\<Up>", "move_to_prev_line")
 call denite#custom#map("_", "\<Down>", "move_to_next_line")
 call denite#custom#map("_", "\<Esc>", "enter_mode:normal")
 call denite#custom#map("normal", "a", "enter_mode:insert")
 call denite#custom#option("default", "prompt", "»")
-
-" tagbar
-nmap <Leader>p :TagbarOpen fj<CR>
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
