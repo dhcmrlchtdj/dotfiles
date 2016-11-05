@@ -13,16 +13,14 @@
 set nocompatible "不兼容vi
 set autoread
 set ttyfast
+set belloff="all"
 set nomodeline "忽略 打开的文件 里的vim参数
-set noerrorbells "禁止错误信息响铃
-set novisualbell "禁止出错屏幕闪烁
+set t_Co=256 "颜色数目
 nmap Q <Nop>
 
-set t_Co=256 "颜色数目
-set t_vb="" "禁止错误信息响铃及出错屏幕闪烁
-set noerrorbells "禁止错误信息响铃
-set novisualbell "禁止出错屏幕闪烁
-set cryptmethod=blowfish2
+if has("nvim") == 0
+	set cryptmethod=blowfish2
+endif
 
 set mouse="" "鼠标支持
 set display=lastline,uhex "不可见字符用 hex 形式展示
@@ -36,6 +34,7 @@ set conceallevel=0
 
 """ 备份 撤销
 set hidden "自动保存?
+set directory=~/.vim/swap//
 set undofile "开启撤销历史
 set undodir=~/.vim/undo "存放地址
 set backup "覆盖文件时备份
@@ -116,6 +115,7 @@ autocmd FileType qf nmap <buffer> q :q<CR>
 
 
 """ plugin
+filetype plugin indent off
 let g:dein#types#git#clone_depth = 1
 set runtimepath+=~/.vim/bundle/repos/github.com/Shougo/dein.vim/
 call dein#begin(expand("~/.vim/bundle/"))
@@ -142,7 +142,9 @@ call dein#add("scrooloose/syntastic") " syntax check
 call dein#add("Shougo/denite.nvim") " ripgrep
 
 " complete
-call dein#add("Valloric/YouCompleteMe")
+call dein#add("Valloric/YouCompleteMe") " complete
+call dein#add("SirVer/ultisnips")
+call dein#add("honza/vim-snippets")
 
 "
 call dein#add("sheerun/vim-polyglot") " syntax/indent
@@ -177,7 +179,7 @@ highlight link SignColumn CursorColumn
 
 " indent guide
 let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_exclude_filetypes = ["help", "nerdtree", "unite"]
+let g:indent_guides_exclude_filetypes = ["help", "nerdtree"]
 let g:indent_guides_default_mapping = 0
 
 " vim-buffergator
@@ -254,7 +256,21 @@ call denite#custom#option("default", "prompt", "»")
 " ycm
 let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf.py"
 let g:ycm_confirm_extra_conf = 0
-let g:ycm_python_binary_path = "/usr/local/bin/python3"
+if has("mac")
+	let g:ycm_python_binary_path = "/usr/local/bin/python3"
+endif
+
+" ultisnips
+" inoremap <expr> <CR> pumvisible() ? "<C-R>=UltiSnips#ExpandSnippet()<CR>" : "\<CR>"
+let g:UltiSnipsExpandTrigger="<C-k>"
+let g:UltiSnipsJumpForwardTrigger="<C-k>"
+let g:UltiSnipsJumpBackwardTrigger="<C-j>"
+
+" neovim
+if has("mac")
+	let g:python_host_prog = "/usr/local/bin/python2"
+	let g:python3_host_prog = "/usr/local/bin/python3"
+endif
 
 " airline
 let g:airline_theme="powerlineish"
