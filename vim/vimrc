@@ -148,7 +148,7 @@ call dein#add("honza/vim-snippets")
 
 "
 call dein#add("sheerun/vim-polyglot") " syntax/indent
-call dein#add("Chiel92/vim-autoformat") " formatter
+call dein#add("Chiel92/vim-autoformat") " formatter, clang-format/autopep8/js-beautify
 
 call dein#end()
 
