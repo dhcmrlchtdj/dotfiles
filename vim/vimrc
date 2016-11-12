@@ -256,9 +256,7 @@ call denite#custom#option("default", "prompt", "»")
 " ycm
 let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf.py"
 let g:ycm_confirm_extra_conf = 0
-if has("mac")
-	let g:ycm_python_binary_path = "/usr/local/bin/python3"
-endif
+let g:ycm_python_binary_path = "python3"
 
 " ultisnips
 " inoremap <expr> <CR> pumvisible() ? "<C-R>=UltiSnips#ExpandSnippet()<CR>" : "\<CR>"
