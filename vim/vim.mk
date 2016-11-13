@@ -18,4 +18,4 @@ vim: vim-config
 
 neovim: vim
 	mkdir -p ~/.config/nvim
-	-cp -n `pwd`/vim/vimrc ~/.config/nvim/init.vim
+	-ln -s `pwd`/vim/vimrc ~/.config/nvim/init.vim
