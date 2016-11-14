@@ -141,14 +141,18 @@ call dein#add("godlygeek/tabular") " align
 call dein#add("scrooloose/syntastic") " syntax check
 call dein#add("Shougo/denite.nvim") " ripgrep
 
-" complete
-call dein#add("Valloric/YouCompleteMe") " complete
-call dein#add("SirVer/ultisnips")
-call dein#add("honza/vim-snippets")
-
 "
 call dein#add("sheerun/vim-polyglot") " syntax/indent
+call dein#add("Konfekt/FastFold") " fold
 call dein#add("Chiel92/vim-autoformat") " formatter, clang-format/autopep8/js-beautify
+
+" complete
+call dein#add("Shougo/deoplete.nvim") " complete
+call dein#add("Shougo/neosnippet.vim") " snippet
+call dein#add("Shougo/neosnippet-snippets") " snippet
+call dein#add("Shougo/echodoc.vim")
+call dein#add("zchee/deoplete-jedi") " py
+call dein#add("carlitux/deoplete-ternjs") " js, tern
 
 call dein#end()
 
@@ -232,7 +236,7 @@ let g:syntastic_html_checkers = []
 let g:syntastic_javascript_checkers = ["eslint"]
 " let g:syntastic_lua_checkers = ["luac", "luacheck"]
 let g:syntastic_python_python_exec = "/usr/local/bin/python3"
-let g:syntastic_python_flake8_args="--ignore=E501,E701"
+let g:syntastic_python_flake8_args="--ignore=E501,E701,E116"
 " nmap <F4> :SyntasticToggleMode<CR>
 
 " tagbar
@@ -253,16 +257,16 @@ call denite#custom#map("_", "\<Esc>", "enter_mode:normal")
 call denite#custom#map("normal", "a", "enter_mode:insert")
 call denite#custom#option("default", "prompt", "»")
 
-" ycm
-let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf.py"
-let g:ycm_confirm_extra_conf = 0
-let g:ycm_python_binary_path = "python3"
-
-" ultisnips
-" inoremap <expr> <CR> pumvisible() ? "<C-R>=UltiSnips#ExpandSnippet()<CR>" : "\<CR>"
-let g:UltiSnipsExpandTrigger="<C-k>"
-let g:UltiSnipsJumpForwardTrigger="<C-k>"
-let g:UltiSnipsJumpBackwardTrigger="<C-j>"
+" deoplete
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#file#enable_buffer_path = 1
+let g:deoplete#auto_complete_start_length = 1
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+imap <expr> <TAB>
+			\ pumvisible() ? "\<C-n>" :
+			\ neosnippet#expandable_or_jumpable() ?
+			\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+let g:echodoc_enable_at_startup=1
 
 " neovim
 if has("mac")
