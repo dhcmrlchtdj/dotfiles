@@ -1,3 +1,4 @@
 startup_message off
+term "screen-256color"
 hardstatus alwayslastline "%-Lw%{= BW}%50>[%n%f* %t]%{-}%+Lw%<"
 windowlist string "%4n %h%=%f"
