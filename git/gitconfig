@@ -39,6 +39,7 @@
 
 [difftool]
 	prompt = false
+	path = nvim
 
 [merge]
 	tool = vimdiff
@@ -46,6 +47,7 @@
 [mergetool]
 	keepBackup = false
 	prompt = false
+	path = nvim
 
 [alias]
 	st = status -bsu

@@ -1,7 +1,6 @@
 .PHONY: vim-config vim neovim
 
 vim-config:
-	-cp -n `pwd`/vim/conf/ycm_extra_conf.py  ~/.ycm_extra_conf.py # ycm
 	-cp -n `pwd`/vim/conf/tern.json ~/.tern-project # tern
 	-cp -n `pwd`/vim/conf/jsbeautifyrc.json ~/.jsbeautifyrc # js-beautify
 	-cp -n `pwd`/vim/conf/clang-format ~/.clang-format # clang-format
