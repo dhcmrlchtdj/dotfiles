@@ -10,15 +10,15 @@
 "   \::::/__/       /:/  /     \:\__\        \:\__\        \::/  /
 "    ~~~~           \/__/       \/__/         \/__/         \/__/
 
-set nocompatible "不兼容vi
 set autoread
-set ttyfast
 set belloff="all"
 set nomodeline "忽略 打开的文件 里的vim参数
-set t_Co=256 "颜色数目
 nmap Q <Nop>
 
 if has("nvim") == 0
+	set nocompatible "不兼容vi
+	set ttyfast
+	set t_Co=256 "颜色数目
 	set cryptmethod=blowfish2
 endif
 
@@ -34,11 +34,11 @@ set conceallevel=0
 
 """ 备份 撤销
 set hidden "自动保存?
-set directory=~/.vim/swap//
+set directory=~/.config/nvim/swap//
 set undofile "开启撤销历史
-set undodir=~/.vim/undo "存放地址
+set undodir=~/.config/nvim/undo
 set backup "覆盖文件时备份
-set backupdir=~/.vim/backup "存放地址
+set backupdir=~/.config/nvim/backup
 set diffopt+=filler,context:3,vertical
 
 """ encoding
@@ -117,8 +117,8 @@ autocmd FileType qf nmap <buffer> q :q<CR>
 """ plugin
 filetype plugin indent off
 let g:dein#types#git#clone_depth = 1
-set runtimepath+=~/.vim/bundle/repos/github.com/Shougo/dein.vim/
-call dein#begin(expand("~/.vim/bundle/"))
+set runtimepath+=~/.config/nvim/bundle/repos/github.com/Shougo/dein.vim/
+call dein#begin(expand("~/.config/nvim/bundle"))
 call dein#add("Shougo/dein.vim")
 
 " theme
@@ -153,8 +153,8 @@ call dein#add("Shougo/neosnippet-snippets") " snippet
 call dein#add("Shougo/echodoc.vim") " signature
 call dein#add("zchee/deoplete-jedi") " py
 call dein#add("carlitux/deoplete-ternjs") " js, tern
-call dein#add("Rip-Rip/clang_complete")
-call dein#add("racer-rust/vim-racer")
+" call dein#add("Rip-Rip/clang_complete") " clang
+" call dein#add("racer-rust/vim-racer") " rust
 
 if dein#check_install()
 	call dein#install()
@@ -235,8 +235,7 @@ let g:syntastic_style_error_symbol = "✖"
 let g:syntastic_style_warning_symbol = "⚠"
 let g:syntastic_html_checkers = []
 let g:syntastic_javascript_checkers = ["eslint"]
-" let g:syntastic_lua_checkers = ["luac", "luacheck"]
-let g:syntastic_python_python_exec = "/usr/local/bin/python3"
+let g:syntastic_python_python_exec = "python3"
 let g:syntastic_python_flake8_args="--ignore=E501,E701,E116"
 " nmap <F4> :SyntasticToggleMode<CR>
 
@@ -272,12 +271,6 @@ if has("mac")
 	let g:clang_library_path = "/Library/Developer/CommandLineTools/usr/lib"
 endif
 
-" neovim
-if has("mac")
-	let g:python_host_prog = "/usr/local/bin/python2"
-	let g:python3_host_prog = "/usr/local/bin/python3"
-endif
-
 " airline
 let g:airline_theme="powerlineish"
 let g:airline_left_sep = ""
@@ -298,12 +291,6 @@ highlight link GitGutterChangeDelete CursorColumn
 
 " autoformat
 noremap <Leader>ff :Autoformat<CR>
-
-
-""" 模板
-augroup templates
-	autocmd BufNewFile * silent! execute "0r ~/.vim/templates/skeleton.".expand("<afile>:e")
-augroup END
 
 
 """ 其他
