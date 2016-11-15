@@ -118,7 +118,11 @@ autocmd FileType qf nmap <buffer> q :q<CR>
 filetype plugin indent off
 let g:dein#types#git#clone_depth = 1
 set runtimepath+=~/.config/nvim/bundle/repos/github.com/Shougo/dein.vim/
-call dein#begin(expand("~/.config/nvim/bundle"))
+if has("nvim")
+	call dein#begin(expand("~/.config/nvim/bundle"))
+else
+	call dein#begin(expand("~/.vim/bundle"))
+endif
 call dein#add("Shougo/dein.vim")
 
 " theme
@@ -337,6 +341,3 @@ function! FormatFile()
 	call cursor(l, c)
 	exe "normal zz"
 endfunction
-
-" debug highlight
-" map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
