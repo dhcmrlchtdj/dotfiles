@@ -150,17 +150,16 @@ call dein#add("Chiel92/vim-autoformat") " formatter, clang-format/autopep8/js-be
 call dein#add("Shougo/deoplete.nvim") " complete
 call dein#add("Shougo/neosnippet.vim") " snippet
 call dein#add("Shougo/neosnippet-snippets") " snippet
-call dein#add("Shougo/echodoc.vim")
+call dein#add("Shougo/echodoc.vim") " signature
 call dein#add("zchee/deoplete-jedi") " py
 call dein#add("carlitux/deoplete-ternjs") " js, tern
 call dein#add("Rip-Rip/clang_complete")
 call dein#add("racer-rust/vim-racer")
 
-call dein#end()
-
 if dein#check_install()
 	call dein#install()
 endif
+call dein#end()
 
 
 """ 插件设置
