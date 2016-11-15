@@ -275,7 +275,8 @@ endif
 let g:airline_theme="powerlineish"
 let g:airline_left_sep = ""
 let g:airline_right_sep = ""
-let g:airline_symbols = { "linenr": "¶", "paste": "ρ", "branch": "⎇", "whitespace": "Ξ"}
+let g:airline_powerline_fonts=0
+let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 
