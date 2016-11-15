@@ -2,12 +2,14 @@ _has() {
 	type "$1" &> /dev/null
 }
 
-export PATH="$HOME/.local/bin:$PATH"
+PATH="$HOME/.cargo/bin:$PATH"
+PATH="$HOME/.local/bin:$PATH"
+export PATH
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:=$HOME/.config}"
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export GPG_TTY=$(tty)
-export EDITOR="vim"
+export EDITOR="nvim"
 
 
 source ~/.zshrc_grml
@@ -54,6 +56,8 @@ alias f="find . -name"
 alias py="python3"
 alias py3="python3"
 alias py2="python2"
+alias vim="nvim"
+alias vimdiff="nvim -d"
 
 alias zz="bsdtar cavf"
 #alias xx="bsdtar xvf"
@@ -75,13 +79,13 @@ zzz() {
 	done
 }
 
-ppp() {
-	export all_proxy='socks5h://127.0.0.1:1080'
-	export http_proxy=$all_proxy
-	export https_proxy=$all_proxy
-	export ftp_proxy=$all_proxy
-	export rsync_proxy=$all_proxy
-}
+# ppp() {
+	# export all_proxy='socks5h://127.0.0.1:1080'
+	# export http_proxy=$all_proxy
+	# export https_proxy=$all_proxy
+	# export ftp_proxy=$all_proxy
+	# export rsync_proxy=$all_proxy
+# }
 
 ### node ###
 export NVM_DIR="$HOME/.nvm";

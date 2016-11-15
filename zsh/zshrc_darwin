@@ -1,9 +1,10 @@
 fpath=(/usr/local/share/zsh-completions /usr/local/share/zsh/functions $fpath)
 
-export PATH="$HOME/Library/Python/3.5/bin:/usr/local/sbin:$PATH"
+PATH="$HOME/Library/Python/3.5/bin:$PATH"
+export PATH
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-# export HOMEBREW_BOTTLE_DOMAIN=https://mirrors4.tuna.tsinghua.edu.cn/homebrew-bottles
 # export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
+# export HOMEBREW_BOTTLE_DOMAIN=https://mirrors4.tuna.tsinghua.edu.cn/homebrew-bottles
 export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node
 
 source ~/.zshrc_common
