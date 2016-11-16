@@ -237,8 +237,8 @@ let g:syntastic_style_error_symbol = "✖"
 let g:syntastic_style_warning_symbol = "⚠"
 let g:syntastic_html_checkers = []
 let g:syntastic_javascript_checkers = ["eslint"]
+let g:syntastic_python_checkers = ["python", "flake8"]
 let g:syntastic_python_python_exec = "python3"
-let g:syntastic_python_flake8_args="--ignore=E501,E701,E116"
 " nmap <F4> :SyntasticToggleMode<CR>
 
 " tagbar

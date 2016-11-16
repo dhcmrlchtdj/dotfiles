@@ -1,0 +1,10 @@
+[flake8]
+# https://pycodestyle.readthedocs.io/en/latest/intro.html#error-codes
+# http://flake8.pycqa.org/en/latest/user/error-codes.html
+#
+# E116	unexpected indentation (comment)
+# E501	line too long (82 > 79 characters)
+# E701	multiple statements on one line (colon)
+# E704	multiple statements on one line (def)
+# E731	do not assign a lambda expression, use a def
+ignore = E116,E501,E701,E704,E731
