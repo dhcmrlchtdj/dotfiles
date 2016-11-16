@@ -125,7 +125,6 @@ else
 endif
 call dein#add("Shougo/dein.vim")
 
-" theme
 call dein#add("vim-airline/vim-airline") " statusline
 call dein#add("vim-airline/vim-airline-themes") " statusline theme
 call dein#add("tpope/vim-fugitive") " statusline git
@@ -133,7 +132,6 @@ call dein#add("airblade/vim-gitgutter") " git status
 call dein#add("altercation/vim-colors-solarized") "colorscheme
 call dein#add("nathanaelkane/vim-indent-guides") "indent
 
-" navigation
 call dein#add("jeetsukumaran/vim-buffergator") " buffer
 call dein#add("scrooloose/nerdtree") " filesystem
 call dein#add("Xuyuanp/nerdtree-git-plugin") " filesystem git
@@ -145,20 +143,20 @@ call dein#add("godlygeek/tabular") " align
 call dein#add("scrooloose/syntastic") " syntax check
 call dein#add("Shougo/denite.nvim") " ripgrep
 
-"
 call dein#add("sheerun/vim-polyglot") " syntax/indent
 call dein#add("Konfekt/FastFold") " fold
 call dein#add("Chiel92/vim-autoformat") " formatter, clang-format/autopep8/js-beautify
 
-" complete
-call dein#add("Shougo/deoplete.nvim") " complete
-call dein#add("Shougo/neosnippet.vim") " snippet
-call dein#add("Shougo/neosnippet-snippets") " snippet
-call dein#add("Shougo/echodoc.vim") " signature
-call dein#add("zchee/deoplete-jedi") " py
-call dein#add("carlitux/deoplete-ternjs") " js, tern
-" call dein#add("Rip-Rip/clang_complete") " clang
-" call dein#add("racer-rust/vim-racer") " rust
+if has("nvim")
+	call dein#add("Shougo/deoplete.nvim") " complete
+	call dein#add("Shougo/neosnippet.vim") " snippet
+	call dein#add("Shougo/neosnippet-snippets") " snippet
+	call dein#add("Shougo/echodoc.vim") " signature
+	call dein#add("zchee/deoplete-jedi") " py
+	call dein#add("carlitux/deoplete-ternjs") " js, tern
+	" call dein#add("Rip-Rip/clang_complete") " clang
+	" call dein#add("racer-rust/vim-racer") " rust
+endif
 
 if dein#check_install()
 	call dein#install()
