@@ -7,7 +7,7 @@
 	gpgSign = true
 
 [core]
-	editor = vim
+	editor = nvim
 	quotePath = false
 	whitespace = space-before-tab,trailing-space
 	excludesFile = ~/.gitconfig.excludes
