@@ -57,6 +57,7 @@ set nowrap "不自动换行
 set textwidth=0 "行宽
 set colorcolumn=80 "行宽提示
 " set cursorline "高亮当前行
+set scrolloff=3
 noremap <Up> gk
 noremap <Down> gj
 inoremap <Up> <C-o>gk
