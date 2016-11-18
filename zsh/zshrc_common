@@ -85,6 +85,7 @@ zzz() {
 	# export https_proxy=$all_proxy
 	# export ftp_proxy=$all_proxy
 	# export rsync_proxy=$all_proxy
+	# echo "all_proxy='$all_proxy'"
 # }
 
 ### node ###
