@@ -153,8 +153,10 @@ if has("nvim")
 	call dein#add("Shougo/neosnippet.vim") " snippet
 	call dein#add("Shougo/neosnippet-snippets") " snippet
 	call dein#add("Shougo/echodoc.vim") " signature
+	call dein#add("Shougo/neco-syntax") " syntax complete
 	call dein#add("zchee/deoplete-jedi") " py
 	call dein#add("carlitux/deoplete-ternjs") " js, tern
+	" call dein#add("mhartington/deoplete-typescript") " typescript, tsc
 	" call dein#add("Rip-Rip/clang_complete") " clang
 	" call dein#add("racer-rust/vim-racer") " rust
 endif
@@ -257,8 +259,12 @@ nmap <C-p> :Denite grep:.<CR>
 call denite#custom#map("_", "\<Up>", "move_to_prev_line")
 call denite#custom#map("_", "\<Down>", "move_to_next_line")
 call denite#custom#map("_", "\<Esc>", "enter_mode:normal")
+call denite#custom#map("insert", "\<Esc>", "enter_mode:normal")
+call denite#custom#map("normal", "\<Esc>", "enter_mode:normal")
 call denite#custom#map("normal", "a", "enter_mode:insert")
 call denite#custom#option("default", "prompt", "»")
+call denite#custom#source("file_rec", "sorters", ["sorter_sublime"])
+call denite#custom#source("grep", "sorters", ["sorter_sublime"])
 
 " deoplete
 let g:deoplete#enable_at_startup = 1
