@@ -13,6 +13,7 @@
 set autoread
 set belloff="all"
 set nomodeline "忽略 打开的文件 里的vim参数
+set termguicolors
 nmap Q <Nop>
 
 if has("nvim") == 0
@@ -130,8 +131,8 @@ call dein#add("vim-airline/vim-airline") " statusline
 call dein#add("vim-airline/vim-airline-themes") " statusline theme
 call dein#add("tpope/vim-fugitive") " statusline git
 call dein#add("airblade/vim-gitgutter") " git status
-call dein#add("altercation/vim-colors-solarized") "colorscheme
-call dein#add("nathanaelkane/vim-indent-guides") "indent
+call dein#add("icymind/NeoSolarized") " colorscheme
+call dein#add("Yggdroot/indentLine") " indent
 
 call dein#add("jeetsukumaran/vim-buffergator") " buffer
 call dein#add("scrooloose/nerdtree") " filesystem
@@ -179,18 +180,15 @@ let python_highlight_all = 1
 
 set background=dark "深色背景
 set background=light "浅色背景
-let g:solarized_termcolors = 256
-let g:solarized_termtrans = 1
-let g:solarized_visibility = "low"
-colorscheme solarized
+let g:neosolarized_visibility = "low"
+let g:neosolarized_termtrans = 1
+colorscheme NeoSolarized
+highlight SyntasticErrorSign guifg=#dc322f guibg=#eee8d5
+highlight SyntasticWarningSign guifg=#dc322f guibg=#eee8d5
 
-highlight clear SignColumn
-highlight link SignColumn CursorColumn
-
-" indent guide
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_exclude_filetypes = ["help", "nerdtree"]
-let g:indent_guides_default_mapping = 0
+" indent line
+let g:indentLine_char = "¦"
+let g:indentLine_fileTypeExclude = ["help"]
 
 " vim-buffergator
 let g:buffergator_split_size = 30
@@ -294,10 +292,7 @@ let g:gitgutter_sign_added = "+"
 let g:gitgutter_sign_modified = "~"
 let g:gitgutter_sign_removed = "-"
 let g:gitgutter_sign_modified_removed = "!"
-highlight link GitGutterAdd CursorColumn
-highlight link GitGutterChange CursorColumn
-highlight link GitGutterDelete CursorColumn
-highlight link GitGutterChangeDelete CursorColumn
+let g:gitgutter_diff_args = '--staged'
 
 " autoformat
 noremap <Leader>ff :Autoformat<CR>
