@@ -11,7 +11,7 @@ module.exports = {
             experimentalObjectRestSpread: true,
         },
     },
-    parser: 'esprima',
+    parser: 'babel-eslint',
     env: {
         browser: true,
         node: true,
@@ -23,11 +23,17 @@ module.exports = {
     },
     globals: {},
     plugins: [],
-    extends: ['eslint:recommended'],
+    extends: [
+        'eslint:recommended',
+    ],
     root: true,
     rules: {
-        'no-console': 0,
+        'no-console': 1,
+        'no-constant-condition': [1, {'checkLoops': false}],
+        'no-debugger': 1,
+        'no-unreachable': 1,
         'no-unused-vars': [1, {'args': 'none'}],
-        'no-constant-condition': [2, {'checkLoops': false }],
+        'quotes': [1, 'single', {'avoidEscape': true, 'allowTemplateLiterals': true}],
+        'semi': 1,
     },
 };
