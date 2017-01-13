@@ -11,19 +11,19 @@
 "    ~~~~           \/__/       \/__/         \/__/         \/__/
 
 set autoread
-set belloff="all"
+set belloff=all
 set nomodeline "忽略 打开的文件 里的vim参数
 set termguicolors
 nmap Q <Nop>
 
-if has("nvim") == 0
+if has('nvim') == 0
 	set nocompatible "不兼容vi
 	set ttyfast
 	set t_Co=256 "颜色数目
 	set cryptmethod=blowfish2
 endif
 
-set mouse="" "鼠标支持
+set mouse= "鼠标支持
 set display=lastline,uhex "不可见字符用 hex 形式展示
 set lazyredraw
 set clipboard=unnamed,unnamedplus "剪贴板
@@ -31,6 +31,7 @@ set virtualedit=block "虚空间
 set backspace=indent,eol,start "insert模式下删除键可删除
 set showmatch "输入括号时显示匹配括号
 set completeopt=menu "补全窗口的样式
+set showfulltag
 set conceallevel=0
 
 """ 备份 撤销
@@ -59,10 +60,14 @@ set textwidth=0 "行宽
 set colorcolumn=80 "行宽提示
 " set cursorline "高亮当前行
 set scrolloff=3
+set sidescroll=1
+set sidescrolloff=3
 noremap <Up> gk
 noremap <Down> gj
 inoremap <Up> <C-o>gk
 inoremap <Down> <C-o>gj
+inoremap <expr> <Up> pumvisible() ? '<C-p>' : '<Up>'
+inoremap <expr> <Down> pumvisible() ? '<C-n>' : '<Down>'
 
 set cmdheight=1 "命令行行数
 set showcmd "在命令行显示目前执行的指令
@@ -72,7 +77,7 @@ set wildmode=longest:full,full "补全方式
 
 set laststatus=2 "总是显示状态行
 set noshowmode "隐藏信息
-set shortmess=atI "状态行信息
+set shortmess=atIF "状态行信息
 " set statusline=%<%F\ %y\ (%{&ff})\ %h%m%r%w%=%-14.(%l,%c%)%p%% "状态行
 
 """ search
@@ -96,7 +101,7 @@ set smarttab "智能缩进
 set smartindent "智能选择缩进方式
 set cindent
 set list "显示特殊字符
-set listchars=tab:»\ ,trail:·, "字符样式
+set listchars=tab:»\ ,trail:· "字符样式
 
 """ fold
 set nofoldenable "关闭折叠
@@ -120,102 +125,65 @@ autocmd FileType qf nmap <buffer> q :q<CR>
 filetype plugin indent off
 let g:dein#types#git#clone_depth = 1
 set runtimepath+=~/.config/nvim/bundle/repos/github.com/Shougo/dein.vim/
-if has("nvim")
-	call dein#begin(expand("~/.config/nvim/bundle"))
+if has('nvim')
+	call dein#begin(expand('~/.config/nvim/bundle'))
 else
-	call dein#begin(expand("~/.vim/bundle"))
+	call dein#begin(expand('~/.vim/bundle'))
 endif
-call dein#add("Shougo/dein.vim")
+call dein#add('Shougo/dein.vim')
 
-call dein#add("vim-airline/vim-airline") " statusline
-call dein#add("vim-airline/vim-airline-themes") " statusline theme
-call dein#add("tpope/vim-fugitive") " statusline git
-call dein#add("airblade/vim-gitgutter") " git status
-call dein#add("icymind/NeoSolarized") " colorscheme
-call dein#add("Yggdroot/indentLine") " indent
+call dein#add('tpope/vim-fugitive') " statusline git
+call dein#add('vim-airline/vim-airline') " statusline
+call dein#add('vim-airline/vim-airline-themes') " statusline theme
+let g:airline_theme = 'powerlineish'
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_powerline_fonts=0
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
 
-call dein#add("jeetsukumaran/vim-buffergator") " buffer
-call dein#add("scrooloose/nerdtree") " filesystem
-call dein#add("Xuyuanp/nerdtree-git-plugin") " filesystem git
-call dein#add("sjl/gundo.vim") " undo
-call dein#add("majutsushi/tagbar") " tagbar, require ctags/jsctags
+call dein#add('airblade/vim-gitgutter') " git status
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '~'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_modified_removed = '!'
+let g:gitgutter_diff_args = 'HEAD'
 
-call dein#add("scrooloose/nerdcommenter") " comment
-call dein#add("godlygeek/tabular") " align
-call dein#add("scrooloose/syntastic") " syntax check
-call dein#add("Shougo/denite.nvim") " ripgrep
-
-call dein#add("sheerun/vim-polyglot") " syntax/indent
-call dein#add("Konfekt/FastFold") " fold
-call dein#add("Chiel92/vim-autoformat") " formatter, clang-format/autopep8/js-beautify
-
-if has("nvim")
-	call dein#add("Shougo/deoplete.nvim") " complete
-	call dein#add("Shougo/neosnippet.vim") " snippet
-	call dein#add("Shougo/neosnippet-snippets") " snippet
-	call dein#add("Shougo/echodoc.vim") " signature
-	call dein#add("Shougo/neco-syntax") " syntax complete
-	call dein#add("zchee/deoplete-jedi") " py
-	call dein#add("carlitux/deoplete-ternjs") " js, tern
-	" call dein#add("mhartington/deoplete-typescript") " typescript, tsc
-	" call dein#add("Rip-Rip/clang_complete") " clang
-	" call dein#add("racer-rust/vim-racer") " rust
-endif
-
-if dein#check_install()
-	call dein#install()
-endif
-call dein#end()
-
-
-""" 插件设置
-filetype plugin indent on "载入文件类型 插件 缩进
-syntax enable "语法加亮
-autocmd BufRead,BufNewFile *.vue set ft=html
-autocmd FileType html,css,javascript,scss,json setl et
-autocmd FileType markdown setl omnifunc=""
-autocmd FileType scheme setl et ts=2 sts=2 sw=2
-let g:jsx_ext_required = 1
-let python_highlight_all = 1
-
-set background=dark "深色背景
-set background=light "浅色背景
-let g:neosolarized_visibility = "low"
+call dein#add('icymind/NeoSolarized') " colorscheme
+let g:neosolarized_visibility = 'low'
 let g:neosolarized_termtrans = 1
-colorscheme NeoSolarized
-highlight SyntasticErrorSign guifg=#dc322f guibg=#eee8d5
-highlight SyntasticWarningSign guifg=#dc322f guibg=#eee8d5
 
-" indent line
-let g:indentLine_char = "¦"
-let g:indentLine_fileTypeExclude = ["help"]
+call dein#add('Yggdroot/indentLine') " indent
+let g:indentLine_char = '»'
+let g:indentLine_fileTypeExclude = ['help', 'nerdtree']
 
-" vim-buffergator
+call dein#add('jeetsukumaran/vim-buffergator') " buffer
 let g:buffergator_split_size = 30
 nmap <silent> <F2> :BuffergatorOpen<CR>
 
-" nerd tree
+call dein#add('scrooloose/nerdtree') " filesystem
 let g:NERDTreeCaseSensitiveSort = 1
 let g:NERDTreeChDirMode = 2
 let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeSortHiddenFirst = 1
-let g:NERDTreeIgnore = ["\.swp$"]
+let g:NERDTreeIgnore = ['\.swp$']
 nmap <silent> <F3> :silent! NERDTreeFind<CR>
 
-" nerdtree-git-plugin
+call dein#add('Xuyuanp/nerdtree-git-plugin') " filesystem git
 let g:NERDTreeIndicatorMapCustom = {
-			\ "Modified"  : "M",
-			\ "Staged"    : "S",
-			\ "Untracked" : "U",
-			\ "Renamed"   : "R",
-			\ "Unmerged"  : "N",
-			\ "Deleted"   : "D",
-			\ "Dirty"     : "*",
-			\ "Clean"     : "C",
-			\ "Unknown"   : "?"
+			\ 'Modified'  : 'M',
+			\ 'Staged'    : 'S',
+			\ 'Untracked' : 'U',
+			\ 'Renamed'   : 'R',
+			\ 'Unmerged'  : 'N',
+			\ 'Deleted'   : 'D',
+			\ 'Dirty'     : '*',
+			\ 'Clean'     : 'C',
+			\ 'Unknown'   : '?'
 			\ }
 
-" gundo
+call dein#add('sjl/gundo.vim') " undo
 let g:gundo_prefer_python3 = 1
 let g:gundo_width = 40
 let g:gundo_preview_height = 10
@@ -224,108 +192,165 @@ let g:gundo_close_on_revert = 0
 let g:gundo_return_on_revert = 0
 nmap <silent> <F5> :silent! GundoToggle<CR>
 
-" nerd comment
+call dein#add('majutsushi/tagbar') " tagbar, require ctags/jsctags
+nmap <silent> <F4> :TagbarOpen fj<CR>
+
+call dein#add('scrooloose/nerdcommenter') " comment
 let g:NERDSpaceDelims = 1
 
-" syntastic
+call dein#add('godlygeek/tabular') " align
+
+call dein#add('scrooloose/syntastic') " syntax check
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_error_symbol = "✖"
-let g:syntastic_warning_symbol = "⚠"
-let g:syntastic_style_error_symbol = "✖"
-let g:syntastic_style_warning_symbol = "⚠"
+let g:syntastic_error_symbol = '✖'
+let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_style_error_symbol = '✖'
+let g:syntastic_style_warning_symbol = '⚠'
 let g:syntastic_html_checkers = []
-let g:syntastic_javascript_checkers = ["eslint"]
-let g:syntastic_python_checkers = ["python", "flake8"]
-let g:syntastic_python_python_exec = "python3"
-" nmap <F4> :SyntasticToggleMode<CR>
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_python_checkers = ['python', 'flake8']
+let g:syntastic_python_python_exec = 'python3'
 
-" tagbar
-nmap <silent> <F4> :TagbarOpen fj<CR>
+call dein#add('Shougo/denite.nvim') " ripgrep
+call denite#custom#var('file_rec', 'command', ['rg', '--files'])
+nmap <C-p> :Denite -highlight-mode-normal=CursorLine buffer file_rec<CR>
+call denite#custom#var('grep', 'command', ['rg'])
+call denite#custom#var('grep', 'default_opts', ['--vimgrep', '--no-heading', '--smart-case'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
+nmap <Leader>p :Denite -highlight-mode-normal=CursorLine grep:.<CR>
+call denite#custom#map('insert', '<Up>', '<denite:move_to_previous_line>', 'noremap')
+call denite#custom#map('normal', '<Up>', '<denite:move_to_previous_line>', 'noremap')
+call denite#custom#map('insert', '<Down>', '<denite:move_to_next_line>', 'noremap')
+call denite#custom#map('normal', '<Down>', '<denite:move_to_next_line>', 'noremap')
+call denite#custom#map('insert', '<Esc>', '<denite:enter_mode:normal>', 'noremap')
+call denite#custom#map('normal', '<Esc>', '<denite:enter_mode:normal>', 'noremap')
+call denite#custom#map('normal', 'a', '<denite:enter_mode:insert>', 'noremap')
+call denite#custom#option('default', 'prompt', '»')
+call denite#custom#source('file_rec', 'sorters', ['sorter_sublime'])
+call denite#custom#source('grep', 'sorters', ['sorter_sublime'])
 
-" denite
-call denite#custom#var("file_rec", "command", ["rg", "--files"])
-nmap <C-p><C-p> :Denite file_rec<CR>
-call denite#custom#var("grep", "command", ["rg"])
-call denite#custom#var("grep", "recursive_opts", [])
-call denite#custom#var("grep", "final_opts", [])
-call denite#custom#var("grep", "separator", ["--"])
-call denite#custom#var("grep", "default_opts", ["--vimgrep", "--no-heading"])
-nmap <C-p> :Denite grep:.<CR>
-call denite#custom#map("_", "\<Up>", "move_to_prev_line")
-call denite#custom#map("_", "\<Down>", "move_to_next_line")
-call denite#custom#map("_", "\<Esc>", "enter_mode:normal")
-call denite#custom#map("insert", "\<Esc>", "enter_mode:normal")
-call denite#custom#map("normal", "\<Esc>", "enter_mode:normal")
-call denite#custom#map("normal", "a", "enter_mode:insert")
-call denite#custom#option("default", "prompt", "»")
-call denite#custom#source("file_rec", "sorters", ["sorter_sublime"])
-call denite#custom#source("grep", "sorters", ["sorter_sublime"])
+call dein#add('Konfekt/FastFold') " fold
 
-" deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#file#enable_buffer_path = 1
-let g:deoplete#auto_complete_start_length = 1
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-imap <expr> <TAB>
-			\ pumvisible() ? "\<C-n>" :
-			\ neosnippet#expandable_or_jumpable() ?
-			\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-let g:echodoc_enable_at_startup = 1
-if has("mac")
-	let g:clang_library_path = "/Library/Developer/CommandLineTools/usr/lib"
-endif
+" call dein#add('jiangmiao/auto-pairs') " pair
 
-" airline
-let g:airline_theme="powerlineish"
-let g:airline_left_sep = ""
-let g:airline_right_sep = ""
-let g:airline_powerline_fonts=0
-let g:airline#extensions#whitespace#enabled = 0
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 0
-
-" git gutter
-let g:gitgutter_sign_added = "+"
-let g:gitgutter_sign_modified = "~"
-let g:gitgutter_sign_removed = "-"
-let g:gitgutter_sign_modified_removed = "!"
-let g:gitgutter_diff_args = '--staged'
-
-" autoformat
+call dein#add('Chiel92/vim-autoformat') " formatter, clang-format/autopep8/js-beautify
 noremap <Leader>ff :Autoformat<CR>
 
+call dein#add('lilydjwg/python-syntax')
+let python_highlight_all = 1
+
+call dein#add('othree/html5.vim')
+
+call dein#add('hail2u/vim-css3-syntax')
+call dein#add('cakebaker/scss-syntax.vim')
+
+" call dein#add('https://raw.githubusercontent.com/pangloss/vim-javascript/master/indent/javascript.vim', {'script_type': 'indent'})
+call dein#add('pangloss/vim-javascript')
+
+call dein#add('othree/yajs.vim')
+call dein#add('othree/es.next.syntax.vim')
+call dein#add('othree/javascript-libraries-syntax.vim')
+let g:used_javascript_libs = 'underscore,ramda,react,vue'
+
+call dein#add('elzr/vim-json')
+let g:vim_json_syntax_conceal = 0
+
+call dein#add('mxw/vim-jsx')
+let g:jsx_ext_required = 1
+
+call dein#add('othree/nginx-contrib-vim')
+
+call dein#add('plasticboy/vim-markdown')
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_new_list_item_indent = 0
+
+call dein#add('facebook/reason', {'rtp': 'editorSupport/VimReason'})
+
+" call dein#add('tbastos/vim-lua')
+
+if has('nvim')
+	call dein#add('Shougo/deoplete.nvim') " complete
+	let g:deoplete#enable_at_startup = 1
+	let g:deoplete#file#enable_buffer_path = 1
+	let g:deoplete#auto_complete_start_length = 1
+	let g:deoplete#omni#input_patterns = {}
+	imap <expr> <TAB> pumvisible() ? '<C-n>' : '<TAB>'
+
+	call dein#add('Shougo/neosnippet.vim') " snippet
+	call dein#add('Shougo/neosnippet-snippets') " snippet
+	imap <C-k> <Plug>(neosnippet_expand_or_jump)
+
+	call dein#add('Shougo/echodoc.vim') " signature
+	let g:echodoc_enable_at_startup = 1
+
+	call dein#add('Shougo/neco-syntax') " syntax complete
+	call dein#add('zchee/deoplete-jedi', {'on_ft': 'python'}) " py
+	call dein#add('carlitux/deoplete-ternjs') " js, tern
+	call dein#add('Shougo/neco-vim', {'on_ft': 'vim'}) " vim
+
+	call dein#add('Rip-Rip/clang_complete', {'on_ft': 'c'}) " clang
+	if has('mac')
+		let g:clang_library_path = '/Library/Developer/CommandLineTools/usr/lib'
+	endif
+
+	call dein#add('ocaml/merlin', {'rtp': 'vim/merlin'})
+	let g:deoplete#omni#input_patterns.ocaml = '[.\w]+'
+	let g:deoplete#omni#input_patterns.reason = '[.\w]+'
+endif
+
+if dein#check_install()
+	call dein#install()
+endif
+call dein#end()
+
+filetype plugin indent on "载入文件类型 插件 缩进
+syntax enable "语法加亮
+
+autocmd BufRead,BufNewFile *.vue setl ft=html
+autocmd FileType * setl noet
+autocmd FileType html,css,scss,javascript,javascript.jsx,json,vue setl et
+autocmd FileType scheme setl et ts=2 sts=2 sw=2
+
+set background=dark "深色背景
+set background=light "浅色背景
+colorscheme NeoSolarized
+highlight SyntasticErrorSign guifg=#dc322f guibg=#eee8d5
+highlight SyntasticWarningSign guifg=#dc322f guibg=#eee8d5
 
 """ 其他
 " 调整文件
 nmap <silent> <F6> :call FormatFile()<CR>
 function! FormatFile()
-	let l = line(".")
-	let c = col(".")
+	let l = line('.')
+	let c = col('.')
 
 	" 使用\n换行
-	let &ff = "unix"
+	let &ff = 'unix'
 
 	" 使用utf-8编码
-	let &fenc = "utf8"
+	let &fenc = 'utf8'
 
 	" 去除 BOM
-	exe "set nobomb"
+	exe 'set nobomb'
 
 	" delete <0d>
-	exe "silent! :%s/\r//g"
+	exe 'silent! :%s/\r//g'
 
 	" 删除行尾空格
-	exe "silent! :%s/\\s\\+$//g"
+	exe 'silent! :%s/\\s\\+$//g'
 
 	" 删除末尾空行
-	let lnum = line("$")
+	let lnum = line('$')
 	while lnum
 		if !empty(getline(lnum))
-			if lnum != line("$")
-				exe "normal ".(lnum+1)."ggdG"
+			if lnum != line('$')
+				exe 'normal '.(lnum+1).'ggdG'
 			endif
 			break
 		endif
@@ -333,11 +358,11 @@ function! FormatFile()
 	endwhile
 
 	" 调整缩进
-	if (&ft !~ "python\|markdown\|text")
-		exe "normal gg=G``"
+	if (&ft !~ 'python|markdown|text')
+		exe 'normal gg=G``'
+		exe 'silent! :retab'
 	endif
-	exe "silent! :retab"
 
 	call cursor(l, c)
-	exe "normal zz"
+	exe 'normal zz'
 endfunction
