@@ -3,8 +3,8 @@
 # https://github.com/cloudflare/sslconfig/blob/master/conf
 # https://github.com/h5bp/server-configs-nginx/blob/master/h5bp/directive-only/ssl.conf
 
-# ssl_certificate /path/to/cert;
 # ssl_certificate_key /path/to/key;
+# ssl_certificate /path/to/cert;
 # ssl_trusted_certificate /path/to/cert;
 
 ssl_session_cache shared:SSL:5m;

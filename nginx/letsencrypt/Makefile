@@ -1,41 +1,19 @@
 SHELL := /bin/bash
 
-certs := /path/to/certs
-challenges := /path/to/challenges
-CN := example.com
-SAN := DNS:example.com,DNS:www.example.com
+DNS_ENV := CF_Key="" CF_Email=""
+ACME_BIN := ./acme.sh
+ACME_OPT := --issue --dns dns_cf --keylength ec-384 --log
+ACME := $(DNS_ENV) $(ACME_BIN) $(ACME_OPT)
 
-show:
-	@make -nprR | sed -ne '/^$$/{ n; /^[^#.]/{ s/:.*//; p; }; }' | sort -u
+ls:
+	$(ACME_BIN) --list
 
-sign: | account csr verify concat
+re:
+	$(ACME_BIN) --renewAll
 
-account:
-	mkdir -p $(certs)
-	if [[ ! -f $(certs)/account.key ]]; then \
-		openssl genrsa 4096 > $(certs)/account.key; fi
+re-force:
+	$(ACME_BIN) --renewAll --force
 
-csr:
-	mkdir -p $(certs)/$(CN)
-	openssl ecparam -genkey -name secp384r1 > $(certs)/$(CN)/domain.key
-	# openssl genrsa 4096 > $(certs)/$(CN)/domain.key
-	openssl req -new -sha384 -key $(certs)/$(CN)/domain.key -subj "/CN=$(CN)" \
-		-reqexts SAN -config \
-		<(cat /etc/ssl/openssl.cnf <(printf "[SAN]\nsubjectAltName=$(SAN)")) \
-		> $(certs)/$(CN)/domain.csr
-
-verify:
-	mkdir -p $(challenges)
-	if [[ ! -f $(certs)/acme_tiny.py ]]; then \
-		curl -s 'https://raw.githubusercontent.com/diafygi/acme-tiny/master/acme_tiny.py' \
-		-o $(certs)/acme_tiny.py; fi
-	python $(certs)/acme_tiny.py --account-key $(certs)/account.key \
-		--csr $(certs)/$(CN)/domain.csr --acme-dir $(challenges) \
-		> $(certs)/$(CN)/signed.crt
-
-concat:
-	if [[ ! -f $(certs)/intermediate.pem ]]; then \
-		curl -s 'https://letsencrypt.org/certs/lets-encrypt-x3-cross-signed.pem' \
-		-o $(certs)/intermediate.pem; fi
-	cat $(certs)/$(CN)/signed.crt $(certs)/intermediate.pem \
-		> $(certs)/$(CN)/chained.pem
+example.org:
+	$(ACME) -d example.org \
+		-d www.example.org
