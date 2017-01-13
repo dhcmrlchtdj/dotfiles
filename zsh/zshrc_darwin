@@ -1,14 +1,14 @@
 fpath=(/usr/local/share/zsh-completions /usr/local/share/zsh/functions $fpath)
 
-PATH="$HOME/Library/Python/3.5/bin:$PATH"
-export PATH
 export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 # export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
 # export HOMEBREW_BOTTLE_DOMAIN=https://mirrors4.tuna.tsinghua.edu.cn/homebrew-bottles
 export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node
+export SDKROOT=macosx
 
 source ~/.zshrc_common
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+eval $(opam config env)
 
 ## alias
 alias rm="grm -Irv"
@@ -19,8 +19,10 @@ alias dm="docker-machine --native-ssh"
 alias danger_chrome="open -a 'Google Chrome Canary' --args --disable-web-security --user-data-dir --allow-file-access-from-files"
 alias pastebin='curl "https://p.h11.io" --data-binary "@-"'
 alias mosh="mosh --predict=experimental"
-alias breww="brew update && brew upgrade && brew cleanup -s"
+alias breww="brew update && brew upgrade && brew cleanup -s && brew prune"
 datauri() {echo "data:image/${1##*.};base64,$(openssl base64 -in $1 | tr -d '\n')"}
+alias mlre="refmt -use-stdin true -parse ml -print re -is-interface-pp false"
+alias reml="refmt -use-stdin true -parse re -print ml -is-interface-pp false"
 
 # forward f port remote-port remote-host
 # forward c port remote-port remote-host
@@ -29,15 +31,4 @@ forward() {
 		"f") ssh -v -O forward -R $3:localhost:$2 $4 ;;
 		"c") ssh -v -O cancel -R $3:localhost:$2 $4 ;;
 	esac
-}
-
-choose_commit() {
-	echo "\t\e[31mfeat    \e[0m: A new feature"
-	echo "\t\e[31mfix     \e[0m: A bug fix"
-	echo "\t\e[31mdocs    \e[0m: Documentation only changes"
-	echo "\t\e[31mstyle   \e[0m: Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)"
-	echo "\t\e[31mrefactor\e[0m: A code change that neither fixes a bug nor adds a feature"
-	echo "\t\e[31mperf    \e[0m: A code change that improves performance"
-	echo "\t\e[31mtest    \e[0m: Adding missing tests"
-	echo "\t\e[31mchore   \e[0m: Changes to the build process or auxiliary tools and libraries such as documentation generation"
 }
