@@ -4,7 +4,7 @@ SyslogFacility AUTH
 LogLevel VERBOSE
 # LogLevel DEBUG3
 
-Compression yes
+Compression delayed
 AddressFamily inet
 
 Protocol 2
