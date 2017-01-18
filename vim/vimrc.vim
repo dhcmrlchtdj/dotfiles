@@ -273,8 +273,8 @@ call dein#add('facebook/reason', {'rtp': 'editorSupport/VimReason'})
 if has('nvim')
 	call dein#add('Shougo/deoplete.nvim') " complete
 	let g:deoplete#enable_at_startup = 1
-	let g:deoplete#file#enable_buffer_path = 1
 	let g:deoplete#auto_complete_start_length = 1
+	let g:deoplete#file#enable_buffer_path = 1
 	let g:deoplete#omni#input_patterns = {}
 	imap <expr> <TAB> pumvisible() ? '<C-n>' : '<TAB>'
 
