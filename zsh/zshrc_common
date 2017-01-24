@@ -9,7 +9,7 @@ export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export GPG_TTY=$(tty)
 export EDITOR="nvim"
-export LESS='-FXR'
+export LESS="-FXR"
 
 
 source ~/.zshrc_grml
@@ -107,10 +107,3 @@ fi
 # chpwd_functions=( ${chpwd_functions} chpwd_nvm_use )
 # if _has "npm"; then eval "$(npm completion)"; fi
 ### END node ###
-
-### python virtualenvwrapper ###
-if _has "virtualenvwrapper_lazy.sh"; then
-	export WORKON_HOME=$HOME/.virtualenvwrapper;
-	source virtualenvwrapper_lazy.sh;
-fi
-### END python virtualenvwrapper ###

@@ -1,8 +1,5 @@
 fpath=(/usr/local/share/zsh-completions /usr/local/share/zsh/functions $fpath)
 
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-# export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles
-# export HOMEBREW_BOTTLE_DOMAIN=https://mirrors4.tuna.tsinghua.edu.cn/homebrew-bottles
 export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node
 export SDKROOT=macosx
 
