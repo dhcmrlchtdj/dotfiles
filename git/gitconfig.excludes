@@ -10,6 +10,7 @@
 
 # python
 __pycache__/
+.venv/
 *.py[cod]
 
 # sqlite
