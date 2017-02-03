@@ -269,6 +269,10 @@ let g:vim_markdown_new_list_item_indent = 0
 " call dein#add('let-def/ocp-indent-vim')
 call dein#add('facebook/reason', {'rtp': 'editorSupport/VimReason'})
 
+" call dein#add('dart-lang/dart-vim-plugin')
+
+" call dein#add('HerringtonDarkholme/yats.vim')
+
 " call dein#add('tbastos/vim-lua')
 
 if has('nvim')
@@ -295,6 +299,8 @@ if has('nvim')
 	if has('mac')
 		let g:clang_library_path = '/Library/Developer/CommandLineTools/usr/lib'
 	endif
+
+	" call dein#add('mhartington/deoplete-typescript')
 
 	call dein#add('ocaml/merlin', {'rtp': 'vim/merlin'})
 	let g:deoplete#omni#input_patterns.ocaml = '[.\w]+'
