@@ -247,7 +247,7 @@ call dein#add('othree/html5.vim')
 call dein#add('hail2u/vim-css3-syntax')
 call dein#add('cakebaker/scss-syntax.vim')
 
-call dein#add('pangloss/vim-javascript')
+" call dein#add('pangloss/vim-javascript')
 
 call dein#add('othree/yajs.vim')
 call dein#add('othree/es.next.syntax.vim')
