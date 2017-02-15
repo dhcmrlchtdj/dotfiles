@@ -248,6 +248,7 @@ call dein#add('hail2u/vim-css3-syntax')
 call dein#add('cakebaker/scss-syntax.vim')
 
 " call dein#add('pangloss/vim-javascript')
+call dein#add('https://raw.githubusercontent.com/pangloss/vim-javascript/master/indent/javascript.vim', {'script_type' : 'indent'})
 
 call dein#add('othree/yajs.vim')
 call dein#add('othree/es.next.syntax.vim')
@@ -268,6 +269,8 @@ let g:vim_markdown_new_list_item_indent = 0
 
 " call dein#add('let-def/ocp-indent-vim')
 call dein#add('facebook/reason', {'rtp': 'editorSupport/VimReason'})
+
+" call dein#add('asciidoc/vim-asciidoc')
 
 " call dein#add('dart-lang/dart-vim-plugin')
 
@@ -293,12 +296,12 @@ if has('nvim')
 	call dein#add('Shougo/neco-syntax') " syntax complete
 	call dein#add('zchee/deoplete-jedi', {'on_ft': 'python'}) " py
 	call dein#add('carlitux/deoplete-ternjs', {'on_ft': ['javascript', 'html']}) " js, tern
-	call dein#add('Shougo/neco-vim', {'on_ft': 'vim'}) " vim
+	" call dein#add('Shougo/neco-vim', {'on_ft': 'vim'}) " vim
 
-	call dein#add('Rip-Rip/clang_complete', {'on_ft': 'c'}) " clang
-	if has('mac')
-		let g:clang_library_path = '/Library/Developer/CommandLineTools/usr/lib'
-	endif
+	" call dein#add('Rip-Rip/clang_complete', {'on_ft': 'c'}) " clang
+	" if has('mac')
+		" let g:clang_library_path = '/Library/Developer/CommandLineTools/usr/lib'
+	" endif
 
 	" call dein#add('mhartington/deoplete-typescript')
 
