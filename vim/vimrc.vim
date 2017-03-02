@@ -138,8 +138,8 @@ call dein#add('vim-airline/vim-airline-themes') " statusline theme
 let g:airline_theme = 'powerlineish'
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
-let g:airline_powerline_fonts=0
-let g:airline#extensions#whitespace#enabled = 0
+let g:airline_symbols_ascii = 1
+" let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 
@@ -247,8 +247,8 @@ call dein#add('othree/html5.vim')
 call dein#add('hail2u/vim-css3-syntax')
 call dein#add('cakebaker/scss-syntax.vim')
 
-" call dein#add('pangloss/vim-javascript')
 call dein#add('https://raw.githubusercontent.com/pangloss/vim-javascript/master/indent/javascript.vim', {'script_type' : 'indent'})
+" call dein#add('pangloss/vim-javascript')
 
 call dein#add('othree/yajs.vim')
 call dein#add('othree/es.next.syntax.vim')
