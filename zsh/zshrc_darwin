@@ -7,6 +7,10 @@ source ~/.zshrc_common
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval $(opam config env)
 
+PATH="/usr/local/opt/node@6/bin:$PATH"
+PATH="/usr/local/opt/libarchive/bin:$PATH"
+export PATH
+
 ## alias
 alias rm="grm -Irv"
 alias ls="gls --color=auto --group-directories-first -vF"
@@ -18,8 +22,8 @@ alias pastebin='curl "https://p.h11.io" --data-binary "@-"'
 alias mosh="mosh --predict=experimental"
 alias breww="brew update && brew upgrade && brew cleanup -s && brew prune"
 datauri() {echo "data:image/${1##*.};base64,$(openssl base64 -in $1 | tr -d '\n')"}
-alias mlre="refmt -use-stdin true -parse ml -print re -is-interface-pp false"
-alias reml="refmt -use-stdin true -parse re -print ml -is-interface-pp false"
+alias mlre="refmt --parse ml --print re"
+alias reml="refmt --parse re --print ml"
 
 # forward f port remote-port remote-host
 # forward c port remote-port remote-host
