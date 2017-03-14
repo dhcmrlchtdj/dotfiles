@@ -17,10 +17,10 @@ set termguicolors
 nmap Q <Nop>
 
 if has('nvim') == 0
-	set nocompatible "不兼容vi
-	set ttyfast
-	set t_Co=256 "颜色数目
-	set cryptmethod=blowfish2
+    set nocompatible "不兼容vi
+    set ttyfast
+    set t_Co=256 "颜色数目
+    set cryptmethod=blowfish2
 endif
 
 set mouse= "鼠标支持
@@ -91,8 +91,8 @@ nmap n nzzzv
 nmap N Nzzzv
 
 """ indent
-set expandtab "使用空格缩进
 set noexpandtab "使用tab缩进
+set expandtab "使用空格缩进
 set tabstop=4 "制表符\t的宽度
 set softtabstop=4 "tab键的宽度
 set shiftwidth=4 "空格缩进时宽度
@@ -126,9 +126,9 @@ filetype plugin indent off
 let g:dein#types#git#clone_depth = 1
 set runtimepath+=~/.config/nvim/bundle/repos/github.com/Shougo/dein.vim/
 if has('nvim')
-	call dein#begin(expand('~/.config/nvim/bundle'))
+    call dein#begin(expand('~/.config/nvim/bundle'))
 else
-	call dein#begin(expand('~/.vim/bundle'))
+    call dein#begin(expand('~/.vim/bundle'))
 endif
 call dein#add('Shougo/dein.vim')
 
@@ -151,7 +151,7 @@ let g:gitgutter_sign_modified_removed = '!'
 let g:gitgutter_diff_args = 'HEAD'
 
 call dein#add('icymind/NeoSolarized') " colorscheme
-let g:neosolarized_visibility = 'low'
+" let g:neosolarized_visibility = 'low'
 
 call dein#add('Yggdroot/indentLine') " indent
 let g:indentLine_char = '»'
@@ -171,16 +171,16 @@ nmap <silent> <F3> :silent! NERDTreeFind<CR>
 
 call dein#add('Xuyuanp/nerdtree-git-plugin') " filesystem git
 let g:NERDTreeIndicatorMapCustom = {
-			\ 'Modified'  : 'M',
-			\ 'Staged'    : 'S',
-			\ 'Untracked' : 'U',
-			\ 'Renamed'   : 'R',
-			\ 'Unmerged'  : 'N',
-			\ 'Deleted'   : 'D',
-			\ 'Dirty'     : '*',
-			\ 'Clean'     : 'C',
-			\ 'Unknown'   : '?'
-			\ }
+            \ 'Modified'  : 'M',
+            \ 'Staged'    : 'S',
+            \ 'Untracked' : 'U',
+            \ 'Renamed'   : 'R',
+            \ 'Unmerged'  : 'N',
+            \ 'Deleted'   : 'D',
+            \ 'Dirty'     : '*',
+            \ 'Clean'     : 'C',
+            \ 'Unknown'   : '?'
+            \ }
 
 call dein#add('sjl/gundo.vim') " undo
 let g:gundo_prefer_python3 = 1
@@ -215,7 +215,7 @@ let g:syntastic_python_python_exec = 'python3'
 
 call dein#add('Shougo/denite.nvim') " ripgrep
 call denite#custom#var('file_rec', 'command', ['rg', '--files'])
-nmap <C-p> :Denite -highlight-mode-normal=CursorLine buffer file_rec<CR>
+nmap <C-p> :Denite -highlight-mode-normal=CursorLine file_rec<CR>
 call denite#custom#var('grep', 'command', ['rg'])
 call denite#custom#var('grep', 'default_opts', ['--vimgrep', '--no-heading', '--smart-case'])
 call denite#custom#var('grep', 'recursive_opts', [])
@@ -279,39 +279,40 @@ call dein#add('HerringtonDarkholme/yats.vim')
 " call dein#add('tbastos/vim-lua')
 
 if has('nvim')
-	call dein#add('Shougo/deoplete.nvim') " complete
-	let g:deoplete#enable_at_startup = 1
-	let g:deoplete#auto_complete_start_length = 1
-	let g:deoplete#file#enable_buffer_path = 1
-	let g:deoplete#omni#input_patterns = {}
-	imap <expr> <TAB> pumvisible() ? '<C-n>' : '<TAB>'
+    call dein#add('Shougo/deoplete.nvim') " complete
+    let g:deoplete#enable_at_startup = 1
+    let g:deoplete#auto_complete_start_length = 1
+    let g:deoplete#file#enable_buffer_path = 1
+    let g:deoplete#omni#input_patterns = {}
+    imap <expr> <TAB> pumvisible() ? '<C-n>' : '<TAB>'
 
-	call dein#add('Shougo/neosnippet.vim') " snippet
-	call dein#add('Shougo/neosnippet-snippets') " snippet
-	imap <C-k> <Plug>(neosnippet_expand_or_jump)
+    call dein#add('Shougo/neosnippet.vim') " snippet
+    call dein#add('Shougo/neosnippet-snippets') " snippet
+    imap <C-k> <Plug>(neosnippet_expand_or_jump)
 
-	call dein#add('Shougo/echodoc.vim') " signature
-	let g:echodoc_enable_at_startup = 1
+    call dein#add('Shougo/echodoc.vim') " signature
+    let g:echodoc_enable_at_startup = 1
 
-	call dein#add('Shougo/neco-syntax') " syntax complete
-	call dein#add('zchee/deoplete-jedi', {'on_ft': 'python'}) " py
-	call dein#add('carlitux/deoplete-ternjs', {'on_ft': ['javascript', 'html']}) " js, tern
-	" call dein#add('Shougo/neco-vim', {'on_ft': 'vim'}) " vim
+    call dein#add('Shougo/neco-syntax') " syntax complete
+    call dein#add('zchee/deoplete-jedi', {'on_ft': 'python'}) " py
+    call dein#add('carlitux/deoplete-ternjs', {'on_ft': ['javascript', 'html']}) " js, tern
+    " call dein#add('Shougo/neco-vim', {'on_ft': 'vim'}) " vim
 
-	" call dein#add('Rip-Rip/clang_complete', {'on_ft': 'c'}) " clang
-	" if has('mac')
-		" let g:clang_library_path = '/Library/Developer/CommandLineTools/usr/lib'
-	" endif
+    " call dein#add('Rip-Rip/clang_complete', {'on_ft': 'c'}) " clang
+    " if has('mac')
+        " let g:clang_library_path = '/Library/Developer/CommandLineTools/usr/lib'
+    " endif
 
-	" call dein#add('mhartington/nvim-typescript')
+    " call dein#add('mhartington/nvim-typescript')
 
-	call dein#add('ocaml/merlin', {'rtp': 'vim/merlin'})
-	let g:deoplete#omni#input_patterns.ocaml = '[.\w]+'
-	let g:deoplete#omni#input_patterns.reason = '[.\w]+'
+    " call dein#add('ocaml/merlin', {'rtp': 'vim/merlin'})
+    " call dein#local('~/.opam/4.04.0/share/merlin/vim')
+    " let g:deoplete#omni#input_patterns.ocaml = '[.\w]+'
+    " let g:deoplete#omni#input_patterns.reason = '[.\w]+'
 endif
 
 if dein#check_install()
-	call dein#install()
+    call dein#install()
 endif
 call dein#end()
 
@@ -319,8 +320,8 @@ filetype plugin indent on "载入文件类型 插件 缩进
 syntax enable "语法加亮
 
 autocmd BufRead,BufNewFile *.vue setl ft=html
-autocmd FileType * setl noet
-autocmd FileType html,css,scss,javascript,javascript.jsx,json,vue setl et
+" autocmd FileType * setl noet
+" autocmd FileType html,css,scss,javascript,javascript.jsx,json,vue setl et
 autocmd FileType scheme setl et ts=2 sts=2 sw=2
 
 set background=dark "深色背景
@@ -333,42 +334,42 @@ highlight SyntasticWarningSign guifg=#dc322f guibg=#eee8d5
 " 调整文件
 nmap <silent> <F6> :call FormatFile()<CR>
 function! FormatFile()
-	let l = line('.')
-	let c = col('.')
+    let l = line('.')
+    let c = col('.')
 
-	" 使用\n换行
-	let &ff = 'unix'
+    " 使用\n换行
+    let &ff = 'unix'
 
-	" 使用utf-8编码
-	let &fenc = 'utf8'
+    " 使用utf-8编码
+    let &fenc = 'utf8'
 
-	" 去除 BOM
-	exe 'set nobomb'
+    " 去除 BOM
+    exe 'set nobomb'
 
-	" delete <0d>
-	exe 'silent! :%s/\r//g'
+    " delete <0d>
+    exe 'silent! :%s/\r//g'
 
-	" 删除行尾空格
-	exe 'silent! :%s/\\s\\+$//g'
+    " 删除行尾空格
+    exe 'silent! :%s/\\s\\+$//g'
 
-	" 删除末尾空行
-	let lnum = line('$')
-	while lnum
-		if !empty(getline(lnum))
-			if lnum != line('$')
-				exe 'normal '.(lnum+1).'ggdG'
-			endif
-			break
-		endif
-		let lnum -= 1
-	endwhile
+    " 删除末尾空行
+    let lnum = line('$')
+    while lnum
+        if !empty(getline(lnum))
+            if lnum != line('$')
+                exe 'normal '.(lnum+1).'ggdG'
+            endif
+            break
+        endif
+        let lnum -= 1
+    endwhile
 
-	" 调整缩进
-	if (&ft !~ 'python|markdown|text')
-		exe 'normal gg=G``'
-		exe 'silent! :retab'
-	endif
+    " 调整缩进
+    if (&ft !~ 'python|markdown|text')
+        exe 'normal gg=G``'
+        exe 'silent! :retab'
+    endif
 
-	call cursor(l, c)
-	exe 'normal zz'
+    call cursor(l, c)
+    exe 'normal zz'
 endfunction
