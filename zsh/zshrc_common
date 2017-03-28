@@ -1,5 +1,5 @@
 _has() {
-	type "$1" &> /dev/null
+    type "$1" &> /dev/null
 }
 
 PATH="$HOME/.local/bin:$PATH"
@@ -27,11 +27,11 @@ setopt HIST_IGNORE_SPACE
 
 ### git for directoy ###
 chpwd_profile_default() {
-	[[ ${profile} == ${CHPWD_PROFILE} ]] && return 1
-	unset GIT_AUTHOR_NAME
-	unset GIT_AUTHOR_EMAIL
-	unset GIT_COMMITTER_NAME
-	unset GIT_COMMITTER_EMAIL
+    [[ ${profile} == ${CHPWD_PROFILE} ]] && return 1
+    unset GIT_AUTHOR_NAME
+    unset GIT_AUTHOR_EMAIL
+    unset GIT_COMMITTER_NAME
+    unset GIT_COMMITTER_EMAIL
 }
 if _has "chpwd_profiles"; then chpwd_profiles; fi
 #### END git for directoy ###
@@ -75,32 +75,32 @@ alias curlw="curl -w '\ntime_namelookup:\t%{time_namelookup}\ntime_connect:\t\t%
 
 
 zzz() {
-	for i in "$@"; do
-		zz $i.zip $i;
-	done
+    for i in "$@"; do
+        zz $i.zip $i;
+    done
 }
 
 # ppp() {
-	# export all_proxy='socks5h://127.0.0.1:1080'
-	# export http_proxy=$all_proxy
-	# export https_proxy=$all_proxy
-	# export ftp_proxy=$all_proxy
-	# export rsync_proxy=$all_proxy
-	# echo "all_proxy='$all_proxy'"
+    # export all_proxy='socks5h://127.0.0.1:1080'
+    # export http_proxy=$all_proxy
+    # export https_proxy=$all_proxy
+    # export ftp_proxy=$all_proxy
+    # export rsync_proxy=$all_proxy
+    # echo "all_proxy='$all_proxy'"
 # }
 # pppp () {
-	# unset all_proxy
-	# unset http_proxy
-	# unset https_proxy
-	# unset ftp_proxy
-	# unset rsync_proxy
-	# echo "all_proxy='$all_proxy'"
+    # unset all_proxy
+    # unset http_proxy
+    # unset https_proxy
+    # unset ftp_proxy
+    # unset rsync_proxy
+    # echo "all_proxy='$all_proxy'"
 # }
 
 ### node ###
 export NVM_DIR="$HOME/.nvm";
 if [[ -f "$NVM_DIR/nvm.sh" ]]; then
-	source "$NVM_DIR/nvm.sh";
+    source "$NVM_DIR/nvm.sh";
 fi
 # chpwd_nvm_use() { nvm use &>/dev/null || nvm use system &>/dev/null; return 0 }
 # chpwd_nvm_use

@@ -28,8 +28,8 @@ alias reml="refmt --parse re --print ml"
 # forward f port remote-port remote-host
 # forward c port remote-port remote-host
 forward() {
-	case "$1" in
-		"f") ssh -v -O forward -R $3:localhost:$2 $4 ;;
-		"c") ssh -v -O cancel -R $3:localhost:$2 $4 ;;
-	esac
+    case "$1" in
+        "f") ssh -v -O forward -R $3:localhost:$2 $4 ;;
+        "c") ssh -v -O cancel -R $3:localhost:$2 $4 ;;
+    esac
 }

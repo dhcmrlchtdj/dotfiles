@@ -139,7 +139,7 @@ let g:airline_theme = 'powerlineish'
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_symbols_ascii = 1
-" let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#whitespace#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 
@@ -241,6 +241,7 @@ noremap <Leader>ff :Autoformat<CR>
 
 call dein#add('lilydjwg/python-syntax')
 let python_highlight_all = 1
+call dein#add('Vimjas/vim-python-pep8-indent')
 
 call dein#add('othree/html5.vim')
 
@@ -268,7 +269,7 @@ let g:vim_markdown_conceal = 0
 let g:vim_markdown_new_list_item_indent = 0
 
 " call dein#add('let-def/ocp-indent-vim')
-call dein#add('facebook/reason', {'rtp': 'editorSupport/VimReason'})
+" call dein#add('facebook/reason', {'rtp': 'editorSupport/VimReason'})
 
 " call dein#add('asciidoc/vim-asciidoc')
 
@@ -306,9 +307,9 @@ if has('nvim')
     " call dein#add('mhartington/nvim-typescript')
 
     " call dein#add('ocaml/merlin', {'rtp': 'vim/merlin'})
-    " call dein#local('~/.opam/4.04.0/share/merlin/vim')
-    " let g:deoplete#omni#input_patterns.ocaml = '[.\w]+'
-    " let g:deoplete#omni#input_patterns.reason = '[.\w]+'
+    call dein#local('~/.opam/4.04.0/share/merlin/')
+    let g:deoplete#omni#input_patterns.ocaml = '[.\w]+'
+    let g:deoplete#omni#input_patterns.reason = '[.\w]+'
 endif
 
 if dein#check_install()
@@ -322,7 +323,7 @@ syntax enable "语法加亮
 autocmd BufRead,BufNewFile *.vue setl ft=html
 " autocmd FileType * setl noet
 " autocmd FileType html,css,scss,javascript,javascript.jsx,json,vue setl et
-autocmd FileType scheme setl et ts=2 sts=2 sw=2
+autocmd FileType scheme setl ts=2 sts=2 sw=2
 
 set background=dark "深色背景
 set background=light "浅色背景

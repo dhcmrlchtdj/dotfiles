@@ -5,5 +5,5 @@ source ~/.zshrc_common
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 if [[ -f "/usr/share/doc/pkgfile/command-not-found.zsh" ]]; then
-	source /usr/share/doc/pkgfile/command-not-found.zsh
+    source /usr/share/doc/pkgfile/command-not-found.zsh
 fi
