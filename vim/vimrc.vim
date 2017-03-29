@@ -153,9 +153,13 @@ let g:gitgutter_diff_args = 'HEAD'
 call dein#add('icymind/NeoSolarized') " colorscheme
 " let g:neosolarized_visibility = 'low'
 
-call dein#add('Yggdroot/indentLine') " indent
-let g:indentLine_char = '»'
-let g:indentLine_fileTypeExclude = ['help', 'nerdtree']
+" call dein#add('Yggdroot/indentLine') " indent
+" let g:indentLine_char = '»'
+" let g:indentLine_fileTypeExclude = ['help', 'nerdtree']
+call dein#add('nathanaelkane/vim-indent-guides') " indent
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'tagbar']
 
 call dein#add('jeetsukumaran/vim-buffergator') " buffer
 let g:buffergator_split_size = 30
@@ -215,11 +219,12 @@ call dein#add('godlygeek/tabular') " align
 
 call dein#add('w0rp/ale')
 let g:ale_sign_column_always = 1
-let g:ale_sign_error = '✖'
-let g:ale_sign_warning = '»'
-" let g:ale_linters = {}
-" let g:ale_linters.javascript = ['eslint']
-" let g:ale_linters.python = ['flake8']
+" let g:ale_sign_error = '✖'
+" let g:ale_sign_warning = '»'
+let g:ale_linters = {}
+let g:ale_linters.html = []
+let g:ale_linters.javascript = ['eslint']
+let g:ale_linters.python = ['flake8']
 
 call dein#add('Shougo/denite.nvim') " ripgrep
 call denite#custom#var('file_rec', 'command', ['rg', '--files'])
@@ -244,8 +249,16 @@ call denite#custom#source('grep', 'sorters', ['sorter_sublime'])
 
 call dein#add('Konfekt/FastFold') " fold
 
-call dein#add('Chiel92/vim-autoformat') " formatter, clang-format/autopep8/js-beautify
-noremap <Leader>ff :Autoformat<CR>
+" call dein#add('Chiel92/vim-autoformat') " formatter, clang-format/autopep8/js-beautify
+" noremap <Leader>ff :Autoformat<CR>
+call dein#add('sbdchd/neoformat') " formatter
+let g:neoformat_javascript_prettier2 = {
+            \ 'exe': 'prettier',
+            \ 'args': ['--stdin', '--tab-width 4', '--trailing-comma all', '--single-quote'],
+            \ 'stdin': 1,
+            \ }
+let g:neoformat_enabled_javascript = ['prettiereslint', 'prettier2']
+noremap <Leader>ff :Neoformat<CR>
 
 call dein#add('lilydjwg/python-syntax')
 let python_highlight_all = 1
@@ -341,6 +354,8 @@ highlight LintSign guifg=#dc322f guibg=#eee8d5
 " highlight link SyntasticWarningSign LintSign
 highlight link ALEErrorSign LintSign
 highlight link ALEWarningSign LintSign
+" highlight IndentGuidesOdd  guibg=#eee8d5
+highlight IndentGuidesEven guibg=#eee8d5
 
 """ 其他
 " 调整文件
