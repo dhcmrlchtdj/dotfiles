@@ -139,7 +139,7 @@ let g:airline_theme = 'powerlineish'
 let g:airline_left_sep = ''
 let g:airline_right_sep = ''
 let g:airline_symbols_ascii = 1
-let g:airline#extensions#whitespace#enabled = 1
+let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 
@@ -199,19 +199,27 @@ let g:NERDSpaceDelims = 1
 
 call dein#add('godlygeek/tabular') " align
 
-call dein#add('scrooloose/syntastic') " syntax check
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_aggregate_errors = 1
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_error_symbol = '✖'
-let g:syntastic_warning_symbol = '⚠'
-let g:syntastic_style_error_symbol = '✖'
-let g:syntastic_style_warning_symbol = '⚠'
-let g:syntastic_html_checkers = []
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_python_checkers = ['python', 'flake8']
-let g:syntastic_python_python_exec = 'python3'
+" call dein#add('scrooloose/syntastic') " syntax check
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_aggregate_errors = 1
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_error_symbol = '✖'
+" let g:syntastic_warning_symbol = '⚠'
+" let g:syntastic_style_error_symbol = '✖'
+" let g:syntastic_style_warning_symbol = '⚠'
+" let g:syntastic_html_checkers = []
+" let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_python_checkers = ['python', 'flake8']
+" let g:syntastic_python_python_exec = 'python3'
+
+call dein#add('w0rp/ale')
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = '✖'
+let g:ale_sign_warning = '»'
+" let g:ale_linters = {}
+" let g:ale_linters.javascript = ['eslint']
+" let g:ale_linters.python = ['flake8']
 
 call dein#add('Shougo/denite.nvim') " ripgrep
 call denite#custom#var('file_rec', 'command', ['rg', '--files'])
@@ -328,8 +336,11 @@ autocmd FileType scheme setl ts=2 sts=2 sw=2
 set background=dark "深色背景
 set background=light "浅色背景
 colorscheme NeoSolarized
-highlight SyntasticErrorSign guifg=#dc322f guibg=#eee8d5
-highlight SyntasticWarningSign guifg=#dc322f guibg=#eee8d5
+highlight LintSign guifg=#dc322f guibg=#eee8d5
+" highlight link SyntasticErrorSign LintSign
+" highlight link SyntasticWarningSign LintSign
+highlight link ALEErrorSign LintSign
+highlight link ALEWarningSign LintSign
 
 """ 其他
 " 调整文件
