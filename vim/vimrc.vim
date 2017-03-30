@@ -153,9 +153,6 @@ let g:gitgutter_diff_args = 'HEAD'
 call dein#add('icymind/NeoSolarized') " colorscheme
 " let g:neosolarized_visibility = 'low'
 
-" call dein#add('Yggdroot/indentLine') " indent
-" let g:indentLine_char = '»'
-" let g:indentLine_fileTypeExclude = ['help', 'nerdtree']
 call dein#add('nathanaelkane/vim-indent-guides') " indent
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
@@ -203,24 +200,10 @@ let g:NERDSpaceDelims = 1
 
 call dein#add('godlygeek/tabular') " align
 
-" call dein#add('scrooloose/syntastic') " syntax check
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_aggregate_errors = 1
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_error_symbol = '✖'
-" let g:syntastic_warning_symbol = '⚠'
-" let g:syntastic_style_error_symbol = '✖'
-" let g:syntastic_style_warning_symbol = '⚠'
-" let g:syntastic_html_checkers = []
-" let g:syntastic_javascript_checkers = ['eslint']
-" let g:syntastic_python_checkers = ['python', 'flake8']
-" let g:syntastic_python_python_exec = 'python3'
-
 call dein#add('w0rp/ale')
 let g:ale_sign_column_always = 1
-" let g:ale_sign_error = '✖'
-" let g:ale_sign_warning = '»'
+let g:ale_sign_error = '✖'
+let g:ale_sign_warning = '•'
 let g:ale_linters = {}
 let g:ale_linters.html = []
 let g:ale_linters.javascript = ['eslint']
@@ -249,8 +232,6 @@ call denite#custom#source('grep', 'sorters', ['sorter_sublime'])
 
 call dein#add('Konfekt/FastFold') " fold
 
-" call dein#add('Chiel92/vim-autoformat') " formatter, clang-format/autopep8/js-beautify
-" noremap <Leader>ff :Autoformat<CR>
 call dein#add('sbdchd/neoformat') " formatter
 let g:neoformat_javascript_prettier2 = {
             \ 'exe': 'prettier',
@@ -275,7 +256,7 @@ call dein#add('https://raw.githubusercontent.com/pangloss/vim-javascript/master/
 call dein#add('othree/yajs.vim')
 call dein#add('othree/es.next.syntax.vim')
 call dein#add('othree/javascript-libraries-syntax.vim')
-let g:used_javascript_libs = 'underscore,ramda,react,vue'
+let g:used_javascript_libs = 'underscore,react,vue'
 
 call dein#add('elzr/vim-json')
 let g:vim_json_syntax_conceal = 0
@@ -296,7 +277,7 @@ let g:vim_markdown_new_list_item_indent = 0
 
 " call dein#add('dart-lang/dart-vim-plugin')
 
-call dein#add('HerringtonDarkholme/yats.vim')
+" call dein#add('HerringtonDarkholme/yats.vim')
 
 " call dein#add('tbastos/vim-lua')
 
@@ -350,8 +331,6 @@ set background=dark "深色背景
 set background=light "浅色背景
 colorscheme NeoSolarized
 highlight LintSign guifg=#dc322f guibg=#eee8d5
-" highlight link SyntasticErrorSign LintSign
-" highlight link SyntasticWarningSign LintSign
 highlight link ALEErrorSign LintSign
 highlight link ALEWarningSign LintSign
 " highlight IndentGuidesOdd  guibg=#eee8d5
