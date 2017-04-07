@@ -101,7 +101,7 @@ set smarttab "智能缩进
 set smartindent "智能选择缩进方式
 set cindent
 set list "显示特殊字符
-set listchars=tab:»\ ,trail:· "字符样式
+set listchars=tab:»\ ,trail:• "字符样式
 
 """ fold
 set nofoldenable "关闭折叠
@@ -151,7 +151,6 @@ let g:gitgutter_sign_modified_removed = '!'
 let g:gitgutter_diff_args = 'HEAD'
 
 call dein#add('icymind/NeoSolarized') " colorscheme
-" let g:neosolarized_visibility = 'low'
 
 call dein#add('nathanaelkane/vim-indent-guides') " indent
 let g:indent_guides_enable_on_vim_startup = 1
@@ -167,7 +166,6 @@ let g:NERDTreeCaseSensitiveSort = 1
 let g:NERDTreeChDirMode = 2
 let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeSortHiddenFirst = 1
-let g:NERDTreeIgnore = ['\.swp$']
 nmap <silent> <F3> :silent! NERDTreeFind<CR>
 
 call dein#add('Xuyuanp/nerdtree-git-plugin') " filesystem git
@@ -335,6 +333,7 @@ highlight link ALEErrorSign LintSign
 highlight link ALEWarningSign LintSign
 " highlight IndentGuidesOdd  guibg=#eee8d5
 highlight IndentGuidesEven guibg=#eee8d5
+highlight SpecialKey guifg=#93a1a1 guibg=NONE
 
 """ 其他
 " 调整文件
