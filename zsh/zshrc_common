@@ -98,10 +98,10 @@ zzz() {
 # }
 
 ### node ###
-export NVM_DIR="$HOME/.nvm";
-if [[ -f "$NVM_DIR/nvm.sh" ]]; then
-    source "$NVM_DIR/nvm.sh";
-fi
+# export NVM_DIR="$HOME/.nvm";
+# if [[ -f "$NVM_DIR/nvm.sh" ]]; then
+    # source "$NVM_DIR/nvm.sh";
+# fi
 # chpwd_nvm_use() { nvm use &>/dev/null || nvm use system &>/dev/null; return 0 }
 # chpwd_nvm_use
 # chpwd_functions=( ${chpwd_functions} chpwd_nvm_use )

@@ -206,6 +206,7 @@ let g:ale_linters = {}
 let g:ale_linters.html = []
 let g:ale_linters.javascript = ['eslint']
 let g:ale_linters.python = ['flake8']
+" let g:ale_lint_on_text_changed = 'never'
 
 call dein#add('Shougo/denite.nvim') " ripgrep
 call denite#custom#var('file_rec', 'command', ['rg', '--files'])
@@ -233,7 +234,13 @@ call dein#add('Konfekt/FastFold') " fold
 call dein#add('sbdchd/neoformat') " formatter
 let g:neoformat_javascript_prettier2 = {
             \ 'exe': 'prettier',
-            \ 'args': ['--stdin', '--tab-width 4', '--trailing-comma all', '--single-quote'],
+            \ 'args': [
+            \ '--stdin',
+            \ '--tab-width 4',
+            \ '--trailing-comma all',
+            \ '--single-quote',
+            \ '--print-width 79'
+            \ ],
             \ 'stdin': 1,
             \ }
 let g:neoformat_enabled_javascript = ['prettiereslint', 'prettier2']
@@ -275,7 +282,7 @@ let g:vim_markdown_new_list_item_indent = 0
 
 " call dein#add('dart-lang/dart-vim-plugin')
 
-" call dein#add('HerringtonDarkholme/yats.vim')
+call dein#add('HerringtonDarkholme/yats.vim')
 
 " call dein#add('tbastos/vim-lua')
 
@@ -304,7 +311,7 @@ if has('nvim')
         " let g:clang_library_path = '/Library/Developer/CommandLineTools/usr/lib'
     " endif
 
-    " call dein#add('mhartington/nvim-typescript')
+    " call dein#add('mhartington/nvim-typescript', {'on_ft': 'typescript'})
 
     " call dein#add('ocaml/merlin', {'rtp': 'vim/merlin'})
     call dein#local('~/.opam/4.04.0/share/merlin/')
