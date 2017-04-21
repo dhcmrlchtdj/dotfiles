@@ -116,7 +116,7 @@ set nosplitbelow
 set splitright
 
 """ location list
-nmap <silent> <F1> :silent! lopen<CR>
+nmap <silent> <F1> :silent lopen<CR>
 autocmd FileType qf nmap <buffer> <CR> <CR>:lclose<CR>
 autocmd FileType qf nmap <buffer> q :q<CR>
 
@@ -159,14 +159,14 @@ let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'tagbar']
 
 call dein#add('jeetsukumaran/vim-buffergator') " buffer
 let g:buffergator_split_size = 30
-nmap <silent> <F2> :BuffergatorOpen<CR>
+nmap <silent> <F2> :silent BuffergatorOpen<CR>
 
 call dein#add('scrooloose/nerdtree') " filesystem
 let g:NERDTreeCaseSensitiveSort = 1
 let g:NERDTreeChDirMode = 2
 let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeSortHiddenFirst = 1
-nmap <silent> <F3> :silent! NERDTreeFind<CR>
+nmap <silent> <F3> :silent NERDTreeFind<CR>
 
 call dein#add('Xuyuanp/nerdtree-git-plugin') " filesystem git
 let g:NERDTreeIndicatorMapCustom = {
@@ -188,10 +188,10 @@ let g:gundo_preview_height = 10
 let g:gundo_help = 0
 let g:gundo_close_on_revert = 0
 let g:gundo_return_on_revert = 0
-nmap <silent> <F5> :silent! GundoToggle<CR>
+nmap <silent> <F5> :silent GundoToggle<CR>
 
 call dein#add('majutsushi/tagbar') " tagbar, require ctags/jsctags
-nmap <silent> <F4> :TagbarOpen fj<CR>
+nmap <silent> <F4> :silent TagbarOpen fj<CR>
 
 call dein#add('scrooloose/nerdcommenter') " comment
 let g:NERDSpaceDelims = 1
@@ -206,7 +206,9 @@ let g:ale_linters = {}
 let g:ale_linters.html = []
 let g:ale_linters.javascript = ['eslint']
 let g:ale_linters.python = ['flake8']
-" let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_insert_leave = 1
+let g:ale_lint_on_text_changed = 'never'
+" let g:ale_lint_delay = 5000
 
 call dein#add('Shougo/denite.nvim') " ripgrep
 call denite#custom#var('file_rec', 'command', ['rg', '--files'])
