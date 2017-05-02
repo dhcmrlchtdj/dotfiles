@@ -14,6 +14,7 @@ set autoread
 set belloff=all
 set nomodeline "忽略 打开的文件 里的vim参数
 set termguicolors
+set guicursor=
 nmap Q <Nop>
 
 if has('nvim') == 0
@@ -286,6 +287,8 @@ let g:vim_markdown_new_list_item_indent = 0
 
 call dein#add('HerringtonDarkholme/yats.vim')
 
+" call dein#add('keith/swift.vim')
+
 " call dein#add('tbastos/vim-lua')
 
 if has('nvim')
@@ -312,6 +315,8 @@ if has('nvim')
     " if has('mac')
         " let g:clang_library_path = '/Library/Developer/CommandLineTools/usr/lib'
     " endif
+
+    " call dein#add('mitsuse/autocomplete-swift', {'on_ft': 'swift'})
 
     " call dein#add('mhartington/nvim-typescript', {'on_ft': 'typescript'})
 
