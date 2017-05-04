@@ -1,11 +1,11 @@
 server {
-	listen 443 ssl;
-	server_name g.example.com;
+    listen 443 ssl;
+    server_name g.example.com;
 
-	include ssl.config.nginx;
+    include ssl.config.nginx;
 
-	location / {
-		google on;
-		google_language en;
-	}
+    location / {
+        google on;
+        google_language en;
+    }
 }
