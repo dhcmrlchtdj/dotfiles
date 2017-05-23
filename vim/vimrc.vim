@@ -240,9 +240,8 @@ let g:neoformat_javascript_prettier2 = {
             \ 'args': [
             \ '--stdin',
             \ '--tab-width 4',
-            \ '--trailing-comma all',
             \ '--single-quote',
-            \ '--print-width 79'
+            \ '--trailing-comma all',
             \ ],
             \ 'stdin': 1,
             \ }
@@ -306,8 +305,15 @@ if has('nvim')
     call dein#add('Shougo/echodoc.vim') " signature
     let g:echodoc_enable_at_startup = 1
 
+    call dein#add('autozimu/LanguageClient-neovim')
+    let g:LanguageClient_serverCommands = {
+                \ 'typescript': ['javascript-typescript-stdio'],
+                \ }
+    let g:LanguageClient_autoStart = 1
+    nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+
     call dein#add('Shougo/neco-syntax') " syntax complete
-    call dein#add('zchee/deoplete-jedi', {'on_ft': 'python'}) " py
+    " call dein#add('zchee/deoplete-jedi', {'on_ft': 'python'}) " py
     call dein#add('carlitux/deoplete-ternjs', {'on_ft': ['javascript', 'html']}) " js, tern
     " call dein#add('Shougo/neco-vim', {'on_ft': 'vim'}) " vim
 
@@ -321,9 +327,9 @@ if has('nvim')
     " call dein#add('mhartington/nvim-typescript', {'on_ft': 'typescript'})
 
     " call dein#add('ocaml/merlin', {'rtp': 'vim/merlin'})
-    call dein#local('~/.opam/4.04.0/share/merlin/')
-    let g:deoplete#omni#input_patterns.ocaml = '[.\w]+'
-    let g:deoplete#omni#input_patterns.reason = '[.\w]+'
+    " call dein#local('~/.opam/4.04.0/share/merlin/')
+    " let g:deoplete#omni#input_patterns.ocaml = '[.\w]+'
+    " let g:deoplete#omni#input_patterns.reason = '[.\w]+'
 endif
 
 if dein#check_install()
