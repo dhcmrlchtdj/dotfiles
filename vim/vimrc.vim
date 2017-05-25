@@ -237,15 +237,21 @@ call dein#add('Konfekt/FastFold') " fold
 call dein#add('sbdchd/neoformat') " formatter
 let g:neoformat_javascript_prettier2 = {
             \ 'exe': 'prettier',
+            \ 'stdin': 1,
             \ 'args': [
             \ '--stdin',
             \ '--tab-width 4',
             \ '--single-quote',
             \ '--trailing-comma all',
             \ ],
-            \ 'stdin': 1,
             \ }
 let g:neoformat_enabled_javascript = ['prettiereslint', 'prettier2']
+
+let g:neoformat_reason_refmt = {
+            \ 'exe': 'refmt',
+            \ 'stdin': 1,
+            \ }
+let g:neoformat_enabled_reason = ['refmt']
 noremap <Leader>ff :Neoformat<CR>
 
 call dein#add('lilydjwg/python-syntax')
@@ -277,8 +283,7 @@ call dein#add('plasticboy/vim-markdown')
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_new_list_item_indent = 0
 
-" call dein#add('let-def/ocp-indent-vim')
-" call dein#add('facebook/reason', {'rtp': 'editorSupport/VimReason'})
+call dein#add('reasonml/vim-reason')
 
 " call dein#add('asciidoc/vim-asciidoc')
 
@@ -310,7 +315,7 @@ if has('nvim')
                 \ 'typescript': ['javascript-typescript-stdio'],
                 \ }
     let g:LanguageClient_autoStart = 1
-    nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+    nnoremap <silent> <Leader>a :callLanguageClient_textDocument_definition<CR>
 
     call dein#add('Shougo/neco-syntax') " syntax complete
     " call dein#add('zchee/deoplete-jedi', {'on_ft': 'python'}) " py
