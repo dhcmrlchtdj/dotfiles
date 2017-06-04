@@ -7,7 +7,6 @@ source ~/.zshrc_common
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 eval $(opam config env)
 
-PATH="/usr/local/opt/node@6/bin:$PATH"
 PATH="/usr/local/opt/libarchive/bin:$PATH"
 export PATH
 
