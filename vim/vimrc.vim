@@ -358,8 +358,8 @@ set background=dark "深色背景
 set background=light "浅色背景
 colorscheme NeoSolarized
 highlight LintSign guifg=#dc322f guibg=#eee8d5
-highlight link ALEErrorSign LintSign
-highlight link ALEWarningSign LintSign
+highlight ALEErrorSign guifg=#dc322f guibg=#eee8d5
+highlight ALEWarningSign guifg=#dc322f guibg=#eee8d5
 highlight SignColumn guibg=#eee8d5
 highlight GitGutterAdd guibg=#eee8d5
 highlight GitGutterChange guibg=#eee8d5
