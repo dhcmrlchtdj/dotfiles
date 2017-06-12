@@ -1,83 +1,83 @@
 [user]
-	name = niris
-	email = nirisix@gmail.com
-	signingKey = 0x0006DD9CB2D67F50
+    name = niris
+    email = nirisix@gmail.com
+    signingKey = 0x0006DD9CB2D67F50
 
 [commit]
-	gpgSign = true
+    gpgSign = true
 
 [core]
-	editor = nvim
-	quotePath = false
-	whitespace = space-before-tab,trailing-space
-	excludesFile = ~/.gitconfig.excludes
-	eol = native
-	autocrlf = input
-	safecrlf = warn
-	trustctime = false
+    editor = nvim
+    quotePath = false
+    whitespace = space-before-tab,trailing-space
+    excludesFile = ~/.gitconfig.excludes
+    eol = native
+    autocrlf = input
+    safecrlf = warn
+    trustctime = false
 
 [color]
-	ui = auto
+    ui = auto
 
 [grep]
-	lineNumber = true
-	extendedRegexp = true
+    lineNumber = true
+    extendedRegexp = true
 
 [push]
-	default = simple
+    default = simple
 
 [pull]
-	rebase = true
+    rebase = true
 
 [log]
-	date = iso
+    date = iso
 
 [branch]
-	autoSetupRebase = always
+    autoSetupRebase = always
 
 [diff]
-	tool = vimdiff
-	algorithm = histogram
-	indentHeuristic = true
+    tool = vimdiff
+    algorithm = histogram
+    indentHeuristic = true
 
 [difftool]
-	prompt = false
+    prompt = false
 
 [difftool "vimdiff"]
-	path = nvim
+    path = nvim
 
 [merge]
-	tool = vimdiff
+    tool = vimdiff
 
 [mergetool]
-	keepBackup = false
-	prompt = false
+    keepBackup = false
+    prompt = false
 
 [mergetool "vimdiff"]
-	path = nvim
+    path = nvim
 
 [alias]
-	st = status -bsu
-	br = branch -vv
-	bra = branch -vva
-	co = checkout
-	ad = add -A .
-	au = add -u :/
-	ci = commit -m
-	amend = commit --amend
-	df = diff --stat HEAD
-	dff = diff HEAD
-	dffs = diff --cached HEAD
-	dfw = diff HEAD --word-diff
-	ll = log --graph --decorate --oneline -10
-	l = log --graph --decorate --format=format:'%C(auto)%h%Creset <%C(blue)%an%Creset@%C(cyan)%ad%Creset>%C(auto)%d%Creset   %s'
-	lc = log --graph --decorate --format=format:'%C(auto)%h%Creset <%C(blue)%cn%Creset@%C(cyan)%cd%Creset>%C(auto)%d%Creset   %s'
-	ref = reflog --decorate -10
-	rc = rm --cached -rf .
-	mt = mergetool
-	dt = difftool
-	pp = pull -p
-	mm = merge --no-ff
-	mmx = merge --no-ff -Xtheirs
-	cp = cherry-pick
-	tt = "!_() { declare tag=\"$(date '+%Y-%m-%dT%H.%M.%S%z')${1:+_$1}\"; git tag $tag -am $tag; }; _"
+    st = status -bsu
+    br = branch -vv
+    bra = branch -vva
+    co = checkout
+    ad = add -A .
+    au = add -u :/
+    ci = commit -m
+    amend = commit --amend
+    df = diff --stat HEAD
+    dff = diff HEAD
+    dffs = diff --cached HEAD
+    dfw = diff HEAD --word-diff
+    ll = log --graph --decorate --oneline -10
+    l = log --graph --decorate --format=format:'%C(auto)%h%Creset <%C(blue)%an%Creset@%C(cyan)%ad%Creset>%C(auto)%d%Creset   %s'
+    lc = log --graph --decorate --format=format:'%C(auto)%h%Creset <%C(blue)%cn%Creset@%C(cyan)%cd%Creset>%C(auto)%d%Creset   %s'
+    ref = reflog --decorate -10
+    rc = rm --cached -rf .
+    mt = mergetool
+    dt = difftool
+    pp = pull -p
+    mm = merge --no-ff
+    mmx = merge --no-ff -Xtheirs
+    cp = cherry-pick
+    tt = "!_() { declare tag=\"$(date '+%Y-%m-%dT%H.%M.%S%z')${1:+_$1}\"; git tag $tag -am $tag; }; _"

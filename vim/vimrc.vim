@@ -285,11 +285,15 @@ let g:vim_markdown_new_list_item_indent = 0
 
 call dein#add('reasonml/vim-reason')
 
+" call dein#add('rust-lang/rust.vim')
+
 " call dein#add('asciidoc/vim-asciidoc')
 
 " call dein#add('dart-lang/dart-vim-plugin')
 
 call dein#add('HerringtonDarkholme/yats.vim')
+
+" call dein#add('wlangstroth/vim-racket')
 
 " call dein#add('keith/swift.vim')
 
@@ -333,7 +337,7 @@ if has('nvim')
 
     " call dein#add('ocaml/merlin', {'rtp': 'vim/merlin'})
     " call dein#local('~/.opam/4.04.0/share/merlin/')
-    " let g:deoplete#omni#input_patterns.ocaml = '[.\w]+'
+    let g:deoplete#omni#input_patterns.ocaml = '[.\w]+'
     " let g:deoplete#omni#input_patterns.reason = '[.\w]+'
 endif
 
@@ -356,6 +360,11 @@ colorscheme NeoSolarized
 highlight LintSign guifg=#dc322f guibg=#eee8d5
 highlight link ALEErrorSign LintSign
 highlight link ALEWarningSign LintSign
+highlight SignColumn guibg=#eee8d5
+highlight GitGutterAdd guibg=#eee8d5
+highlight GitGutterChange guibg=#eee8d5
+highlight GitGutterDelete guibg=#eee8d5
+highlight GitGutterChangeDelete guibg=#eee8d5
 " highlight IndentGuidesOdd  guibg=#eee8d5
 highlight IndentGuidesEven guibg=#eee8d5
 highlight SpecialKey guifg=#93a1a1 guibg=NONE
