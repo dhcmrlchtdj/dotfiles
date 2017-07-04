@@ -246,6 +246,7 @@ let g:neoformat_javascript_prettier2 = {
             \ ],
             \ }
 let g:neoformat_enabled_javascript = ['prettiereslint', 'prettier2']
+let g:neoformat_enabled_javascript = ['prettier2', 'prettiereslint']
 
 let g:neoformat_reason_refmt = {
             \ 'exe': 'refmt',
@@ -268,8 +269,8 @@ call dein#add('https://raw.githubusercontent.com/pangloss/vim-javascript/master/
 
 call dein#add('othree/yajs.vim')
 call dein#add('othree/es.next.syntax.vim')
-call dein#add('othree/javascript-libraries-syntax.vim')
-let g:used_javascript_libs = 'underscore,react,vue'
+" call dein#add('othree/javascript-libraries-syntax.vim')
+" let g:used_javascript_libs = 'underscore,react,vue'
 
 call dein#add('elzr/vim-json')
 let g:vim_json_syntax_conceal = 0
@@ -284,6 +285,8 @@ let g:vim_markdown_conceal = 0
 let g:vim_markdown_new_list_item_indent = 0
 
 call dein#add('reasonml/vim-reason')
+
+" call dein#add('flowtype/vim-flow')
 
 " call dein#add('rust-lang/rust.vim')
 
