@@ -235,18 +235,25 @@ call denite#custom#source('grep', 'sorters', ['sorter_sublime'])
 call dein#add('Konfekt/FastFold') " fold
 
 call dein#add('sbdchd/neoformat') " formatter
-let g:neoformat_javascript_prettier2 = {
+let g:neoformat_javascript_prettier4 = {
             \ 'exe': 'prettier',
             \ 'stdin': 1,
             \ 'args': [
             \ '--stdin',
             \ '--tab-width 4',
             \ '--single-quote',
-            \ '--trailing-comma all',
             \ ],
             \ }
-let g:neoformat_enabled_javascript = ['prettiereslint', 'prettier2']
-let g:neoformat_enabled_javascript = ['prettier2', 'prettiereslint']
+let g:neoformat_javascript_prettier2 = {
+            \ 'exe': 'prettier',
+            \ 'stdin': 1,
+            \ 'args': [
+            \ '--stdin',
+            \ '--tab-width 2',
+            \ '--single-quote',
+            \ ],
+            \ }
+let g:neoformat_enabled_javascript = ['prettier4', 'prettier2']
 
 let g:neoformat_reason_refmt = {
             \ 'exe': 'refmt',
