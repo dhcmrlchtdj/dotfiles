@@ -58,7 +58,7 @@ set number "显示行号
 set wrap "自动换行
 set nowrap "不自动换行
 set textwidth=0 "行宽
-set colorcolumn=80 "行宽提示
+set colorcolumn=81 "行宽提示
 " set cursorline "高亮当前行
 set scrolloff=3
 set sidescroll=1
@@ -273,7 +273,6 @@ call dein#add('cakebaker/scss-syntax.vim')
 
 call dein#add('https://raw.githubusercontent.com/pangloss/vim-javascript/master/indent/javascript.vim', {'script_type' : 'indent'})
 " call dein#add('pangloss/vim-javascript')
-
 call dein#add('othree/yajs.vim')
 call dein#add('othree/es.next.syntax.vim')
 " call dein#add('othree/javascript-libraries-syntax.vim')
@@ -290,8 +289,10 @@ call dein#add('othree/nginx-contrib-vim')
 call dein#add('plasticboy/vim-markdown')
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_new_list_item_indent = 0
+autocmd FileType markdown nmap <silent> <F4> :silent Toc<CR>
 
 call dein#add('reasonml/vim-reason')
+" call dein#add('rgrinberg/vim-ocaml')
 
 " call dein#add('flowtype/vim-flow')
 
@@ -343,8 +344,6 @@ if has('nvim')
 
     " call dein#add('mitsuse/autocomplete-swift', {'on_ft': 'swift'})
 
-    " call dein#add('mhartington/nvim-typescript', {'on_ft': 'typescript'})
-
     " call dein#add('ocaml/merlin', {'rtp': 'vim/merlin'})
     " call dein#local('~/.opam/4.04.0/share/merlin/')
     let g:deoplete#omni#input_patterns.ocaml = '[.\w]+'
@@ -360,6 +359,7 @@ filetype plugin indent on "载入文件类型 插件 缩进
 syntax enable "语法加亮
 
 autocmd BufRead,BufNewFile *.vue setl ft=html
+autocmd BufRead,BufNewFile jbuild setl ft=scheme
 " autocmd FileType * setl noet
 " autocmd FileType html,css,scss,javascript,javascript.jsx,json,vue setl et
 autocmd FileType scheme setl ts=2 sts=2 sw=2
