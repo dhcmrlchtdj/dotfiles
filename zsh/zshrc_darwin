@@ -4,9 +4,11 @@ export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node
 export SDKROOT=macosx
 
 source ~/.zshrc_common
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-eval $(opam config env)
+_source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+_source ~/.opam/opam-init/init.zsh
+# eval $(opam config env)
 
+PATH="/usr/local/opt/node@6/bin:$PATH"
 PATH="/usr/local/opt/libarchive/bin:$PATH"
 export PATH
 
@@ -17,12 +19,9 @@ alias ls="gls --color=auto --group-directories-first -vF"
 if _has "gpg2"; then alias gpg="gpg2"; fi
 alias dm="docker-machine --native-ssh"
 alias danger_chrome="open -a 'Google Chrome Canary' --args --disable-web-security --user-data-dir --allow-file-access-from-files"
-alias pastebin='curl "https://p.h11.io" --data-binary "@-"'
 alias mosh="mosh --predict=experimental"
 alias breww="brew update && brew upgrade && brew cleanup -s && brew prune"
 datauri() {echo "data:image/${1##*.};base64,$(openssl base64 -in $1 | tr -d '\n')"}
-alias mlre="refmt --parse ml --print re"
-alias reml="refmt --parse re --print ml"
 
 # forward f port remote-port remote-host
 # forward c port remote-port remote-host

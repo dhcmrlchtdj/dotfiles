@@ -2,6 +2,13 @@ _has() {
     type "$1" &> /dev/null
 }
 
+_source() {
+    if [[ -f "$1" ]]; then
+        source $1
+    fi
+}
+
+
 PATH="$HOME/.local/bin:$PATH"
 export PATH
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:=$HOME/.config}"
