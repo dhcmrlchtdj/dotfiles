@@ -16,7 +16,7 @@ prompt_ooxx_git() {
 
 prompt_ooxx_pyvenv() {
     if [[ $VIRTUAL_ENV != "" ]]; then
-        echo "use %F{magenta}$(command ls $VIRTUAL_ENV/lib)%f "
+        echo "use %F{magenta}$(basename $VIRTUAL_ENV)%f "
     fi
 }
 
@@ -47,6 +47,7 @@ prompt_ooxx_precmd() {
         p1+="%F{magenta}#%f "
     else
         p1+="%F{magenta}❯%f "
+        # p1+="%F{magenta}λ%f "
     fi
 
     PROMPT=$'$p0\n$p1'
