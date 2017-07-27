@@ -162,6 +162,8 @@ call dein#add('jeetsukumaran/vim-buffergator') " buffer
 let g:buffergator_split_size = 30
 nmap <silent> <F2> :silent BuffergatorOpen<CR>
 
+call dein#add('kshenoy/vim-signature')
+
 call dein#add('scrooloose/nerdtree') " filesystem
 let g:NERDTreeCaseSensitiveSort = 1
 let g:NERDTreeChDirMode = 2
@@ -254,6 +256,28 @@ let g:neoformat_javascript_prettier2 = {
             \ ],
             \ }
 let g:neoformat_enabled_javascript = ['prettier4', 'prettier2']
+let g:neoformat_scss_prettier4 = {
+            \ 'exe': 'prettier',
+            \ 'stdin': 1,
+            \ 'args': [
+            \ '--parser', 'postcss',
+            \ '--stdin',
+            \ '--tab-width 4',
+            \ '--single-quote',
+            \ ],
+            \ }
+let g:neoformat_css_prettier4 = {
+            \ 'exe': 'prettier',
+            \ 'stdin': 1,
+            \ 'args': [
+            \ '--parser', 'postcss',
+            \ '--stdin',
+            \ '--tab-width 4',
+            \ '--single-quote',
+            \ ],
+            \ }
+let g:neoformat_enabled_scss = ['prettier4']
+let g:neoformat_enabled_css = ['prettier4']
 
 let g:neoformat_reason_refmt = {
             \ 'exe': 'refmt',
@@ -290,6 +314,8 @@ call dein#add('plasticboy/vim-markdown')
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_new_list_item_indent = 0
 autocmd FileType markdown nmap <silent> <F4> :silent Toc<CR>
+
+call dein#add('elixir-lang/vim-elixir')
 
 call dein#add('reasonml/vim-reason')
 " call dein#add('rgrinberg/vim-ocaml')
