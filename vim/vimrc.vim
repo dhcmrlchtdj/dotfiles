@@ -316,6 +316,7 @@ let g:vim_markdown_new_list_item_indent = 0
 autocmd FileType markdown nmap <silent> <F4> :silent Toc<CR>
 
 call dein#add('elixir-lang/vim-elixir')
+call dein#add('slashmili/alchemist.vim')
 
 call dein#add('reasonml/vim-reason')
 " call dein#add('rgrinberg/vim-ocaml')
