@@ -278,35 +278,12 @@ let g:neoformat_css_prettier4 = {
             \ }
 let g:neoformat_enabled_scss = ['prettier4']
 let g:neoformat_enabled_css = ['prettier4']
-
 let g:neoformat_reason_refmt = {
             \ 'exe': 'refmt',
             \ 'stdin': 1,
             \ }
 let g:neoformat_enabled_reason = ['refmt']
 noremap <Leader>ff :Neoformat<CR>
-
-call dein#add('lilydjwg/python-syntax')
-let python_highlight_all = 1
-call dein#add('Vimjas/vim-python-pep8-indent')
-
-call dein#add('othree/html5.vim')
-
-call dein#add('hail2u/vim-css3-syntax')
-call dein#add('cakebaker/scss-syntax.vim')
-
-call dein#add('https://raw.githubusercontent.com/pangloss/vim-javascript/master/indent/javascript.vim', {'script_type' : 'indent'})
-" call dein#add('pangloss/vim-javascript')
-call dein#add('othree/yajs.vim')
-call dein#add('othree/es.next.syntax.vim')
-" call dein#add('othree/javascript-libraries-syntax.vim')
-" let g:used_javascript_libs = 'underscore,react,vue'
-
-call dein#add('elzr/vim-json')
-let g:vim_json_syntax_conceal = 0
-
-call dein#add('mxw/vim-jsx')
-let g:jsx_ext_required = 1
 
 call dein#add('othree/nginx-contrib-vim')
 
@@ -315,27 +292,29 @@ let g:vim_markdown_conceal = 0
 let g:vim_markdown_new_list_item_indent = 0
 autocmd FileType markdown nmap <silent> <F4> :silent Toc<CR>
 
-call dein#add('elixir-lang/vim-elixir')
-call dein#add('slashmili/alchemist.vim')
-
-call dein#add('reasonml/vim-reason')
-" call dein#add('rgrinberg/vim-ocaml')
-
-" call dein#add('flowtype/vim-flow')
-
 " call dein#add('rust-lang/rust.vim')
 
 " call dein#add('asciidoc/vim-asciidoc')
 
 " call dein#add('dart-lang/dart-vim-plugin')
 
-call dein#add('HerringtonDarkholme/yats.vim')
-
 " call dein#add('wlangstroth/vim-racket')
 
-" call dein#add('keith/swift.vim')
-
 " call dein#add('tbastos/vim-lua')
+
+" call dein#add('flowtype/vim-flow')
+" call dein#add('HerringtonDarkholme/yats.vim')
+
+call dein#add('othree/html5.vim')
+
+call dein#add('hail2u/vim-css3-syntax')
+call dein#add('cakebaker/scss-syntax.vim')
+
+call dein#add('elzr/vim-json')
+let g:vim_json_syntax_conceal = 0
+
+call dein#add('mxw/vim-jsx')
+let g:jsx_ext_required = 1
 
 if has('nvim')
     call dein#add('Shougo/deoplete.nvim') " complete
@@ -352,29 +331,39 @@ if has('nvim')
     call dein#add('Shougo/echodoc.vim') " signature
     let g:echodoc_enable_at_startup = 1
 
-    call dein#add('autozimu/LanguageClient-neovim')
-    let g:LanguageClient_serverCommands = {
-                \ 'typescript': ['javascript-typescript-stdio'],
-                \ }
-    let g:LanguageClient_autoStart = 1
-    nnoremap <silent> <Leader>a :callLanguageClient_textDocument_definition<CR>
+    " call dein#add('autozimu/LanguageClient-neovim')
+    " let g:LanguageClient_serverCommands = { 'typescript': ['javascript-typescript-stdio'] }
+    " let g:LanguageClient_autoStart = 1
+    " nnoremap <silent> <Leader>a :callLanguageClient_textDocument_definition<CR>
 
     call dein#add('Shougo/neco-syntax') " syntax complete
-    " call dein#add('zchee/deoplete-jedi', {'on_ft': 'python'}) " py
-    call dein#add('carlitux/deoplete-ternjs', {'on_ft': ['javascript', 'html']}) " js, tern
-    " call dein#add('Shougo/neco-vim', {'on_ft': 'vim'}) " vim
+
+    " call dein#add('Shougo/neco-vim') " vim
+
+    call dein#add('https://raw.githubusercontent.com/pangloss/vim-javascript/master/indent/javascript.vim', {'script_type' : 'indent'})
+    call dein#add('othree/yajs.vim')
+    call dein#add('othree/es.next.syntax.vim')
+    call dein#add('carlitux/deoplete-ternjs') " js, tern
+
+    call dein#add('lilydjwg/python-syntax')
+    let python_highlight_all = 1
+    call dein#add('Vimjas/vim-python-pep8-indent')
+    call dein#add('zchee/deoplete-jedi') " py
+
+    call dein#add('reasonml/vim-reason')
+    let g:deoplete#omni#input_patterns.ocaml = '[.\w]+'
+    " let g:deoplete#omni#input_patterns.reason = '[.\w]+'
 
     " call dein#add('Rip-Rip/clang_complete', {'on_ft': 'c'}) " clang
     " if has('mac')
-        " let g:clang_library_path = '/Library/Developer/CommandLineTools/usr/lib'
+    " let g:clang_library_path = '/Library/Developer/CommandLineTools/usr/lib'
     " endif
 
-    " call dein#add('mitsuse/autocomplete-swift', {'on_ft': 'swift'})
+    " call dein#add('elixir-lang/vim-elixir')
+    " call dein#add('slashmili/alchemist.vim') " elixir complete
 
-    " call dein#add('ocaml/merlin', {'rtp': 'vim/merlin'})
-    " call dein#local('~/.opam/4.04.0/share/merlin/')
-    let g:deoplete#omni#input_patterns.ocaml = '[.\w]+'
-    " let g:deoplete#omni#input_patterns.reason = '[.\w]+'
+    " call dein#add('keith/swift.vim')
+    " call dein#add('mitsuse/autocomplete-swift')
 endif
 
 if dein#check_install()
