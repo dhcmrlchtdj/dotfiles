@@ -9,7 +9,7 @@ AddressFamily inet
 
 Protocol 2
 KexAlgorithms curve25519-sha256@libssh.org
-Ciphers aes256-gcm@openssh.com,chacha20-poly1305@openssh.com,aes256-ctr
+Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes256-ctr
 MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-512
 HostKey /etc/ssh/ssh_host_ed25519_key
 # Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,aes192-ctr,aes128-ctr
@@ -18,7 +18,6 @@ HostKey /etc/ssh/ssh_host_ed25519_key
 
 LoginGraceTime 30
 StrictModes yes
-UsePrivilegeSeparation sandbox
 
 PermitEmptyPasswords no
 # PermitRootLogin no # TODO
