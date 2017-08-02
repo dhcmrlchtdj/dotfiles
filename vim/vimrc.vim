@@ -283,6 +283,11 @@ let g:neoformat_reason_refmt = {
             \ 'stdin': 1,
             \ }
 let g:neoformat_enabled_reason = ['refmt']
+let g:neoformat_swift_swiftformat = {
+            \ 'exe': 'swiftformat',
+            \ 'stdin': 1,
+            \ }
+let g:neoformat_enabled_swift = ['swiftformat']
 noremap <Leader>ff :Neoformat<CR>
 
 call dein#add('othree/nginx-contrib-vim')
@@ -302,8 +307,9 @@ autocmd FileType markdown nmap <silent> <F4> :silent Toc<CR>
 
 " call dein#add('tbastos/vim-lua')
 
-" call dein#add('flowtype/vim-flow')
 " call dein#add('HerringtonDarkholme/yats.vim')
+
+" call dein#add('flowtype/vim-flow')
 
 call dein#add('othree/html5.vim')
 
@@ -379,6 +385,7 @@ autocmd BufRead,BufNewFile jbuild setl ft=scheme
 " autocmd FileType * setl noet
 " autocmd FileType html,css,scss,javascript,javascript.jsx,json,vue setl et
 autocmd FileType scheme setl ts=2 sts=2 sw=2
+autocmd FileType javascript setl foldmethod=syntax
 
 set background=dark "深色背景
 set background=light "浅色背景
