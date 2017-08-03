@@ -207,7 +207,7 @@ let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '•'
 let g:ale_linters = {}
 let g:ale_linters.html = []
-let g:ale_linters.javascript = ['eslint']
+let g:ale_linters.javascript = ['eslint', 'flow']
 let g:ale_linters.python = ['flake8']
 let g:ale_lint_on_insert_leave = 1
 let g:ale_lint_on_text_changed = 'never'
@@ -307,9 +307,8 @@ autocmd FileType markdown nmap <silent> <F4> :silent Toc<CR>
 
 " call dein#add('tbastos/vim-lua')
 
-" call dein#add('HerringtonDarkholme/yats.vim')
-
-" call dein#add('flowtype/vim-flow')
+call dein#add('HerringtonDarkholme/yats.vim')
+call dein#add('flowtype/vim-flow')
 
 call dein#add('othree/html5.vim')
 
