@@ -243,7 +243,6 @@ let g:neoformat_javascript_prettier4 = {
             \ 'args': [
             \ '--stdin',
             \ '--tab-width 4',
-            \ '--single-quote',
             \ ],
             \ }
 let g:neoformat_javascript_prettier2 = {
@@ -252,10 +251,19 @@ let g:neoformat_javascript_prettier2 = {
             \ 'args': [
             \ '--stdin',
             \ '--tab-width 2',
-            \ '--single-quote',
             \ ],
             \ }
 let g:neoformat_enabled_javascript = ['prettier4', 'prettier2']
+let g:neoformat_typescript_prettier4 = {
+            \ 'exe': 'prettier',
+            \ 'stdin': 1,
+            \ 'args': [
+            \ '--parser', 'typescript',
+            \ '--stdin',
+            \ '--tab-width 4',
+            \ ],
+            \ }
+let g:neoformat_enabled_typescript = ['prettier4']
 let g:neoformat_scss_prettier4 = {
             \ 'exe': 'prettier',
             \ 'stdin': 1,
@@ -263,7 +271,6 @@ let g:neoformat_scss_prettier4 = {
             \ '--parser', 'postcss',
             \ '--stdin',
             \ '--tab-width 4',
-            \ '--single-quote',
             \ ],
             \ }
 let g:neoformat_css_prettier4 = {
@@ -273,7 +280,6 @@ let g:neoformat_css_prettier4 = {
             \ '--parser', 'postcss',
             \ '--stdin',
             \ '--tab-width 4',
-            \ '--single-quote',
             \ ],
             \ }
 let g:neoformat_enabled_scss = ['prettier4']
@@ -336,10 +342,10 @@ if has('nvim')
     call dein#add('Shougo/echodoc.vim') " signature
     let g:echodoc_enable_at_startup = 1
 
-    " call dein#add('autozimu/LanguageClient-neovim')
-    " let g:LanguageClient_serverCommands = { 'typescript': ['javascript-typescript-stdio'] }
-    " let g:LanguageClient_autoStart = 1
-    " nnoremap <silent> <Leader>a :callLanguageClient_textDocument_definition<CR>
+    call dein#add('autozimu/LanguageClient-neovim')
+    let g:LanguageClient_serverCommands = { 'typescript': ['javascript-typescript-stdio'] }
+    let g:LanguageClient_autoStart = 1
+    nnoremap <silent> <Leader>a :callLanguageClient_textDocument_definition<CR>
 
     call dein#add('Shougo/neco-syntax') " syntax complete
 
