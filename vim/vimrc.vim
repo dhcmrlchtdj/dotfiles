@@ -151,6 +151,8 @@ let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_modified_removed = '!'
 let g:gitgutter_diff_args = 'HEAD'
 
+call dein#add('jamessan/vim-gnupg') " gpg
+
 call dein#add('icymind/NeoSolarized') " colorscheme
 
 call dein#add('nathanaelkane/vim-indent-guides') " indent
@@ -208,10 +210,12 @@ let g:ale_sign_warning = '•'
 let g:ale_linters = {}
 let g:ale_linters.html = []
 let g:ale_linters.javascript = ['eslint', 'flow']
+let g:ale_linters.typescript = ['tslint']
 let g:ale_linters.python = ['flake8']
 let g:ale_lint_on_insert_leave = 1
 let g:ale_lint_on_text_changed = 'never'
 " let g:ale_lint_delay = 5000
+let g:ale_echo_msg_format = '%linter% | %severity% | %s'
 
 call dein#add('Shougo/denite.nvim') " ripgrep
 call denite#custom#var('file_rec', 'command', ['rg', '--files'])
@@ -243,6 +247,7 @@ let g:neoformat_javascript_prettier4 = {
             \ 'args': [
             \ '--stdin',
             \ '--tab-width 4',
+            \ '--trailing-comma es5',
             \ ],
             \ }
 let g:neoformat_javascript_prettier2 = {
@@ -251,6 +256,7 @@ let g:neoformat_javascript_prettier2 = {
             \ 'args': [
             \ '--stdin',
             \ '--tab-width 2',
+            \ '--trailing-comma es5',
             \ ],
             \ }
 let g:neoformat_enabled_javascript = ['prettier4', 'prettier2']
@@ -261,6 +267,7 @@ let g:neoformat_typescript_prettier4 = {
             \ '--parser', 'typescript',
             \ '--stdin',
             \ '--tab-width 4',
+            \ '--trailing-comma es5',
             \ ],
             \ }
 let g:neoformat_enabled_typescript = ['prettier4']
@@ -343,7 +350,10 @@ if has('nvim')
     let g:echodoc_enable_at_startup = 1
 
     call dein#add('autozimu/LanguageClient-neovim')
-    let g:LanguageClient_serverCommands = { 'typescript': ['javascript-typescript-stdio'] }
+    let g:LanguageClient_serverCommands = {}
+    let g:LanguageClient_serverCommands.typescript = ['javascript-typescript-stdio']
+    let g:LanguageClient_serverCommands.javascript = ['flow-language-server', '--stdio']
+    let g:LanguageClient_diagnosticsEnable = 0
     let g:LanguageClient_autoStart = 1
     nnoremap <silent> <Leader>a :callLanguageClient_textDocument_definition<CR>
 
