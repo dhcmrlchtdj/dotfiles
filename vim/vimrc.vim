@@ -210,10 +210,10 @@ let g:ale_sign_warning = '•'
 let g:ale_linters = {}
 let g:ale_linters.html = []
 let g:ale_linters.javascript = ['eslint', 'flow']
-let g:ale_linters.typescript = ['tslint']
+let g:ale_linters.typescript = ['tsserver', 'tslint']
 let g:ale_linters.python = ['flake8']
 let g:ale_lint_on_insert_leave = 1
-let g:ale_lint_on_text_changed = 'never'
+" let g:ale_lint_on_text_changed = 'never'
 " let g:ale_lint_delay = 5000
 let g:ale_echo_msg_format = '%linter% | %severity% | %s'
 
@@ -247,6 +247,7 @@ let g:neoformat_javascript_prettier4 = {
             \ 'args': [
             \ '--stdin',
             \ '--tab-width 4',
+            \ '--single-quote',
             \ '--trailing-comma es5',
             \ ],
             \ }
@@ -256,6 +257,7 @@ let g:neoformat_javascript_prettier2 = {
             \ 'args': [
             \ '--stdin',
             \ '--tab-width 2',
+            \ '--single-quote',
             \ '--trailing-comma es5',
             \ ],
             \ }
@@ -267,6 +269,7 @@ let g:neoformat_typescript_prettier4 = {
             \ '--parser', 'typescript',
             \ '--stdin',
             \ '--tab-width 4',
+            \ '--single-quote',
             \ '--trailing-comma es5',
             \ ],
             \ }
@@ -277,6 +280,7 @@ let g:neoformat_scss_prettier4 = {
             \ 'args': [
             \ '--parser', 'postcss',
             \ '--stdin',
+            \ '--single-quote',
             \ '--tab-width 4',
             \ ],
             \ }
@@ -286,6 +290,7 @@ let g:neoformat_css_prettier4 = {
             \ 'args': [
             \ '--parser', 'postcss',
             \ '--stdin',
+            \ '--single-quote',
             \ '--tab-width 4',
             \ ],
             \ }
