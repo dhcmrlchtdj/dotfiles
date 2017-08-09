@@ -3,20 +3,19 @@ fpath=(/usr/local/share/zsh-completions /usr/local/share/zsh/functions $fpath)
 export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node
 export SDKROOT=macosx
 
+PATH="/usr/local/opt/libarchive/bin:$PATH"
+export PATH
+
+# source ~/.zshrc_work
 source ~/.zshrc_common
 _source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 _source ~/.opam/opam-init/init.zsh
-# eval $(opam config env)
-
-PATH="/usr/local/opt/node@6/bin:$PATH"
-PATH="/usr/local/opt/libarchive/bin:$PATH"
-export PATH
 
 ## alias
 alias rm="grm -Irv"
 alias ls="gls --color=auto --group-directories-first -vF"
+alias mvim="mvim -v"
 
-if _has "gpg2"; then alias gpg="gpg2"; fi
 alias dm="docker-machine --native-ssh"
 alias danger_chrome="open -a 'Google Chrome Canary' --args --disable-web-security --user-data-dir --allow-file-access-from-files"
 alias mosh="mosh --predict=experimental"

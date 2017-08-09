@@ -32,18 +32,6 @@ autoload -Uz compinit
 setopt HIST_IGNORE_SPACE
 
 
-### git for directoy ###
-chpwd_profile_default() {
-    [[ ${profile} == ${CHPWD_PROFILE} ]] && return 1
-    unset GIT_AUTHOR_NAME
-    unset GIT_AUTHOR_EMAIL
-    unset GIT_COMMITTER_NAME
-    unset GIT_COMMITTER_EMAIL
-}
-if _has "chpwd_profiles"; then chpwd_profiles; fi
-#### END git for directoy ###
-
-
 ### alias ###
 alias sudo="sudo "
 alias cp="cp -r"
@@ -75,8 +63,6 @@ alias mm="mitmproxy -p 8888"
 alias mmm="mitmproxy -p 8888 -i '~q | ~s'"
 alias ccc="clang -std=c11 -Weverything -Wno-missing-prototypes"
 alias ttt="tmux -CC attach || tmux -CC"
-alias ujs="uglifyjs -m -c unsafe=true"
-alias www="webpack-dev-server"
 alias curlw="curl -w '\ntime_namelookup:\t%{time_namelookup}\ntime_connect:\t\t%{time_connect}\ntime_appconnect:\t%{time_appconnect}\ntime_pretransfer:\t%{time_pretransfer}\ntime_redirect:\t\t%{time_redirect}\ntime_starttransfer:\t%{time_starttransfer}\n------\ntime_total:\t\t%{time_total}\n'"
 ### END alias ###
 
@@ -86,31 +72,3 @@ zzz() {
         zz $i.zip $i;
     done
 }
-
-# ppp() {
-    # export all_proxy='socks5h://127.0.0.1:1080'
-    # export http_proxy=$all_proxy
-    # export https_proxy=$all_proxy
-    # export ftp_proxy=$all_proxy
-    # export rsync_proxy=$all_proxy
-    # echo "all_proxy='$all_proxy'"
-# }
-# pppp () {
-    # unset all_proxy
-    # unset http_proxy
-    # unset https_proxy
-    # unset ftp_proxy
-    # unset rsync_proxy
-    # echo "all_proxy='$all_proxy'"
-# }
-
-### node ###
-# export NVM_DIR="$HOME/.nvm";
-# if [[ -f "$NVM_DIR/nvm.sh" ]]; then
-    # source "$NVM_DIR/nvm.sh";
-# fi
-# chpwd_nvm_use() { nvm use &>/dev/null || nvm use system &>/dev/null; return 0 }
-# chpwd_nvm_use
-# chpwd_functions=( ${chpwd_functions} chpwd_nvm_use )
-# if _has "npm"; then eval "$(npm completion)"; fi
-### END node ###
