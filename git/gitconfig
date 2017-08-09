@@ -6,11 +6,13 @@
 [commit]
     gpgSign = true
 
+[includeIf "gitdir/i:~/work/"]
+    path = ~/.config/git/config.work
+
 [core]
     editor = nvim
     quotePath = false
     whitespace = space-before-tab,trailing-space
-    excludesFile = ~/.gitconfig.excludes
     eol = native
     autocrlf = input
     safecrlf = warn

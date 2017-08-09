@@ -1,4 +1,5 @@
 .PHONY: git
 git:
-	-cp -n `pwd`/git/gitconfig ~/.gitconfig
-	-cp -n `pwd`/git/gitconfig.excludes ~/.gitconfig.excludes
+	-cp -n `pwd`/git/gitconfig ~/.config/git/config
+	-cp -n `pwd`/git/gitconfig.ignore ~/.config/git/ignore
+	-cp -n `pwd`/git/gitconfig.attributes ~/.config/git/attributes
