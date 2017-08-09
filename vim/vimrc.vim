@@ -121,7 +121,6 @@ nmap <silent> <F1> :silent lopen<CR>
 autocmd FileType qf nmap <buffer> <CR> <CR>:lclose<CR>
 autocmd FileType qf nmap <buffer> q :q<CR>
 
-
 """ plugin
 filetype plugin indent off
 let g:dein#types#git#clone_depth = 1
@@ -174,17 +173,17 @@ let g:NERDTreeSortHiddenFirst = 1
 nmap <silent> <F3> :silent NERDTreeFind<CR>
 
 call dein#add('Xuyuanp/nerdtree-git-plugin') " filesystem git
-let g:NERDTreeIndicatorMapCustom = {
-            \ 'Modified'  : 'M',
-            \ 'Staged'    : 'S',
-            \ 'Untracked' : 'U',
-            \ 'Renamed'   : 'R',
-            \ 'Unmerged'  : 'N',
-            \ 'Deleted'   : 'D',
-            \ 'Dirty'     : '*',
-            \ 'Clean'     : 'C',
-            \ 'Unknown'   : '?'
-            \ }
+let g:NERDTreeIndicatorMapCustom = {}
+let g:NERDTreeIndicatorMapCustom.Modified = 'M'
+let g:NERDTreeIndicatorMapCustom.Deleted = 'D'
+let g:NERDTreeIndicatorMapCustom.Renamed = 'R'
+let g:NERDTreeIndicatorMapCustom.Unmerged = 'U'
+let g:NERDTreeIndicatorMapCustom.Staged = 'S'
+let g:NERDTreeIndicatorMapCustom.Clean = 'C'
+let g:NERDTreeIndicatorMapCustom.Ignored = 'I'
+let g:NERDTreeIndicatorMapCustom.Dirty = '*'
+let g:NERDTreeIndicatorMapCustom.Untracked = '?'
+let g:NERDTreeIndicatorMapCustom.Unknown = '?'
 
 call dein#add('sjl/gundo.vim') " undo
 let g:gundo_prefer_python3 = 1
