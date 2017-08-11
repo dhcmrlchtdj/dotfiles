@@ -265,7 +265,7 @@ let g:neoformat_typescript_prettier4 = {
             \ 'exe': 'prettier',
             \ 'stdin': 1,
             \ 'args': [
-            \ '--parser', 'typescript',
+            \ '--parser typescript',
             \ '--stdin',
             \ '--tab-width 4',
             \ '--single-quote',
@@ -277,7 +277,7 @@ let g:neoformat_scss_prettier4 = {
             \ 'exe': 'prettier',
             \ 'stdin': 1,
             \ 'args': [
-            \ '--parser', 'postcss',
+            \ '--parser postcss',
             \ '--stdin',
             \ '--single-quote',
             \ '--tab-width 4',
@@ -287,7 +287,7 @@ let g:neoformat_css_prettier4 = {
             \ 'exe': 'prettier',
             \ 'stdin': 1,
             \ 'args': [
-            \ '--parser', 'postcss',
+            \ '--parser postcss',
             \ '--stdin',
             \ '--single-quote',
             \ '--tab-width 4',
