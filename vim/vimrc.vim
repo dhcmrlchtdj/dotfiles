@@ -10,7 +10,6 @@
 "   \::::/__/       /:/  /     \:\__\        \:\__\        \::/  /
 "    ~~~~           \/__/       \/__/         \/__/         \/__/
 
-set autoread
 set belloff=all
 set nomodeline "忽略 打开的文件 里的vim参数
 set termguicolors
@@ -23,6 +22,9 @@ if has('nvim') == 0
     set t_Co=256 "颜色数目
     set cryptmethod=blowfish2
 endif
+
+set autoread "外部编辑器修改文件
+autocmd FocusGained,BufEnter,CursorHold * checktime
 
 set mouse= "鼠标支持
 set display=lastline,uhex "不可见字符用 hex 形式展示
