@@ -18,11 +18,11 @@ __pycache__/
 *-wal
 
 # node
-node_modules/*
-coverage/*
+node_modules/
+coverage/
 npm-debug.log
 yarn-error.log
-.nyc_output/*
+.nyc_output/
 
 # java
 *.iml
