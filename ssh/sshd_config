@@ -46,3 +46,5 @@ IgnoreRhosts yes
 TCPKeepAlive no
 ClientAliveInterval 30
 ClientAliveCountMax 3
+
+# GatewayPorts clientspecified
