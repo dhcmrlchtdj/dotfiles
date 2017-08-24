@@ -138,9 +138,9 @@ call dein#add('tpope/vim-fugitive') " statusline git
 call dein#add('vim-airline/vim-airline') " statusline
 call dein#add('vim-airline/vim-airline-themes') " statusline theme
 let g:airline_theme = 'powerlineish'
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_symbols_ascii = 1
+" let g:airline_left_sep = ''
+" let g:airline_right_sep = ''
+" let g:airline_symbols_ascii = 1
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
@@ -242,70 +242,42 @@ call denite#custom#source('grep', 'sorters', ['sorter_sublime'])
 call dein#add('Konfekt/FastFold') " fold
 
 call dein#add('sbdchd/neoformat') " formatter
-let g:neoformat_javascript_prettier4 = {
-            \ 'exe': 'prettier',
-            \ 'stdin': 1,
-            \ 'args': [
-            \ '--stdin',
-            \ '--tab-width 4',
-            \ '--single-quote',
-            \ '--trailing-comma es5',
-            \ ],
-            \ }
-let g:neoformat_javascript_prettier2 = {
-            \ 'exe': 'prettier',
-            \ 'stdin': 1,
-            \ 'args': [
-            \ '--stdin',
-            \ '--tab-width 2',
-            \ '--single-quote',
-            \ '--trailing-comma es5',
-            \ ],
-            \ }
+let g:neoformat_javascript_prettier2 = {}
+let g:neoformat_javascript_prettier2.exe = 'prettier'
+let g:neoformat_javascript_prettier2.stdin = 1
+let g:neoformat_javascript_prettier2.args = ['--stdin --tab-width=2 --single-quote --no-semi --parser=babylon']
+let g:neoformat_javascript_prettierf = {}
+let g:neoformat_javascript_prettierf.exe = 'prettier'
+let g:neoformat_javascript_prettierf.stdin = 1
+let g:neoformat_javascript_prettierf.args = ['--stdin --tab-width=4 --single-quote --trailing-comma=all --parser=flow']
+let g:neoformat_javascript_prettier4 = {}
+let g:neoformat_javascript_prettier4.exe = 'prettier'
+let g:neoformat_javascript_prettier4.stdin = 1
+let g:neoformat_javascript_prettier4.args = ['--stdin --tab-width=4 --single-quote --trailing-comma=es5 --parser=babylon']
 let g:neoformat_enabled_javascript = ['prettier4', 'prettier2']
-let g:neoformat_typescript_prettier4 = {
-            \ 'exe': 'prettier',
-            \ 'stdin': 1,
-            \ 'args': [
-            \ '--parser typescript',
-            \ '--stdin',
-            \ '--tab-width 4',
-            \ '--single-quote',
-            \ '--trailing-comma es5',
-            \ ],
-            \ }
+let g:neoformat_json_prettier4 = {}
+let g:neoformat_json_prettier4.exe = 'prettier'
+let g:neoformat_json_prettier4.stdin = 1
+let g:neoformat_json_prettier4.args = ['--stdin --tab-width=4 --parser=json']
+let g:neoformat_enabled_json = ['prettier4']
+let g:neoformat_typescript_prettier4 = {}
+let g:neoformat_typescript_prettier4.exe = 'prettier'
+let g:neoformat_typescript_prettier4.stdin = 1
+let g:neoformat_typescript_prettier4.args = ['--stdin --tab-width=4 --single-quote --trailing-comma=all --parser=typescript']
 let g:neoformat_enabled_typescript = ['prettier4']
-let g:neoformat_scss_prettier4 = {
-            \ 'exe': 'prettier',
-            \ 'stdin': 1,
-            \ 'args': [
-            \ '--parser postcss',
-            \ '--stdin',
-            \ '--single-quote',
-            \ '--tab-width 4',
-            \ ],
-            \ }
-let g:neoformat_css_prettier4 = {
-            \ 'exe': 'prettier',
-            \ 'stdin': 1,
-            \ 'args': [
-            \ '--parser postcss',
-            \ '--stdin',
-            \ '--single-quote',
-            \ '--tab-width 4',
-            \ ],
-            \ }
+let g:neoformat_scss_prettier4 = {}
+let g:neoformat_scss_prettier4.exe = 'prettier'
+let g:neoformat_scss_prettier4.stdin = 1
+let g:neoformat_scss_prettier4.args = ['--stdin --tab-width=4 --single-quote --parser=postcss']
 let g:neoformat_enabled_scss = ['prettier4']
+let g:neoformat_css_prettier4 = {}
+let g:neoformat_css_prettier4.exe = 'prettier'
+let g:neoformat_css_prettier4.stdin = 1
+let g:neoformat_css_prettier4.args = ['--stdin --tab-width=4 --single-quote --parser=postcss']
 let g:neoformat_enabled_css = ['prettier4']
-let g:neoformat_reason_refmt = {
-            \ 'exe': 'refmt',
-            \ 'stdin': 1,
-            \ }
-let g:neoformat_enabled_reason = ['refmt']
-let g:neoformat_swift_swiftformat = {
-            \ 'exe': 'swiftformat',
-            \ 'stdin': 1,
-            \ }
+let g:neoformat_swift_swiftformat = {}
+let g:neoformat_swift_swiftformat.exe = 'swiftformat'
+let g:neoformat_swift_swiftformat.stdin = 1
 let g:neoformat_enabled_swift = ['swiftformat']
 noremap <Leader>ff :Neoformat<CR>
 
@@ -358,7 +330,7 @@ if has('nvim')
     call dein#add('autozimu/LanguageClient-neovim')
     let g:LanguageClient_serverCommands = {}
     let g:LanguageClient_serverCommands.typescript = ['javascript-typescript-stdio']
-    let g:LanguageClient_serverCommands.javascript = ['flow-language-server', '--stdio']
+    " let g:LanguageClient_serverCommands.javascript = ['flow-language-server', '--stdio']
     let g:LanguageClient_diagnosticsEnable = 0
     let g:LanguageClient_autoStart = 1
     nnoremap <silent> <Leader>a :callLanguageClient_textDocument_definition<CR>
@@ -393,9 +365,9 @@ if has('nvim')
     " call dein#add('mitsuse/autocomplete-swift')
 endif
 
-if dein#check_install()
-    call dein#install()
-endif
+" if dein#check_install()
+" call dein#install()
+" endif
 call dein#end()
 
 filetype plugin indent on "载入文件类型 插件 缩进
@@ -406,7 +378,7 @@ autocmd BufRead,BufNewFile jbuild setl ft=scheme
 " autocmd FileType * setl noet
 " autocmd FileType html,css,scss,javascript,javascript.jsx,json,vue setl et
 autocmd FileType scheme setl ts=2 sts=2 sw=2
-autocmd FileType javascript setl foldmethod=syntax
+" autocmd FileType javascript setl foldmethod=syntax
 
 set background=dark "深色背景
 set background=light "浅色背景
@@ -458,10 +430,10 @@ function! FormatFile()
     endwhile
 
     " 调整缩进
-    if (&ft !~ 'python|markdown|text')
-        exe 'normal gg=G``'
-        exe 'silent! :retab'
-    endif
+    " if (&ft !~ 'python|markdown|text')
+    " exe 'normal gg=G``'
+    " exe 'silent! :retab'
+    " endif
 
     call cursor(l, c)
     exe 'normal zz'
