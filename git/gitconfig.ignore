@@ -8,6 +8,10 @@
 # sass
 .sass-cache
 
+# ocaml
+_opam/
+_build/
+
 # python
 __pycache__/
 .venv/

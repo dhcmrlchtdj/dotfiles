@@ -299,7 +299,9 @@ autocmd FileType markdown nmap <silent> <F4> :silent Toc<CR>
 " call dein#add('tbastos/vim-lua')
 
 call dein#add('HerringtonDarkholme/yats.vim')
+
 call dein#add('flowtype/vim-flow')
+let g:flow#enable = 0
 
 call dein#add('othree/html5.vim')
 
@@ -330,7 +332,8 @@ if has('nvim')
     call dein#add('autozimu/LanguageClient-neovim')
     let g:LanguageClient_serverCommands = {}
     let g:LanguageClient_serverCommands.typescript = ['javascript-typescript-stdio']
-    " let g:LanguageClient_serverCommands.javascript = ['flow-language-server', '--stdio']
+    let g:LanguageClient_serverCommands.javascript = ['flow-language-server', '--stdio']
+    " let g:LanguageClient_serverCommands.ocaml = ['ocaml-language-server', '--stdio']
     let g:LanguageClient_diagnosticsEnable = 0
     let g:LanguageClient_autoStart = 1
     nnoremap <silent> <Leader>a :callLanguageClient_textDocument_definition<CR>
