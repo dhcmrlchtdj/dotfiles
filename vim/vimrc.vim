@@ -140,7 +140,6 @@ call dein#add('vim-airline/vim-airline-themes') " statusline theme
 let g:airline_theme = 'powerlineish'
 " let g:airline_left_sep = ''
 " let g:airline_right_sep = ''
-" let g:airline_symbols_ascii = 1
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
@@ -196,7 +195,7 @@ let g:gundo_close_on_revert = 0
 let g:gundo_return_on_revert = 0
 nmap <silent> <F5> :silent GundoToggle<CR>
 
-call dein#add('majutsushi/tagbar') " tagbar, require ctags/jsctags
+call dein#add('majutsushi/tagbar') " tagbar, require ctags
 nmap <silent> <F4> :silent TagbarOpen fj<CR>
 
 call dein#add('scrooloose/nerdcommenter') " comment
@@ -288,20 +287,10 @@ let g:vim_markdown_conceal = 0
 let g:vim_markdown_new_list_item_indent = 0
 autocmd FileType markdown nmap <silent> <F4> :silent Toc<CR>
 
-" call dein#add('rust-lang/rust.vim')
-
 " call dein#add('asciidoc/vim-asciidoc')
-
-" call dein#add('dart-lang/dart-vim-plugin')
-
 " call dein#add('wlangstroth/vim-racket')
-
+" call dein#add('dart-lang/dart-vim-plugin')
 " call dein#add('tbastos/vim-lua')
-
-call dein#add('HerringtonDarkholme/yats.vim')
-
-call dein#add('flowtype/vim-flow')
-let g:flow#enable = 0
 
 call dein#add('othree/html5.vim')
 
@@ -313,6 +302,11 @@ let g:vim_json_syntax_conceal = 0
 
 call dein#add('mxw/vim-jsx')
 let g:jsx_ext_required = 1
+
+call dein#add('HerringtonDarkholme/yats.vim')
+
+call dein#add('flowtype/vim-flow')
+let g:flow#enable = 0
 
 if has('nvim')
     call dein#add('Shougo/deoplete.nvim') " complete
@@ -330,31 +324,38 @@ if has('nvim')
     let g:echodoc_enable_at_startup = 1
 
     call dein#add('autozimu/LanguageClient-neovim')
+    nnoremap <silent> <Leader>a :callLanguageClient_textDocument_definition<CR>
+    let g:LanguageClient_autoStart = 1
+    let g:LanguageClient_diagnosticsEnable = 0
     let g:LanguageClient_serverCommands = {}
     let g:LanguageClient_serverCommands.typescript = ['javascript-typescript-stdio']
     let g:LanguageClient_serverCommands.javascript = ['flow-language-server', '--stdio']
     " let g:LanguageClient_serverCommands.ocaml = ['ocaml-language-server', '--stdio']
-    let g:LanguageClient_diagnosticsEnable = 0
-    let g:LanguageClient_autoStart = 1
-    nnoremap <silent> <Leader>a :callLanguageClient_textDocument_definition<CR>
 
     call dein#add('Shougo/neco-syntax') " syntax complete
 
     " call dein#add('Shougo/neco-vim') " vim
 
-    call dein#add('https://raw.githubusercontent.com/pangloss/vim-javascript/master/indent/javascript.vim', {'script_type' : 'indent'})
+    call dein#add('carlitux/deoplete-ternjs')
     call dein#add('othree/yajs.vim')
     call dein#add('othree/es.next.syntax.vim')
-    call dein#add('carlitux/deoplete-ternjs') " js, tern
+    call dein#add('https://raw.githubusercontent.com/pangloss/vim-javascript/master/indent/javascript.vim', {'script_type' : 'indent'})
 
+    call dein#add('zchee/deoplete-jedi')
+    call dein#add('Vimjas/vim-python-pep8-indent')
     call dein#add('lilydjwg/python-syntax')
     let python_highlight_all = 1
-    call dein#add('Vimjas/vim-python-pep8-indent')
-    call dein#add('zchee/deoplete-jedi') " py
 
     call dein#add('reasonml/vim-reason')
     let g:deoplete#omni#input_patterns.ocaml = '[.\w]+'
     " let g:deoplete#omni#input_patterns.reason = '[.\w]+'
+
+    call dein#add('rust-lang/rust.vim')
+    call dein#add('racer-rust/vim-racer')
+    let g:racer_experimental_completer = 1
+
+    " call dein#add('keith/swift.vim')
+    " call dein#add('mitsuse/autocomplete-swift')
 
     " call dein#add('Rip-Rip/clang_complete', {'on_ft': 'c'}) " clang
     " if has('mac')
@@ -363,11 +364,7 @@ if has('nvim')
 
     " call dein#add('elixir-lang/vim-elixir')
     " call dein#add('slashmili/alchemist.vim') " elixir complete
-
-    " call dein#add('keith/swift.vim')
-    " call dein#add('mitsuse/autocomplete-swift')
 endif
-
 " if dein#check_install()
 " call dein#install()
 " endif
