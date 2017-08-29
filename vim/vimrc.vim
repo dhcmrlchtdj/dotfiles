@@ -209,7 +209,8 @@ let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '•'
 let g:ale_linters = {}
 let g:ale_linters.html = []
-let g:ale_linters.javascript = ['eslint', 'flow']
+let g:ale_linters.javascript = ['eslint']
+" let g:ale_linters.javascript = ['eslint', 'flow']
 let g:ale_linters.typescript = ['tsserver', 'tslint']
 let g:ale_linters.python = ['flake8']
 let g:ale_lint_on_insert_leave = 1
@@ -245,10 +246,6 @@ let g:neoformat_javascript_prettier2 = {}
 let g:neoformat_javascript_prettier2.exe = 'prettier'
 let g:neoformat_javascript_prettier2.stdin = 1
 let g:neoformat_javascript_prettier2.args = ['--stdin --tab-width=2 --single-quote --no-semi --parser=babylon']
-let g:neoformat_javascript_prettierf = {}
-let g:neoformat_javascript_prettierf.exe = 'prettier'
-let g:neoformat_javascript_prettierf.stdin = 1
-let g:neoformat_javascript_prettierf.args = ['--stdin --tab-width=4 --single-quote --trailing-comma=all --parser=flow']
 let g:neoformat_javascript_prettier4 = {}
 let g:neoformat_javascript_prettier4.exe = 'prettier'
 let g:neoformat_javascript_prettier4.stdin = 1
@@ -305,8 +302,8 @@ let g:jsx_ext_required = 1
 
 call dein#add('HerringtonDarkholme/yats.vim')
 
-call dein#add('flowtype/vim-flow')
-let g:flow#enable = 0
+" call dein#add('flowtype/vim-flow')
+" let g:flow#enable = 0
 
 if has('nvim')
     call dein#add('Shougo/deoplete.nvim') " complete
@@ -329,7 +326,7 @@ if has('nvim')
     let g:LanguageClient_diagnosticsEnable = 0
     let g:LanguageClient_serverCommands = {}
     let g:LanguageClient_serverCommands.typescript = ['javascript-typescript-stdio']
-    let g:LanguageClient_serverCommands.javascript = ['flow-language-server', '--stdio']
+    " let g:LanguageClient_serverCommands.javascript = ['flow-language-server', '--stdio']
     " let g:LanguageClient_serverCommands.ocaml = ['ocaml-language-server', '--stdio']
 
     call dein#add('Shougo/neco-syntax') " syntax complete
@@ -350,9 +347,9 @@ if has('nvim')
     let g:deoplete#omni#input_patterns.ocaml = '[.\w]+'
     " let g:deoplete#omni#input_patterns.reason = '[.\w]+'
 
-    call dein#add('rust-lang/rust.vim')
-    call dein#add('racer-rust/vim-racer')
-    let g:racer_experimental_completer = 1
+    " call dein#add('rust-lang/rust.vim')
+    " call dein#add('racer-rust/vim-racer')
+    " let g:racer_experimental_completer = 1
 
     " call dein#add('keith/swift.vim')
     " call dein#add('mitsuse/autocomplete-swift')
