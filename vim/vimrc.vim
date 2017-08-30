@@ -214,9 +214,9 @@ let g:ale_linters.javascript = ['eslint']
 let g:ale_linters.typescript = ['tsserver', 'tslint']
 let g:ale_linters.python = ['flake8']
 let g:ale_lint_on_insert_leave = 1
-" let g:ale_lint_on_text_changed = 'never'
-" let g:ale_lint_delay = 5000
 let g:ale_echo_msg_format = '%linter% | %severity% | %s'
+let g:ale_fixers = {}
+let g:ale_completion_enabled = 0
 
 call dein#add('Shougo/denite.nvim') " ripgrep
 call denite#custom#var('file_rec', 'command', ['rg', '--files'])
@@ -242,39 +242,11 @@ call denite#custom#source('grep', 'sorters', ['sorter_sublime'])
 call dein#add('Konfekt/FastFold') " fold
 
 call dein#add('sbdchd/neoformat') " formatter
-let g:neoformat_javascript_prettier2 = {}
-let g:neoformat_javascript_prettier2.exe = 'prettier'
-let g:neoformat_javascript_prettier2.stdin = 1
-let g:neoformat_javascript_prettier2.args = ['--stdin --tab-width=2 --single-quote --no-semi --parser=babylon']
-let g:neoformat_javascript_prettier4 = {}
-let g:neoformat_javascript_prettier4.exe = 'prettier'
-let g:neoformat_javascript_prettier4.stdin = 1
-let g:neoformat_javascript_prettier4.args = ['--stdin --tab-width=4 --single-quote --trailing-comma=es5 --parser=babylon']
-let g:neoformat_enabled_javascript = ['prettier4', 'prettier2']
-let g:neoformat_json_prettier4 = {}
-let g:neoformat_json_prettier4.exe = 'prettier'
-let g:neoformat_json_prettier4.stdin = 1
-let g:neoformat_json_prettier4.args = ['--stdin --tab-width=4 --parser=json']
-let g:neoformat_enabled_json = ['prettier4']
-let g:neoformat_typescript_prettier4 = {}
-let g:neoformat_typescript_prettier4.exe = 'prettier'
-let g:neoformat_typescript_prettier4.stdin = 1
-let g:neoformat_typescript_prettier4.args = ['--stdin --tab-width=4 --single-quote --trailing-comma=all --parser=typescript']
-let g:neoformat_enabled_typescript = ['prettier4']
-let g:neoformat_scss_prettier4 = {}
-let g:neoformat_scss_prettier4.exe = 'prettier'
-let g:neoformat_scss_prettier4.stdin = 1
-let g:neoformat_scss_prettier4.args = ['--stdin --tab-width=4 --single-quote --parser=postcss']
-let g:neoformat_enabled_scss = ['prettier4']
-let g:neoformat_css_prettier4 = {}
-let g:neoformat_css_prettier4.exe = 'prettier'
-let g:neoformat_css_prettier4.stdin = 1
-let g:neoformat_css_prettier4.args = ['--stdin --tab-width=4 --single-quote --parser=postcss']
-let g:neoformat_enabled_css = ['prettier4']
-let g:neoformat_swift_swiftformat = {}
-let g:neoformat_swift_swiftformat.exe = 'swiftformat'
-let g:neoformat_swift_swiftformat.stdin = 1
-let g:neoformat_enabled_swift = ['swiftformat']
+" let g:neoformat_enabled_javascript = ['prettier']
+" let g:neoformat_enabled_json = ['prettier']
+" let g:neoformat_enabled_typescript = ['prettier']
+" let g:neoformat_enabled_scss = ['prettier']
+" let g:neoformat_enabled_css = ['prettier']
 noremap <Leader>ff :Neoformat<CR>
 
 call dein#add('othree/nginx-contrib-vim')
@@ -336,6 +308,7 @@ if has('nvim')
     call dein#add('carlitux/deoplete-ternjs')
     call dein#add('othree/yajs.vim')
     call dein#add('othree/es.next.syntax.vim')
+    " call dein#add('pangloss/vim-javascript')
     call dein#add('https://raw.githubusercontent.com/pangloss/vim-javascript/master/indent/javascript.vim', {'script_type' : 'indent'})
 
     call dein#add('zchee/deoplete-jedi')
