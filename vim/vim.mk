@@ -2,7 +2,6 @@
 
 vim-config:
 	-cp -n `pwd`/vim/conf/tern.json ~/.tern-project # tern
-	-cp -n `pwd`/vim/conf/jsbeautifyrc.json ~/.jsbeautifyrc # js-beautify
 	-cp -n `pwd`/vim/conf/clang-format ~/.clang-format # clang-format
 	-cp -n `pwd`/vim/conf/pep8 ~/.config/pep8 # autopep8
 	-cp -n `pwd`/vim/conf/flake8 ~/.config/flake8 # flake8

@@ -210,7 +210,6 @@ let g:ale_sign_warning = '•'
 let g:ale_linters = {}
 let g:ale_linters.html = []
 let g:ale_linters.javascript = ['eslint']
-" let g:ale_linters.javascript = ['eslint', 'flow']
 let g:ale_linters.typescript = ['tsserver', 'tslint']
 let g:ale_linters.python = ['flake8']
 let g:ale_lint_on_insert_leave = 1
@@ -382,10 +381,11 @@ function! FormatFile()
     exe 'set nobomb'
 
     " delete <0d>
-    exe 'silent! :%s/\r//g'
+    exe 'silent! :%s/\r/\r/g'
 
     " 删除行尾空格
-    exe 'silent! :%s/\\s\\+$//g'
+    " exe 'silent! :%s/\\s\\+$//g'
+    exe 'silent! :%s/\v\s+$//g'
 
     " 删除末尾空行
     let lnum = line('$')
