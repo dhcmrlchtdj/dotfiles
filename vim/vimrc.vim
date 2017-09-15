@@ -260,6 +260,8 @@ autocmd FileType markdown nmap <silent> <F4> :silent Toc<CR>
 " call dein#add('dart-lang/dart-vim-plugin')
 " call dein#add('tbastos/vim-lua')
 
+call dein#add('rhysd/vim-wasm')
+
 call dein#add('othree/html5.vim')
 
 call dein#add('hail2u/vim-css3-syntax')
@@ -345,9 +347,7 @@ syntax enable "语法加亮
 autocmd BufRead,BufNewFile *.vue setl ft=html
 autocmd BufRead,BufNewFile jbuild setl ft=scheme
 " autocmd FileType * setl noet
-" autocmd FileType html,css,scss,javascript,javascript.jsx,json,vue setl et
 autocmd FileType scheme setl ts=2 sts=2 sw=2
-" autocmd FileType javascript setl foldmethod=syntax
 
 set background=dark "深色背景
 set background=light "浅色背景

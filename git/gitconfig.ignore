@@ -1,36 +1,24 @@
+# mac
+.DS_Store
+
 # vim
 *~
 *.sw[po]
 
-# mac
-.DS_Store
-
-# sass
-.sass-cache
-
 # ocaml
-_opam/
 _build/
 
 # python
-__pycache__/
-.venv/
 *.py[cod]
-
-# sqlite
-*-shm
-*-wal
+__pycache__/
 
 # node
 node_modules/
 coverage/
+.nyc_output/
 npm-debug.log
 yarn-error.log
-.nyc_output/
 
-# java
-*.iml
-.idea/
-logs/
-out/
-target/
+# sqlite
+*-shm
+*-wal
