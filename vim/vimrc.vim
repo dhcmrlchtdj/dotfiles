@@ -253,12 +253,15 @@ call dein#add('othree/nginx-contrib-vim')
 call dein#add('plasticboy/vim-markdown')
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_new_list_item_indent = 0
-autocmd FileType markdown nmap <silent> <F4> :silent Toc<CR>
+let g:vim_markdown_toc_autofit = 1
+autocmd FileType markdown nmap <buffer> <silent> <F4> :silent Toc<CR>
 
 " call dein#add('asciidoc/vim-asciidoc')
 " call dein#add('wlangstroth/vim-racket')
 " call dein#add('dart-lang/dart-vim-plugin')
 " call dein#add('tbastos/vim-lua')
+
+call dein#add('keith/swift.vim')
 
 call dein#add('rhysd/vim-wasm')
 
@@ -317,7 +320,7 @@ if has('nvim')
     call dein#add('lilydjwg/python-syntax')
     let python_highlight_all = 1
 
-    call dein#add('reasonml/vim-reason')
+    call dein#add('reasonml-editor/vim-reason')
     let g:deoplete#omni#input_patterns.ocaml = '[.\w]+'
     " let g:deoplete#omni#input_patterns.reason = '[.\w]+'
 
@@ -325,7 +328,6 @@ if has('nvim')
     " call dein#add('racer-rust/vim-racer')
     " let g:racer_experimental_completer = 1
 
-    " call dein#add('keith/swift.vim')
     " call dein#add('mitsuse/autocomplete-swift')
 
     " call dein#add('Rip-Rip/clang_complete', {'on_ft': 'c'}) " clang
