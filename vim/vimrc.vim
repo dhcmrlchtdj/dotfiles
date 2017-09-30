@@ -216,6 +216,7 @@ let g:ale_lint_on_insert_leave = 1
 let g:ale_echo_msg_format = '%linter% | %severity% | %s'
 let g:ale_fixers = {}
 let g:ale_completion_enabled = 0
+let g:ale_pattern_options = {'\.ml[ly]$': {'ale_enabled': 0}}
 
 call dein#add('Shougo/denite.nvim') " ripgrep
 call denite#custom#var('file_rec', 'command', ['rg', '--files'])
@@ -303,7 +304,8 @@ if has('nvim')
     let g:LanguageClient_serverCommands = {}
     let g:LanguageClient_serverCommands.typescript = ['javascript-typescript-stdio']
     " let g:LanguageClient_serverCommands.javascript = ['flow-language-server', '--stdio']
-    " let g:LanguageClient_serverCommands.ocaml = ['ocaml-language-server', '--stdio']
+    let g:LanguageClient_serverCommands.ocaml = ['ocaml-language-server', '--stdio']
+    nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
 
     call dein#add('Shougo/neco-syntax') " syntax complete
 
@@ -346,8 +348,8 @@ call dein#end()
 filetype plugin indent on "载入文件类型 插件 缩进
 syntax enable "语法加亮
 
-autocmd BufRead,BufNewFile *.vue setl ft=html
-autocmd BufRead,BufNewFile jbuild setl ft=scheme
+autocmd BufRead,BufNewFile *.vue setf html
+autocmd BufRead,BufNewFile jbuild setf scheme
 " autocmd FileType * setl noet
 autocmd FileType scheme setl ts=2 sts=2 sw=2
 
