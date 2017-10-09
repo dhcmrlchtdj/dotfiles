@@ -24,3 +24,5 @@ yarn-error.log
 # sqlite
 *-shm
 *-wal
+
+a.out
