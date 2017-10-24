@@ -306,6 +306,7 @@ if has('nvim')
     " let g:LanguageClient_serverCommands.javascript = ['flow-language-server', '--stdio']
     let g:LanguageClient_serverCommands.ocaml = ['ocaml-language-server', '--stdio']
     nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+    nnoremap <silent> L :call LanguageClient_textDocument_definition()<CR>
 
     call dein#add('Shougo/neco-syntax') " syntax complete
 
