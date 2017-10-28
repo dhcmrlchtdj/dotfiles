@@ -325,6 +325,7 @@ if has('nvim')
 
     call dein#add('reasonml-editor/vim-reason')
     let g:deoplete#omni#input_patterns.ocaml = '[.\w]+'
+    let g:merlin_disable_default_keybindings = 1
     " let g:deoplete#omni#input_patterns.reason = '[.\w]+'
 
     " call dein#add('rust-lang/rust.vim')
