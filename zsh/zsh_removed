@@ -1,3 +1,7 @@
+alias danger_chrome="open -a 'Google Chrome Canary' --args --disable-web-security --user-data-dir --allow-file-access-from-files"
+alias mosh="mosh --predict=experimental"
+datauri() {echo "data:image/${1##*.};base64,$(openssl base64 -in $1 | tr -d '\n')"}
+
 # export RUSTUP_DIST_SERVER=https://mirrors.ustc.edu.cn/rust-static
 # export RUSTUP_UPDATE_ROOT=https://mirrors.ustc.edu.cn/rust-static/rustup
 # export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/src

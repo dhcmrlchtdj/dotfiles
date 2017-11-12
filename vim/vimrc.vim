@@ -242,11 +242,11 @@ call denite#custom#source('grep', 'sorters', ['sorter_sublime'])
 call dein#add('Konfekt/FastFold') " fold
 
 call dein#add('sbdchd/neoformat') " formatter
-" let g:neoformat_enabled_javascript = ['prettier']
-" let g:neoformat_enabled_json = ['prettier']
-" let g:neoformat_enabled_typescript = ['prettier']
-" let g:neoformat_enabled_scss = ['prettier']
-" let g:neoformat_enabled_css = ['prettier']
+let g:neoformat_enabled_javascript = ['prettier']
+let g:neoformat_enabled_json = ['prettier']
+let g:neoformat_enabled_typescript = ['prettier']
+let g:neoformat_enabled_scss = ['prettier']
+let g:neoformat_enabled_css = ['prettier']
 noremap <Leader>ff :Neoformat<CR>
 
 call dein#add('othree/nginx-contrib-vim')
@@ -262,7 +262,7 @@ autocmd FileType markdown nmap <buffer> <silent> <F4> :silent Toc<CR>
 " call dein#add('dart-lang/dart-vim-plugin')
 " call dein#add('tbastos/vim-lua')
 
-call dein#add('keith/swift.vim')
+" call dein#add('keith/swift.vim')
 
 call dein#add('rhysd/vim-wasm')
 
@@ -278,6 +278,8 @@ call dein#add('mxw/vim-jsx')
 let g:jsx_ext_required = 1
 
 call dein#add('HerringtonDarkholme/yats.vim')
+
+call dein#add('rgrinberg/vim-ocaml')
 
 " call dein#add('flowtype/vim-flow')
 " let g:flow#enable = 0
@@ -303,7 +305,7 @@ if has('nvim')
     let g:LanguageClient_diagnosticsEnable = 0
     let g:LanguageClient_serverCommands = {}
     let g:LanguageClient_serverCommands.typescript = ['javascript-typescript-stdio']
-    " let g:LanguageClient_serverCommands.javascript = ['flow-language-server', '--stdio']
+    " let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
     let g:LanguageClient_serverCommands.ocaml = ['ocaml-language-server', '--stdio']
     nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
     nnoremap <silent> L :call LanguageClient_textDocument_definition()<CR>
@@ -312,20 +314,20 @@ if has('nvim')
 
     " call dein#add('Shougo/neco-vim') " vim
 
-    call dein#add('carlitux/deoplete-ternjs')
+    " call dein#add('carlitux/deoplete-ternjs')
     call dein#add('othree/yajs.vim')
     call dein#add('othree/es.next.syntax.vim')
     " call dein#add('pangloss/vim-javascript')
     call dein#add('https://raw.githubusercontent.com/pangloss/vim-javascript/master/indent/javascript.vim', {'script_type' : 'indent'})
 
-    call dein#add('zchee/deoplete-jedi')
+    " call dein#add('zchee/deoplete-jedi')
     call dein#add('Vimjas/vim-python-pep8-indent')
     call dein#add('lilydjwg/python-syntax')
     let python_highlight_all = 1
 
-    call dein#add('reasonml-editor/vim-reason')
-    let g:deoplete#omni#input_patterns.ocaml = '[.\w]+'
-    let g:merlin_disable_default_keybindings = 1
+    " call dein#add('reasonml-editor/vim-reason')
+    " let g:deoplete#omni#input_patterns.ocaml = '[.\w]+'
+    " let g:merlin_disable_default_keybindings = 1
     " let g:deoplete#omni#input_patterns.reason = '[.\w]+'
 
     " call dein#add('rust-lang/rust.vim')
@@ -351,7 +353,6 @@ filetype plugin indent on "载入文件类型 插件 缩进
 syntax enable "语法加亮
 
 autocmd BufRead,BufNewFile *.vue setf html
-autocmd BufRead,BufNewFile jbuild setf scheme
 " autocmd FileType * setl noet
 autocmd FileType scheme setl ts=2 sts=2 sw=2
 

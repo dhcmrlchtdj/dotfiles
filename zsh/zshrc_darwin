@@ -15,31 +15,14 @@ _source ~/.opam/opam-init/init.zsh
 alias rm="grm -Irv"
 alias ls="gls --color=auto --group-directories-first -vF"
 alias mvim="mvim -v"
-
-alias dm="docker-machine --native-ssh"
-alias danger_chrome="open -a 'Google Chrome Canary' --args --disable-web-security --user-data-dir --allow-file-access-from-files"
-alias mosh="mosh --predict=experimental"
 alias breww="brew update && brew upgrade && brew cleanup -s && brew prune"
-obuild() {
-    for i in "$@"; do
-        ocamlbuild \
-            -tag 'color(always)' \
-            -tag safe_string \
-            -tag strict_sequence \
-            -tag strict_formats \
-            -tag short_paths \
-            -tag keep_locs \
-            -use-ocamlfind -package str \
-            ${i%.ml}.byte
-    done
-}
-datauri() {echo "data:image/${1##*.};base64,$(openssl base64 -in $1 | tr -d '\n')"}
+alias dm="docker-machine --native-ssh"
 
 # forward f port remote-port remote-host
 # forward c port remote-port remote-host
 forward() {
     case "$1" in
-        "f") ssh -v -O forward -R $3:localhost:$2 $4 ;;
-        "c") ssh -v -O cancel -R $3:localhost:$2 $4 ;;
+        "f") ssh -v -O forward -R 0.0.0.0:${3}:localhost:${2} ${4} ;;
+        "c") ssh -v -O cancel -R 0.0.0.0:${3}:localhost:${2} ${4} ;;
     esac
 }
