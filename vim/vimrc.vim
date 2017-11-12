@@ -280,9 +280,24 @@ let g:jsx_ext_required = 1
 call dein#add('HerringtonDarkholme/yats.vim')
 
 call dein#add('rgrinberg/vim-ocaml')
+call dein#add('ocaml/merlin', {'rtp': 'vim/merlin'})
+let g:merlin_disable_default_keybindings = 1
 
 " call dein#add('flowtype/vim-flow')
 " let g:flow#enable = 0
+
+" call dein#add('carlitux/deoplete-ternjs')
+call dein#add('othree/yajs.vim')
+call dein#add('othree/es.next.syntax.vim')
+" call dein#add('pangloss/vim-javascript')
+call dein#add('https://raw.githubusercontent.com/pangloss/vim-javascript/master/indent/javascript.vim', {'script_type' : 'indent'})
+
+" call dein#add('zchee/deoplete-jedi')
+call dein#add('Vimjas/vim-python-pep8-indent')
+call dein#add('lilydjwg/python-syntax')
+let python_highlight_all = 1
+
+" call dein#add('rust-lang/rust.vim')
 
 if has('nvim')
     call dein#add('Shougo/deoplete.nvim') " complete
@@ -311,38 +326,6 @@ if has('nvim')
     nnoremap <silent> L :call LanguageClient_textDocument_definition()<CR>
 
     call dein#add('Shougo/neco-syntax') " syntax complete
-
-    " call dein#add('Shougo/neco-vim') " vim
-
-    " call dein#add('carlitux/deoplete-ternjs')
-    call dein#add('othree/yajs.vim')
-    call dein#add('othree/es.next.syntax.vim')
-    " call dein#add('pangloss/vim-javascript')
-    call dein#add('https://raw.githubusercontent.com/pangloss/vim-javascript/master/indent/javascript.vim', {'script_type' : 'indent'})
-
-    " call dein#add('zchee/deoplete-jedi')
-    call dein#add('Vimjas/vim-python-pep8-indent')
-    call dein#add('lilydjwg/python-syntax')
-    let python_highlight_all = 1
-
-    " call dein#add('reasonml-editor/vim-reason')
-    " let g:deoplete#omni#input_patterns.ocaml = '[.\w]+'
-    " let g:merlin_disable_default_keybindings = 1
-    " let g:deoplete#omni#input_patterns.reason = '[.\w]+'
-
-    " call dein#add('rust-lang/rust.vim')
-    " call dein#add('racer-rust/vim-racer')
-    " let g:racer_experimental_completer = 1
-
-    " call dein#add('mitsuse/autocomplete-swift')
-
-    " call dein#add('Rip-Rip/clang_complete', {'on_ft': 'c'}) " clang
-    " if has('mac')
-    " let g:clang_library_path = '/Library/Developer/CommandLineTools/usr/lib'
-    " endif
-
-    " call dein#add('elixir-lang/vim-elixir')
-    " call dein#add('slashmili/alchemist.vim') " elixir complete
 endif
 " if dein#check_install()
 " call dein#install()
