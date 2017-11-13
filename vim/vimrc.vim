@@ -289,8 +289,9 @@ let g:merlin_disable_default_keybindings = 1
 " call dein#add('carlitux/deoplete-ternjs')
 call dein#add('othree/yajs.vim')
 call dein#add('othree/es.next.syntax.vim')
+call dein#add('jiangmiao/simple-javascript-indenter')
 " call dein#add('pangloss/vim-javascript')
-call dein#add('https://raw.githubusercontent.com/pangloss/vim-javascript/master/indent/javascript.vim', {'script_type' : 'indent'})
+" call dein#add('https://raw.githubusercontent.com/pangloss/vim-javascript/master/indent/javascript.vim', {'script_type' : 'indent'})
 
 " call dein#add('zchee/deoplete-jedi')
 call dein#add('Vimjas/vim-python-pep8-indent')
