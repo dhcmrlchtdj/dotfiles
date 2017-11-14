@@ -242,12 +242,14 @@ call denite#custom#source('grep', 'sorters', ['sorter_sublime'])
 call dein#add('Konfekt/FastFold') " fold
 
 call dein#add('sbdchd/neoformat') " formatter
+let g:neoformat_basic_format_trim = 1
+let g:neoformat_run_all_formatters = 1
+noremap <Leader>ff :Neoformat<CR>
 let g:neoformat_enabled_javascript = ['prettier']
 let g:neoformat_enabled_json = ['prettier']
 let g:neoformat_enabled_typescript = ['prettier']
 let g:neoformat_enabled_scss = ['prettier']
 let g:neoformat_enabled_css = ['prettier']
-noremap <Leader>ff :Neoformat<CR>
 
 call dein#add('othree/nginx-contrib-vim')
 
@@ -280,8 +282,8 @@ let g:jsx_ext_required = 1
 call dein#add('HerringtonDarkholme/yats.vim')
 
 call dein#add('rgrinberg/vim-ocaml')
-call dein#add('ocaml/merlin', {'rtp': 'vim/merlin'})
-let g:merlin_disable_default_keybindings = 1
+" call dein#add('ocaml/merlin', {'rtp': 'vim/merlin'})
+" let g:merlin_disable_default_keybindings = 1
 
 " call dein#add('flowtype/vim-flow')
 " let g:flow#enable = 0
@@ -320,8 +322,8 @@ if has('nvim')
     let g:LanguageClient_autoStart = 1
     let g:LanguageClient_diagnosticsEnable = 0
     let g:LanguageClient_serverCommands = {}
-    let g:LanguageClient_serverCommands.typescript = ['javascript-typescript-stdio']
     " let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
+    let g:LanguageClient_serverCommands.typescript = ['javascript-typescript-stdio']
     let g:LanguageClient_serverCommands.ocaml = ['ocaml-language-server', '--stdio']
     nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
     nnoremap <silent> L :call LanguageClient_textDocument_definition()<CR>
@@ -340,9 +342,9 @@ autocmd BufRead,BufNewFile *.vue setf html
 " autocmd FileType * setl noet
 autocmd FileType scheme setl ts=2 sts=2 sw=2
 
+colorscheme NeoSolarized
 set background=dark "深色背景
 set background=light "浅色背景
-colorscheme NeoSolarized
 highlight LintSign guifg=#dc322f guibg=#eee8d5
 highlight ALEErrorSign guifg=#dc322f guibg=#eee8d5
 highlight ALEWarningSign guifg=#dc322f guibg=#eee8d5
