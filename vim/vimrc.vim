@@ -264,10 +264,6 @@ autocmd FileType markdown nmap <buffer> <silent> <F4> :silent Toc<CR>
 " call dein#add('dart-lang/dart-vim-plugin')
 " call dein#add('tbastos/vim-lua')
 
-" call dein#add('keith/swift.vim')
-
-call dein#add('rhysd/vim-wasm')
-
 call dein#add('othree/html5.vim')
 
 call dein#add('hail2u/vim-css3-syntax')
@@ -280,10 +276,6 @@ call dein#add('mxw/vim-jsx')
 let g:jsx_ext_required = 1
 
 call dein#add('HerringtonDarkholme/yats.vim')
-
-call dein#add('rgrinberg/vim-ocaml')
-" call dein#add('ocaml/merlin', {'rtp': 'vim/merlin'})
-" let g:merlin_disable_default_keybindings = 1
 
 " call dein#add('flowtype/vim-flow')
 " let g:flow#enable = 0
@@ -300,6 +292,11 @@ call dein#add('Vimjas/vim-python-pep8-indent')
 call dein#add('lilydjwg/python-syntax')
 let python_highlight_all = 1
 
+call dein#add('rgrinberg/vim-ocaml')
+
+call dein#add('rhysd/vim-wasm')
+
+call dein#add('keith/swift.vim')
 " call dein#add('rust-lang/rust.vim')
 
 if has('nvim')
