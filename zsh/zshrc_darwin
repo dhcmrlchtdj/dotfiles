@@ -2,6 +2,7 @@ fpath=(/usr/local/share/zsh-completions /usr/local/share/zsh/functions $fpath)
 
 export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node
 export SDKROOT=macosx
+export HOMEBREW_AUTO_UPDATE_SECS=86400 #60*60*24
 
 PATH="/usr/local/opt/libarchive/bin:$PATH"
 export PATH
