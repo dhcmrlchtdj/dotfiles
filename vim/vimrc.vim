@@ -250,6 +250,7 @@ let g:neoformat_enabled_json = ['prettier']
 let g:neoformat_enabled_typescript = ['prettier']
 let g:neoformat_enabled_scss = ['prettier']
 let g:neoformat_enabled_css = ['prettier']
+let g:neoformat_enabled_ocaml = ['ocamlformat', 'ocpindent']
 
 call dein#add('othree/nginx-contrib-vim')
 
