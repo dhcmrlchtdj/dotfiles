@@ -19,6 +19,16 @@ export EDITOR="nvim"
 export LESS="-FXR"
 
 
+setopt append_history
+setopt share_history
+setopt extended_history
+setopt histignorealldups
+setopt histignorespace
+export HISTFILE="${HOME}/.zsh_history"
+export HISTSIZE=1000000
+export SAVEHIST=1000000
+
+
 source ~/.zshrc_grml
 source ~/.zshrc_prompt_ooxx
 prompt ooxx
@@ -26,10 +36,6 @@ prompt ooxx
 
 autoload -Uz compinit
 # compinit
-
-
-# command start with space will not be saved
-setopt HIST_IGNORE_SPACE
 
 
 ### alias ###
