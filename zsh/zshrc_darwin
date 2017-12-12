@@ -18,6 +18,7 @@ alias ls="gls --color=auto --group-directories-first -vF"
 alias mvim="mvim -v"
 alias breww="brew update && brew upgrade && brew cleanup -s && brew prune"
 alias dm="docker-machine --native-ssh"
+alias jsoo="js_of_ocaml --opt=3 --pretty"
 
 # forward f port remote-port remote-host
 # forward c port remote-port remote-host
