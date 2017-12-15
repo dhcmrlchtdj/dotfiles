@@ -321,6 +321,8 @@ if has('nvim')
     let g:LanguageClient_autoStart = 1
     let g:LanguageClient_diagnosticsEnable = 0
     let g:LanguageClient_serverCommands = {}
+    " let g:LanguageClient_serverCommands.css = ['css-language-server --stdio']
+    " let g:LanguageClient_serverCommands.scss = ['css-language-server --stdio']
     " let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
     let g:LanguageClient_serverCommands.typescript = ['javascript-typescript-stdio']
     let g:LanguageClient_serverCommands.ocaml = ['ocaml-language-server', '--stdio']
