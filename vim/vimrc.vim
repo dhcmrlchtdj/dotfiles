@@ -57,7 +57,7 @@ set ambiwidth=single "宽度不明字符使用单倍字符宽度
 
 """ 行号 命令行 状态行
 set number "显示行号
-set wrap "自动换行
+" set wrap "自动换行
 set nowrap "不自动换行
 set textwidth=0 "行宽
 set colorcolumn=81 "行宽提示
@@ -261,11 +261,6 @@ let g:vim_markdown_new_list_item_indent = 0
 let g:vim_markdown_toc_autofit = 1
 autocmd FileType markdown nmap <buffer> <silent> <F4> :silent Toc<CR>
 
-" call dein#add('asciidoc/vim-asciidoc')
-" call dein#add('wlangstroth/vim-racket')
-" call dein#add('dart-lang/dart-vim-plugin')
-" call dein#add('tbastos/vim-lua')
-
 call dein#add('othree/html5.vim')
 
 call dein#add('hail2u/vim-css3-syntax')
@@ -296,10 +291,13 @@ let python_highlight_all = 1
 
 call dein#add('rgrinberg/vim-ocaml')
 
-call dein#add('rhysd/vim-wasm')
-
-call dein#add('keith/swift.vim')
+" call dein#add('rhysd/vim-wasm')
+" call dein#add('keith/swift.vim')
 " call dein#add('rust-lang/rust.vim')
+" call dein#add('asciidoc/vim-asciidoc')
+" call dein#add('wlangstroth/vim-racket')
+" call dein#add('dart-lang/dart-vim-plugin')
+" call dein#add('tbastos/vim-lua')
 
 if has('nvim')
     call dein#add('Shougo/deoplete.nvim') " complete
