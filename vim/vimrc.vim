@@ -218,6 +218,7 @@ let g:ale_loclist_msg_format = '%linter% | %s'
 let g:ale_fixers = {}
 let g:ale_completion_enabled = 0
 let g:ale_pattern_options = {'\.ml[ly]$': {'ale_enabled': 0}}
+" let g:ale_kotlin_kotlinc_options = '-jvm-target 1.8'
 
 call dein#add('Shougo/denite.nvim') " ripgrep
 call denite#custom#var('file_rec', 'command', ['rg', '--files'])
@@ -291,13 +292,15 @@ let python_highlight_all = 1
 
 call dein#add('rgrinberg/vim-ocaml')
 
-" call dein#add('rhysd/vim-wasm')
-" call dein#add('keith/swift.vim')
-" call dein#add('rust-lang/rust.vim')
 " call dein#add('asciidoc/vim-asciidoc')
 " call dein#add('wlangstroth/vim-racket')
-" call dein#add('dart-lang/dart-vim-plugin')
+" call dein#add('rhysd/vim-wasm')
 " call dein#add('tbastos/vim-lua')
+" call dein#add('dart-lang/dart-vim-plugin')
+" call dein#add('keith/swift.vim')
+" call dein#add('rust-lang/rust.vim')
+" call dein#add('fatih/vim-go')
+" call dein#add('udalov/kotlin-vim')
 
 if has('nvim')
     call dein#add('Shougo/deoplete.nvim') " complete
