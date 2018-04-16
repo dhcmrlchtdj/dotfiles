@@ -4,10 +4,10 @@
 #require "batteries";;
 open Batteries;;
 
-#require "re.perl";;
-let recompile (pattern: string) : Re.re = pattern |> Re_perl.re ~opts:[] |> Re.compile
-let retest (re: Re.re) (str: string) : bool = Re.execp re str
-let reexec (re: Re.re) (str: string) : string array option = Re.exec_opt re str |> Option.map Re.Group.all
+#require "re";;
+let recompile (pattern: string) : Re.re = pattern |> Re.Perl.re ~opts:[] |> Re.compile;;
+let retest (re: Re.re) (str: string) : bool = Re.execp re str;;
+let reexec (re: Re.re) (str: string) : string array option = Re.exec_opt re str |> Option.map Re.Group.all;;
 
 let () =
     try Topdirs.dir_directory (Sys.getenv "OCAML_TOPLEVEL_PATH")
