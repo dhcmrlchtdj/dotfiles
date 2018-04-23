@@ -15,6 +15,7 @@ FLG -w +a-4
 
 PKG ppx_deriving.std
 PKG batteries
+PKG re
 PKG lwt
 PKG lwt.ppx
 PKG lwt.unix

@@ -298,9 +298,9 @@ call dein#add('rgrinberg/vim-ocaml')
 " call dein#add('tbastos/vim-lua')
 " call dein#add('dart-lang/dart-vim-plugin')
 " call dein#add('keith/swift.vim')
-" call dein#add('rust-lang/rust.vim')
 " call dein#add('fatih/vim-go')
 " call dein#add('udalov/kotlin-vim')
+" call dein#add('rust-lang/rust.vim')
 
 if has('nvim')
     call dein#add('Shougo/deoplete.nvim') " complete
