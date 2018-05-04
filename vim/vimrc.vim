@@ -38,6 +38,7 @@ set showfulltag
 set conceallevel=0
 
 """ 备份 撤销
+set updatetime=1000
 set hidden "自动保存?
 set directory=~/.config/nvim/swap//
 set undofile "开启撤销历史
@@ -56,6 +57,7 @@ set fileformats=unix,dos "判断换行方式
 set ambiwidth=single "宽度不明字符使用单倍字符宽度
 
 """ 行号 命令行 状态行
+" set signcolumn=yes
 set number "显示行号
 " set wrap "自动换行
 set nowrap "不自动换行
@@ -145,11 +147,11 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 
 call dein#add('airblade/vim-gitgutter') " git status
+let g:gitgutter_diff_base = 'HEAD'
 let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '~'
 let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_modified_removed = '!'
-let g:gitgutter_diff_args = 'HEAD'
 
 call dein#add('jamessan/vim-gnupg') " gpg
 
@@ -164,7 +166,7 @@ call dein#add('jeetsukumaran/vim-buffergator') " buffer
 let g:buffergator_split_size = 30
 nmap <silent> <F2> :silent BuffergatorOpen<CR>
 
-call dein#add('kshenoy/vim-signature')
+" call dein#add('kshenoy/vim-signature')
 
 call dein#add('scrooloose/nerdtree') " filesystem
 let g:NERDTreeCaseSensitiveSort = 1
@@ -245,6 +247,8 @@ call dein#add('Konfekt/FastFold') " fold
 
 call dein#add('sbdchd/neoformat') " formatter
 let g:neoformat_basic_format_trim = 1
+let g:neoformat_basic_format_retab = 1
+let g:neoformat_basic_format_trim = 1
 let g:neoformat_run_all_formatters = 1
 noremap <Leader>ff :Neoformat<CR>
 let g:neoformat_enabled_javascript = ['prettier']
@@ -254,13 +258,13 @@ let g:neoformat_enabled_scss = ['prettier']
 let g:neoformat_enabled_css = ['prettier']
 let g:neoformat_enabled_ocaml = ['ocamlformat', 'ocpindent']
 
-call dein#add('othree/nginx-contrib-vim')
-
 call dein#add('plasticboy/vim-markdown')
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_new_list_item_indent = 0
 let g:vim_markdown_toc_autofit = 1
 autocmd FileType markdown nmap <buffer> <silent> <F4> :silent Toc<CR>
+
+call dein#add('rgrinberg/vim-ocaml')
 
 call dein#add('othree/html5.vim')
 
@@ -270,37 +274,40 @@ call dein#add('cakebaker/scss-syntax.vim')
 call dein#add('elzr/vim-json')
 let g:vim_json_syntax_conceal = 0
 
-call dein#add('mxw/vim-jsx')
-let g:jsx_ext_required = 1
+" call dein#add('mxw/vim-jsx')
+" let g:jsx_ext_required = 1
 
 call dein#add('HerringtonDarkholme/yats.vim')
 
 " call dein#add('flowtype/vim-flow')
 " let g:flow#enable = 0
 
-" call dein#add('carlitux/deoplete-ternjs')
 call dein#add('othree/yajs.vim')
 call dein#add('othree/es.next.syntax.vim')
 call dein#add('jiangmiao/simple-javascript-indenter')
-" call dein#add('pangloss/vim-javascript')
-" call dein#add('https://raw.githubusercontent.com/pangloss/vim-javascript/master/indent/javascript.vim', {'script_type' : 'indent'})
 
-" call dein#add('zchee/deoplete-jedi')
-call dein#add('Vimjas/vim-python-pep8-indent')
-call dein#add('lilydjwg/python-syntax')
-let python_highlight_all = 1
+" call dein#add('Vimjas/vim-python-pep8-indent')
+" call dein#add('vim-python/python-syntax')
+" let python_highlight_all = 1
 
-call dein#add('rgrinberg/vim-ocaml')
-
+" call dein#add('othree/nginx-contrib-vim')
 " call dein#add('asciidoc/vim-asciidoc')
-" call dein#add('wlangstroth/vim-racket')
+" call dein#add('jparise/vim-graphql')
+" call dein#add('ianks/vim-tsx')
 " call dein#add('rhysd/vim-wasm')
+" call dein#add('wlangstroth/vim-racket')
 " call dein#add('tbastos/vim-lua')
-" call dein#add('dart-lang/dart-vim-plugin')
 " call dein#add('keith/swift.vim')
 " call dein#add('fatih/vim-go')
 " call dein#add('udalov/kotlin-vim')
 " call dein#add('rust-lang/rust.vim')
+" call dein#add('vim-erlang/vim-erlang-runtime')
+" call dein#add('vim-erlang/vim-erlang-compiler')
+" call dein#add('vim-erlang/vim-erlang-omnicomplete')
+" call dein#add('dart-lang/dart-vim-plugin')
+" call dein#add('elixir-editors/vim-elixir')
+" call dein#add('slashmili/alchemist.vim')
+" call dein#add('idris-hackers/idris-vim')
 
 if has('nvim')
     call dein#add('Shougo/deoplete.nvim') " complete
@@ -345,19 +352,19 @@ autocmd BufRead,BufNewFile *.vue setf html
 autocmd FileType scheme setl ts=2 sts=2 sw=2
 
 colorscheme NeoSolarized
-set background=dark "深色背景
+" set background=dark "深色背景
 set background=light "浅色背景
-highlight LintSign guifg=#dc322f guibg=#eee8d5
+" highlight LintSign guifg=#dc322f guibg=#eee8d5
+" highlight SignColumn guibg=#eee8d5
+" highlight SpecialKey guifg=#93a1a1 guibg=NONE
+" highlight IndentGuidesOdd  guibg=#eee8d5
+highlight IndentGuidesEven guibg=#eee8d5
 highlight ALEErrorSign guifg=#dc322f guibg=#eee8d5
 highlight ALEWarningSign guifg=#dc322f guibg=#eee8d5
-highlight SignColumn guibg=#eee8d5
 highlight GitGutterAdd guibg=#eee8d5
 highlight GitGutterChange guibg=#eee8d5
 highlight GitGutterDelete guibg=#eee8d5
 highlight GitGutterChangeDelete guibg=#eee8d5
-" highlight IndentGuidesOdd  guibg=#eee8d5
-highlight IndentGuidesEven guibg=#eee8d5
-highlight SpecialKey guifg=#93a1a1 guibg=NONE
 
 """ 其他
 " 调整文件
