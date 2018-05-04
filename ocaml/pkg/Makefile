@@ -29,7 +29,7 @@ test: main
 	@echo "something" | ./main.byte -
 
 $(mlis):
-	@$(OCB) $@.inferred.mli
+	-@$(OCB) $@.inferred.mli
 
 clean:
 	@ocamlbuild -clean

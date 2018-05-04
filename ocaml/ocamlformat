@@ -1,3 +1,12 @@
+break-infix fit-or-vertical
 break-string-literals never
+doc-comments after
 escape-chars decimal
 escape-strings decimal
+if-then-else keyword-first
+margin 80
+max-iters 10
+ocp-indent-compat true
+parens-tuple always
+sparse false
+wrap-comments false
