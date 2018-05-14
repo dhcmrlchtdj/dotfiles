@@ -140,9 +140,6 @@ call dein#add('tpope/vim-fugitive') " statusline git
 call dein#add('vim-airline/vim-airline') " statusline
 call dein#add('vim-airline/vim-airline-themes') " statusline theme
 let g:airline_theme = 'powerlineish'
-" let g:airline_left_sep = ''
-" let g:airline_right_sep = ''
-let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 
@@ -211,7 +208,7 @@ let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '•'
 let g:ale_linters = {}
 let g:ale_linters.html = []
-let g:ale_linters.javascript = ['eslint']
+let g:ale_linters.javascript = []
 let g:ale_linters.typescript = ['tsserver', 'tslint']
 let g:ale_linters.python = ['flake8']
 let g:ale_lint_on_insert_leave = 1
@@ -300,13 +297,13 @@ call dein#add('jiangmiao/simple-javascript-indenter')
 " call dein#add('keith/swift.vim')
 " call dein#add('fatih/vim-go')
 " call dein#add('udalov/kotlin-vim')
-" call dein#add('rust-lang/rust.vim')
 " call dein#add('vim-erlang/vim-erlang-runtime')
 " call dein#add('vim-erlang/vim-erlang-compiler')
 " call dein#add('vim-erlang/vim-erlang-omnicomplete')
 " call dein#add('dart-lang/dart-vim-plugin')
 " call dein#add('elixir-editors/vim-elixir')
 " call dein#add('slashmili/alchemist.vim')
+" call dein#add('rust-lang/rust.vim')
 " call dein#add('idris-hackers/idris-vim')
 
 if has('nvim')
