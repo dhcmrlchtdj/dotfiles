@@ -9,8 +9,11 @@
       <string>/usr/local/opt/shadowsocks-libev/bin/ss-local</string>
       <string>-c</string>
       <string>/usr/local/etc/shadowsocks-libev.json</string>
+      <string>-u</string>
+      <string>--plugin</string>
+      <string>obfs-local</string>
       <string>--plugin-opts</string>
-      <string>"obfs=http;obfs-host=example.com"</string>
+      <string>"obfs=http;obfs-host=bing.com"</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
