@@ -243,16 +243,17 @@ call denite#custom#source('grep', 'sorters', ['sorter_sublime'])
 call dein#add('Konfekt/FastFold') " fold
 
 call dein#add('sbdchd/neoformat') " formatter
-let g:neoformat_basic_format_trim = 1
+let g:neoformat_basic_format_align = 1
 let g:neoformat_basic_format_retab = 1
 let g:neoformat_basic_format_trim = 1
 let g:neoformat_run_all_formatters = 1
 noremap <Leader>ff :Neoformat<CR>
-let g:neoformat_enabled_javascript = ['prettier']
+let g:neoformat_enabled_html = []
 let g:neoformat_enabled_json = ['prettier']
+let g:neoformat_enabled_javascript = ['prettier']
 let g:neoformat_enabled_typescript = ['prettier']
-let g:neoformat_enabled_scss = ['prettier']
 let g:neoformat_enabled_css = ['prettier']
+let g:neoformat_enabled_scss = ['prettier']
 let g:neoformat_enabled_ocaml = ['ocamlformat', 'ocpindent']
 
 call dein#add('plasticboy/vim-markdown')
@@ -282,6 +283,8 @@ call dein#add('HerringtonDarkholme/yats.vim')
 call dein#add('othree/yajs.vim')
 call dein#add('othree/es.next.syntax.vim')
 call dein#add('jiangmiao/simple-javascript-indenter')
+
+call dein#add('posva/vim-vue')
 
 " call dein#add('Vimjas/vim-python-pep8-indent')
 " call dein#add('vim-python/python-syntax')
@@ -344,8 +347,9 @@ call dein#end()
 filetype plugin indent on "载入文件类型 插件 缩进
 syntax enable "语法加亮
 
-autocmd BufRead,BufNewFile *.vue setf html
 " autocmd FileType * setl noet
+" autocmd BufRead,BufNewFile *.vue setf html
+autocmd FileType vue syntax sync fromstart
 autocmd FileType scheme setl ts=2 sts=2 sw=2
 
 colorscheme NeoSolarized
