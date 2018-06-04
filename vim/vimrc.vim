@@ -208,7 +208,8 @@ let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '•'
 let g:ale_linters = {}
 let g:ale_linters.html = []
-let g:ale_linters.javascript = []
+let g:ale_linters.vue = ['eslint']
+let g:ale_linters.javascript = ['eslint']
 let g:ale_linters.typescript = ['tsserver', 'tslint']
 let g:ale_linters.python = ['flake8']
 let g:ale_lint_on_insert_leave = 1
@@ -249,6 +250,7 @@ let g:neoformat_basic_format_trim = 1
 let g:neoformat_run_all_formatters = 1
 noremap <Leader>ff :Neoformat<CR>
 let g:neoformat_enabled_html = []
+let g:neoformat_enabled_markdown = []
 let g:neoformat_enabled_json = ['prettier']
 let g:neoformat_enabled_javascript = ['prettier']
 let g:neoformat_enabled_typescript = ['prettier']
@@ -325,17 +327,16 @@ if has('nvim')
     let g:echodoc_enable_at_startup = 1
 
     call dein#add('autozimu/LanguageClient-neovim')
-    nnoremap <silent> <Leader>a :callLanguageClient_textDocument_definition<CR>
+    nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+    nnoremap <silent> L :call LanguageClient_textDocument_definition()<CR>
     let g:LanguageClient_autoStart = 1
     let g:LanguageClient_diagnosticsEnable = 0
     let g:LanguageClient_serverCommands = {}
     " let g:LanguageClient_serverCommands.css = ['css-language-server --stdio']
     " let g:LanguageClient_serverCommands.scss = ['css-language-server --stdio']
-    " let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
+    let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
     let g:LanguageClient_serverCommands.typescript = ['javascript-typescript-stdio']
     let g:LanguageClient_serverCommands.ocaml = ['ocaml-language-server', '--stdio']
-    nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-    nnoremap <silent> L :call LanguageClient_textDocument_definition()<CR>
 
     call dein#add('Shougo/neco-syntax') " syntax complete
 endif
