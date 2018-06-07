@@ -1,6 +1,7 @@
 fpath=(/usr/local/share/zsh-completions /usr/local/share/zsh/functions $fpath)
 
 export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
 export SDKROOT=macosx
 export HOMEBREW_AUTO_UPDATE_SECS=86400 #60*60*24
 
@@ -27,4 +28,16 @@ forward() {
         "f") ssh -v -O forward -R 0.0.0.0:${3}:localhost:${2} ${4} ;;
         "c") ssh -v -O cancel -R 0.0.0.0:${3}:localhost:${2} ${4} ;;
     esac
+}
+ppp() {
+    export all_proxy="socks5h://127.0.0.1:2080"
+    export http_proxy="$all_proxy"
+    export https_proxy="$all_proxy"
+    echo "all_proxy='$all_proxy'"
+}
+pppp() {
+    unset all_proxy
+    unset http_proxy
+    unset https_proxy
+    echo "all_proxy='$all_proxy'"
 }

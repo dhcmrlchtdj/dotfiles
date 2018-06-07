@@ -326,7 +326,7 @@ if has('nvim')
     call dein#add('Shougo/echodoc.vim') " signature
     let g:echodoc_enable_at_startup = 1
 
-    call dein#add('autozimu/LanguageClient-neovim')
+    call dein#add('autozimu/LanguageClient-neovim', {'build':'bash install.sh'})
     nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
     nnoremap <silent> L :call LanguageClient_textDocument_definition()<CR>
     let g:LanguageClient_autoStart = 1
