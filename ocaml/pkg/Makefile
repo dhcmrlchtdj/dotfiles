@@ -10,28 +10,45 @@ OCB_FLAGS := \
 	-tag nopervasives \
 	-tag thread \
 	-use-ocamlfind \
-	-pkg ppx_deriving.std \
 	-pkg batteries \
 	-pkg re \
+	-pkg ppx_deriving.std \
 	-use-menhir -tag explain \
 	-tags 'warn(+a-4),warn_error(-a+31)'
 OCB := ocamlbuild $(OCB_FLAGS)
 
+
 mlis := $(patsubst %.ml,%,$(wildcard src/*.ml))
 
-main: $(mlis)
+.PHONY: main
+main: byte
+
+.PHONY: byte
+byte: $(mlis)
 	@$(OCB) src/main.byte
 
-jsoo: main
+.PHONY: native
+native: $(mlis)
+	@$(OCB) src/main.native
+
+.PHONY: jsoo
+jsoo: byte
 	js_of_ocaml --opt=3 --pretty ./main.byte
 
-test: main
-	@echo "something" | ./main.byte -
-
+.PHONY: $(mlis)
 $(mlis):
 	-@$(OCB) $@.inferred.mli
 
+.PHONY: clean
 clean:
 	@ocamlbuild -clean
+	@rm -f ./main.js
 
-.PHONY: main clean $(mlis)
+.PHONY: fmt
+fmt:
+	@ocamlformat -i src/*.ml
+	@ocp-indent -i src/*.ml
+
+.PHONY: test
+test: byte
+	@echo "something" | ./main.byte -
