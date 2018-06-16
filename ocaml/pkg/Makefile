@@ -17,23 +17,24 @@ OCB_FLAGS := \
 	-tags 'warn(+a-4),warn_error(-a+31)'
 OCB := ocamlbuild $(OCB_FLAGS)
 
-
 mlis := $(patsubst %.ml,%,$(wildcard src/*.ml))
 
 .PHONY: main
 main: byte
 
+.PHONY: test
+test: main
+	@echo "something" | ./main -
+
 .PHONY: byte
 byte: $(mlis)
 	@$(OCB) src/main.byte
+	ln -sf ./main.byte ./main
 
 .PHONY: native
 native: $(mlis)
 	@$(OCB) src/main.native
-
-.PHONY: jsoo
-jsoo: byte
-	js_of_ocaml --opt=3 --pretty ./main.byte
+	ln -sf ./main.native ./main
 
 .PHONY: $(mlis)
 $(mlis):
@@ -42,13 +43,9 @@ $(mlis):
 .PHONY: clean
 clean:
 	@ocamlbuild -clean
-	@rm -f ./main.js
+	rm -rf ./main
 
 .PHONY: fmt
 fmt:
-	@ocamlformat -i src/*.ml
-	@ocp-indent -i src/*.ml
-
-.PHONY: test
-test: byte
-	@echo "something" | ./main.byte -
+	ocamlformat -i src/*.ml
+	ocp-indent -i src/*.ml
