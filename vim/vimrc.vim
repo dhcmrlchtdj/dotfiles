@@ -25,6 +25,7 @@ endif
 
 set autoread "外部编辑器修改文件
 autocmd FocusGained,BufEnter,CursorHold * checktime
+" autocmd BufWritePre * :silent !mkdir -p %:p:h
 
 set mouse= "鼠标支持
 set display=lastline,uhex "不可见字符用 hex 形式展示
