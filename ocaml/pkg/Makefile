@@ -1,4 +1,5 @@
 OCB_FLAGS := \
+	-tags 'warn(+a-4),warn_error(-a+31)' \
 	-tag 'color(always)' \
 	-tag safe_string \
 	-tag short_paths \
@@ -10,11 +11,11 @@ OCB_FLAGS := \
 	-tag nopervasives \
 	-tag thread \
 	-use-ocamlfind \
-	-pkg batteries \
-	-pkg re \
-	-pkg ppx_deriving.std \
 	-use-menhir -tag explain \
-	-tags 'warn(+a-4),warn_error(-a+31)'
+	-pkg ppx_deriving.std \
+	-pkg re \
+	-pkg alcotest \
+	-pkg batteries
 OCB := ocamlbuild $(OCB_FLAGS)
 
 mlis := $(patsubst %.ml,%,$(wildcard src/*.ml))
@@ -22,19 +23,24 @@ mlis := $(patsubst %.ml,%,$(wildcard src/*.ml))
 .PHONY: main
 main: byte
 
+.PHONY: main
+main: native
+
 .PHONY: test
 test: main
+	@$(OCB) src/test.byte
+	@./test.byte
 	@echo "something" | ./main -
 
 .PHONY: byte
 byte: $(mlis)
 	@$(OCB) src/main.byte
-	ln -sf ./main.byte ./main
+	@ln -sf ./main.byte ./main
 
 .PHONY: native
 native: $(mlis)
 	@$(OCB) src/main.native
-	ln -sf ./main.native ./main
+	@ln -sf ./main.native ./main
 
 .PHONY: $(mlis)
 $(mlis):
@@ -43,7 +49,7 @@ $(mlis):
 .PHONY: clean
 clean:
 	@ocamlbuild -clean
-	rm -rf ./main
+	@rm -rf ./main
 
 .PHONY: fmt
 fmt:

@@ -2,6 +2,7 @@ S src/**
 
 B _build/**
 
+FLG -w +a-4
 FLG -safe-string
 FLG -short-paths
 FLG -strict-sequence
@@ -9,13 +10,13 @@ FLG -keep-locs
 FLG -keep-docs
 FLG -principal
 FLG -bin-annot
-FLG -thread
 FLG -nopervasives
-FLG -w +a-4
+FLG -thread
 
-PKG ppx_deriving.std
-PKG batteries
-PKG re
 PKG lwt
 PKG lwt.ppx
 PKG lwt.unix
+PKG ppx_deriving.std
+PKG re
+PKG alcotest
+PKG batteries
