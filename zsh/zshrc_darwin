@@ -1,10 +1,12 @@
 fpath=(/usr/local/share/zsh-completions /usr/local/share/zsh/functions $fpath)
 
-export NVM_NODEJS_ORG_MIRROR=https://npm.taobao.org/mirrors/node
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
 export SDKROOT=macosx
 export HOMEBREW_AUTO_UPDATE_SECS=86400 #60*60*24
 
+PATH="$HOME/.pub-cache/bin:$PATH"
+PATH="/usr/local/opt/node@8/bin:$PATH"
+PATH="/usr/local/opt/python/libexec/bin:$PATH"
 PATH="/usr/local/opt/libarchive/bin:$PATH"
 export PATH
 
