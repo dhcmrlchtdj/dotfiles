@@ -332,13 +332,15 @@ if has('nvim')
     nnoremap <silent> L :call LanguageClient_textDocument_definition()<CR>
     let g:LanguageClient_autoStart = 1
     let g:LanguageClient_diagnosticsEnable = 0
-    let g:LanguageClient_hoverPreview = "Never"
+    " let g:LanguageClient_hoverPreview = "Never"
+    let g:LanguageClient_hoverPreview = "Always"
     let g:LanguageClient_serverCommands = {}
     " let g:LanguageClient_serverCommands.css = ['css-language-server --stdio']
     " let g:LanguageClient_serverCommands.scss = ['css-language-server --stdio']
     let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
     let g:LanguageClient_serverCommands.typescript = ['javascript-typescript-stdio']
     let g:LanguageClient_serverCommands.ocaml = ['ocaml-language-server', '--stdio']
+    " let g:LanguageClient_serverCommands.dart = ['dart_language_server']
 
     call dein#add('Shougo/neco-syntax') " syntax complete
 endif
