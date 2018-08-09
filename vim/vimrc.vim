@@ -213,6 +213,7 @@ let g:ale_linters.vue = ['eslint']
 let g:ale_linters.javascript = ['eslint']
 let g:ale_linters.typescript = ['tsserver', 'tslint']
 let g:ale_linters.python = ['flake8']
+let g:ale_linters.dart = ['dartanalyzer', 'dartfmt']
 let g:ale_lint_on_insert_leave = 1
 let g:ale_echo_msg_format = '%severity% | %linter% | %s'
 let g:ale_loclist_msg_format = '%linter% | %s'
@@ -340,7 +341,7 @@ if has('nvim')
     let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
     let g:LanguageClient_serverCommands.typescript = ['javascript-typescript-stdio']
     let g:LanguageClient_serverCommands.ocaml = ['ocaml-language-server', '--stdio']
-    " let g:LanguageClient_serverCommands.dart = ['dart_language_server']
+    let g:LanguageClient_serverCommands.dart = ['dart_language_server']
 
     call dein#add('Shougo/neco-syntax') " syntax complete
 endif
