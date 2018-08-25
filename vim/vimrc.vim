@@ -213,7 +213,7 @@ let g:ale_linters.vue = ['eslint']
 let g:ale_linters.javascript = ['eslint']
 let g:ale_linters.typescript = ['tsserver', 'tslint']
 let g:ale_linters.python = ['flake8']
-let g:ale_linters.dart = ['dartanalyzer', 'dartfmt']
+" let g:ale_linters.dart = ['dartanalyzer', 'dartfmt']
 let g:ale_lint_on_insert_leave = 1
 let g:ale_echo_msg_format = '%severity% | %linter% | %s'
 let g:ale_loclist_msg_format = '%linter% | %s'
@@ -224,14 +224,14 @@ let g:ale_pattern_options = {'\.ml[ly]$': {'ale_enabled': 0}}
 
 call dein#add('Shougo/denite.nvim') " ripgrep
 call denite#custom#var('file_rec', 'command', ['rg', '--files'])
-nmap <C-p> :Denite -highlight-mode-normal=CursorLine file_rec<CR>
+nmap <C-p> :Denite -highlight-mode-normal=CursorLine -mode=normal file_rec<CR>
 call denite#custom#var('grep', 'command', ['rg'])
 call denite#custom#var('grep', 'default_opts', ['--vimgrep', '--no-heading', '--smart-case'])
 call denite#custom#var('grep', 'recursive_opts', [])
 call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
 call denite#custom#var('grep', 'separator', ['--'])
 call denite#custom#var('grep', 'final_opts', [])
-nmap <Leader>p :Denite -highlight-mode-normal=CursorLine grep:.<CR>
+nmap <Leader>p :Denite -highlight-mode-normal=CursorLine -mode=normal grep:.<CR>
 call denite#custom#map('insert', '<Up>', '<denite:move_to_previous_line>', 'noremap')
 call denite#custom#map('normal', '<Up>', '<denite:move_to_previous_line>', 'noremap')
 call denite#custom#map('insert', '<Down>', '<denite:move_to_next_line>', 'noremap')
@@ -303,7 +303,7 @@ call dein#add('posva/vim-vue')
 " call dein#add('tbastos/vim-lua')
 " call dein#add('rust-lang/rust.vim')
 " call dein#add('idris-hackers/idris-vim')
-call dein#add('dart-lang/dart-vim-plugin')
+" call dein#add('dart-lang/dart-vim-plugin')
 
 if has('nvim')
     call dein#add('Shougo/deoplete.nvim') " complete
@@ -333,7 +333,7 @@ if has('nvim')
     let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
     let g:LanguageClient_serverCommands.typescript = ['javascript-typescript-stdio']
     let g:LanguageClient_serverCommands.ocaml = ['ocaml-language-server', '--stdio']
-    let g:LanguageClient_serverCommands.dart = ['dart_language_server']
+    " let g:LanguageClient_serverCommands.dart = ['dart_language_server']
 
     call dein#add('Shougo/neco-syntax') " syntax complete
 endif
