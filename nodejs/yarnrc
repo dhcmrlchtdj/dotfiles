@@ -1,5 +1,4 @@
 registry "https://registry.npm.taobao.org"
-prefix "$HOME/.local" # https://yarnpkg.com/lang/en/docs/cli/global/
 save-exact true
 disable-self-update-check true
 network-concurrency 1

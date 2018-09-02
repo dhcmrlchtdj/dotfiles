@@ -6,11 +6,10 @@ nvm:
 
 .PHONY: npm
 npm:
-	-cp -n `pwd`/npm/npmrc ~/.npmrc
+	-cp -n `pwd`/node/npmrc ~/.npmrc
+	-cp -n `pwd`/node/yarnrc ~/.yarnrc
+	-cp -n `pwd`/node/eslintrc.js ~/.eslintrc.js
+	-cp -n `pwd`/node/prettierrc.json  ~/.prettierrc
 
 npm_mirror: npm
-	cat `pwd`/npm/mirror.npmrc >> ~/.npmrc
-
-.PHONY: eslint
-eslint:
-	-cp -n `pwd`/eslint/eslintrc.js ~/.eslintrc.js
+	cat `pwd`/node/mirror.npmrc >> ~/.npmrc
