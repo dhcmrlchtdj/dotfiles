@@ -1,12 +1,28 @@
-break-infix fit-or-vertical
-break-string-literals never
-doc-comments after
-escape-chars decimal
-escape-strings decimal
-if-then-else keyword-first
-margin 80
-max-iters 10
-ocp-indent-compat true
-parens-tuple always
-sparse false
-wrap-comments false
+break-cases=fit
+break-collection-expressions=fit-or-vertical
+break-infix=fit-or-vertical
+break-sequences=true
+break-string-literals=never
+break-struct=force
+cases-exp-indent=4
+doc-comments=after
+escape-chars=decimal
+escape-strings=decimal
+extension-sugar=preserve
+field-space=tight
+if-then-else=keyword-first
+indicate-multiline-delimiters=false
+indicate-nested-or-patterns=true
+infix-precedence=parens
+leading-nested-match-parens=true
+let-and=sparse
+let-binding-spacing=sparse
+let-open=long
+margin=80
+module-item-spacing=sparse
+ocp-indent-compat=true
+parens-tuple=always
+sequence-style=terminator
+type-decl=compact
+wrap-comments=false
+wrap-fun-args=false
