@@ -1,5 +1,4 @@
 OCB_FLAGS := \
-	-tags 'warn(+a-4),warn_error(-a+31)' \
 	-tag 'color(always)' \
 	-tag safe_string \
 	-tag short_paths \
@@ -15,7 +14,9 @@ OCB_FLAGS := \
 	-pkg ppx_deriving.std \
 	-pkg re \
 	-pkg alcotest \
-	-pkg batteries
+	-pkg batteries \
+	-pkg containers \
+	-tags 'warn(+a-4),warn_error(-a+31)'
 OCB := ocamlbuild $(OCB_FLAGS)
 
 mlis := $(patsubst %.ml,%,$(wildcard src/*.ml))

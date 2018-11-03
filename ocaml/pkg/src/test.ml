@@ -1,5 +1,3 @@
-open Batteries
-
 let f input = "output"
 
 let cases = [("input", "output"); ("input", "output")]

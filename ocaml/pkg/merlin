@@ -20,3 +20,4 @@ PKG ppx_deriving.std
 PKG re
 PKG alcotest
 PKG batteries
+PKG containers
