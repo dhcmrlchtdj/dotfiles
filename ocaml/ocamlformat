@@ -23,6 +23,6 @@ module-item-spacing=sparse
 ocp-indent-compat=true
 parens-tuple=always
 sequence-style=terminator
-type-decl=compact
+type-decl=sparse
 wrap-comments=false
 wrap-fun-args=false
