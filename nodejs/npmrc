@@ -1,3 +1,5 @@
 loglevel=http
 save-exact=true
 progress=false
+update-notifier=false
+disturl=https://npm.taobao.org/mirrors/node

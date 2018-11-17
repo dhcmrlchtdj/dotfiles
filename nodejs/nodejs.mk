@@ -10,6 +10,3 @@ npm:
 	-cp -n `pwd`/node/yarnrc ~/.yarnrc
 	-cp -n `pwd`/node/eslintrc.js ~/.eslintrc.js
 	-cp -n `pwd`/node/prettierrc.json  ~/.prettierrc
-
-npm_mirror: npm
-	cat `pwd`/node/mirror.npmrc >> ~/.npmrc

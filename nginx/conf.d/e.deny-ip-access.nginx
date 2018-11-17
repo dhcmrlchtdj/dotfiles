@@ -1,5 +1,9 @@
 server {
     listen 80 default_server;
+    listen 443 ssl default_server;
+    include conf.d/i.ssl.nginx;
+
+    server_name example.com;
 
     location / {
         return 418;

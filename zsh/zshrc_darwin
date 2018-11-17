@@ -2,12 +2,11 @@ fpath=(/usr/local/share/zsh-completions /usr/local/share/zsh/functions $fpath)
 
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
 export SDKROOT=macosx
-export HOMEBREW_AUTO_UPDATE_SECS=86400 #60*60*24
+export HOMEBREW_AUTO_UPDATE_SECS=864000 #60*60*24
 # export PUB_HOSTED_URL=https://pub.flutter-io.cn
 
 # PATH="$HOME/.pub-cache/bin:$PATH"
-# PATH="/usr/local/opt/dart@2/bin:$PATH"
-# PATH="/usr/local/opt/node@8/bin:$PATH"
+PATH="/usr/local/opt/node@10/bin:$PATH"
 PATH="/usr/local/opt/python/libexec/bin:$PATH"
 PATH="/usr/local/opt/libarchive/bin:$PATH"
 export PATH

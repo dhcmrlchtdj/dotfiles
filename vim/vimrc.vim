@@ -347,7 +347,8 @@ syntax enable "语法加亮
 
 " autocmd FileType * setl noet
 " autocmd BufRead,BufNewFile *.vue setf html
-autocmd FileType vue syntax sync fromstart
+autocmd BufRead,BufNewFile *.svelte setf html
+" autocmd FileType vue syntax sync fromstart
 autocmd FileType scheme setl ts=2 sts=2 sw=2
 
 colorscheme NeoSolarized

@@ -1,8 +1,0 @@
-disturl=https://npm.taobao.org/mirrors/node
-fse_binary_host_mirror=https://npm.taobao.org/mirrors/fsevents
-node_sqlite3_binary_host_mirror=https://npm.taobao.org/mirrors
-phantomjs_cdnurl=http://npm.taobao.org/mirrors/phantomjs
-profiler_binary_host_mirror=https://npm.taobao.org/mirrors/node-inspector
-registry=https://registry.npm.taobao.org
-sass_binary_site=https://npm.taobao.org/mirrors/node-sass
-chromedriver_cdnurl=http://npm.taobao.org/mirrors/chromedriver

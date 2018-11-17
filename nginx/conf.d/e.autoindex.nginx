@@ -1,0 +1,13 @@
+server {
+    listen 443 ssl;
+    include conf.d/i.ssl.nginx;
+
+    server_name example.com;
+
+    location / {
+        # alias /path/to/dir/;
+        autoindex on;
+        autoindex_exact_size off;
+        autoindex_localtime on;
+    }
+}

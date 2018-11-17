@@ -9,6 +9,7 @@
 _build/
 *.byte
 *.native
+/main
 
 # python
 *.py[cod]
