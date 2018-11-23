@@ -4,9 +4,11 @@ export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bott
 export SDKROOT=macosx
 export HOMEBREW_AUTO_UPDATE_SECS=864000 #60*60*24
 # export PUB_HOSTED_URL=https://pub.flutter-io.cn
+# export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 
 # PATH="$HOME/.pub-cache/bin:$PATH"
 PATH="/usr/local/opt/node@10/bin:$PATH"
+PATH="$HOME/.cargo/bin:$PATH"
 PATH="/usr/local/opt/python/libexec/bin:$PATH"
 PATH="/usr/local/opt/libarchive/bin:$PATH"
 export PATH

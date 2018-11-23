@@ -301,7 +301,7 @@ call dein#add('posva/vim-vue')
 " call dein#add('rhysd/vim-wasm')
 " call dein#add('wlangstroth/vim-racket')
 " call dein#add('tbastos/vim-lua')
-" call dein#add('rust-lang/rust.vim')
+call dein#add('rust-lang/rust.vim')
 " call dein#add('idris-hackers/idris-vim')
 " call dein#add('dart-lang/dart-vim-plugin')
 
@@ -333,6 +333,7 @@ if has('nvim')
     let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
     let g:LanguageClient_serverCommands.typescript = ['javascript-typescript-stdio']
     let g:LanguageClient_serverCommands.ocaml = ['ocaml-language-server', '--stdio']
+    let g:LanguageClient_serverCommands.rust = ['rls']
     " let g:LanguageClient_serverCommands.dart = ['dart_language_server']
 
     call dein#add('Shougo/neco-syntax') " syntax complete
