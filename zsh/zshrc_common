@@ -31,6 +31,7 @@ export SAVEHIST=1000000
 
 source ~/.zshrc_grml
 source ~/.zshrc_prompt_ooxx
+source ~/.zshrc_z
 prompt ooxx
 
 

@@ -4,3 +4,4 @@ zsh:
 	-cp -n `pwd`/zsh/zshrc_common ~/.zshrc_common
 	-cp -n `pwd`/zsh/zshrc_`uname | tr '[:upper:]' '[:lower:]'` ~/.zshrc
 	curl 'https://raw.githubusercontent.com/grml/grml-etc-core/master/etc/zsh/zshrc' -o ~/.zshrc_grml
+	curl 'https://raw.githubusercontent.com/rupa/z/master/z.sh' -o ~/.zshrc_z
