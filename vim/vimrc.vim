@@ -141,6 +141,7 @@ call dein#add('tpope/vim-fugitive') " statusline git
 call dein#add('vim-airline/vim-airline') " statusline
 call dein#add('vim-airline/vim-airline-themes') " statusline theme
 let g:airline_theme = 'powerlineish'
+let g:airline#extensions#languageclient#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 
@@ -260,11 +261,15 @@ let g:neoformat_enabled_css = ['prettier']
 let g:neoformat_enabled_scss = ['prettier']
 let g:neoformat_enabled_ocaml = ['ocamlformat', 'ocpindent']
 
+" call dein#add('editorconfig/editorconfig-vim')
+
 call dein#add('plasticboy/vim-markdown')
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_new_list_item_indent = 0
 let g:vim_markdown_toc_autofit = 1
 autocmd FileType markdown nmap <buffer> <silent> <F4> :silent Toc<CR>
+
+call dein#add('cespare/vim-toml')
 
 call dein#add('rgrinberg/vim-ocaml')
 
@@ -301,9 +306,9 @@ call dein#add('posva/vim-vue')
 " call dein#add('rhysd/vim-wasm')
 " call dein#add('wlangstroth/vim-racket')
 " call dein#add('tbastos/vim-lua')
-call dein#add('rust-lang/rust.vim')
 " call dein#add('idris-hackers/idris-vim')
 " call dein#add('dart-lang/dart-vim-plugin')
+call dein#add('rust-lang/rust.vim')
 
 if has('nvim')
     call dein#add('Shougo/deoplete.nvim') " complete
@@ -410,4 +415,13 @@ function! FormatFile()
 
     call cursor(l, c)
     exe 'normal zz'
+endfunction
+
+nmap <silent> <F8> :call ToggleIndent()<CR>
+function! ToggleIndent()
+    set tabstop=2
+    set softtabstop=2
+    set shiftwidth=2
+    exe ':IndentGuidesDisable'
+    exe ':IndentGuidesEnable'
 endfunction
