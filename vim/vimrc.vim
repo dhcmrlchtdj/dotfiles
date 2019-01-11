@@ -252,8 +252,8 @@ let g:neoformat_basic_format_retab = 1
 let g:neoformat_basic_format_trim = 1
 let g:neoformat_run_all_formatters = 1
 noremap <Leader>ff :Neoformat<CR>
-let g:neoformat_enabled_html = []
 let g:neoformat_enabled_markdown = []
+let g:neoformat_enabled_html = ['prettier']
 let g:neoformat_enabled_json = ['prettier']
 let g:neoformat_enabled_javascript = ['prettier']
 let g:neoformat_enabled_typescript = ['prettier']
@@ -341,7 +341,7 @@ if has('nvim')
     " let g:LanguageClient_serverCommands.rust = ['rls']
     " let g:LanguageClient_serverCommands.dart = ['dart_language_server']
 
-    call dein#add('Shougo/neco-syntax') " syntax complete
+    " call dein#add('Shougo/neco-syntax') " syntax complete
 endif
 " if dein#check_install()
 " call dein#install()
