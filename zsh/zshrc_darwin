@@ -5,10 +5,13 @@ export SDKROOT=macosx
 export HOMEBREW_AUTO_UPDATE_SECS=864000 #60*60*24
 # export PUB_HOSTED_URL=https://pub.flutter-io.cn
 # export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
+# podfile
+# source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
 
 # PATH="$HOME/.pub-cache/bin:$PATH"
+# PATH="$HOME/workspace/opensource/flutter/bin:$PATH"
+# PATH="$HOME/.cargo/bin:$PATH"
 PATH="/usr/local/opt/node@10/bin:$PATH"
-PATH="$HOME/.cargo/bin:$PATH"
 PATH="/usr/local/opt/python/libexec/bin:$PATH"
 PATH="/usr/local/opt/libarchive/bin:$PATH"
 export PATH
@@ -22,7 +25,7 @@ _source ~/.opam/opam-init/init.zsh
 alias rm="grm -Irv"
 alias ls="gls --color=auto --group-directories-first -vF"
 alias mvim="mvim -v"
-alias breww="brew update && brew upgrade && brew cleanup -s && brew prune"
+alias breww="brew update && brew upgrade"
 alias dm="docker-machine --native-ssh"
 alias jsoo="js_of_ocaml --opt=3 --pretty"
 alias ocaml="ocaml str.cma"
