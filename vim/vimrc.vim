@@ -25,7 +25,6 @@ endif
 
 set autoread "外部编辑器修改文件
 autocmd FocusGained,BufEnter,CursorHold * checktime
-" autocmd BufWritePre * :silent !mkdir -p %:p:h
 
 set mouse= "鼠标支持
 set display=lastline,uhex "不可见字符用 hex 形式展示
@@ -212,16 +211,14 @@ let g:ale_linters = {}
 let g:ale_linters.html = []
 let g:ale_linters.vue = ['eslint']
 let g:ale_linters.javascript = ['eslint']
-let g:ale_linters.typescript = ['tsserver', 'tslint']
-let g:ale_linters.python = ['flake8']
-" let g:ale_linters.dart = ['dartanalyzer', 'dartfmt']
+let g:ale_linters.typescript = ['tsserver']
+" let g:ale_linters.python = ['flake8']
 let g:ale_lint_on_insert_leave = 1
 let g:ale_echo_msg_format = '%severity% | %linter% | %s'
 let g:ale_loclist_msg_format = '%linter% | %s'
 let g:ale_fixers = {}
 let g:ale_completion_enabled = 0
 let g:ale_pattern_options = {'\.ml[ly]$': {'ale_enabled': 0}}
-" let g:ale_kotlin_kotlinc_options = '-jvm-target 1.8'
 
 call dein#add('Shougo/denite.nvim') " ripgrep
 call denite#custom#var('file_rec', 'command', ['rg', '--files'])
@@ -252,22 +249,22 @@ let g:neoformat_basic_format_retab = 1
 let g:neoformat_basic_format_trim = 1
 let g:neoformat_run_all_formatters = 1
 noremap <Leader>ff :Neoformat<CR>
-let g:neoformat_enabled_markdown = []
-let g:neoformat_enabled_html = ['prettier']
+let g:neoformat_enabled_markdown = ['prettier']
 let g:neoformat_enabled_json = ['prettier']
 let g:neoformat_enabled_javascript = ['prettier']
 let g:neoformat_enabled_typescript = ['prettier']
 let g:neoformat_enabled_css = ['prettier']
 let g:neoformat_enabled_scss = ['prettier']
+let g:neoformat_enabled_html = ['prettier']
 let g:neoformat_enabled_ocaml = ['ocamlformat', 'ocpindent']
-
-" call dein#add('editorconfig/editorconfig-vim')
 
 call dein#add('plasticboy/vim-markdown')
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_new_list_item_indent = 0
 let g:vim_markdown_toc_autofit = 1
 autocmd FileType markdown nmap <buffer> <silent> <F4> :silent Toc<CR>
+
+call dein#add('editorconfig/editorconfig-vim')
 
 call dein#add('cespare/vim-toml')
 
@@ -281,17 +278,13 @@ call dein#add('cakebaker/scss-syntax.vim')
 call dein#add('elzr/vim-json')
 let g:vim_json_syntax_conceal = 0
 
-" call dein#add('mxw/vim-jsx')
-" let g:jsx_ext_required = 1
-
-call dein#add('HerringtonDarkholme/yats.vim')
-
-" call dein#add('flowtype/vim-flow')
-" let g:flow#enable = 0
-
 call dein#add('othree/yajs.vim')
 call dein#add('othree/es.next.syntax.vim')
 call dein#add('jiangmiao/simple-javascript-indenter')
+
+call dein#add('HerringtonDarkholme/yats.vim')
+
+call dein#add('maxmellon/vim-jsx-pretty')
 
 call dein#add('posva/vim-vue')
 
@@ -299,25 +292,26 @@ call dein#add('posva/vim-vue')
 " call dein#add('vim-python/python-syntax')
 " let python_highlight_all = 1
 
+call dein#add('rhysd/vim-wasm')
+
+call dein#add('keith/swift.vim')
+
 " call dein#add('othree/nginx-contrib-vim')
 " call dein#add('asciidoc/vim-asciidoc')
 " call dein#add('jparise/vim-graphql')
-" call dein#add('ianks/vim-tsx')
-" call dein#add('rhysd/vim-wasm')
-" call dein#add('wlangstroth/vim-racket')
 " call dein#add('tbastos/vim-lua')
 " call dein#add('idris-hackers/idris-vim')
+" call dein#add('fatih/vim-go')
+" call dein#add('udalov/kotlin-vim')
 " call dein#add('dart-lang/dart-vim-plugin')
 " call dein#add('rust-lang/rust.vim')
-call dein#add('keith/swift.vim')
 
 if has('nvim')
     call dein#add('Shougo/deoplete.nvim') " complete
     let g:deoplete#enable_at_startup = 1
     let g:deoplete#auto_complete_start_length = 1
     let g:deoplete#file#enable_buffer_path = 1
-    let g:deoplete#omni#input_patterns = {}
-    imap <expr> <TAB> pumvisible() ? '<C-n>' : '<TAB>'
+    imap <expr> <TAB> (pumvisible() ? '<C-n>' : '<TAB>')
 
     call dein#add('Shougo/neosnippet.vim') " snippet
     call dein#add('Shougo/neosnippet-snippets') " snippet
@@ -331,7 +325,7 @@ if has('nvim')
     nnoremap <silent> L :call LanguageClient_textDocument_definition()<CR>
     let g:LanguageClient_autoStart = 1
     let g:LanguageClient_diagnosticsEnable = 0
-    let g:LanguageClient_hoverPreview = "Always"
+    let g:LanguageClient_hoverPreview = 'Always'
     let g:LanguageClient_windowLogMessageLevel = 'Error'
     let g:LanguageClient_serverCommands = {}
     " let g:LanguageClient_serverCommands.css = ['css-language-server --stdio']
@@ -353,10 +347,10 @@ filetype plugin indent on "载入文件类型 插件 缩进
 syntax enable "语法加亮
 
 " autocmd FileType * setl noet
-" autocmd BufRead,BufNewFile *.vue setf html
-autocmd BufRead,BufNewFile *.svelte setf html
 " autocmd FileType vue syntax sync fromstart
-autocmd FileType scheme setl ts=2 sts=2 sw=2
+" autocmd BufRead,BufNewFile *.vue setf html
+" autocmd BufRead,BufNewFile *.svelte setf html
+" autocmd FileType scheme setl ts=2 sts=2 sw=2
 
 colorscheme NeoSolarized
 " set background=dark "深色背景
