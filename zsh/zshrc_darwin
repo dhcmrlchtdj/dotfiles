@@ -11,6 +11,7 @@ export HOMEBREW_AUTO_UPDATE_SECS=864000 #60*60*24
 # PATH="$HOME/.pub-cache/bin:$PATH"
 # PATH="$HOME/workspace/opensource/flutter/bin:$PATH"
 # PATH="$HOME/.cargo/bin:$PATH"
+PATH="$HOME/.deno/bin:$PATH"
 PATH="/usr/local/opt/node@10/bin:$PATH"
 PATH="/usr/local/opt/python/libexec/bin:$PATH"
 PATH="/usr/local/opt/libarchive/bin:$PATH"
