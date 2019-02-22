@@ -242,6 +242,7 @@ call denite#custom#source('file_rec', 'sorters', ['sorter_sublime'])
 call denite#custom#source('grep', 'sorters', ['sorter_sublime'])
 
 call dein#add('Konfekt/FastFold') " fold
+call dein#add('jiangmiao/auto-pairs')
 
 call dein#add('sbdchd/neoformat') " formatter
 let g:neoformat_basic_format_align = 1
@@ -294,6 +295,7 @@ call dein#add('posva/vim-vue')
 
 call dein#add('rhysd/vim-wasm')
 
+call dein#add('rust-lang/rust.vim')
 call dein#add('keith/swift.vim')
 
 " call dein#add('othree/nginx-contrib-vim')
@@ -304,7 +306,6 @@ call dein#add('keith/swift.vim')
 " call dein#add('fatih/vim-go')
 " call dein#add('udalov/kotlin-vim')
 " call dein#add('dart-lang/dart-vim-plugin')
-" call dein#add('rust-lang/rust.vim')
 
 if has('nvim')
     call dein#add('Shougo/deoplete.nvim') " complete
@@ -333,7 +334,7 @@ if has('nvim')
     let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
     let g:LanguageClient_serverCommands.typescript = ['javascript-typescript-stdio']
     let g:LanguageClient_serverCommands.ocaml = ['ocaml-language-server', '--stdio']
-    " let g:LanguageClient_serverCommands.rust = ['rls']
+    let g:LanguageClient_serverCommands.rust = ['rls']
     " let g:LanguageClient_serverCommands.dart = ['dart_language_server']
 
     " call dein#add('Shougo/neco-syntax') " syntax complete
