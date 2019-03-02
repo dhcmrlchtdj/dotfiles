@@ -1,0 +1,14 @@
+{
+    "local_address": "127.0.0.1",
+    "local_port": "!!!1080",
+    "server": "!!!server",
+    "server_port": "!!!1080",
+    "password": "!!!password",
+    "method": "chacha20-ietf-poly1305",
+    "nameserver": "1.1.1.1",
+    "mode": "tcp_and_udp",
+    "fast_open": true,
+    "reuse_port": true,
+    "no_delay": true,
+    "timeout": 60
+}

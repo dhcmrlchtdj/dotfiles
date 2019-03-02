@@ -242,6 +242,7 @@ call denite#custom#source('file_rec', 'sorters', ['sorter_sublime'])
 call denite#custom#source('grep', 'sorters', ['sorter_sublime'])
 
 call dein#add('Konfekt/FastFold') " fold
+
 call dein#add('jiangmiao/auto-pairs')
 
 call dein#add('sbdchd/neoformat') " formatter
@@ -337,7 +338,7 @@ if has('nvim')
     let g:LanguageClient_serverCommands.rust = ['rls']
     " let g:LanguageClient_serverCommands.dart = ['dart_language_server']
 
-    " call dein#add('Shougo/neco-syntax') " syntax complete
+    call dein#add('Shougo/neco-syntax') " syntax complete
 endif
 " if dein#check_install()
 " call dein#install()
