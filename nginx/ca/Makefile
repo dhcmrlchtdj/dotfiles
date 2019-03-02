@@ -1,24 +1,25 @@
 SHELL := /bin/bash
+DOMAIN := example.com
 
 .PHONY: ca
-ca: domain.csr
+ca: $(DOMAIN).csr
 	certbot certonly \
-		--csr /path/to/csr \
+		--csr $(DOMAIN).csr \
 		--dns-cloudflare \
-		--dns-cloudflare-credentials /path/to/cloudflare.ini \
+		--dns-cloudflare-credentials cloudflare.ini \
 		--dns-cloudflare-propagation-seconds 60 \
-		-d example.com \
-		-d *.example.com
+		-d $(DOMAIN) \
+		-d *.$(DOMAIN)
 
-domain.csr: domain.key
+$(DOMAIN).csr: domain.key
 	# openssl req -noout -text -in domain.csr
-	# openssl req -new -sha384 -subj "/CN=example.com" -key domain.key -out domain.csr
+	# openssl req -new -sha384 -subj "/CN=$(DOMAIN)" -key domain.key -out $(DOMAIN).csr
 	openssl req -new -sha384 \
-		-subj "/CN=example.com" \
+		-subj "/CN=$(DOMAIN)" \
 		-reqexts SAN \
-		-config <(cat /etc/ssl/openssl.cnf <(printf "[SAN]\nsubjectAltName=DNS:example.com,DNS:*.example.com")) \
+		-config <(cat /etc/ssl/openssl.cnf <(printf "[SAN]\nsubjectAltName=DNS:$(DOMAIN),DNS:*.$(DOMAIN)")) \
 		-key domain.key \
-		-out domain.csr
+		-out $(DOMAIN).csr
 
 domain.key:
 	# openssl ecparam -list_curves
