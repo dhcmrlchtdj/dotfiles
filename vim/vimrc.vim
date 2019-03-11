@@ -297,7 +297,7 @@ call dein#add('posva/vim-vue')
 call dein#add('rhysd/vim-wasm')
 
 call dein#add('rust-lang/rust.vim')
-call dein#add('keith/swift.vim')
+" call dein#add('keith/swift.vim')
 
 " call dein#add('othree/nginx-contrib-vim')
 " call dein#add('asciidoc/vim-asciidoc')
