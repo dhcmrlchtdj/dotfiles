@@ -297,7 +297,6 @@ call dein#add('posva/vim-vue')
 call dein#add('rhysd/vim-wasm')
 
 call dein#add('rust-lang/rust.vim')
-" call dein#add('keith/swift.vim')
 
 " call dein#add('othree/nginx-contrib-vim')
 " call dein#add('asciidoc/vim-asciidoc')
@@ -306,6 +305,7 @@ call dein#add('rust-lang/rust.vim')
 " call dein#add('idris-hackers/idris-vim')
 " call dein#add('fatih/vim-go')
 " call dein#add('udalov/kotlin-vim')
+" call dein#add('keith/swift.vim')
 " call dein#add('dart-lang/dart-vim-plugin')
 
 if has('nvim')
