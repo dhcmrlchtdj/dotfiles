@@ -241,9 +241,9 @@ call denite#custom#option('default', 'prompt', '»')
 call denite#custom#source('file_rec', 'sorters', ['sorter_sublime'])
 call denite#custom#source('grep', 'sorters', ['sorter_sublime'])
 
-call dein#add('Konfekt/FastFold') " fold
+" call dein#add('Konfekt/FastFold') " fold
 
-call dein#add('jiangmiao/auto-pairs')
+" call dein#add('jiangmiao/auto-pairs')
 
 call dein#add('sbdchd/neoformat') " formatter
 let g:neoformat_basic_format_align = 1
@@ -288,7 +288,7 @@ call dein#add('HerringtonDarkholme/yats.vim')
 
 call dein#add('maxmellon/vim-jsx-pretty')
 
-call dein#add('posva/vim-vue')
+" call dein#add('posva/vim-vue')
 
 " call dein#add('Vimjas/vim-python-pep8-indent')
 " call dein#add('vim-python/python-syntax')
@@ -297,6 +297,7 @@ call dein#add('posva/vim-vue')
 call dein#add('rhysd/vim-wasm')
 
 call dein#add('rust-lang/rust.vim')
+call dein#add('udalov/kotlin-vim')
 
 " call dein#add('othree/nginx-contrib-vim')
 " call dein#add('asciidoc/vim-asciidoc')
@@ -304,7 +305,6 @@ call dein#add('rust-lang/rust.vim')
 " call dein#add('tbastos/vim-lua')
 " call dein#add('idris-hackers/idris-vim')
 " call dein#add('fatih/vim-go')
-" call dein#add('udalov/kotlin-vim')
 " call dein#add('keith/swift.vim')
 " call dein#add('dart-lang/dart-vim-plugin')
 
@@ -315,9 +315,9 @@ if has('nvim')
     let g:deoplete#file#enable_buffer_path = 1
     imap <expr> <TAB> (pumvisible() ? '<C-n>' : '<TAB>')
 
-    call dein#add('Shougo/neosnippet.vim') " snippet
-    call dein#add('Shougo/neosnippet-snippets') " snippet
-    imap <C-k> <Plug>(neosnippet_expand_or_jump)
+    " call dein#add('Shougo/neosnippet.vim') " snippet
+    " call dein#add('Shougo/neosnippet-snippets') " snippet
+    " imap <C-k> <Plug>(neosnippet_expand_or_jump)
 
     call dein#add('Shougo/echodoc.vim') " signature
     let g:echodoc_enable_at_startup = 1
