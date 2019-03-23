@@ -26,7 +26,7 @@ _source ~/.opam/opam-init/init.zsh
 alias rm="grm -Irv"
 alias ls="gls --color=auto --group-directories-first -vF"
 alias mvim="mvim -v"
-alias breww="brew update && brew upgrade"
+alias breww="brew update && brew upgrade && brew cleanup"
 alias dm="docker-machine --native-ssh"
 alias jsoo="js_of_ocaml --opt=3 --pretty"
 alias ocaml="ocaml str.cma"
