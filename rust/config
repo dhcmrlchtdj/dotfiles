@@ -1,6 +1,11 @@
-[source.crates-io]
-registry = "https://github.com/rust-lang/crates.io-index"
-replace-with = "ustc"
+# https://doc.rust-lang.org/cargo/reference/source-replacement.html
+# https://lug.ustc.edu.cn/wiki/mirrors/help/rust-crates
+# $HOME/.cargo/config
+
+[source]
 
 [source.ustc]
-registry = "https://crates.mirrors.ustc.edu.cn/index"
+registry = "git://mirrors.ustc.edu.cn/crates.io-index"
+
+[source.crates-io]
+replace-with = "ustc"
