@@ -74,7 +74,8 @@ inoremap <Down> <C-o>gj
 inoremap <expr> <Up> pumvisible() ? '<C-p>' : '<Up>'
 inoremap <expr> <Down> pumvisible() ? '<C-n>' : '<Down>'
 
-set cmdheight=1 "命令行行数
+" set cmdheight=1 "命令行行数
+set noshowmode
 set showcmd "在命令行显示目前执行的指令
 set history=10000 "命令行历史纪录
 set wildmenu "命令行补全提示
@@ -297,7 +298,8 @@ call dein#add('maxmellon/vim-jsx-pretty')
 call dein#add('rhysd/vim-wasm')
 
 call dein#add('rust-lang/rust.vim')
-call dein#add('udalov/kotlin-vim')
+" call dein#add('keith/swift.vim')
+" call dein#add('udalov/kotlin-vim')
 
 " call dein#add('othree/nginx-contrib-vim')
 " call dein#add('asciidoc/vim-asciidoc')
@@ -305,7 +307,6 @@ call dein#add('udalov/kotlin-vim')
 " call dein#add('tbastos/vim-lua')
 " call dein#add('idris-hackers/idris-vim')
 " call dein#add('fatih/vim-go')
-" call dein#add('keith/swift.vim')
 " call dein#add('dart-lang/dart-vim-plugin')
 
 if has('nvim')
@@ -320,7 +321,7 @@ if has('nvim')
     " imap <C-k> <Plug>(neosnippet_expand_or_jump)
 
     call dein#add('Shougo/echodoc.vim') " signature
-    let g:echodoc_enable_at_startup = 1
+    let g:echodoc#enable_at_startup = 1
 
     call dein#add('autozimu/LanguageClient-neovim', {'build':'bash install.sh'})
     nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
