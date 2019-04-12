@@ -298,8 +298,8 @@ call dein#add('maxmellon/vim-jsx-pretty')
 call dein#add('rhysd/vim-wasm')
 
 call dein#add('rust-lang/rust.vim')
-" call dein#add('keith/swift.vim')
-" call dein#add('udalov/kotlin-vim')
+call dein#add('keith/swift.vim')
+call dein#add('udalov/kotlin-vim')
 
 " call dein#add('othree/nginx-contrib-vim')
 " call dein#add('asciidoc/vim-asciidoc')
@@ -316,9 +316,10 @@ if has('nvim')
     let g:deoplete#file#enable_buffer_path = 1
     imap <expr> <TAB> (pumvisible() ? '<C-n>' : '<TAB>')
 
-    " call dein#add('Shougo/neosnippet.vim') " snippet
+    call dein#add('Shougo/neosnippet.vim') " snippet
     " call dein#add('Shougo/neosnippet-snippets') " snippet
-    " imap <C-k> <Plug>(neosnippet_expand_or_jump)
+    let g:neosnippet#disable_runtime_snippets = {'_':1}
+    imap <C-k> <Plug>(neosnippet_expand_or_jump)
 
     call dein#add('Shougo/echodoc.vim') " signature
     let g:echodoc#enable_at_startup = 1
