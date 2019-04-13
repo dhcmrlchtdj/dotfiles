@@ -200,7 +200,11 @@ call dein#add('majutsushi/tagbar') " tagbar, require ctags
 nmap <silent> <F4> :silent TagbarOpen fj<CR>
 
 call dein#add('scrooloose/nerdcommenter') " comment
+let g:NERDCommentEmptyLines = 1
 let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDAltDelims_swift = 1
 
 call dein#add('godlygeek/tabular') " align
 
@@ -338,6 +342,7 @@ if has('nvim')
     let g:LanguageClient_serverCommands.typescript = ['javascript-typescript-stdio']
     let g:LanguageClient_serverCommands.ocaml = ['ocaml-language-server', '--stdio']
     let g:LanguageClient_serverCommands.rust = ['rls']
+    let g:LanguageClient_serverCommands.swift = ['sourcekit-lsp']
     " let g:LanguageClient_serverCommands.dart = ['dart_language_server']
 
     call dein#add('Shougo/neco-syntax') " syntax complete
