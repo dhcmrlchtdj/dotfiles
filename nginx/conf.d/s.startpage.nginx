@@ -1,0 +1,15 @@
+server {
+    listen 443 ssl http2;
+    include conf.d/i.ssl.nginx;
+
+    server_name example.com;
+
+    location / {
+        proxy_redirect off;
+        proxy_set_header Host $proxy_host;
+        proxy_pass 'https://www.startpage.com';
+        sub_filter 'https://www.startpage.com' '$scheme://$host:$server_port';
+        sub_filter_once off;
+        sub_filter_last_modified on;
+    }
+}
