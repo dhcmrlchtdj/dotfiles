@@ -265,6 +265,13 @@ let g:neoformat_enabled_scss = ['prettier']
 let g:neoformat_enabled_html = ['prettier']
 let g:neoformat_enabled_ocaml = ['ocamlformat', 'ocpindent']
 
+" https://nshipster.com/swift-format/
+let g:neoformat_swift_ggformat = {}
+let g:neoformat_swift_ggformat.exe = 'swift-format'
+let g:neoformat_swift_ggformat.args = ['-i', '--configuration ~/.swift-format.json']
+let g:neoformat_swift_ggformat.replace = 1
+let g:neoformat_enabled_swift = ['ggformat']
+
 call dein#add('plasticboy/vim-markdown')
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_new_list_item_indent = 0
