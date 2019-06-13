@@ -1,0 +1,33 @@
+{
+    "suggest.echodocSupport": true,
+    "suggest.triggerAfterInsertEnter": true,
+    "diagnostic.virtualText": true,
+    "diagnostic.virtualTextPrefix": "",
+    "diagnostic.level": "warning",
+    "diagnostic.errorSign": "✖",
+    "diagnostic.warningSign": "•",
+    "codeLens.enable": true,
+    "coc.preferences.extensionUpdateCheck": "never",
+    "list.source.files.command": "rg",
+    "list.source.files.args": ["--files"],
+    "list.source.grep.command": "rg",
+    "list.source.grep.args": ["--vimgrep", "--no-heading", "--smart-case"],
+    "languageserver": {
+        "ocaml": {
+            "command": "ocaml-language-server",
+            "args": ["--stdio"],
+            "filetypes": ["ocaml", "reason"],
+            "rootPatterns": [".git/"]
+        },
+        "swift": {
+            "command": "sourcekit-lsp",
+            "filetypes": ["swift"],
+            "rootPatterns": [".git/", "Package.swift"]
+        },
+        "golang": {
+            "command": "gopls",
+            "filetypes": ["go"],
+            "rootPatterns": [".git/", "go.mod"]
+        }
+    }
+}

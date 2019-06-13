@@ -62,8 +62,8 @@ set number "显示行号
 " set wrap "自动换行
 set nowrap "不自动换行
 set textwidth=0 "行宽
-set colorcolumn=81 "行宽提示
-set cursorline "高亮当前行
+set colorcolumn=80 "行宽提示
+" set cursorline "高亮当前行
 set scrolloff=3
 set sidescroll=1
 set sidescrolloff=3
@@ -123,58 +123,55 @@ set splitright
 
 """ location list
 nmap <silent> <F1> :silent lopen<CR>
-autocmd FileType qf nmap <buffer> <CR> <CR>:lclose<CR>
-autocmd FileType qf nmap <buffer> q :q<CR>
+autocmd FileType qf nmap <silent> <buffer> <CR> <CR>:lclose<CR>
+autocmd FileType qf nmap <silent> <buffer> q :q<CR>
 
 """ plugin
 filetype plugin indent off
-let g:dein#types#git#clone_depth = 1
-set runtimepath+=~/.config/nvim/bundle/repos/github.com/Shougo/dein.vim/
-if has('nvim')
-    call dein#begin(expand('~/.config/nvim/bundle'))
-else
-    call dein#begin(expand('~/.vim/bundle'))
-endif
-call dein#add('Shougo/dein.vim')
+call plug#begin('~/.local/share/nvim/plugged')
 
-call dein#add('tpope/vim-fugitive') " statusline git
-call dein#add('vim-airline/vim-airline') " statusline
-call dein#add('vim-airline/vim-airline-themes') " statusline theme
+Plug 'tpope/vim-fugitive' " statusline git
+Plug 'vim-airline/vim-airline' " statusline
+Plug 'vim-airline/vim-airline-themes' " statusline theme
 let g:airline_theme = 'powerlineish'
-let g:airline#extensions#languageclient#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
+" let g:airline#extensions#ale#enabled = 1
+" let g:airline#extensions#languageclient#enabled = 1
+let g:airline#extensions#coc#enabled = 1
+let g:airline#extensions#coc#error_symbol = 'E:'
+let g:airline#extensions#coc#warning_symbol = 'W:'
 
-call dein#add('airblade/vim-gitgutter') " git status
+Plug 'airblade/vim-gitgutter' " git status
 let g:gitgutter_diff_base = 'HEAD'
 let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '~'
 let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_modified_removed = '!'
 
-call dein#add('jamessan/vim-gnupg') " gpg
+Plug 'jamessan/vim-gnupg' " gpg
 
-call dein#add('icymind/NeoSolarized') " colorscheme
+Plug 'icymind/NeoSolarized'
 
-call dein#add('nathanaelkane/vim-indent-guides') " indent
+Plug 'nathanaelkane/vim-indent-guides' " indent
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
 let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'tagbar']
 
-call dein#add('jeetsukumaran/vim-buffergator') " buffer
+Plug 'jeetsukumaran/vim-buffergator' " buffer
 let g:buffergator_split_size = 30
 nmap <silent> <F2> :silent BuffergatorOpen<CR>
 
-" call dein#add('kshenoy/vim-signature')
+" Plug 'kshenoy/vim-signature'
 
-call dein#add('scrooloose/nerdtree') " filesystem
+Plug 'scrooloose/nerdtree' " filesystem
 let g:NERDTreeCaseSensitiveSort = 1
 let g:NERDTreeChDirMode = 2
 let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeSortHiddenFirst = 1
 nmap <silent> <F3> :silent NERDTreeFind<CR>
 
-call dein#add('Xuyuanp/nerdtree-git-plugin') " filesystem git
+Plug 'Xuyuanp/nerdtree-git-plugin' " filesystem git
 let g:NERDTreeIndicatorMapCustom = {}
 let g:NERDTreeIndicatorMapCustom.Modified = 'M'
 let g:NERDTreeIndicatorMapCustom.Deleted = 'D'
@@ -187,7 +184,7 @@ let g:NERDTreeIndicatorMapCustom.Dirty = '*'
 let g:NERDTreeIndicatorMapCustom.Untracked = '?'
 let g:NERDTreeIndicatorMapCustom.Unknown = '?'
 
-call dein#add('sjl/gundo.vim') " undo
+Plug 'sjl/gundo.vim' " undo
 let g:gundo_prefer_python3 = 1
 let g:gundo_width = 40
 let g:gundo_preview_height = 10
@@ -196,67 +193,31 @@ let g:gundo_close_on_revert = 0
 let g:gundo_return_on_revert = 0
 nmap <silent> <F5> :silent GundoToggle<CR>
 
-call dein#add('majutsushi/tagbar') " tagbar, require ctags
+Plug 'majutsushi/tagbar' " tagbar, require ctags
 nmap <silent> <F4> :silent TagbarOpen fj<CR>
 
-call dein#add('scrooloose/nerdcommenter') " comment
+Plug 'scrooloose/nerdcommenter' " comment
 let g:NERDCommentEmptyLines = 1
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
 let g:NERDDefaultAlign = 'left'
 let g:NERDAltDelims_swift = 1
 
-call dein#add('godlygeek/tabular') " align
+Plug 'godlygeek/tabular' " align
 
-call dein#add('w0rp/ale')
-let g:ale_sign_column_always = 1
-let g:ale_sign_error = '✖'
-let g:ale_sign_warning = '•'
-let g:ale_linters = {}
-let g:ale_linters.html = []
-let g:ale_linters.vue = ['eslint']
-let g:ale_linters.javascript = ['eslint']
-let g:ale_linters.typescript = ['tsserver']
-" let g:ale_linters.python = ['flake8']
-let g:ale_lint_on_insert_leave = 1
-let g:ale_echo_msg_format = '%severity% | %linter% | %s'
-let g:ale_loclist_msg_format = '%linter% | %s'
-let g:ale_fixers = {}
-let g:ale_completion_enabled = 0
-let g:ale_pattern_options = {'\.ml[ly]$': {'ale_enabled': 0}}
+" Plug '/usr/local/opt/fzf'
+" Plug 'junegunn/fzf.vim'
+" Plug 'Yggdroot/LeaderF', {'do':'./install.sh'}
 
-call dein#add('Shougo/denite.nvim') " ripgrep
-call denite#custom#var('file_rec', 'command', ['rg', '--files'])
-nmap <C-p> :Denite -highlight-mode-normal=CursorLine -mode=normal file_rec<CR>
-call denite#custom#var('grep', 'command', ['rg'])
-call denite#custom#var('grep', 'default_opts', ['--vimgrep', '--no-heading', '--smart-case'])
-call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
-call denite#custom#var('grep', 'separator', ['--'])
-call denite#custom#var('grep', 'final_opts', [])
-nmap <Leader>p :Denite -highlight-mode-normal=CursorLine -mode=normal grep:.<CR>
-call denite#custom#map('insert', '<Up>', '<denite:move_to_previous_line>', 'noremap')
-call denite#custom#map('normal', '<Up>', '<denite:move_to_previous_line>', 'noremap')
-call denite#custom#map('insert', '<Down>', '<denite:move_to_next_line>', 'noremap')
-call denite#custom#map('normal', '<Down>', '<denite:move_to_next_line>', 'noremap')
-call denite#custom#map('insert', '<Esc>', '<denite:enter_mode:normal>', 'noremap')
-call denite#custom#map('normal', '<Esc>', '<denite:enter_mode:normal>', 'noremap')
-call denite#custom#map('normal', 'a', '<denite:enter_mode:insert>', 'noremap')
-call denite#custom#option('default', 'prompt', '»')
-call denite#custom#source('file_rec', 'sorters', ['sorter_sublime'])
-call denite#custom#source('grep', 'sorters', ['sorter_sublime'])
+" Plug 'Konfekt/FastFold' " fold
 
-" call dein#add('Konfekt/FastFold') " fold
-
-" call dein#add('jiangmiao/auto-pairs')
-
-call dein#add('sbdchd/neoformat') " formatter
+Plug 'sbdchd/neoformat' " formatter
 let g:neoformat_basic_format_align = 1
 let g:neoformat_basic_format_retab = 1
 let g:neoformat_basic_format_trim = 1
 let g:neoformat_run_all_formatters = 1
 noremap <Leader>ff :Neoformat<CR>
-let g:neoformat_enabled_markdown = ['prettier']
+let g:neoformat_enabled_markdown = []
 let g:neoformat_enabled_json = ['prettier']
 let g:neoformat_enabled_javascript = ['prettier']
 let g:neoformat_enabled_typescript = ['prettier']
@@ -272,100 +233,79 @@ let g:neoformat_swift_ggformat.args = ['-i', '--configuration ~/.swift-format.js
 let g:neoformat_swift_ggformat.replace = 1
 let g:neoformat_enabled_swift = ['ggformat']
 
-call dein#add('plasticboy/vim-markdown')
+Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_new_list_item_indent = 0
 let g:vim_markdown_toc_autofit = 1
 autocmd FileType markdown nmap <buffer> <silent> <F4> :silent Toc<CR>
 
-call dein#add('editorconfig/editorconfig-vim')
+Plug 'editorconfig/editorconfig-vim'
 
-call dein#add('cespare/vim-toml')
+Plug 'cespare/vim-toml'
 
-call dein#add('rgrinberg/vim-ocaml')
+Plug 'rgrinberg/vim-ocaml'
 
-call dein#add('othree/html5.vim')
+Plug 'othree/html5.vim'
 
-call dein#add('hail2u/vim-css3-syntax')
-call dein#add('cakebaker/scss-syntax.vim')
+Plug 'hail2u/vim-css3-syntax'
+Plug 'cakebaker/scss-syntax.vim'
 
-call dein#add('elzr/vim-json')
+Plug 'elzr/vim-json'
 let g:vim_json_syntax_conceal = 0
 
-call dein#add('othree/yajs.vim')
-call dein#add('othree/es.next.syntax.vim')
-call dein#add('jiangmiao/simple-javascript-indenter')
+Plug 'othree/yajs.vim'
+Plug 'othree/es.next.syntax.vim'
+" Plug 'jiangmiao/simple-javascript-indenter'
 
-call dein#add('HerringtonDarkholme/yats.vim')
+Plug 'HerringtonDarkholme/yats.vim'
 
-call dein#add('maxmellon/vim-jsx-pretty')
+" Plug 'maxmellon/vim-jsx-pretty'
 
-" call dein#add('posva/vim-vue')
+" Plug 'posva/vim-vue'
 
-" call dein#add('Vimjas/vim-python-pep8-indent')
-" call dein#add('vim-python/python-syntax')
+" Plug 'Vimjas/vim-python-pep8-indent'
+" Plug 'vim-python/python-syntax'
 " let python_highlight_all = 1
 
-call dein#add('rhysd/vim-wasm')
+" Plug 'rhysd/vim-wasm'
 
-call dein#add('rust-lang/rust.vim')
-call dein#add('keith/swift.vim')
-" call dein#add('udalov/kotlin-vim')
-" call dein#add('othree/nginx-contrib-vim')
-" call dein#add('asciidoc/vim-asciidoc')
-" call dein#add('jparise/vim-graphql')
-" call dein#add('tbastos/vim-lua')
-" call dein#add('idris-hackers/idris-vim')
-" call dein#add('fatih/vim-go')
-" call dein#add('dart-lang/dart-vim-plugin')
+Plug 'keith/swift.vim'
+Plug 'rust-lang/rust.vim'
+Plug 'fatih/vim-go'
+" Plug 'udalov/kotlin-vim'
+" Plug 'othree/nginx-contrib-vim'
+" Plug 'asciidoc/vim-asciidoc'
+" Plug 'jparise/vim-graphql'
+" Plug 'tbastos/vim-lua'
+" Plug 'idris-hackers/idris-vim'
+" Plug 'dart-lang/dart-vim-plugin'
 
-if has('nvim')
-    call dein#add('Shougo/deoplete.nvim') " complete
-    let g:deoplete#enable_at_startup = 1
-    let g:deoplete#auto_complete_start_length = 1
-    let g:deoplete#file#enable_buffer_path = 1
-    imap <expr> <TAB> (pumvisible() ? '<C-n>' : '<TAB>')
+Plug 'Shougo/echodoc.vim' " signature
+let g:echodoc#enable_at_startup = 1
+let g:echodoc#type = 'echo'
 
-    call dein#add('Shougo/neosnippet.vim') " snippet
-    " call dein#add('Shougo/neosnippet-snippets') " snippet
-    let g:neosnippet#disable_runtime_snippets = {'_':1}
-    imap <C-k> <Plug>(neosnippet_expand_or_jump)
+Plug 'neoclide/coc.nvim', {'do':'./install.sh'}
+autocmd CursorHold * silent call CocActionAsync('highlight')
+nmap <C-p> :CocList files<CR>
+nmap <Leader>p :CocList grep<CR>
+nnoremap <silent> K :call CocAction('doHover')<CR>
+nnoremap <silent> L :call CocAction('jumpDefinition')<CR>
+inoremap <expr> <CR> (pumvisible() ? '<C-y>' : '<CR>')
+inoremap <expr> <TAB> (pumvisible() ? '<C-n>' : '<TAB>')
+" inoremap <expr> <c-m> coc#refresh()
+" function! s:check_back_space() abort
+"     let col = col('.') - 1
+"     return !col || getline('.')[col - 1]  =~# '\s'
+" endfunction
+" inoremap <silent><expr> <TAB>
+"             \ pumvisible() ? "\<C-n>" :
+"             \ <SID>check_back_space() ? "\<TAB>" :
+"             \ coc#refresh()
 
-    call dein#add('Shougo/echodoc.vim') " signature
-    let g:echodoc#enable_at_startup = 1
-
-    call dein#add('autozimu/LanguageClient-neovim', {'build':'bash install.sh'})
-    nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-    nnoremap <silent> L :call LanguageClient_textDocument_definition()<CR>
-    let g:LanguageClient_autoStart = 1
-    let g:LanguageClient_diagnosticsEnable = 0
-    let g:LanguageClient_hoverPreview = 'Always'
-    let g:LanguageClient_windowLogMessageLevel = 'Error'
-    let g:LanguageClient_serverCommands = {}
-    " let g:LanguageClient_serverCommands.css = ['css-language-server --stdio']
-    " let g:LanguageClient_serverCommands.scss = ['css-language-server --stdio']
-    let g:LanguageClient_serverCommands.javascript = ['javascript-typescript-stdio']
-    let g:LanguageClient_serverCommands.typescript = ['javascript-typescript-stdio']
-    let g:LanguageClient_serverCommands.ocaml = ['ocaml-language-server', '--stdio']
-    let g:LanguageClient_serverCommands.rust = ['rls']
-    let g:LanguageClient_serverCommands.swift = ['sourcekit-lsp']
-    " let g:LanguageClient_serverCommands.dart = ['dart_language_server']
-
-    call dein#add('Shougo/neco-syntax') " syntax complete
-endif
-" if dein#check_install()
-" call dein#install()
-" endif
-call dein#end()
+call plug#end()
 
 filetype plugin indent on "载入文件类型 插件 缩进
 syntax enable "语法加亮
-
-" autocmd FileType * setl noet
-" autocmd FileType vue syntax sync fromstart
-" autocmd BufRead,BufNewFile *.vue setf html
-" autocmd BufRead,BufNewFile *.svelte setf html
-" autocmd FileType scheme setl ts=2 sts=2 sw=2
 
 colorscheme NeoSolarized
 " set background=dark "深色背景
@@ -375,8 +315,8 @@ set background=light "浅色背景
 " highlight SpecialKey guifg=#93a1a1 guibg=NONE
 " highlight IndentGuidesOdd  guibg=#eee8d5
 highlight IndentGuidesEven guibg=#eee8d5
-highlight ALEErrorSign guifg=#dc322f guibg=#eee8d5
-highlight ALEWarningSign guifg=#dc322f guibg=#eee8d5
+highlight CocErrorSign guifg=#dc322f guibg=#eee8d5
+highlight CocWarningSign guifg=#d33682 guibg=#eee8d5
 highlight GitGutterAdd guibg=#eee8d5
 highlight GitGutterChange guibg=#eee8d5
 highlight GitGutterDelete guibg=#eee8d5
