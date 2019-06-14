@@ -14,7 +14,7 @@ set belloff=all
 set nomodeline "忽略 打开的文件 里的vim参数
 set termguicolors
 set guicursor=
-nmap Q <Nop>
+nnoremap Q <Nop>
 
 if has('nvim') == 0
     set nocompatible "不兼容vi
@@ -88,13 +88,13 @@ set shortmess=atIF "状态行信息
 
 """ search
 "清除高亮
-nmap <silent> <Space> :nohlsearch<CR>
+nnoremap <silent> <Space> :nohlsearch<CR>
 set ignorecase "搜索时忽略大小写
 set smartcase "有大写时对大小写敏感
 set hlsearch "高亮显示搜索结果
 set incsearch "搜索时逐字符高亮
-nmap n nzzzv
-nmap N Nzzzv
+nnoremap n nzzzv
+nnoremap N Nzzzv
 
 """ indent
 set noexpandtab "使用tab缩进
@@ -122,9 +122,9 @@ set nosplitbelow
 set splitright
 
 """ location list
-nmap <silent> <F1> :silent lopen<CR>
-autocmd FileType qf nmap <silent> <buffer> <CR> <CR>:lclose<CR>
-autocmd FileType qf nmap <silent> <buffer> q :q<CR>
+nnoremap <silent> <F1> :silent lopen<CR>
+autocmd FileType qf nnoremap <silent> <buffer> <CR> <CR>:lclose<CR>
+autocmd FileType qf nnoremap <silent> <buffer> q :q<CR>
 
 """ plugin
 filetype plugin indent off
@@ -160,7 +160,7 @@ let g:indent_guides_exclude_filetypes = ['help', 'nerdtree', 'tagbar']
 
 Plug 'jeetsukumaran/vim-buffergator' " buffer
 let g:buffergator_split_size = 30
-nmap <silent> <F2> :silent BuffergatorOpen<CR>
+nnoremap <silent> <F2> :silent BuffergatorOpen<CR>
 
 " Plug 'kshenoy/vim-signature'
 
@@ -169,7 +169,7 @@ let g:NERDTreeCaseSensitiveSort = 1
 let g:NERDTreeChDirMode = 2
 let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeSortHiddenFirst = 1
-nmap <silent> <F3> :silent NERDTreeFind<CR>
+nnoremap <silent> <F3> :silent NERDTreeFind<CR>
 
 Plug 'Xuyuanp/nerdtree-git-plugin' " filesystem git
 let g:NERDTreeIndicatorMapCustom = {}
@@ -184,17 +184,16 @@ let g:NERDTreeIndicatorMapCustom.Dirty = '*'
 let g:NERDTreeIndicatorMapCustom.Untracked = '?'
 let g:NERDTreeIndicatorMapCustom.Unknown = '?'
 
-Plug 'sjl/gundo.vim' " undo
-let g:gundo_prefer_python3 = 1
-let g:gundo_width = 40
-let g:gundo_preview_height = 10
-let g:gundo_help = 0
-let g:gundo_close_on_revert = 0
-let g:gundo_return_on_revert = 0
-nmap <silent> <F5> :silent GundoToggle<CR>
+Plug 'simnalamburt/vim-mundo'
+let g:mundo_return_on_revert = 0
+nnoremap <silent> <F5> :silent MundoToggle<CR>
 
-Plug 'majutsushi/tagbar' " tagbar, require ctags
-nmap <silent> <F4> :silent TagbarOpen fj<CR>
+Plug 'liuchengxu/vista.vim'
+let g:vista_blink = [0, 0]
+let g:vista_top_level_blink = [0, 0]
+let g:vista#renderer#enable_icon = 0
+let g:vista_default_executive = 'coc'
+nnoremap <silent> <F4> :Vista<CR>
 
 Plug 'scrooloose/nerdcommenter' " comment
 let g:NERDCommentEmptyLines = 1
@@ -225,7 +224,6 @@ let g:neoformat_enabled_css = ['prettier']
 let g:neoformat_enabled_scss = ['prettier']
 let g:neoformat_enabled_html = ['prettier']
 let g:neoformat_enabled_ocaml = ['ocamlformat', 'ocpindent']
-
 " https://nshipster.com/swift-format/
 let g:neoformat_swift_ggformat = {}
 let g:neoformat_swift_ggformat.exe = 'swift-format'
@@ -237,7 +235,7 @@ Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_new_list_item_indent = 0
 let g:vim_markdown_toc_autofit = 1
-autocmd FileType markdown nmap <buffer> <silent> <F4> :silent Toc<CR>
+autocmd FileType markdown nnoremap <buffer> <silent> <F4> :silent Toc<CR>
 
 Plug 'editorconfig/editorconfig-vim'
 
@@ -286,21 +284,18 @@ let g:echodoc#type = 'echo'
 
 Plug 'neoclide/coc.nvim', {'do':'./install.sh'}
 autocmd CursorHold * silent call CocActionAsync('highlight')
-nmap <C-p> :CocList files<CR>
-nmap <Leader>p :CocList grep<CR>
+autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+nnoremap <C-p> :CocList -N files<CR>
+nnoremap <Leader>p :CocList -N grep<CR>
 nnoremap <silent> K :call CocAction('doHover')<CR>
 nnoremap <silent> L :call CocAction('jumpDefinition')<CR>
-inoremap <expr> <CR> (pumvisible() ? '<C-y>' : '<CR>')
-inoremap <expr> <TAB> (pumvisible() ? '<C-n>' : '<TAB>')
-" inoremap <expr> <c-m> coc#refresh()
-" function! s:check_back_space() abort
-"     let col = col('.') - 1
-"     return !col || getline('.')[col - 1]  =~# '\s'
-" endfunction
-" inoremap <silent><expr> <TAB>
-"             \ pumvisible() ? "\<C-n>" :
-"             \ <SID>check_back_space() ? "\<TAB>" :
-"             \ coc#refresh()
+nnoremap <silent> <leader>l :call CocAction('codeLensAction')<CR>
+inoremap <silent> <expr> <CR> pumvisible() ? '<C-y>' : '<CR>'
+inoremap <silent> <expr> <TAB> pumvisible() ? '<C-n>' : <SID>check_back_space() ? '<TAB>' : coc#refresh()
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
 call plug#end()
 
@@ -324,7 +319,7 @@ highlight GitGutterChangeDelete guibg=#eee8d5
 
 """ 其他
 " 调整文件
-nmap <silent> <F6> :call FormatFile()<CR>
+nnoremap <silent> <F6> :call FormatFile()<CR>
 function! FormatFile()
     let l = line('.')
     let c = col('.')
@@ -367,11 +362,11 @@ function! FormatFile()
     exe 'normal zz'
 endfunction
 
-nmap <silent> <F8> :call ToggleIndent()<CR>
-function! ToggleIndent()
-    set tabstop=2
-    set softtabstop=2
-    set shiftwidth=2
-    exe ':IndentGuidesDisable'
-    exe ':IndentGuidesEnable'
-endfunction
+" nnoremap <silent> <F8> :call ToggleIndent()<CR>
+" function! ToggleIndent()
+"     set tabstop=2
+"     set softtabstop=2
+"     set shiftwidth=2
+"     exe ':IndentGuidesDisable'
+"     exe ':IndentGuidesEnable'
+" endfunction
