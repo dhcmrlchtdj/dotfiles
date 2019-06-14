@@ -286,7 +286,7 @@ Plug 'neoclide/coc.nvim', {'do':'./install.sh'}
 autocmd CursorHold * silent call CocActionAsync('highlight')
 autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 nnoremap <C-p> :CocList -N files<CR>
-nnoremap <Leader>p :CocList -N grep<CR>
+nnoremap <Leader>p :CocList -N -I grep<CR>
 nnoremap <silent> K :call CocAction('doHover')<CR>
 nnoremap <silent> L :call CocAction('jumpDefinition')<CR>
 nnoremap <silent> <leader>l :call CocAction('codeLensAction')<CR>
