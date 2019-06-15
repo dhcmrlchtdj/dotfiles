@@ -57,7 +57,7 @@ set fileformats=unix,dos "判断换行方式
 set ambiwidth=single "宽度不明字符使用单倍字符宽度
 
 """ 行号 命令行 状态行
-" set signcolumn=yes
+set signcolumn=yes
 set number "显示行号
 " set wrap "自动换行
 set nowrap "不自动换行
@@ -283,15 +283,15 @@ let g:echodoc#enable_at_startup = 1
 let g:echodoc#type = 'echo'
 
 Plug 'neoclide/coc.nvim', {'do':'./install.sh'}
-" coc-lists coc-pairs
-" coc-json coc-tsserver coc-css coc-html coc-rls
+" coc-lists coc-pairs coc-json coc-tsserver coc-css coc-html coc-rls
 " autocmd CursorHold * silent call CocActionAsync('highlight')
-autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-nnoremap <C-p> :CocList -N files<CR>
-nnoremap <Leader>p :CocList -N -I grep<CR>
+" autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+nnoremap <silent> <C-p> :CocList -N files<CR>
+nnoremap <silent> <Leader>p :CocList -N -I grep<CR>
 nnoremap <silent> K :call CocAction('doHover')<CR>
 nnoremap <silent> L :call CocAction('jumpDefinition')<CR>
-nnoremap <silent> <leader>l :call CocAction('codeLensAction')<CR>
+nnoremap <silent> <C-l> :call CocAction('codeLensAction')<CR>
+nnoremap <silent> <Leader>l :call CocAction('codeAction')<CR>
 inoremap <silent> <expr> <CR> pumvisible() ? '<C-y>' : '<CR>'
 inoremap <silent> <expr> <TAB> pumvisible() ? '<C-n>' : <SID>check_back_space() ? '<TAB>' : coc#refresh()
 function! s:check_back_space() abort
