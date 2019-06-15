@@ -208,7 +208,7 @@ Plug 'godlygeek/tabular' " align
 " Plug 'junegunn/fzf.vim'
 " Plug 'Yggdroot/LeaderF', {'do':'./install.sh'}
 
-" Plug 'Konfekt/FastFold' " fold
+" Plug 'neomake/neomake'
 
 Plug 'sbdchd/neoformat' " formatter
 let g:neoformat_basic_format_align = 1
@@ -283,7 +283,9 @@ let g:echodoc#enable_at_startup = 1
 let g:echodoc#type = 'echo'
 
 Plug 'neoclide/coc.nvim', {'do':'./install.sh'}
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" coc-lists coc-pairs
+" coc-json coc-tsserver coc-css coc-html coc-rls
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 nnoremap <C-p> :CocList -N files<CR>
 nnoremap <Leader>p :CocList -N -I grep<CR>
