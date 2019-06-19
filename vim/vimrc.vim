@@ -31,9 +31,9 @@ set display=lastline,uhex "不可见字符用 hex 形式展示
 set lazyredraw
 set clipboard=unnamed,unnamedplus "剪贴板
 set virtualedit=block "虚空间
-set backspace=indent,eol,start "insert模式下删除键可删除
+" set backspace=indent,eol,start "insert模式下删除键可删除
 set showmatch "输入括号时显示匹配括号
-set completeopt=menu "补全窗口的样式
+" set completeopt=menu "补全窗口的样式
 set showfulltag
 set conceallevel=0
 
@@ -269,7 +269,7 @@ Plug 'HerringtonDarkholme/yats.vim'
 
 Plug 'keith/swift.vim'
 Plug 'rust-lang/rust.vim'
-Plug 'fatih/vim-go'
+" Plug 'fatih/vim-go'
 " Plug 'udalov/kotlin-vim'
 " Plug 'othree/nginx-contrib-vim'
 " Plug 'asciidoc/vim-asciidoc'
@@ -286,12 +286,14 @@ Plug 'neoclide/coc.nvim', {'do':'./install.sh'}
 " coc-lists coc-pairs coc-json coc-tsserver coc-css coc-html coc-rls
 " autocmd CursorHold * silent call CocActionAsync('highlight')
 " autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+let b:coc_pairs_disabled = ['<']
 nnoremap <silent> <C-p> :CocList -N files<CR>
 nnoremap <silent> <Leader>p :CocList -N -I grep<CR>
 nnoremap <silent> K :call CocAction('doHover')<CR>
 nnoremap <silent> L :call CocAction('jumpDefinition')<CR>
 nnoremap <silent> <C-l> :call CocAction('codeLensAction')<CR>
 nnoremap <silent> <Leader>l :call CocAction('codeAction')<CR>
+inoremap <silent> <expr> <BS> pumvisible() ? '<BS><C-o>coc#refresh()' : '<BS>'
 inoremap <silent> <expr> <CR> pumvisible() ? '<C-y>' : '<CR>'
 inoremap <silent> <expr> <TAB> pumvisible() ? '<C-n>' : <SID>check_back_space() ? '<TAB>' : coc#refresh()
 function! s:check_back_space() abort
