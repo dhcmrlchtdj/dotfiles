@@ -136,8 +136,6 @@ Plug 'vim-airline/vim-airline-themes' " statusline theme
 let g:airline_theme = 'powerlineish'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
-" let g:airline#extensions#ale#enabled = 1
-" let g:airline#extensions#languageclient#enabled = 1
 let g:airline#extensions#coc#enabled = 1
 let g:airline#extensions#coc#error_symbol = 'E:'
 let g:airline#extensions#coc#warning_symbol = 'W:'
@@ -283,7 +281,7 @@ let g:echodoc#enable_at_startup = 1
 let g:echodoc#type = 'echo'
 
 Plug 'neoclide/coc.nvim', {'do':'./install.sh'}
-" coc-lists coc-pairs coc-json coc-tsserver coc-css coc-html coc-rls
+" coc-lists coc-pairs coc-syntax coc-json coc-tsserver coc-css coc-html coc-rls
 " autocmd CursorHold * silent call CocActionAsync('highlight')
 " autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 let b:coc_pairs_disabled = ['<']
@@ -293,8 +291,9 @@ nnoremap <silent> K :call CocAction('doHover')<CR>
 nnoremap <silent> L :call CocAction('jumpDefinition')<CR>
 nnoremap <silent> <C-l> :call CocAction('codeLensAction')<CR>
 nnoremap <silent> <Leader>l :call CocAction('codeAction')<CR>
+" conflict with coc-pairs <bs>
 inoremap <silent> <expr> <BS> pumvisible() ? '<BS><C-o>coc#refresh()' : '<BS>'
-inoremap <silent> <expr> <CR> pumvisible() ? '<C-y>' : '<CR>'
+inoremap <silent> <expr> <CR> pumvisible() ? '<C-y>' : '<C-g>u<CR><C-r>=coc#on_enter()<CR>'
 inoremap <silent> <expr> <TAB> pumvisible() ? '<C-n>' : <SID>check_back_space() ? '<TAB>' : coc#refresh()
 function! s:check_back_space() abort
     let col = col('.') - 1
