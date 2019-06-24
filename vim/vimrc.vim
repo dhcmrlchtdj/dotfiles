@@ -202,11 +202,10 @@ let g:NERDAltDelims_swift = 1
 
 Plug 'godlygeek/tabular' " align
 
-" Plug '/usr/local/opt/fzf'
-" Plug 'junegunn/fzf.vim'
-" Plug 'Yggdroot/LeaderF', {'do':'./install.sh'}
-
 " Plug 'neomake/neomake'
+
+Plug 'easymotion/vim-easymotion'
+map <Leader>w <Plug>(easymotion-w)
 
 Plug 'sbdchd/neoformat' " formatter
 let g:neoformat_basic_format_align = 1
@@ -219,7 +218,6 @@ let g:neoformat_enabled_json = ['prettier']
 let g:neoformat_enabled_javascript = ['prettier']
 let g:neoformat_enabled_typescript = ['prettier']
 let g:neoformat_enabled_css = ['prettier']
-let g:neoformat_enabled_scss = ['prettier']
 let g:neoformat_enabled_html = ['prettier']
 let g:neoformat_enabled_ocaml = ['ocamlformat', 'ocpindent']
 " https://nshipster.com/swift-format/
@@ -235,7 +233,7 @@ let g:vim_markdown_new_list_item_indent = 0
 let g:vim_markdown_toc_autofit = 1
 autocmd FileType markdown nnoremap <buffer> <silent> <F4> :silent Toc<CR>
 
-Plug 'editorconfig/editorconfig-vim'
+" Plug 'editorconfig/editorconfig-vim'
 
 Plug 'cespare/vim-toml'
 
@@ -244,7 +242,7 @@ Plug 'rgrinberg/vim-ocaml'
 Plug 'othree/html5.vim'
 
 Plug 'hail2u/vim-css3-syntax'
-Plug 'cakebaker/scss-syntax.vim'
+" Plug 'cakebaker/scss-syntax.vim'
 
 Plug 'elzr/vim-json'
 let g:vim_json_syntax_conceal = 0
