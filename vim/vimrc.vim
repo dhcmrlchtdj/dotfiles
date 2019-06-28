@@ -64,9 +64,9 @@ set nowrap "不自动换行
 set textwidth=0 "行宽
 set colorcolumn=80 "行宽提示
 " set cursorline "高亮当前行
-set scrolloff=3
+set scrolloff=1
 set sidescroll=1
-set sidescrolloff=3
+set sidescrolloff=1
 noremap <Up> gk
 noremap <Down> gj
 inoremap <Up> <C-o>gk
@@ -226,7 +226,8 @@ let g:neoformat_swift_ggformat.replace = 1
 let g:neoformat_enabled_swift = ['ggformat']
 
 Plug 'easymotion/vim-easymotion'
-map <Leader>w <Plug>(easymotion-w)
+nmap f <Plug>(easymotion-w)
+nmap F <Plug>(easymotion-b)
 
 Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_conceal = 0
@@ -290,9 +291,9 @@ nnoremap L :call CocAction('jumpDefinition')<CR>
 nnoremap <C-l> :call CocAction('codeLensAction')<CR>
 nnoremap <Leader>l :call CocAction('codeAction')<CR>
 " conflict with coc-pairs <bs>
-inoremap <expr> <BS> pumvisible() ? '<BS><C-o>coc#refresh()' : '<BS>'
-inoremap <expr> <CR> pumvisible() ? '<C-y>' : '<C-g>u<CR><C-r>=coc#on_enter()<CR>'
-inoremap <expr> <TAB> pumvisible() ? '<C-n>' : <SID>check_back_space() ? '<TAB>' : coc#refresh()
+inoremap <silent> <expr> <BS> pumvisible() ? '<BS><C-o>coc#refresh()' : '<BS>'
+inoremap <silent> <expr> <CR> pumvisible() ? '<C-y>' : '<C-g>u<CR><C-r>=coc#on_enter()<CR>'
+inoremap <silent> <expr> <TAB> pumvisible() ? '<C-n>' : <SID>check_back_space() ? '<TAB>' : coc#refresh()
 function! s:check_back_space() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1] =~# '\s'
