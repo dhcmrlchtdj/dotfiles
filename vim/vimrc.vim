@@ -67,8 +67,8 @@ set colorcolumn=80 "行宽提示
 set scrolloff=1
 set sidescroll=1
 set sidescrolloff=1
-noremap <Up> gk
-noremap <Down> gj
+nnoremap <Up> gk
+nnoremap <Down> gj
 inoremap <Up> <C-o>gk
 inoremap <Down> <C-o>gj
 inoremap <expr> <Up> pumvisible() ? '<C-p>' : '<Up>'
@@ -122,9 +122,9 @@ set nosplitbelow
 set splitright
 
 """ location list
-nnoremap <F1> :lopen<CR>
-autocmd FileType qf nnoremap <buffer><CR> <CR>:lclose<CR>
-autocmd FileType qf nnoremap <buffer>q :lclose<CR>
+nnoremap <silent> <F1> :lopen<CR>
+autocmd FileType qf nnoremap <buffer> <silent> <CR> <CR>:lclose<CR>
+autocmd FileType qf nnoremap <buffer> <silent> q :lclose<CR>
 
 """ plugin
 filetype plugin indent off
@@ -157,7 +157,7 @@ let g:indent_guides_auto_colors = 0
 
 Plug 'jeetsukumaran/vim-buffergator' " buffer
 let g:buffergator_split_size = 30
-nnoremap <F2> :BuffergatorOpen<CR>
+nnoremap <silent> <F2> :BuffergatorOpen<CR>
 
 " Plug 'kshenoy/vim-signature'
 
@@ -166,7 +166,7 @@ let g:NERDTreeCaseSensitiveSort = 1
 let g:NERDTreeChDirMode = 2
 let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeSortHiddenFirst = 1
-nnoremap <F3> :NERDTreeFind<CR>
+nnoremap <silent> <F3> :NERDTreeFind<CR>
 
 Plug 'Xuyuanp/nerdtree-git-plugin' " filesystem git
 let g:NERDTreeIndicatorMapCustom = {}
@@ -187,12 +187,12 @@ let g:vista_top_level_blink = [0, 0]
 let g:vista_echo_cursor = 0
 let g:vista#renderer#enable_icon = 0
 let g:vista_default_executive = 'coc'
-nnoremap <F4> :Vista focus<CR>
-autocmd FileType markdown nnoremap <buffer> <F4> :Vista toc<CR>
+nnoremap <silent> <F4> :Vista focus<CR>
+autocmd FileType markdown nnoremap <buffer> <silent> <F4> :Vista toc<CR>
 
 Plug 'simnalamburt/vim-mundo'
 let g:mundo_return_on_revert = 0
-nnoremap <F5> :MundoToggle<CR>
+nnoremap <silent> <F5> :MundoToggle<CR>
 
 Plug 'scrooloose/nerdcommenter' " comment
 let g:NERDCommentEmptyLines = 1
@@ -210,7 +210,7 @@ let g:neoformat_basic_format_align = 1
 let g:neoformat_basic_format_retab = 1
 let g:neoformat_basic_format_trim = 1
 let g:neoformat_run_all_formatters = 1
-noremap <Leader>ff :Neoformat<CR>
+nnoremap <silent> <Leader>ff :Neoformat<CR>
 let g:neoformat_enabled_markdown = []
 let g:neoformat_enabled_json = ['prettier']
 let g:neoformat_enabled_javascript = ['prettier']
@@ -284,12 +284,12 @@ Plug 'neoclide/coc.nvim', {'do':'./install.sh'}
 " autocmd CursorHold * silent call CocActionAsync('highlight')
 " autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 let b:coc_pairs_disabled = ['<']
-nnoremap <C-p> :CocList -N files<CR>
-nnoremap <Leader>p :CocList -N -I grep<CR>
-nnoremap K :call CocAction('doHover')<CR>
-nnoremap L :call CocAction('jumpDefinition')<CR>
-nnoremap <C-l> :call CocAction('codeLensAction')<CR>
-nnoremap <Leader>l :call CocAction('codeAction')<CR>
+nnoremap <silent> <C-p> :CocList -N files<CR>
+nnoremap <silent> <Leader>p :CocList -N -I grep<CR>
+nnoremap <silent> K :call CocAction('doHover')<CR>
+nnoremap <silent> L :call CocAction('jumpDefinition')<CR>
+nnoremap <silent> <C-l> :call CocAction('codeLensAction')<CR>
+nnoremap <silent> <Leader>l :call CocAction('codeAction')<CR>
 " conflict with coc-pairs <bs>
 inoremap <silent> <expr> <BS> pumvisible() ? '<BS><C-o>coc#refresh()' : '<BS>'
 inoremap <silent> <expr> <CR> pumvisible() ? '<C-y>' : '<C-g>u<CR><C-r>=coc#on_enter()<CR>'
@@ -319,7 +319,7 @@ highlight GitGutterChange guibg=#eee8d5
 highlight GitGutterDelete guibg=#eee8d5
 highlight GitGutterChangeDelete guibg=#eee8d5
 
-nnoremap <F6> :call FormatFile()<CR>
+" nnoremap <F6> :call FormatFile()<CR>
 function! FormatFile()
     " 使用\n换行
     let &ff = 'unix'
