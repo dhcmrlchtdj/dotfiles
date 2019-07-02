@@ -304,6 +304,8 @@ call plug#end()
 filetype plugin indent on "载入文件类型 插件 缩进
 syntax enable "语法加亮
 
+autocmd FileType json syntax match Comment +\/\/.\+$+
+
 colorscheme NeoSolarized
 " set background=dark "深色背景
 set background=light "浅色背景
