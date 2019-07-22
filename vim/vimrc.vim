@@ -45,7 +45,7 @@ set undofile "开启撤销历史
 set undodir=~/.config/nvim/undo
 set backup "覆盖文件时备份
 set backupdir=~/.config/nvim/backup
-set diffopt+=filler,context:3,vertical
+set diffopt+=filler,context:3,vertical,internal,algorithm:histogram
 
 """ encoding
 set encoding=utf-8 "vim内部使用的编码
@@ -265,7 +265,7 @@ Plug 'HerringtonDarkholme/yats.vim'
 " Plug 'rhysd/vim-wasm'
 
 Plug 'keith/swift.vim'
-Plug 'rust-lang/rust.vim'
+" Plug 'rust-lang/rust.vim'
 " Plug 'fatih/vim-go'
 " Plug 'udalov/kotlin-vim'
 " Plug 'othree/nginx-contrib-vim'
@@ -279,7 +279,7 @@ Plug 'Shougo/echodoc.vim' " signature
 let g:echodoc#enable_at_startup = 1
 let g:echodoc#type = 'echo'
 
-Plug 'neoclide/coc.nvim', {'do':'./install.sh'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " coc-lists coc-pairs coc-syntax coc-json coc-tsserver coc-css coc-html coc-rls
 " autocmd CursorHold * silent call CocActionAsync('highlight')
 " autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
