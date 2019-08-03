@@ -265,9 +265,9 @@ Plug 'HerringtonDarkholme/yats.vim'
 " Plug 'rhysd/vim-wasm'
 
 Plug 'keith/swift.vim'
+Plug 'udalov/kotlin-vim'
 " Plug 'rust-lang/rust.vim'
 " Plug 'fatih/vim-go'
-" Plug 'udalov/kotlin-vim'
 " Plug 'othree/nginx-contrib-vim'
 " Plug 'asciidoc/vim-asciidoc'
 " Plug 'jparise/vim-graphql'
@@ -284,8 +284,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " autocmd CursorHold * silent call CocActionAsync('highlight')
 " autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 let b:coc_pairs_disabled = ['<']
-nnoremap <silent> <C-p> :CocList -N files<CR>
-nnoremap <silent> <Leader>p :CocList -N -I grep<CR>
+" nnoremap <silent> <C-p> :CocList -N files<CR>
+" nnoremap <silent> <Leader>p :CocList -N -I grep<CR>
 nnoremap <silent> K :call CocAction('doHover')<CR>
 nnoremap <silent> L :call CocAction('jumpDefinition')<CR>
 nnoremap <silent> <C-l> :call CocAction('codeLensAction')<CR>
@@ -298,6 +298,11 @@ function! s:check_back_space() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1] =~# '\s'
 endfunction
+
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+nnoremap <silent> <C-p> :Files<CR>
+nnoremap <Leader>p :Rg 
 
 call plug#end()
 
