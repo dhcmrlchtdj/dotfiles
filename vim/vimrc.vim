@@ -283,7 +283,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " coc-lists coc-pairs coc-syntax coc-json coc-tsserver coc-css coc-html coc-rls
 " autocmd CursorHold * silent call CocActionAsync('highlight')
 " autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-let b:coc_pairs_disabled = ['<']
+" let b:coc_pairs_disabled = ['<']
 " nnoremap <silent> <C-p> :CocList -N files<CR>
 " nnoremap <silent> <Leader>p :CocList -N -I grep<CR>
 nnoremap <silent> K :call CocAction('doHover')<CR>
@@ -345,4 +345,5 @@ function! UpgradeExt()
     exe 'CocUpdateSync'
     exe 'PlugUpgrade'
     exe 'PlugUpdate'
+    exe 'UpdateRemotePlugins'
 endfunction
