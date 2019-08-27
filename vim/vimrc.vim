@@ -265,7 +265,7 @@ Plug 'HerringtonDarkholme/yats.vim'
 " Plug 'rhysd/vim-wasm'
 
 " Plug 'keith/swift.vim'
-Plug 'udalov/kotlin-vim'
+" Plug 'udalov/kotlin-vim'
 " Plug 'rust-lang/rust.vim'
 " Plug 'fatih/vim-go'
 " Plug 'othree/nginx-contrib-vim'
