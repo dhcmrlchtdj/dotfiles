@@ -209,7 +209,6 @@ Plug 'sbdchd/neoformat' " formatter
 let g:neoformat_basic_format_align = 1
 let g:neoformat_basic_format_retab = 1
 let g:neoformat_basic_format_trim = 1
-let g:neoformat_run_all_formatters = 1
 nnoremap <silent> <Leader>ff :Neoformat<CR>
 let g:neoformat_enabled_markdown = []
 let g:neoformat_enabled_json = ['prettier']
@@ -217,13 +216,7 @@ let g:neoformat_enabled_javascript = ['prettier']
 let g:neoformat_enabled_typescript = ['prettier']
 let g:neoformat_enabled_css = ['prettier']
 let g:neoformat_enabled_html = ['prettier']
-let g:neoformat_enabled_ocaml = ['ocamlformat', 'ocpindent']
-" https://nshipster.com/swift-format/
-let g:neoformat_swift_ggformat = {}
-let g:neoformat_swift_ggformat.exe = 'swift-format'
-let g:neoformat_swift_ggformat.args = ['-i', '--configuration ~/.swift-format.json']
-let g:neoformat_swift_ggformat.replace = 1
-let g:neoformat_enabled_swift = ['ggformat']
+let g:neoformat_enabled_ocaml = ['ocamlformat']
 
 Plug 'easymotion/vim-easymotion'
 nmap f <Plug>(easymotion-w)
