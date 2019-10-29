@@ -209,6 +209,7 @@ Plug 'sbdchd/neoformat' " formatter
 let g:neoformat_basic_format_align = 1
 let g:neoformat_basic_format_retab = 1
 let g:neoformat_basic_format_trim = 1
+" let g:neoformat_run_all_formatters = 1
 nnoremap <silent> <Leader>ff :Neoformat<CR>
 let g:neoformat_enabled_markdown = []
 let g:neoformat_enabled_json = ['prettier']
@@ -303,6 +304,7 @@ filetype plugin indent on "载入文件类型 插件 缩进
 syntax enable "语法加亮
 
 autocmd FileType json syntax match Comment +\/\/.\+$+
+autocmd FileType go set noexpandtab "使用tab缩进
 
 colorscheme NeoSolarized
 " set background=dark "深色背景

@@ -3,6 +3,7 @@ fpath=(~/.zfunc /usr/local/share/zsh-completions /usr/local/share/zsh/functions 
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
 export SDKROOT=macosx
 export HOMEBREW_AUTO_UPDATE_SECS=8640000 #60*60*24*10
+export JAVA_HOME=$(/usr/libexec/java_home)
 # export PUB_HOSTED_URL=https://pub.flutter-io.cn
 # export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 # podfile
