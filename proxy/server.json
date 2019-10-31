@@ -1,14 +1,18 @@
 {
+    "plugin": "v2ray-plugin",
+    "plugin_opts": "https://github.com/shadowsocks/v2ray-plugin",
     "local_address": "127.0.0.1",
     "local_port": "!!!1080",
-    "server": "!!!server",
+    "server": "!!!127.0.0.1",
     "server_port": "!!!1080",
     "password": "!!!password",
+
     "method": "chacha20-ietf-poly1305",
-    "nameserver": "1.1.1.1",
-    "mode": "tcp_and_udp",
+    "timeout": 60,
     "fast_open": true,
     "reuse_port": true,
     "no_delay": true,
-    "timeout": 60
+    "nameserver": "1.1.1.1,1.0.0.1",
+    "mode": "tcp_and_udp",
+    "verbose": true
 }
