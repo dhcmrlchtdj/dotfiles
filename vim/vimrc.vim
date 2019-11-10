@@ -232,7 +232,7 @@ let g:vim_markdown_toc_autofit = 1
 
 Plug 'cespare/vim-toml'
 
-Plug 'rgrinberg/vim-ocaml'
+Plug 'ocaml/vim-ocaml'
 
 Plug 'othree/html5.vim'
 
@@ -260,7 +260,7 @@ Plug 'HerringtonDarkholme/yats.vim'
 
 " Plug 'keith/swift.vim'
 Plug 'udalov/kotlin-vim'
-" Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim'
 " Plug 'fatih/vim-go'
 " Plug 'othree/nginx-contrib-vim'
 " Plug 'asciidoc/vim-asciidoc'
