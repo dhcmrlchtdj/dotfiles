@@ -12,6 +12,7 @@
     "list.source.files.args": ["--files"],
     "list.source.grep.command": "rg",
     "list.source.grep.args": ["--vimgrep", "--no-heading", "--smart-case"],
+    "rust.clippy_preference": "on",
     "languageserver": {
         "ocaml": {
             "command": "ocaml-language-server",
@@ -46,7 +47,9 @@
         "golang": {
             "command": "gopls",
             "filetypes": ["go"],
-            "rootPatterns": [".git/", "go.mod"]
+            "rootPatterns": [".git/", "go.mod"],
+            "initializationOptions": {
+            }
         }
     }
 }
