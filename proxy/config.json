@@ -1,0 +1,36 @@
+{
+    "server": "!!!server.ip",
+    "server_port": "!!!server.port",
+    "password": "!!!password",
+
+    "local_address": "127.0.0.1",
+    "local_port": "!!!local.port",
+    "server": "!!!server.ip",
+    "server_port": "!!!server.port",
+    "password": "!!!password",
+
+
+    "plugin": "v2ray-plugin",
+    "plugin_opts": "server",
+    "server": "127.0.0.1",
+    "server_port": "!!!server.port",
+    "password": "!!!password",
+
+    "plugin": "v2ray-plugin",
+    "plugin_opts": "!!!tls;host=server.domain",
+    "server": "!!!server.domain",
+    "server_port": "!!!server.port",
+    "local_address": "127.0.0.1",
+    "local_port": "!!!local.port",
+    "password": "!!!password",
+
+
+    "method": "chacha20-ietf-poly1305",
+    "timeout": 60,
+    "fast_open": true,
+    "reuse_port": true,
+    "no_delay": true,
+    "nameserver": "1.1.1.1,1.0.0.1",
+    "mode": "tcp_and_udp",
+    "verbose": true
+}
