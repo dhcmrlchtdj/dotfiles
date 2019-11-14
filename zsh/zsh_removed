@@ -1,3 +1,7 @@
+_has() {
+    type "$1" &> /dev/null
+}
+
 alias danger_chrome="open -a 'Google Chrome Canary' --args --disable-web-security --user-data-dir --allow-file-access-from-files"
 alias mosh="mosh --predict=experimental"
 datauri() {echo "data:image/${1##*.};base64,$(openssl base64 -in $1 | tr -d '\n')"}

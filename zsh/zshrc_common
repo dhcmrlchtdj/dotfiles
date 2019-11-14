@@ -1,7 +1,3 @@
-_has() {
-    type "$1" &> /dev/null
-}
-
 _source() {
     if [[ -f "$1" ]]; then
         source $1
@@ -36,7 +32,7 @@ prompt ooxx
 
 
 autoload -Uz compinit
-# compinit
+compinit
 
 
 ### alias ###
@@ -55,15 +51,11 @@ alias sc="screen -dRR"
 alias j="jobs -dl"
 alias h="htop"
 alias f="find . -name"
-alias py="python3"
-alias py3="python3"
-alias py2="python2"
 alias vim="nvim"
 alias vimdiff="nvim -d"
 alias rg="rg --smart-case"
 
 alias zz="bsdtar cavf"
-#alias xx="bsdtar xvf"
 alias xx="unar"
 alias sss="python3 -m http.server"
 alias mm="mitmproxy -p 8888"

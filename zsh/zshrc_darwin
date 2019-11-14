@@ -1,20 +1,12 @@
 fpath=(~/.zfunc /usr/local/share/zsh-completions /usr/local/share/zsh/functions $fpath)
 
-export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
-export SDKROOT=macosx
 export HOMEBREW_AUTO_UPDATE_SECS=8640000 #60*60*24*10
-export JAVA_HOME=$(/usr/libexec/java_home)
-# export PUB_HOSTED_URL=https://pub.flutter-io.cn
-# export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
-# podfile
-# source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
-
-# PATH="$HOME/.pub-cache/bin:$PATH"
-# PATH="$HOME/workspace/opensource/flutter/bin:$PATH"
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
+# export SDKROOT=macosx
+# export JAVA_HOME=$(/usr/libexec/java_home)
 # PATH="$HOME/.deno/bin:$PATH"
-# PATH="$HOME/go/bin:$PATH"
+PATH="$HOME/go/bin:$PATH"
 PATH="$HOME/.cargo/bin:$PATH"
-# PATH="/usr/local/opt/node@10/bin:$PATH"
 PATH="/usr/local/opt/python/libexec/bin:$PATH"
 PATH="/usr/local/opt/libarchive/bin:$PATH"
 export PATH
@@ -27,11 +19,8 @@ _source ~/.opam/opam-init/init.zsh
 ## alias
 alias rm="grm -Irv"
 alias ls="gls --color=auto --group-directories-first -vF"
-alias mvim="mvim -v"
 alias breww="brew update && brew upgrade && brew cask upgrade && brew cleanup"
 alias dm="docker-machine --native-ssh"
-alias jsoo="js_of_ocaml --opt=3 --pretty"
-alias ocaml="ocaml str.cma"
 
 # forward f port remote-port remote-host
 # forward c port remote-port remote-host
