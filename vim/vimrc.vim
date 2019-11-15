@@ -62,7 +62,7 @@ set number "显示行号
 " set wrap "自动换行
 set nowrap "不自动换行
 set textwidth=0 "行宽
-set colorcolumn=80 "行宽提示
+set colorcolumn=81 "行宽提示
 " set cursorline "高亮当前行
 set scrolloff=1
 set sidescroll=1
