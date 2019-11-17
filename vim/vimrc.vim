@@ -305,6 +305,7 @@ syntax enable "语法加亮
 
 autocmd FileType json syntax match Comment +\/\/.\+$+
 autocmd FileType go set noexpandtab "使用tab缩进
+autocmd FileType ocaml setl ts=2 sts=2 sw=2
 
 colorscheme NeoSolarized
 " set background=dark "深色背景
@@ -342,3 +343,12 @@ function! UpgradeExt()
     exe 'PlugUpdate'
     exe 'UpdateRemotePlugins'
 endfunction
+
+" augroup Binary
+"   au!
+"   au BufReadPre  *.bin let &bin=1
+"   au BufReadPost *.bin if &bin | %!xxd
+"   au BufReadPost *.bin set ft=xxd | endif
+"   au BufWritePre *.bin if &bin | %!xxd -r
+"   au BufWritePre *.bin endif
+" augroup END
