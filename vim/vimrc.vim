@@ -256,13 +256,9 @@ Plug 'HerringtonDarkholme/yats.vim'
 " Plug 'vim-python/python-syntax'
 " let python_highlight_all = 1
 
-" Plug 'rhysd/vim-wasm'
-
 " Plug 'keith/swift.vim'
 Plug 'udalov/kotlin-vim'
 Plug 'rust-lang/rust.vim'
-" Plug 'fatih/vim-go'
-" Plug 'othree/nginx-contrib-vim'
 " Plug 'asciidoc/vim-asciidoc'
 " Plug 'jparise/vim-graphql'
 " Plug 'tbastos/vim-lua'
@@ -344,11 +340,12 @@ function! UpgradeExt()
     exe 'UpdateRemotePlugins'
 endfunction
 
-" augroup Binary
-"   au!
-"   au BufReadPre  *.bin let &bin=1
-"   au BufReadPost *.bin if &bin | %!xxd
-"   au BufReadPost *.bin set ft=xxd | endif
-"   au BufWritePre *.bin if &bin | %!xxd -r
-"   au BufWritePre *.bin endif
-" augroup END
+augroup Binary
+    au!
+    au BufReadPre  *.wasm let &bin=1
+    au BufReadPost *.wasm if &bin | %!xxd
+    au BufReadPost *.wasm set ft=xxd | endif
+    au BufWritePre *.wasm if &bin | %!xxd -r
+    au BufWritePre *.wasm endif
+    au BufWritePost *.wasm if &bin | %!xxd
+augroup END
