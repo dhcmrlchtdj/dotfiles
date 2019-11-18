@@ -20,6 +20,10 @@
             "filetypes": ["ocaml", "reason"],
             "rootPatterns": [".git/"]
         },
+        "kotlin": {
+            "command": "kotlin-language-server",
+            "filetypes": ["kotlin"]
+        },
         "swift": {
             "command": "sourcekit-lsp",
             "filetypes": ["swift"],
@@ -48,8 +52,7 @@
             "command": "gopls",
             "filetypes": ["go"],
             "rootPatterns": [".git/", "go.mod"],
-            "initializationOptions": {
-            }
+            "initializationOptions": {}
         }
     }
 }
