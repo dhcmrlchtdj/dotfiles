@@ -1,12 +1,14 @@
 fpath=(~/.zfunc /usr/local/share/zsh-completions /usr/local/share/zsh/functions $fpath)
 
+export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_AUTO_UPDATE_SECS=8640000 #60*60*24*10
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
 # export SDKROOT=macosx
 # export JAVA_HOME=$(/usr/libexec/java_home)
-PATH="$HOME/go/bin:$PATH"
-PATH="$HOME/.cargo/bin:$PATH"
-PATH="/usr/local/opt/python/libexec/bin:$PATH"
+# PATH="$HOME/.cargo/bin:$PATH"
+# PATH="$HOME/go/bin:$PATH"
+# PATH="/usr/local/opt/python/libexec/bin:$PATH"
+PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
 PATH="/usr/local/opt/libarchive/bin:$PATH"
 export PATH
 
