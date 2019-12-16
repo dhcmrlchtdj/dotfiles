@@ -274,8 +274,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " autocmd CursorHold * silent call CocActionAsync('highlight')
 " autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 " let b:coc_pairs_disabled = ['<']
-" nnoremap <silent> <C-p> :CocList -N files<CR>
-" nnoremap <silent> <Leader>p :CocList -N -I grep<CR>
 nnoremap <silent> K :call CocAction('doHover')<CR>
 nnoremap <silent> L :call CocAction('jumpDefinition')<CR>
 nnoremap <silent> <C-l> :call CocAction('codeLensAction')<CR>
@@ -288,6 +286,7 @@ function! s:check_back_space() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1] =~# '\s'
 endfunction
+let g:coc_snippet_next = '<c-k>'
 
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
