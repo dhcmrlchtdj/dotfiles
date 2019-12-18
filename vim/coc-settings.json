@@ -17,8 +17,16 @@
         "ocaml": {
             "command": "ocaml-language-server",
             "args": ["--stdio"],
-            "filetypes": ["ocaml", "reason"],
-            "rootPatterns": [".git/"]
+            "filetypes": ["ocaml"]
+        },
+        "dart": {
+            "command": "dart",
+            "args": [
+                "/usr/local/opt/dart/libexec/bin/snapshots/analysis_server.dart.snapshot",
+                "--lsp"
+            ],
+            "filetypes": ["dart"],
+            "disableDynamicRegister": true
         },
         "kotlin": {
             "command": "kotlin-language-server",

@@ -258,12 +258,12 @@ Plug 'HerringtonDarkholme/yats.vim'
 
 " Plug 'keith/swift.vim'
 Plug 'udalov/kotlin-vim'
-Plug 'rust-lang/rust.vim'
+" Plug 'rust-lang/rust.vim'
 " Plug 'asciidoc/vim-asciidoc'
 " Plug 'jparise/vim-graphql'
 " Plug 'tbastos/vim-lua'
 " Plug 'idris-hackers/idris-vim'
-" Plug 'dart-lang/dart-vim-plugin'
+Plug 'dart-lang/dart-vim-plugin'
 
 Plug 'Shougo/echodoc.vim' " signature
 let g:echodoc#enable_at_startup = 1
