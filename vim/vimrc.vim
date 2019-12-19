@@ -236,7 +236,7 @@ Plug 'ocaml/vim-ocaml'
 
 Plug 'othree/html5.vim'
 
-Plug 'hail2u/vim-css3-syntax'
+" Plug 'hail2u/vim-css3-syntax'
 " Plug 'cakebaker/scss-syntax.vim'
 
 Plug 'elzr/vim-json'
@@ -263,7 +263,7 @@ Plug 'udalov/kotlin-vim'
 " Plug 'jparise/vim-graphql'
 " Plug 'tbastos/vim-lua'
 " Plug 'idris-hackers/idris-vim'
-Plug 'dart-lang/dart-vim-plugin'
+" Plug 'dart-lang/dart-vim-plugin'
 
 Plug 'Shougo/echodoc.vim' " signature
 let g:echodoc#enable_at_startup = 1
@@ -301,6 +301,7 @@ syntax enable "语法加亮
 autocmd FileType json syntax match Comment +\/\/.\+$+
 autocmd FileType go set noexpandtab "使用tab缩进
 autocmd FileType ocaml setl ts=2 sts=2 sw=2
+" autocmd FileType dart setl ts=2 sts=2 sw=2
 
 colorscheme NeoSolarized
 " set background=dark "深色背景
