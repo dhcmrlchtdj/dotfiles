@@ -5,8 +5,10 @@ export HOMEBREW_AUTO_UPDATE_SECS=8640000 #60*60*24*10
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
 # export SDKROOT=macosx
 # export JAVA_HOME=$(/usr/libexec/java_home)
+# export JAVA_HOME='/Library/Java/JavaVirtualMachines/graalvm-ce-java11-19.3.0/Contents/Home'
+# PATH="$PATH:/Library/Java/JavaVirtualMachines/graalvm-ce-java11-19.3.0/Contents/Home/bin"
 # PATH="$HOME/go/bin:$PATH"
-# PATH="$HOME/.cargo/bin:$PATH"
+PATH="$HOME/.cargo/bin:$PATH"
 PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
 PATH="/usr/local/opt/libarchive/bin:$PATH"
 export PATH

@@ -258,7 +258,7 @@ Plug 'HerringtonDarkholme/yats.vim'
 
 " Plug 'keith/swift.vim'
 Plug 'udalov/kotlin-vim'
-" Plug 'rust-lang/rust.vim'
+Plug 'rust-lang/rust.vim'
 " Plug 'asciidoc/vim-asciidoc'
 " Plug 'jparise/vim-graphql'
 " Plug 'tbastos/vim-lua'
