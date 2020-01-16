@@ -53,7 +53,7 @@ alias h="htop"
 alias f="find . -name"
 alias vim="nvim"
 alias vimdiff="nvim -d"
-alias rg="rg --smart-case"
+alias rg="rg --smart-case --no-ignore-dot"
 
 alias zz="bsdtar cavf"
 alias xx="unar"
@@ -69,5 +69,12 @@ alias curlw="curl -w '\ntime_namelookup:\t%{time_namelookup}\ntime_connect:\t\t%
 zzz() {
     for i in "$@"; do
         zz $i.zip $i;
+    done
+}
+
+ipip() {
+    for i in "$@"; do
+        curl "http://freeapi.ipip.net/$i";
+        echo;
     done
 }
