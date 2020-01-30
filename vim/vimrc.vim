@@ -188,7 +188,6 @@ let g:vista_echo_cursor = 0
 let g:vista#renderer#enable_icon = 0
 let g:vista_default_executive = 'coc'
 nnoremap <silent> <F4> :Vista focus<CR>
-autocmd FileType markdown nnoremap <buffer> <silent> <F4> :Vista toc<CR>
 
 Plug 'simnalamburt/vim-mundo'
 let g:mundo_return_on_revert = 0
@@ -227,10 +226,13 @@ Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_new_list_item_indent = 0
 let g:vim_markdown_toc_autofit = 1
+autocmd FileType markdown nnoremap <buffer> <silent> <F4> :Toc<CR>
 
 " Plug 'editorconfig/editorconfig-vim'
 
 Plug 'cespare/vim-toml'
+
+Plug 'nathangrigg/vim-beancount'
 
 Plug 'ocaml/vim-ocaml'
 
@@ -242,13 +244,10 @@ Plug 'othree/html5.vim'
 Plug 'elzr/vim-json'
 let g:vim_json_syntax_conceal = 0
 
+Plug 'HerringtonDarkholme/yats.vim'
 Plug 'othree/yajs.vim'
 Plug 'othree/es.next.syntax.vim'
 " Plug 'jiangmiao/simple-javascript-indenter'
-
-Plug 'HerringtonDarkholme/yats.vim'
-
-" Plug 'maxmellon/vim-jsx-pretty'
 
 " Plug 'posva/vim-vue'
 
