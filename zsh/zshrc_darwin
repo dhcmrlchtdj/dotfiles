@@ -10,7 +10,6 @@ PATH="$PATH:$JAVA_HOME/bin"
 PATH="$HOME/go/bin:$PATH"
 PATH="$HOME/.cargo/bin:$PATH"
 PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
-PATH="/usr/local/opt/libarchive/bin:$PATH"
 export PATH
 
 # source ~/.zshrc_work
@@ -23,6 +22,7 @@ alias rm="grm -Irv"
 alias ls="gls --color=auto --group-directories-first -vF"
 alias breww="brew update && brew upgrade && brew cask upgrade && brew cleanup"
 alias dm="docker-machine --native-ssh"
+alias go="http_proxy='http://127.0.0.1:2088' go"
 
 # forward f port remote-port remote-host
 # forward c port remote-port remote-host
