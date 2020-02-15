@@ -214,6 +214,7 @@ let g:neoformat_enabled_markdown = []
 let g:neoformat_enabled_json = ['prettier']
 let g:neoformat_enabled_javascript = ['prettier']
 let g:neoformat_enabled_typescript = ['prettier']
+let g:neoformat_enabled_typescriptreact = ['prettier']
 let g:neoformat_enabled_css = ['prettier']
 let g:neoformat_enabled_html = ['prettier']
 let g:neoformat_enabled_ocaml = ['ocamlformat']
@@ -235,6 +236,9 @@ Plug 'cespare/vim-toml'
 Plug 'nathangrigg/vim-beancount'
 
 Plug 'ocaml/vim-ocaml'
+
+Plug 'lifepillar/pgsql.vim'
+let g:sql_type_default = 'pgsql'
 
 Plug 'othree/html5.vim'
 
