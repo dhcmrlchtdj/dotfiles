@@ -1,0 +1,71 @@
+# https://github.com/Dreamacro/clash/blob/master/README.md#config
+
+port: 2088
+socks-port: 2080
+allow-lan: false
+mode: Rule # Rule | Global | Direct
+log-level: info # silent | error | warning | info | debug
+
+# dns:
+#   enable: true # set true to enable dns (default is false)
+#   ipv6: false # default is false
+#   listen: 0.0.0.0:53
+#   enhanced-mode: redir-host # or fake-ip
+#   # fake-ip-range: 198.18.0.1/16 # if you don't know what it is, don't change it
+#   fake-ip-filter: # fake ip white domain list
+#     - '*.lan'
+#     - localhost.ptlogin2.qq.com
+#   nameserver:
+#     - https://1.1.1.1/dns-query # dns over https
+#     - 1.1.1.1
+#     - 1.0.0.1
+#   fallback: # concurrent request with nameserver, fallback used when GEOIP country isn't CN
+#     - tcp://1.1.1.1
+#   fallback-filter:
+#     geoip: true # default
+#     ipcidr: # ips in these subnets will be considered polluted
+#       - 240.0.0.0/4
+
+Proxy:
+  - name: "ss-wss"
+    type: ss
+    server: example.com #TODO
+    port: 443
+    cipher: chacha20-ietf-poly1305
+    password: "example" #TODO
+    plugin: v2ray-plugin
+    plugin-opts:
+      mode: websocket
+      tls: true
+      host: example.com #TODO
+  - name: "ss-simple"
+    type: ss
+    server: example.com #TODO
+    port: 1088 #TODO
+    cipher: chacha20-ietf-poly1305
+    password: "example" #TODO
+
+Proxy Group:
+  - name: "ssproxy"
+    type: fallback
+    proxies:
+      - ss-wss
+      - ss-simple
+    url: 'http://www.gstatic.com/generate_204'
+    interval: 300
+
+Rule:
+  # DIRECT | REJECT | ssproxy
+  # - SRC-IP-CIDR,192.168.1.201/32,DIRECT
+  # - DST-PORT,80,DIRECT
+  # - SRC-PORT,7777,DIRECT
+  # - DOMAIN,google.com,ssproxy
+  # - DOMAIN-SUFFIX,google.com,ssproxy
+  # - DOMAIN-KEYWORD,google,ssproxy
+  - IP-CIDR,0.0.0.0/8,DIRECT
+  - IP-CIDR,10.0.0.0/8,DIRECT
+  - IP-CIDR,127.0.0.0/8,DIRECT
+  - IP-CIDR,172.16.0.0/12,DIRECT
+  - IP-CIDR,192.168.0.0/16,DIRECT
+  # - GEOIP,CN,DIRECT
+  - MATCH,ssproxy
