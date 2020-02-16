@@ -1,0 +1,19 @@
+{
+    "/** plugin": "**/",
+    "plugin": "v2ray-plugin",
+    "plugin_opts": "server",
+
+    "/** basic": "**/",
+    "server": "!!!TODO!!! ip | 127.0.0.1",
+    "server_port": "!!!TODO!!! port",
+    "password": "!!!TODO!!! password",
+
+    "method": "chacha20-ietf-poly1305",
+    "timeout": 60,
+    "fast_open": true,
+    "reuse_port": true,
+    "no_delay": true,
+    "nameserver": "1.1.1.1,1.0.0.1",
+    "mode": "tcp_and_udp",
+    "verbose": true
+}
