@@ -23,6 +23,8 @@ alias ls="gls --color=auto --group-directories-first -vF"
 alias breww="brew update && brew upgrade && brew cask upgrade && brew cleanup"
 alias dm="docker-machine --native-ssh"
 alias go="http_proxy='http://127.0.0.1:2088' go"
+alias opam="all_proxy='http://127.0.0.1:2088' opam"
+alias pcurl="all_proxy='http://127.0.0.1:2088' curl"
 
 # forward f port remote-port remote-host
 # forward c port remote-port remote-host
@@ -36,9 +38,13 @@ ppp() {
     export http_proxy="socks5h://127.0.0.1:2080"
     export http_proxy="socks5://127.0.0.1:2080"
     export http_proxy="http://127.0.0.1:2088"
+    export https_proxy="$http_proxy"
+    export all_proxy="$http_proxy"
     echo "set http_proxy='$http_proxy'"
 }
 pppp() {
+    unset all_proxy
+    unset https_proxy
     unset http_proxy
     echo "unset http_proxy='$http_proxy'"
 }
