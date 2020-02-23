@@ -18,13 +18,13 @@ _source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 _source ~/.opam/opam-init/init.zsh
 
 ## alias
-alias rm="grm -Irv"
-alias ls="gls --color=auto --group-directories-first -vF"
-alias breww="brew update && brew upgrade && brew cask upgrade && brew cleanup"
-alias dm="docker-machine --native-ssh"
-alias go="http_proxy='http://127.0.0.1:2088' go"
-alias opam="all_proxy='http://127.0.0.1:2088' opam"
-alias pcurl="all_proxy='http://127.0.0.1:2088' curl"
+alias rm='grm -Irv'
+alias ls='gls --color=auto --group-directories-first -vF'
+alias breww='brew update && brew upgrade && brew cask upgrade && brew cleanup'
+alias dm='docker-machine --native-ssh'
+alias go='http_proxy="http://127.0.0.1:2088" https_proxy="http://127.0.0.1:2088" go'
+alias opam='all_proxy="socks5h://127.0.0.1:2080" opam'
+alias pcurl='all_proxy="socks5h://127.0.0.1:2080" curl'
 
 # forward f port remote-port remote-host
 # forward c port remote-port remote-host
