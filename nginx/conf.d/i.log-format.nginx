@@ -2,3 +2,15 @@ log_format log_default '$remote_addr\t-\t'
     '"$scheme://$host"\t[$time_iso8601]\t'
     '"$request"\t$status\t$body_bytes_sent\t'
     '"$http_referer"\t"$http_user_agent"';
+
+log_format log_cf_conn '$remote_addr\t'
+    '"$http_cf_connecting_ip"\t'
+    '"$scheme://$host"\t[$time_iso8601]\t'
+    '"$request"\t$status\t$body_bytes_sent\t'
+    '"$http_referer"\t"$http_user_agent"';
+
+log_format log_realip '$remote_addr\t-\t'
+    '"$realip_remote_addr"\t'
+    '"$scheme://$host"\t[$time_iso8601]\t'
+    '"$request"\t$status\t$body_bytes_sent\t'
+    '"$http_referer"\t"$http_user_agent"';
