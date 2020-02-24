@@ -128,7 +128,12 @@ autocmd FileType qf nnoremap <buffer> <silent> q :lclose<CR>
 
 """ plugin
 filetype plugin indent off
-call plug#begin('~/.local/share/nvim/plugged')
+if has('nvim') == 1
+    " call plug#begin('~/.local/share/nvim/plugged')
+    call plug#begin(stdpath('data') . '/plugged')
+elseif
+    call plug#begin('~/.vim/plugged')
+end
 
 Plug 'tpope/vim-fugitive' " statusline git
 Plug 'vim-airline/vim-airline' " statusline
