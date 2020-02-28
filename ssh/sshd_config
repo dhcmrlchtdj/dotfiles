@@ -22,13 +22,13 @@ PermitEmptyPasswords no
 # AllowUsers <user> # TODO
 # AllowGroups <group> # TODO
 
+UsePAM yes
 GSSAPIAuthentication no
 HostbasedAuthentication no
 KerberosAuthentication no
 PasswordAuthentication no
 ChallengeResponseAuthentication no
 KbdInteractiveAuthentication no
-UsePAM no
 
 PubkeyAuthentication yes
 AuthorizedKeysFile %h/.ssh/authorized_keys
@@ -36,7 +36,6 @@ AuthenticationMethods publickey
 
 # KbdInteractiveAuthentication yes
 # ChallengeResponseAuthentication yes
-# UsePAM yes
 # AuthenticationMethods publickey keyboard-interactive:pam # TODO
 
 IgnoreRhosts yes
