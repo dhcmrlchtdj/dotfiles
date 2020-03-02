@@ -15,8 +15,7 @@
     "rust.clippy_preference": "on",
     "languageserver": {
         "ocaml": {
-            "command": "ocaml-language-server",
-            "args": ["--stdio"],
+            "command": "ocamllsp",
             "filetypes": ["ocaml"]
         },
         "dart": {
@@ -59,8 +58,7 @@
         "golang": {
             "command": "gopls",
             "filetypes": ["go"],
-            "rootPatterns": [".git/", "go.mod"],
-            "initializationOptions": {}
+            "rootPatterns": ["go.mod"]
         }
     }
 }
