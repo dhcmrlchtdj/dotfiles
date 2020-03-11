@@ -1,3 +1,12 @@
+# forward f port remote-port remote-host
+# forward c port remote-port remote-host
+forward() {
+    case "$1" in
+        "f") ssh -v -O forward -R 0.0.0.0:${3}:localhost:${2} ${4} ;;
+        "c") ssh -v -O cancel -R 0.0.0.0:${3}:localhost:${2} ${4} ;;
+    esac
+}
+
 _has() {
     type "$1" &> /dev/null
 }
@@ -20,24 +29,6 @@ datauri() {echo "data:image/${1##*.};base64,$(openssl base64 -in $1 | tr -d '\n'
 # }
 # if _has "chpwd_profiles"; then chpwd_profiles; fi
 #### END git for directoy ###
-
-
-# ppp() {
-    # export all_proxy='socks5h://127.0.0.1:1080'
-    # export http_proxy=$all_proxy
-    # export https_proxy=$all_proxy
-    # export ftp_proxy=$all_proxy
-    # export rsync_proxy=$all_proxy
-    # echo "all_proxy='$all_proxy'"
-# }
-# pppp () {
-    # unset all_proxy
-    # unset http_proxy
-    # unset https_proxy
-    # unset ftp_proxy
-    # unset rsync_proxy
-    # echo "all_proxy='$all_proxy'"
-# }
 
 
 ### node ###

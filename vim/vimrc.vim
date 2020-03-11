@@ -50,7 +50,7 @@ set diffopt+=filler,context:3,vertical,internal,algorithm:histogram
 """ encoding
 set encoding=utf-8 "vim内部使用的编码
 set fileencoding=utf-8 "默认使用编码
-set fileencodings=ucs-bom,utf-8,big5,gb18030 "判断文件编码
+set fileencodings=ucs-bom,utf-8,gb18030 "判断文件编码
 set nobomb "去除BOM
 set fileformat=unix "默认换行方式
 set fileformats=unix,dos "判断换行方式
