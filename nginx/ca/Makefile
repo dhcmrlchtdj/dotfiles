@@ -1,4 +1,4 @@
-SHELL := /bin/bash
+SHELL := bash
 DOMAIN := example.com
 
 .PHONY: ca
