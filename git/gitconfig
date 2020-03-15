@@ -17,24 +17,11 @@
     autocrlf = input
     safecrlf = warn
     trustctime = false
-    pager = diff-so-fancy | less --tabs=4 -RFX
+    precomposeUnicode = true
+    pager = delta --light
 
 [color]
     ui = auto
-
-[color "diff-highlight"]
-    oldNormal = red bold
-    oldHighlight = red bold 52
-    newNormal = green bold
-    newHighlight = green bold 22
-
-[color "diff"]
-    meta = 11
-    frag = magenta bold
-    commit = yellow bold
-    old = red bold
-    new = green bold
-    whitespace = red reverse
 
 [grep]
     lineNumber = true
@@ -99,7 +86,3 @@
     cp = cherry-pick
     tt = "!_() { declare tag=\"$(date '+%Y-%m-%dT%H.%M.%S%z')${1:+_$1}\"; git tag $tag -am $tag; }; _"
     commit-empty = commit --allow-empty --allow-empty-message -m ""
-
-[filter "empty"]
-	smudge = cat
-	clean = sed -n ''
