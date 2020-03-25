@@ -8,7 +8,7 @@
     "server_port": "!!!TODO!!! port",
     "password": "!!!TODO!!! password",
 
-    "method": "chacha20-ietf-poly1305",
+    "method": "xchacha20-ietf-poly1305",
     "timeout": 60,
     "fast_open": true,
     "reuse_port": true,
