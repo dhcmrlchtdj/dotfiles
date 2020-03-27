@@ -1,7 +1,7 @@
 [user]
     name = h11
-    email = nirisix@gmail.com
-    signingKey = 0x0006DD9CB2D67F50
+    email = me@h11.io
+    signingKey = 0xFEAC362C
 
 [commit]
     gpgSign = true
