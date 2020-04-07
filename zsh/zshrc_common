@@ -31,8 +31,8 @@ source ~/.zshrc_z
 prompt ooxx
 
 
-autoload -Uz compinit
-compinit
+# autoload -Uz compinit
+# compinit
 
 
 ### alias ###
@@ -57,11 +57,11 @@ alias rg="rg --smart-case --no-ignore-dot"
 
 alias zz="bsdtar cavf"
 alias xx="unar"
-alias sss="python3 -m http.server"
-alias mm="mitmproxy -p 8888"
-alias mmm="mitmproxy -p 8888 -i '~q | ~s'"
-alias ccc="clang -std=c11 -Weverything -Wno-missing-prototypes"
-alias ttt="tmux -CC attach || tmux -CC"
+# alias sss="python3 -m http.server"
+# alias mm="mitmproxy -p 8888"
+# alias mmm="mitmproxy -p 8888 -i '~q | ~s'"
+# alias ccc="clang -std=c11 -Weverything -Wno-missing-prototypes"
+# alias ttt="tmux -CC attach || tmux -CC"
 # alias curlw="curl -w '\ntime_namelookup:\t%{time_namelookup}\ntime_connect:\t\t%{time_connect}\ntime_appconnect:\t%{time_appconnect}\ntime_pretransfer:\t%{time_pretransfer}\ntime_redirect:\t\t%{time_redirect}\ntime_starttransfer:\t%{time_starttransfer}\n------\ntime_total:\t\t%{time_total}\n'"
 alias curlw="curl --write-out '%{json}'"
 ### END alias ###
@@ -70,12 +70,5 @@ alias curlw="curl --write-out '%{json}'"
 zzz() {
     for i in "$@"; do
         zz $i.zip $i;
-    done
-}
-
-ipip() {
-    for i in "$@"; do
-        curl "http://freeapi.ipip.net/$i";
-        echo;
     done
 }
