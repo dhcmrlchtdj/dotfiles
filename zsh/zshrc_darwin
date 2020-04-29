@@ -10,7 +10,6 @@ PATH="$PATH:$JAVA_HOME/bin"
 PATH="$HOME/go/bin:$PATH"
 PATH="$HOME/.cargo/bin:$PATH"
 PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
-PATH="/usr/local/opt/node@12/bin:$PATH"
 export PATH
 
 # source ~/.zshrc_work
