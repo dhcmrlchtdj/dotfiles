@@ -315,7 +315,7 @@ colorscheme NeoSolarized
 " set background=dark "深色背景
 set background=light "浅色背景
 " highlight LintSign guifg=#dc322f guibg=#eee8d5
-" highlight SignColumn guibg=#eee8d5
+highlight SignColumn guibg=#eee8d5
 " highlight SpecialKey guifg=#93a1a1 guibg=NONE
 " highlight IndentGuidesOdd  guibg=#eee8d5
 highlight IndentGuidesEven guibg=#eee8d5
