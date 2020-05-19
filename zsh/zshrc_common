@@ -39,7 +39,7 @@ prompt ooxx
 alias sudo="sudo "
 alias cp="cp -r"
 alias rm="rm -Irv"
-alias ls="ls --color=auto --group-directories-first -vF"
+alias ls="ls --color=auto --group-directories-first -vFA"
 alias la="ls -A"
 alias ll="ls -lAh --time-style=long-iso"
 alias du="du -h"

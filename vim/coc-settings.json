@@ -42,10 +42,10 @@
             "rootPatterns": [".git/", ".ccls", "compile_commands.json"],
             "initializationOptions": {
                 "cache": {
-                    "directory": ".ccls-cache"
+                    "directory": "/tmp/ccls"
                 },
                 "clang": {
-                    "resourceDir": "/Library/Developer/CommandLineTools/usr/lib/clang/10.0.1",
+                    "resourceDir": "/Library/Developer/CommandLineTools/usr/lib/clang/11.0.0",
                     "extraArgs": [
                         "-isystem",
                         "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1",
