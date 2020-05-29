@@ -171,6 +171,7 @@ let g:NERDTreeCaseSensitiveSort = 1
 let g:NERDTreeChDirMode = 2
 let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeSortHiddenFirst = 1
+let g:NERDTreeShowHidden = 1
 nnoremap <silent> <F3> :NERDTreeFind<CR>
 
 Plug 'Xuyuanp/nerdtree-git-plugin' " filesystem git
