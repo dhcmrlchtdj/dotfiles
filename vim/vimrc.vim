@@ -20,7 +20,6 @@ if has('nvim') == 0
     set nocompatible "不兼容vi
     set ttyfast
     set t_Co=256 "颜色数目
-    set cryptmethod=blowfish2
 endif
 
 set autoread "外部编辑器修改文件
@@ -223,6 +222,7 @@ let g:neoformat_enabled_typescript = ['prettier']
 let g:neoformat_enabled_typescriptreact = ['prettier']
 let g:neoformat_enabled_css = ['prettier']
 let g:neoformat_enabled_html = ['prettier']
+let g:neoformat_enabled_yaml = ['prettier']
 let g:neoformat_enabled_ocaml = ['ocamlformat']
 
 Plug 'easymotion/vim-easymotion'
@@ -266,7 +266,7 @@ Plug 'othree/es.next.syntax.vim'
 " let python_highlight_all = 1
 
 " Plug 'keith/swift.vim'
-Plug 'udalov/kotlin-vim'
+" Plug 'udalov/kotlin-vim'
 Plug 'rust-lang/rust.vim'
 " Plug 'asciidoc/vim-asciidoc'
 " Plug 'jparise/vim-graphql'
@@ -340,13 +340,6 @@ function! FormatFile()
 
     " delete <0d>
     exe 'silent! :%s/\r/\r/g'
-endfunction
-
-function! UpgradeExt()
-    exe 'CocUpdateSync'
-    exe 'PlugUpgrade'
-    exe 'PlugUpdate'
-    exe 'UpdateRemotePlugins'
 endfunction
 
 augroup Binary

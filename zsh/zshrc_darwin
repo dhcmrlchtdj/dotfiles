@@ -2,7 +2,7 @@ fpath=(~/.zfunc /usr/local/share/zsh-completions /usr/local/share/zsh/functions 
 
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_AUTO_UPDATE_SECS=8640000 #60*60*24*10
-export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
+export HOMEBREW_BOTTLE_DOMAIN='https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles'
 # export SDKROOT=macosx
 # export GOPROXY="https://goproxy.cn,direct"
 export JAVA_HOME="$(/usr/libexec/java_home --version '11')"
