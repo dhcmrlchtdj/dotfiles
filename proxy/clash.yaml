@@ -1,51 +1,57 @@
 # https://github.com/Dreamacro/clash/blob/master/README.md#config
 
-port: 2088
-socks-port: 2080
-allow-lan: false
-mode: Rule # Rule | Global | Direct
-log-level: debug # silent | error | warning | info | debug
+# (HTTP and SOCKS5 in one port)
+mixed-port: 2080
 
-Proxy:
-  - name: "ss-wss"
+allow-lan: false
+
+# rule / global / direct (default is rule)
+mode: rule
+
+# set log level to stdout (default is info)
+# info / warning / error / debug / silent
+log-level: debug
+
+proxies:
+  - name: "mywss"
     type: ss
-    server: example.com #TODO
+    server: TODO.ip
     port: 443
     cipher: xchacha20-ietf-poly1305
-    password: "example" #TODO
+    password: "TODO.password"
     plugin: v2ray-plugin
     plugin-opts:
-      mode: websocket
-      tls: true
-      host: example.com #TODO
-  - name: "ss-simple"
-    type: ss
-    server: example.com #TODO
-    port: 1080 #TODO
-    cipher: xchacha20-ietf-poly1305
-    password: "example" #TODO
+      mode: websocket # no QUIC now
+      tls: true # wss
+      host: TODO.host
 
-Proxy Group:
-  - name: "ssproxy"
+  - name: "myss"
+    type: ss
+    server: TODO.ip
+    port: 1100
+    cipher: xchacha20-ietf-poly1305
+    password: "TODO.password"
+
+proxy-groups:
+  - name: "myproxy"
     type: fallback
     proxies:
-      - ss-wss
-      - ss-simple
+      - mywss
+      - myss
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
 
-Rule:
-  ## DIRECT | REJECT | ssproxy
-  # - SRC-IP-CIDR,192.168.1.201/32,DIRECT
-  # - DST-PORT,80,DIRECT
-  # - SRC-PORT,7777,DIRECT
-  # - DOMAIN,google.com,ssproxy
-  # - DOMAIN-KEYWORD,google,ssproxy
-  - DOMAIN-SUFFIX,example.com,DIRECT
-  - GEOIP,CN,DIRECT
-  - IP-CIDR,0.0.0.0/8,DIRECT
+rules:
+  # DIRECT | REJECT | ssproxy
+  - DOMAIN-SUFFIX,.cn,DIRECT
   - IP-CIDR,10.0.0.0/8,DIRECT
   - IP-CIDR,127.0.0.0/8,DIRECT
   - IP-CIDR,172.16.0.0/12,DIRECT
   - IP-CIDR,192.168.0.0/16,DIRECT
-  - MATCH,ssproxy
+  - GEOIP,CN,DIRECT
+  # - GEOIP,HK,DIRECT
+  # - MATCH,mywss
+  # - MATCH,myss
+  # - MATCH,cfwss
+  # - MATCH,wssproxy
+  - MATCH,myproxy

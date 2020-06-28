@@ -22,14 +22,14 @@ alias rm='grm -Irv'
 alias ls='gls --color=auto --group-directories-first -vFA'
 alias breww='brew update && brew upgrade && brew cask upgrade && brew cleanup'
 alias dm='docker-machine --native-ssh'
-alias go='http_proxy="http://127.0.0.1:2088" https_proxy="http://127.0.0.1:2088" go'
+alias go='http_proxy="http://127.0.0.1:2080" https_proxy="http://127.0.0.1:2080" go'
 alias opam='all_proxy="socks5h://127.0.0.1:2080" opam'
 alias pcurl='all_proxy="socks5h://127.0.0.1:2080" curl'
 
 ppp() {
     export http_proxy="socks5h://127.0.0.1:2080"
     export http_proxy="socks5://127.0.0.1:2080"
-    export http_proxy="http://127.0.0.1:2088"
+    export http_proxy="http://127.0.0.1:2080"
     export https_proxy="$http_proxy"
     export all_proxy="$http_proxy"
     echo "set http_proxy='$http_proxy'"
