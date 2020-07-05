@@ -186,13 +186,13 @@ let g:NERDTreeIndicatorMapCustom.Dirty = '*'
 let g:NERDTreeIndicatorMapCustom.Untracked = '?'
 let g:NERDTreeIndicatorMapCustom.Unknown = '?'
 
-Plug 'liuchengxu/vista.vim'
-let g:vista_blink = [0, 0]
-let g:vista_top_level_blink = [0, 0]
-let g:vista_echo_cursor = 0
-let g:vista#renderer#enable_icon = 0
-let g:vista_default_executive = 'coc'
-nnoremap <silent> <F4> :Vista focus<CR>
+" Plug 'liuchengxu/vista.vim'
+" let g:vista_blink = [0, 0]
+" let g:vista_top_level_blink = [0, 0]
+" let g:vista_echo_cursor = 0
+" let g:vista#renderer#enable_icon = 0
+" let g:vista_default_executive = 'coc'
+" nnoremap <silent> <F4> :Vista focus<CR>
 
 Plug 'simnalamburt/vim-mundo'
 let g:mundo_return_on_revert = 0
@@ -297,7 +297,9 @@ function! s:check_back_space() abort
 endfunction
 let g:coc_snippet_next = '<c-k>'
 
-Plug '/usr/local/opt/fzf'
+if has('macunix') == 1
+    Plug '/usr/local/opt/fzf'
+endif
 Plug 'junegunn/fzf.vim'
 nnoremap <silent> <C-p> :Files<CR>
 nnoremap <Leader>p :Rg 
