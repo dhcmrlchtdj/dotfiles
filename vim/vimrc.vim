@@ -174,17 +174,17 @@ let g:NERDTreeShowHidden = 1
 nnoremap <silent> <F3> :NERDTreeFind<CR>
 
 Plug 'Xuyuanp/nerdtree-git-plugin' " filesystem git
-let g:NERDTreeIndicatorMapCustom = {}
-let g:NERDTreeIndicatorMapCustom.Modified = 'M'
-let g:NERDTreeIndicatorMapCustom.Deleted = 'D'
-let g:NERDTreeIndicatorMapCustom.Renamed = 'R'
-let g:NERDTreeIndicatorMapCustom.Unmerged = 'U'
-let g:NERDTreeIndicatorMapCustom.Staged = 'S'
-let g:NERDTreeIndicatorMapCustom.Clean = 'C'
-let g:NERDTreeIndicatorMapCustom.Ignored = 'I'
-let g:NERDTreeIndicatorMapCustom.Dirty = '*'
-let g:NERDTreeIndicatorMapCustom.Untracked = '?'
-let g:NERDTreeIndicatorMapCustom.Unknown = '?'
+let g:NERDTreeGitStatusIndicatorMapCustom = {}
+let g:NERDTreeGitStatusIndicatorMapCustom.Modified = 'M'
+let g:NERDTreeGitStatusIndicatorMapCustom.Deleted = 'D'
+let g:NERDTreeGitStatusIndicatorMapCustom.Renamed = 'R'
+let g:NERDTreeGitStatusIndicatorMapCustom.Unmerged = 'U'
+let g:NERDTreeGitStatusIndicatorMapCustom.Staged = 'S'
+let g:NERDTreeGitStatusIndicatorMapCustom.Clean = 'C'
+let g:NERDTreeGitStatusIndicatorMapCustom.Ignored = 'I'
+let g:NERDTreeGitStatusIndicatorMapCustom.Dirty = '*'
+let g:NERDTreeGitStatusIndicatorMapCustom.Untracked = '?'
+let g:NERDTreeGitStatusIndicatorMapCustom.Unknown = '?'
 
 " Plug 'liuchengxu/vista.vim'
 " let g:vista_blink = [0, 0]
