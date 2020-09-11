@@ -121,7 +121,7 @@ set nosplitbelow
 set splitright
 
 """ location list
-nnoremap <silent> <F1> :lopen<CR>
+" nnoremap <silent> <F1> :lopen<CR>
 autocmd FileType qf nnoremap <buffer> <silent> <CR> <CR>:lclose<CR>
 autocmd FileType qf nnoremap <buffer> <silent> q :lclose<CR>
 
@@ -186,13 +186,13 @@ let g:NERDTreeGitStatusIndicatorMapCustom.Dirty = '*'
 let g:NERDTreeGitStatusIndicatorMapCustom.Untracked = '?'
 let g:NERDTreeGitStatusIndicatorMapCustom.Unknown = '?'
 
-" Plug 'liuchengxu/vista.vim'
-" let g:vista_blink = [0, 0]
-" let g:vista_top_level_blink = [0, 0]
-" let g:vista_echo_cursor = 0
-" let g:vista#renderer#enable_icon = 0
-" let g:vista_default_executive = 'coc'
-" nnoremap <silent> <F4> :Vista focus<CR>
+Plug 'liuchengxu/vista.vim'
+let g:vista_blink = [0, 0]
+let g:vista_top_level_blink = [0, 0]
+let g:vista_echo_cursor = 0
+let g:vista#renderer#enable_icon = 0
+let g:vista_default_executive = 'coc'
+nnoremap <silent> <F4> :Vista focus<CR>
 
 Plug 'simnalamburt/vim-mundo'
 let g:mundo_return_on_revert = 0
@@ -283,6 +283,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " autocmd CursorHold * silent call CocActionAsync('highlight')
 " autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 " let b:coc_pairs_disabled = ['<']
+nnoremap <silent> <F1> :CocDiagnostics<CR>
 nnoremap <silent> K :call CocAction('doHover')<CR>
 nnoremap <silent> L :call CocAction('jumpDefinition')<CR>
 nnoremap <silent> <C-l> :call CocAction('codeLensAction')<CR>
