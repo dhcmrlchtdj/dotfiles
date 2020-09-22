@@ -4,10 +4,19 @@ DOMAIN := example.com
 .PHONY: ca
 ca: $(DOMAIN).csr
 	certbot certonly \
-		--csr $(DOMAIN).csr \
 		--dns-cloudflare \
 		--dns-cloudflare-credentials cloudflare.ini \
 		--dns-cloudflare-propagation-seconds 60 \
+		--csr $(DOMAIN).csr \
+		-d $(DOMAIN) \
+		-d *.$(DOMAIN)
+
+.PHONY: manual
+manual:
+	certbot certonly \
+		--manual \
+		--preferred-challenges=dns \
+		--csr $(DOMAIN).csr \
 		-d $(DOMAIN) \
 		-d *.$(DOMAIN)
 

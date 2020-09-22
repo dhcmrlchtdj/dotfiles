@@ -224,6 +224,7 @@ let g:neoformat_enabled_css = ['prettier']
 let g:neoformat_enabled_html = ['prettier']
 let g:neoformat_enabled_yaml = ['prettier']
 let g:neoformat_enabled_ocaml = ['ocamlformat']
+let g:neoformat_enabled_go = ['gofumports', 'gofumpt']
 
 Plug 'easymotion/vim-easymotion'
 nmap f <Plug>(easymotion-w)

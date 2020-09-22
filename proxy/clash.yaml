@@ -1,19 +1,10 @@
-# https://github.com/Dreamacro/clash/blob/master/README.md#config
-
-# (HTTP and SOCKS5 in one port)
+# https://github.com/Dreamacro/clash/wiki/configuration
 mixed-port: 2080
-
-allow-lan: false
-
-# rule / global / direct (default is rule)
 mode: rule
-
-# set log level to stdout (default is info)
-# info / warning / error / debug / silent
-log-level: debug
+log-level: info # info / warning / error / debug / silent
 
 proxies:
-  - name: "mywss"
+  - name: "ss1"
     type: ss
     server: TODO.ip
     port: 443
@@ -21,37 +12,24 @@ proxies:
     password: "TODO.password"
     plugin: v2ray-plugin
     plugin-opts:
-      mode: websocket # no QUIC now
-      tls: true # wss
-      host: TODO.host
-
-  - name: "myss"
-    type: ss
-    server: TODO.ip
-    port: 1100
-    cipher: xchacha20-ietf-poly1305
-    password: "TODO.password"
+        mode: websocket
+        tls: true
+        mux: true
+        host: TODO.host
 
 proxy-groups:
-  - name: "myproxy"
+  - name: "group1"
     type: fallback
     proxies:
-      - mywss
-      - myss
+      - ss1
     url: 'http://www.gstatic.com/generate_204'
     interval: 300
 
 rules:
-  # DIRECT | REJECT | ssproxy
   - DOMAIN-SUFFIX,.cn,DIRECT
   - IP-CIDR,10.0.0.0/8,DIRECT
   - IP-CIDR,127.0.0.0/8,DIRECT
   - IP-CIDR,172.16.0.0/12,DIRECT
   - IP-CIDR,192.168.0.0/16,DIRECT
   - GEOIP,CN,DIRECT
-  # - GEOIP,HK,DIRECT
-  # - MATCH,mywss
-  # - MATCH,myss
-  # - MATCH,cfwss
-  # - MATCH,wssproxy
-  - MATCH,myproxy
+  - MATCH,ss1
