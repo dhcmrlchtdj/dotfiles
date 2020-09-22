@@ -1,4 +1,0 @@
-package-indices:
-    - name: Tsinghua
-        download-prefix: http://mirrors4.tuna.tsinghua.edu.cn/hackage/package/
-        http: http://mirrors4.tuna.tsinghua.edu.cn/hackage/00-index.tar.gz
