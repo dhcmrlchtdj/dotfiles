@@ -37,7 +37,7 @@ set showfulltag
 set conceallevel=0
 
 """ 备份 撤销
-set updatetime=1000
+set updatetime=300
 set hidden "自动保存?
 set directory=~/.config/nvim/swap//
 set undofile "开启撤销历史
