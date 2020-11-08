@@ -39,6 +39,9 @@
 [branch]
     autoSetupRebase = always
 
+[rerere]
+    enabled = true
+
 [diff]
     tool = vimdiff
     algorithm = histogram
