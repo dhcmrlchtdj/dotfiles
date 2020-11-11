@@ -18,24 +18,6 @@
             "command": "ocamllsp",
             "filetypes": ["ocaml"]
         },
-        "dart": {
-            "command": "dart",
-            "args": [
-                "/usr/local/opt/dart/libexec/bin/snapshots/analysis_server.dart.snapshot",
-                "--lsp"
-            ],
-            "filetypes": ["dart"],
-            "disableDynamicRegister": true
-        },
-        "kotlin": {
-            "command": "kotlin-language-server",
-            "filetypes": ["kotlin"]
-        },
-        "swift": {
-            "command": "sourcekit-lsp",
-            "filetypes": ["swift"],
-            "rootPatterns": [".git/", "Package.swift"]
-        },
         "ccls": {
             "command": "ccls",
             "filetypes": ["c", "cpp"],
@@ -58,7 +40,8 @@
         "golang": {
             "command": "gopls",
             "filetypes": ["go"],
-            "rootPatterns": ["go.mod"]
+            "rootPatterns": ["go.mod"],
+            "initializationOptions": {}
         }
     }
 }

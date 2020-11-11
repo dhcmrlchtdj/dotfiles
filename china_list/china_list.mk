@@ -20,4 +20,4 @@ china_list:
 	gsed -e 's|^server=/\(.*\)/114.114.114.114$$|\1|' accelerated-domains.china.conf | egrep -v '^#' > accelerated-domains.china.raw.txt
 	gsed -e 's|\(.*\)|forward-zone:\n  name: "\1."\n  forward-addr: 119.29.29.29\n|' accelerated-domains.china.raw.txt > accelerated-domains.china.unbound.conf
 	# cp accelerated-domains.china.unbound.conf /usr/local/etc/unbound/accelerated-domains.china.unbound.conf
-	cat accelerated-domains.china.raw.txt | gsed -e 's|\(.*\)|  - DOMAIN-SUFFIX,\1,DIRECT|' > clash.conf
+	cat accelerated-domains.china.raw.txt | gsed -e 's|\(.*\)|    - DOMAIN-SUFFIX,\1,DIRECT|' > clash.conf

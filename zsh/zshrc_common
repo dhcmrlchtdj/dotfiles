@@ -24,7 +24,6 @@ export HISTFILE="${HOME}/.zsh_history"
 export HISTSIZE=1000000
 export SAVEHIST=1000000
 
-
 source ~/.zshrc_grml
 source ~/.zshrc_prompt_ooxx
 source ~/.zshrc_z
@@ -45,7 +44,7 @@ alias ll="ls -lAh --time-style=long-iso"
 alias du="du -h"
 alias df="df -h"
 alias free="free -h"
-alias tree="tree -F --dirsfirst"
+alias tree="tree -F --dirsfirst -v"
 alias sc="screen -dRR"
 
 alias j="jobs -dl"
