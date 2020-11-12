@@ -1,0 +1,12 @@
+server {
+    listen 80;
+    server_name example.com;
+
+    location / {
+        return 418;
+    }
+    location /.well-known/acme-challenge {
+        alias /path/to/acme-challenge/;
+        autoindex off;
+    }
+}

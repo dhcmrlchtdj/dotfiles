@@ -20,13 +20,20 @@ manual:
 		-d $(DOMAIN) \
 		-d *.$(DOMAIN)
 
+.PHONY: manual-nginx
+manual-nginx:
+	certbot certonly \
+		--manual \
+		--preferred-challenges=http \
+		--csr $(DOMAIN).csr \
+		-d $(DOMAIN)
+
 $(DOMAIN).csr: domain.key
 	# openssl req -noout -text -in domain.csr
 	# openssl req -new -sha384 -subj "/CN=$(DOMAIN)" -key domain.key -out $(DOMAIN).csr
 	openssl req -new -sha384 \
 		-subj "/CN=$(DOMAIN)" \
-		-reqexts SAN \
-		-config <(cat /etc/ssl/openssl.cnf <(printf "[SAN]\nsubjectAltName=DNS:$(DOMAIN),DNS:*.$(DOMAIN)")) \
+		-reqexts SAN -config <(cat /etc/ssl/openssl.cnf <(printf "[SAN]\nsubjectAltName=DNS:$(DOMAIN),DNS:*.$(DOMAIN)")) \
 		-key domain.key \
 		-out $(DOMAIN).csr
 
@@ -36,4 +43,5 @@ domain.key:
 
 register:
 	# pacman -S certbot certbot-dns-cloudflare
+	# certbot register --agree-tos --register-unsafely-without-email
 	certbot register --email TODO@example.com --agree-tos --no-eff-email
