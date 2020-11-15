@@ -14,7 +14,6 @@ export PATH
 
 # source ~/.zshrc_work
 source ~/.zshrc_common
-_source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 _source ~/.opam/opam-init/init.zsh
 
 ## alias
