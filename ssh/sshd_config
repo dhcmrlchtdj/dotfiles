@@ -4,18 +4,19 @@ SyslogFacility AUTH
 LogLevel VERBOSE
 # LogLevel DEBUG3
 
+PrintMotd no
+StrictModes yes
+LoginGraceTime 30
+
 Compression yes
 AddressFamily inet
 
 Protocol 2
-KexAlgorithms curve25519-sha256@libssh.org
+KexAlgorithms curve25519-sha256,curve25519-sha256@libssh.org
 Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr
 MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com
-HostKey /etc/ssh/ssh_host_ed25519_key
-# HostKey /etc/ssh/ssh_host_rsa_key
-
-LoginGraceTime 30
-StrictModes yes
+HostKeyAlgorithms ssh-ed25519
+HostKey /etc/ssh/ssh_host_ed25519_key # ssh-keygen -t ed25519 -f ssh_host_ed25519_key
 
 PermitEmptyPasswords no
 # PermitRootLogin no # TODO
@@ -23,22 +24,20 @@ PermitEmptyPasswords no
 # AllowGroups <group> # TODO
 
 UsePAM yes
+ChallengeResponseAuthentication no
 GSSAPIAuthentication no
 HostbasedAuthentication no
+KbdInteractiveAuthentication no
 KerberosAuthentication no
 PasswordAuthentication no
-ChallengeResponseAuthentication no
-KbdInteractiveAuthentication no
 
 PubkeyAuthentication yes
-AuthorizedKeysFile %h/.ssh/authorized_keys
+AuthorizedKeysFile .ssh/authorized_keys
 AuthenticationMethods publickey
 
 # KbdInteractiveAuthentication yes
 # ChallengeResponseAuthentication yes
 # AuthenticationMethods publickey keyboard-interactive:pam # TODO
-
-IgnoreRhosts yes
 
 TCPKeepAlive yes
 ClientAliveInterval 30
