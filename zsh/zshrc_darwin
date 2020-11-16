@@ -15,6 +15,8 @@ export PATH
 # source ~/.zshrc_work
 source ~/.zshrc_common
 _source ~/.opam/opam-init/init.zsh
+# brew install zsh-syntax-highlighting
+_source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ## alias
 alias rm='grm -Irv'

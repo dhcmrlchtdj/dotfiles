@@ -30,14 +30,6 @@ source ~/.zshrc_z
 source ~/.zshrc_prompt_ooxx
 prompt ooxx
 
-# brew install zsh-syntax-highlighting
-_source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# pacman -S zsh-syntax-highlighting
-_source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# apt install zsh-syntax-highlighting
-_source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # autoload -Uz compinit
 # compinit
