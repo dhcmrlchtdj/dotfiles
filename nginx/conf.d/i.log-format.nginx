@@ -13,4 +13,4 @@ log_format log_realip '"$remote_addr"\t'
     '"$realip_remote_addr"\t'
     '"$scheme://$host"\t"$time_iso8601"\t'
     '"$request"\t$status\t$body_bytes_sent\t'
-    '"$http_referer"\t"$http_user_agent"';
+    '"$http_referer"\t"$http_user_agent"\t"$http_x_forwarded_for"';
