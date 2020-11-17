@@ -9,14 +9,17 @@ export JAVA_HOME="$(/usr/libexec/java_home --version '11')"
 PATH="$PATH:$JAVA_HOME/bin"
 PATH="$HOME/go/bin:$PATH"
 PATH="$HOME/.cargo/bin:$PATH"
-PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
+PATH="/usr/local/opt/libarchive/bin:/usr/local/opt/make/libexec/gnubin:$PATH"
 export PATH
+export BAT_THEME="Solarized (light)"
+export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!{**/.git/**}'"
 
 # source ~/.zshrc_work
 source ~/.zshrc_common
 _source ~/.opam/opam-init/init.zsh
 # brew install zsh-syntax-highlighting
 _source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+_source ~/.config/tabtab/zsh/__tabtab.zsh
 
 ## alias
 alias rm='grm -Irv'

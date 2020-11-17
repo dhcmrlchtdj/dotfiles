@@ -53,7 +53,7 @@ alias h="htop"
 alias f="find . -name"
 alias vim="nvim"
 alias vimdiff="nvim -d"
-alias rg="rg --smart-case --no-ignore-dot"
+alias rg="rg --smart-case --hidden -g '!{**/.git/**}'"
 
 alias zz="bsdtar cavf"
 alias xx="unar"
