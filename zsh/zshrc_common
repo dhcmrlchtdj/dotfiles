@@ -13,6 +13,8 @@ export LC_COLLATE="C"
 export GPG_TTY=$(tty)
 export EDITOR="nvim"
 export LESS="-FXSR"
+export BAT_THEME="Solarized (light)"
+export FZF_DEFAULT_COMMAND="rg --files"
 
 
 setopt append_history
@@ -39,9 +41,9 @@ prompt ooxx
 alias sudo="sudo "
 alias cp="cp -r"
 alias rm="rm -Irv"
-alias ls="ls --color=auto --group-directories-first -vFA"
-alias la="ls -A"
-alias ll="ls -lAh --time-style=long-iso"
+alias ls='exa --group-directories-first -aF'
+alias ll='ls -l -gh --git --extended --time-style=long-iso'
+alias lll='ll --tree -I "node_modules|.git"'
 alias du="du -h"
 alias df="df -h"
 alias free="free -h"
@@ -53,9 +55,9 @@ alias h="htop"
 alias f="find . -name"
 alias vim="nvim"
 alias vimdiff="nvim -d"
-alias rg="rg --smart-case --hidden -g '!{**/.git/**}'"
+alias rg="rg --smart-case --hidden -g '!{.git}'"
 
-alias zz="bsdtar cavf"
+alias zz="bsdtar -cavf"
 alias xx="unar"
 # alias sss="python3 -m http.server"
 # alias mm="mitmproxy -p 8888"
@@ -72,3 +74,21 @@ zzz() {
         zz $i.zip $i;
     done
 }
+
+unalias l
+unalias la
+unalias lh
+unalias lad
+unalias lsa
+unalias lss
+unalias lsl
+unalias lsx
+unalias lsw
+unalias lsbig
+unalias lsd
+unalias lse
+unalias lsnew
+unalias lsold
+unalias lssmall
+unalias lsnewdir
+unalias lsolddir

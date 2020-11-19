@@ -159,17 +159,13 @@ Plug 'nathanaelkane/vim-indent-guides' " indent
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
 
-" Plug 'jeetsukumaran/vim-buffergator' " buffer
-" let g:buffergator_split_size = 30
-" nnoremap <silent> <F2> :BuffergatorOpen<CR>
-
 Plug 'scrooloose/nerdtree' " filesystem
 let g:NERDTreeCaseSensitiveSort = 1
 let g:NERDTreeChDirMode = 2
 let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeSortHiddenFirst = 1
 let g:NERDTreeShowHidden = 1
-nnoremap <silent> <F2> :NERDTreeFind<CR>
+nnoremap <silent> <F3> :NERDTreeFind<CR>
 
 Plug 'Xuyuanp/nerdtree-git-plugin' " filesystem git
 let g:NERDTreeGitStatusIndicatorMapCustom = {}
@@ -190,7 +186,7 @@ let g:vista_top_level_blink = [0, 0]
 let g:vista_echo_cursor = 0
 let g:vista#renderer#enable_icon = 0
 let g:vista_default_executive = 'coc'
-nnoremap <silent> <F6> :Vista focus<CR>
+nnoremap <silent> <F4> :Vista focus<CR>
 
 Plug 'mbbill/undotree'
 let g:undotree_SplitWith = 40
@@ -298,15 +294,15 @@ function! s:check_back_space() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1] =~# '\s'
 endfunction
-let g:coc_snippet_next = '<c-k>'
+let g:coc_snippet_next = '<C-k>'
 
 if has('macunix') == 1
     " brew install fzf bat ripgrep
     Plug '/usr/local/opt/fzf'
 endif
 Plug 'junegunn/fzf.vim'
-nnoremap <silent> <F3> :Buffers<CR>
-nnoremap <silent> <F4> :Files<CR>
+nnoremap <silent> <F2> :Buffers<CR>
+nnoremap <silent> <C-p> :Files<CR>
 nnoremap <Leader>p :Rg 
 
 call plug#end()
@@ -334,7 +330,6 @@ highlight GitGutterChange guibg=#eee8d5
 highlight GitGutterDelete guibg=#eee8d5
 highlight GitGutterChangeDelete guibg=#eee8d5
 
-" nnoremap <F6> :call FormatFile()<CR>
 function! FormatFile()
     " 使用\n换行
     let &ff = 'unix'

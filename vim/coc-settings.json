@@ -8,10 +8,6 @@
     "diagnostic.warningSign": "•",
     "codeLens.enable": true,
     "coc.preferences.extensionUpdateCheck": "never",
-    "list.source.files.command": "rg",
-    "list.source.files.args": ["--files"],
-    "list.source.grep.command": "rg",
-    "list.source.grep.args": ["--vimgrep", "--no-heading", "--smart-case"],
     "rust.clippy_preference": "on",
     "languageserver": {
         "ocaml": {
