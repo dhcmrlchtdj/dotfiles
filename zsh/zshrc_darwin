@@ -21,8 +21,6 @@ _source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 _source ~/.config/tabtab/zsh/__tabtab.zsh
 
 ## alias
-# brew install macos-trash
-alias rm='trash'
 alias breww='brew update && brew upgrade && brew cleanup'
 alias dm='docker-machine --native-ssh'
 alias go='http_proxy="http://127.0.0.1:2080" https_proxy="http://127.0.0.1:2080" go'

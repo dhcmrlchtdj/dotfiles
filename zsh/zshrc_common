@@ -40,7 +40,6 @@ prompt ooxx
 ### alias ###
 alias sudo="sudo "
 alias cp="cp -r"
-# alias rm="rm -Irv"
 alias ls='exa --group-directories-first -aF'
 alias la='ls'
 alias ll='ls -l -gh --git --extended --time-style=long-iso'
@@ -50,6 +49,11 @@ alias df="df -h"
 alias free="free -h"
 alias tree="tree -F --dirsfirst -v"
 alias sc="screen -dRR"
+
+# pacman -S trash-cli
+# apt install trash-cli # ~/.local/share/Trash
+# brew install macos-trash
+alias rm="rm -irv"
 
 alias j="jobs -dl"
 alias h="htop"
