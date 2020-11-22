@@ -44,7 +44,7 @@ alias cp="cp -r"
 alias ls='exa --group-directories-first -aF'
 alias la='ls'
 alias ll='ls -l -gh --git --extended --time-style=long-iso'
-alias lll='ll --tree -I "node_modules|.git"'
+alias lll='ll --tree --level=3 -I ".git"'
 alias du="du -h"
 alias df="df -h"
 alias free="free -h"
