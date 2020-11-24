@@ -1,9 +1,11 @@
 fpath=(~/.zfunc /usr/local/share/zsh-completions /usr/local/share/zsh/functions $fpath)
 
 export HOMEBREW_NO_ANALYTICS=1
-export HOMEBREW_AUTO_UPDATE_SECS=8640000 #60*60*24*10
-# export HOMEBREW_BOTTLE_DOMAIN='https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles'
+export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_FORCE_VENDOR_RUBY=1
+export HOMEBREW_BOTTLE_DOMAIN='https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles'
 export HOMEBREW_BOTTLE_DOMAIN='https://mirrors.ustc.edu.cn/homebrew-bottles'
+
 # export SDKROOT=macosx
 export JAVA_HOME="$(/usr/libexec/java_home --version '11')"
 PATH="$PATH:$HOME/go/bin"
@@ -21,11 +23,12 @@ _source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 _source ~/.config/tabtab/zsh/__tabtab.zsh
 
 ## alias
-alias breww='brew update && brew upgrade && brew cleanup'
 alias dm='docker-machine --native-ssh'
-alias go='http_proxy="http://127.0.0.1:2080" https_proxy="http://127.0.0.1:2080" go'
+alias breww='http_proxy="http://127.0.0.1:2080" brew update && brew upgrade'
+alias go='http_proxy="http://127.0.0.1:2080" go'
 alias opam='all_proxy="socks5h://127.0.0.1:2080" opam'
 alias pcurl='all_proxy="socks5h://127.0.0.1:2080" curl'
+alias pnpm='http_proxy="http://127.0.0.1:2080" pnpm'
 
 ipsb() {
     curl -s "https://api.ip.sb/geoip/$1" | python3 -m json.tool
@@ -35,13 +38,9 @@ ppp() {
     export http_proxy="socks5h://127.0.0.1:2080"
     export http_proxy="socks5://127.0.0.1:2080"
     export http_proxy="http://127.0.0.1:2080"
-    export https_proxy="$http_proxy"
-    export all_proxy="$http_proxy"
     echo "export http_proxy='$http_proxy'"
 }
 pppp() {
-    unset all_proxy
-    unset https_proxy
     unset http_proxy
     echo "unset http_proxy='$http_proxy'"
 }

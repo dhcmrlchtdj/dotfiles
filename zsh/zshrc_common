@@ -12,38 +12,59 @@ export LANG="en_US.UTF-8"
 export LC_COLLATE="C"
 export GPG_TTY=$(tty)
 export EDITOR="nvim"
-export LESS="-FXSR"
 export BAT_THEME="Solarized (light)"
 export FZF_DEFAULT_COMMAND="rg --files"
+export LESS="-FXSR"
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
 
 
 setopt append_history
-setopt share_history
+setopt auto_cd
+setopt auto_pushd
+setopt complete_in_word
+setopt correct
+setopt extended_glob
 setopt extended_history
-setopt histignorealldups
-setopt histignorespace
+setopt hash_list_all
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+setopt interactive_comments
+setopt long_list_jobs
+setopt no_beep
+setopt no_glob_dots
+setopt no_hup
+setopt no_sh_word_split
+setopt notify
+setopt pushd_ignore_dups
+setopt share_history
+setopt unset
 export HISTFILE="${HOME}/.zsh_history"
 export HISTSIZE=1000000
 export SAVEHIST=1000000
+export DIRSTACKSIZE=20
+export DIRSTACKFILE="${HOME}/.zdirs"
 
 
-source ~/.zshrc_grml
+# source ~/.zshrc_grml
 source ~/.zshrc_z
 source ~/.zshrc_prompt_ooxx
 prompt ooxx
 
 
-# autoload -Uz compinit
-# compinit
-
-
 ### alias ###
+alias ...='cd ../../'
 alias sudo="sudo "
 alias cp="cp -r"
 alias ls='exa --group-directories-first -aF'
 alias la='ls'
 alias ll='ls -l -gh --git --extended --time-style=long-iso'
-alias lll='ll --tree --level=3 -I ".git"'
+alias lll='ll --tree -I ".git"'
 alias du="du -h"
 alias df="df -h"
 alias free="free -h"
@@ -68,31 +89,77 @@ alias xx="unar"
 # alias mm="mitmproxy -p 8888"
 # alias mmm="mitmproxy -p 8888 -i '~q | ~s'"
 # alias ccc="clang -std=c11 -Weverything -Wno-missing-prototypes"
-# alias ttt="tmux -CC attach || tmux -CC"
 # alias curlw="curl -w '\ntime_namelookup:\t%{time_namelookup}\ntime_connect:\t\t%{time_connect}\ntime_appconnect:\t%{time_appconnect}\ntime_pretransfer:\t%{time_pretransfer}\ntime_redirect:\t\t%{time_redirect}\ntime_starttransfer:\t%{time_starttransfer}\n------\ntime_total:\t\t%{time_total}\n'"
 alias curlw="curl --write-out '%{json}'"
 ### END alias ###
 
 
-zzz() {
+# title
+function set_title() {
+    echo -ne "\e]0;${(%):-"%n @ %m : %~"}\a"
+}
+add-zsh-hook precmd set_title
+
+
+# search history
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search # Up
+bindkey "^[[B" down-line-or-beginning-search # Down
+bindkey "^R" history-incremental-pattern-search-backward
+bindkey "^S" history-incremental-pattern-search-forward
+
+
+# completion
+autoload -Uz compinit
+compinit
+zstyle ':completion:*:correct:*'        insert-unambiguous true
+zstyle ':completion:*:correct:*'        original true
+zstyle ':completion:*:default'          list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*:descriptions'     format $'%{\e[0;31m%}completing %B%d%b%{\e[0m%}'
+zstyle ':completion:*:expand:*'         tag-order all-expansions
+zstyle ':completion:*:history-words'    list false
+zstyle ':completion:*:history-words'    menu yes
+zstyle ':completion:*:history-words'    remove-all-dups yes
+zstyle ':completion:*:history-words'    stop yes
+zstyle ':completion:*'                  matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*:matches'          group 'yes'
+zstyle ':completion:*'                  group-name ''
+zstyle ':completion:*'                  menu select=5
+zstyle ':completion:*:messages'         format '%d'
+zstyle ':completion:*:options'          auto-description '%d'
+zstyle ':completion:*:options'          description 'yes'
+zstyle ':completion:*:processes'        command 'ps -au$USER'
+zstyle ':completion:*:*:-subscript-:*'  tag-order indexes parameters
+zstyle ':completion:*'                  verbose true
+zstyle ':completion:*:-command-:*:'     verbose false
+zstyle ':completion:*:*:zcompile:*'     ignored-patterns '(*~|*.zwc)'
+zstyle ':completion:correct:'           prompt 'correct to: %e'
+zstyle ':completion::(^approximate*):*:functions'   ignored-patterns '_*'
+zstyle ':completion:*:processes-names'  command 'ps c -u ${USER} -o command | uniq'
+zstyle ':completion:*:manuals'          separate-sections true
+zstyle ':completion:*:manuals.*'        insert-sections   true
+zstyle ':completion:*:man:*'            menu yes select
+zstyle ':completion:*'                  special-dirs ..
+zstyle ':completion:*'                  use-cache  yes
+zstyle ':completion:*:complete:*'       cache-path "${HOME}/.cache"
+
+###
+
+function zzz() {
     for i in "$@"; do
         zz $i.zip $i;
     done
 }
 
-unalias l
-unalias lh
-unalias lad
-unalias lsa
-unalias lss
-unalias lsl
-unalias lsx
-unalias lsw
-unalias lsbig
-unalias lsd
-unalias lse
-unalias lsnew
-unalias lsold
-unalias lssmall
-unalias lsnewdir
-unalias lsolddir
+function cd () {
+    if (( ${#argv} == 1 )) && [[ -f ${1} ]]; then
+        [[ ! -e ${1:h} ]] && return 1
+        print "Correcting ${1} to ${1:h}"
+        builtin cd ${1:h}
+    else
+        builtin cd "$@"
+    fi
+}
