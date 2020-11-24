@@ -6,7 +6,7 @@ server {
         return 418;
     }
     location /.well-known/acme-challenge {
-        alias /path/to/acme-challenge/;
+        root /path/to/letsencrypt/webroot;
         autoindex off;
     }
 }

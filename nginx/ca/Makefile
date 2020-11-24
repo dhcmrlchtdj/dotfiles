@@ -1,8 +1,8 @@
 SHELL := bash
 DOMAIN := example.com
 
-.PHONY: ca
-ca: $(DOMAIN).csr
+.PHONY: dns-auto
+dns-auto: $(DOMAIN).csr
 	certbot certonly \
 		--dns-cloudflare \
 		--dns-cloudflare-credentials cloudflare.ini \
@@ -11,8 +11,8 @@ ca: $(DOMAIN).csr
 		-d $(DOMAIN) \
 		-d *.$(DOMAIN)
 
-.PHONY: manual
-manual:
+.PHONY: dns-manual
+dns-manual:
 	certbot certonly \
 		--manual \
 		--preferred-challenges=dns \
@@ -20,10 +20,10 @@ manual:
 		-d $(DOMAIN) \
 		-d *.$(DOMAIN)
 
-.PHONY: manual-nginx
-manual-nginx:
+.PHONY: webroot
+webroot:
 	certbot certonly \
-		--manual \
+		--webroot --webroot-path=./webroot \
 		--preferred-challenges=http \
 		--csr $(DOMAIN).csr \
 		-d $(DOMAIN)
