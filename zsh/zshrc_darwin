@@ -1,4 +1,6 @@
-fpath=(~/.zfunc /usr/local/share/zsh-completions /usr/local/share/zsh/functions $fpath)
+FPATH="/usr/local/share/zsh-completions:$FPATH"
+FPATH="/usr/local/share/zsh/functions:$FPATH"
+FPATH="$HOME/.zfunc:$FPATH"
 
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_AUTO_UPDATE=1

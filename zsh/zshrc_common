@@ -24,16 +24,12 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
 
-setopt append_history
 setopt auto_cd
-setopt auto_pushd
 setopt complete_in_word
 setopt correct
 setopt extended_glob
 setopt extended_history
 setopt hash_list_all
-setopt hist_ignore_all_dups
-setopt hist_ignore_space
 setopt interactive_comments
 setopt long_list_jobs
 setopt no_beep
@@ -41,14 +37,14 @@ setopt no_glob_dots
 setopt no_hup
 setopt no_sh_word_split
 setopt notify
-setopt pushd_ignore_dups
-setopt share_history
 setopt unset
+setopt append_history
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+setopt share_history
 export HISTFILE="${HOME}/.zsh_history"
 export HISTSIZE=1000000
 export SAVEHIST=1000000
-export DIRSTACKSIZE=20
-export DIRSTACKFILE="${HOME}/.zdirs"
 
 
 # source ~/.zshrc_grml
@@ -98,12 +94,12 @@ alias curlw="curl --write-out '%{json}'"
 function set_title() {
     echo -ne "\e]0;${(%):-"%n @ %m : %~"}\a"
 }
-add-zsh-hook precmd set_title
+add-zsh-hook -Uz precmd set_title
 
 
 # search history
-autoload -U up-line-or-beginning-search
-autoload -U down-line-or-beginning-search
+autoload -Uz up-line-or-beginning-search
+autoload -Uz down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search # Up
