@@ -68,6 +68,8 @@ set sidescroll=1
 set sidescrolloff=1
 nnoremap <Up> gk
 nnoremap <Down> gj
+vnoremap <Up> gk
+vnoremap <Down> gj
 inoremap <Up> <C-o>gk
 inoremap <Down> <C-o>gj
 inoremap <expr> <Up> pumvisible() ? '<C-p>' : '<Up>'
