@@ -14,6 +14,6 @@
     "reuse_port": true,
     "no_delay": true,
     "nameserver": "1.1.1.1,1.0.0.1",
-    "mode": "tcp_and_udp",
+    "mode": "tcp_only",
     "verbose": true
 }
