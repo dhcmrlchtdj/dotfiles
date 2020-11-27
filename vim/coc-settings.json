@@ -8,6 +8,8 @@
     "diagnostic.warningSign": "•",
     "codeLens.enable": true,
     "coc.preferences.extensionUpdateCheck": "never",
+    "coc.source.file.ignoreHidden": false,
+    "session.directory": "~/.config/nvim/coc-sessions",
     "rust.clippy_preference": "on",
     "languageserver": {
         "ocaml": {
