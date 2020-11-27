@@ -37,7 +37,7 @@ set showfulltag
 set conceallevel=0
 
 """ 备份 撤销
-set updatetime=300
+set updatetime=1000
 set hidden "自动保存?
 set directory=~/.config/nvim/swap//
 set undofile "开启撤销历史
@@ -153,15 +153,15 @@ let g:gitgutter_sign_modified = '~'
 let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_modified_removed = '!'
 
-Plug 'jamessan/vim-gnupg' " gpg
+Plug 'jamessan/vim-gnupg'
 
 Plug 'icymind/NeoSolarized'
 
-Plug 'nathanaelkane/vim-indent-guides' " indent
+Plug 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
 
-Plug 'scrooloose/nerdtree' " filesystem
+Plug 'scrooloose/nerdtree', {'on':'NERDTreeFind'}
 let g:NERDTreeCaseSensitiveSort = 1
 let g:NERDTreeChDirMode = 2
 let g:NERDTreeQuitOnOpen = 1
@@ -190,7 +190,7 @@ let g:vista#renderer#enable_icon = 0
 let g:vista_default_executive = 'coc'
 nnoremap <silent> <F4> :Vista focus<CR>
 
-Plug 'mbbill/undotree'
+Plug 'mbbill/undotree', {'on':'UndotreeToggle'}
 let g:undotree_SplitWith = 40
 let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_RelativeTimestamp = 1
@@ -206,9 +206,7 @@ let g:NERDAltDelims_swift = 1
 
 Plug 'godlygeek/tabular' " align
 
-" Plug 'neomake/neomake'
-
-Plug 'sbdchd/neoformat' " formatter
+Plug 'sbdchd/neoformat', {'on':'Neoformat'}
 let g:neoformat_basic_format_align = 1
 let g:neoformat_basic_format_retab = 1
 let g:neoformat_basic_format_trim = 1
