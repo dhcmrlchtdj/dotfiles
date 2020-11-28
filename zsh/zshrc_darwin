@@ -10,11 +10,11 @@ export HOMEBREW_BOTTLE_DOMAIN='https://mirrors.ustc.edu.cn/homebrew-bottles'
 
 # export SDKROOT=macosx
 export JAVA_HOME="$(/usr/libexec/java_home --version '11')"
+PATH="$PATH:$JAVA_HOME/bin"
 PATH="$PATH:$HOME/go/bin"
 PATH="$PATH:$HOME/.cargo/bin"
 PATH="/usr/local/opt/libarchive/bin:$PATH"
 PATH="/usr/local/opt/make/libexec/gnubin:$PATH"
-PATH="$PATH:$JAVA_HOME/bin"
 export PATH
 
 # source ~/.zshrc_work
@@ -26,11 +26,13 @@ _source ~/.config/tabtab/zsh/__tabtab.zsh
 
 ## alias
 alias dm='docker-machine --native-ssh'
-alias breww='http_proxy="http://127.0.0.1:2080" brew update && brew upgrade'
-alias go='http_proxy="http://127.0.0.1:2080" go'
-alias opam='all_proxy="socks5h://127.0.0.1:2080" opam'
-alias pcurl='all_proxy="socks5h://127.0.0.1:2080" curl'
-alias pnpm='http_proxy="http://127.0.0.1:2080" pnpm'
+alias ppproxy='http_proxy="http://127.0.0.1:2080" https_proxy="$http_proxy" all_proxy="$http_proxy"'
+alias pcurl='ppproxy curl'
+alias breww='ppproxy brew update && brew upgrade'
+alias go='ppproxy go'
+alias opam='ppproxy opam'
+alias pnpm='ppproxy pnpm'
+alias npm='ppproxy npm'
 
 ipsb() {
     curl -s "https://api.ip.sb/geoip/$1" | python3 -m json.tool
@@ -40,9 +42,13 @@ ppp() {
     export http_proxy="socks5h://127.0.0.1:2080"
     export http_proxy="socks5://127.0.0.1:2080"
     export http_proxy="http://127.0.0.1:2080"
+    export https_proxy="$http_proxy"
+    export all_proxy="$http_proxy"
     echo "export http_proxy='$http_proxy'"
 }
 pppp() {
     unset http_proxy
-    echo "unset http_proxy='$http_proxy'"
+    unset https_proxy
+    unset all_proxy
+    echo "unset http_proxy"
 }
