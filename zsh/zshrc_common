@@ -78,6 +78,7 @@ alias f="find . -name"
 alias vim="nvim"
 alias vimdiff="nvim -d"
 alias rg="rg --smart-case --hidden -g '!{.git}'"
+alias ff="fzf --preview 'bat --style=numbers --color=always --line-range :50 {}'"
 
 alias zz="bsdtar -cavf"
 alias xx="unar"
