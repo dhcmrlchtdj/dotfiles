@@ -12,7 +12,7 @@ dns-auto: $(DOMAIN).csr
 		-d *.$(DOMAIN)
 
 .PHONY: dns-manual
-dns-manual:
+dns-manual: $(DOMAIN).csr
 	certbot certonly \
 		--manual \
 		--preferred-challenges=dns \
@@ -21,12 +21,14 @@ dns-manual:
 		-d *.$(DOMAIN)
 
 .PHONY: webroot
-webroot:
+webroot: $(DOMAIN).csr
 	certbot certonly \
 		--webroot --webroot-path=./webroot \
 		--preferred-challenges=http \
 		--csr $(DOMAIN).csr \
 		-d $(DOMAIN)
+	-ln -s $(shell ls ????_chain.pem | sort | tail -n 1) latest.pem
+
 
 $(DOMAIN).csr: domain.key
 	# openssl req -noout -text -in domain.csr
