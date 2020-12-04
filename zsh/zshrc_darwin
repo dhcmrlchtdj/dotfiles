@@ -26,13 +26,13 @@ _source ~/.config/tabtab/zsh/__tabtab.zsh
 
 ## alias
 alias dm='docker-machine --native-ssh'
-alias ppproxy='http_proxy="http://127.0.0.1:2080" https_proxy="$http_proxy" all_proxy="$http_proxy"'
-alias pcurl='ppproxy curl'
-alias breww='ppproxy brew update && brew upgrade'
-alias go='ppproxy go'
-alias opam='ppproxy opam'
-alias pnpm='ppproxy pnpm'
-alias npm='ppproxy npm'
+alias pp='http_proxy="http://127.0.0.1:2080" https_proxy="$http_proxy"'
+alias pcurl='pp curl'
+alias breww='pp brew update && brew upgrade'
+alias go='pp go'
+alias opam='pp opam'
+alias pnpm='pp pnpm'
+alias npm='pp npm'
 
 ipsb() {
     curl -s "https://api.ip.sb/geoip/$1" | python3 -m json.tool
@@ -43,12 +43,10 @@ ppp() {
     export http_proxy="socks5://127.0.0.1:2080"
     export http_proxy="http://127.0.0.1:2080"
     export https_proxy="$http_proxy"
-    export all_proxy="$http_proxy"
     echo "export http_proxy='$http_proxy'"
 }
 pppp() {
     unset http_proxy
     unset https_proxy
-    unset all_proxy
     echo "unset http_proxy"
 }
