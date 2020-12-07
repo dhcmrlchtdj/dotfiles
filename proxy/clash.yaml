@@ -6,16 +6,16 @@ log-level: info # info / warning / error / debug / silent
 proxies:
   - name: "ss1"
     type: ss
-    server: TODO.ip
+    server: TODO.ip # !!!TODO!!!
     port: 443
     cipher: xchacha20-ietf-poly1305
-    password: "TODO.password"
+    password: "TODO.password" # !!!TODO!!!
     plugin: v2ray-plugin
     plugin-opts:
         mode: websocket
         tls: true
         mux: true
-        host: TODO.host
+        host: TODO.host # !!!TODO!!!
 
 rules:
   - DOMAIN-SUFFIX,.cn,DIRECT

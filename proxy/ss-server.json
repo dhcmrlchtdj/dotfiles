@@ -4,8 +4,8 @@
     "plugin_opts": "server",
 
     "/** basic": "**/",
-    "server": "!!!TODO!!! ip | 127.0.0.1",
-    "server_port": "!!!TODO!!! port",
+    "server": "127.0.0.1",
+    "server_port": "2080",
     "password": "!!!TODO!!! password",
 
     "method": "xchacha20-ietf-poly1305",
