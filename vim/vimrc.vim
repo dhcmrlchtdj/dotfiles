@@ -167,9 +167,9 @@ let g:NERDTreeChDirMode = 2
 let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeSortHiddenFirst = 1
 let g:NERDTreeShowHidden = 1
-nnoremap <silent> <F3> :NERDTreeFind<CR>
+nnoremap <F3> :NERDTreeFind<CR>
 
-Plug 'Xuyuanp/nerdtree-git-plugin' " filesystem git
+Plug 'Xuyuanp/nerdtree-git-plugin'
 let g:NERDTreeGitStatusIndicatorMapCustom = {}
 let g:NERDTreeGitStatusIndicatorMapCustom.Modified = 'M'
 let g:NERDTreeGitStatusIndicatorMapCustom.Deleted = 'D'
@@ -188,14 +188,14 @@ let g:vista_top_level_blink = [0, 0]
 let g:vista_echo_cursor = 0
 let g:vista#renderer#enable_icon = 0
 let g:vista_default_executive = 'coc'
-nnoremap <silent> <F4> :Vista focus<CR>
+nnoremap <F4> :Vista focus<CR>
 
 Plug 'mbbill/undotree', {'on':'UndotreeToggle'}
 let g:undotree_SplitWith = 40
 let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_RelativeTimestamp = 1
 let g:undotree_ShortIndicators = 1
-nnoremap <silent> <F5> :UndotreeToggle<CR>
+nnoremap <F5> :UndotreeToggle<CR>
 
 Plug 'scrooloose/nerdcommenter' " comment
 let g:NERDCommentEmptyLines = 1
@@ -204,14 +204,14 @@ let g:NERDCompactSexyComs = 1
 let g:NERDDefaultAlign = 'left'
 let g:NERDAltDelims_swift = 1
 
-Plug 'godlygeek/tabular' " align
+Plug 'godlygeek/tabular', {'on':'Tabularize'}
 
 Plug 'sbdchd/neoformat', {'on':'Neoformat'}
 let g:neoformat_basic_format_align = 1
 let g:neoformat_basic_format_retab = 1
 let g:neoformat_basic_format_trim = 1
 let g:neoformat_run_all_formatters = 1
-nnoremap <silent> <Leader>ff :Neoformat<CR>
+nnoremap <Leader>ff :Neoformat<CR>
 let g:neoformat_enabled_markdown = []
 let g:neoformat_enabled_json = ['prettier']
 let g:neoformat_enabled_javascript = ['prettier']
@@ -224,14 +224,17 @@ let g:neoformat_enabled_ocaml = ['ocamlformat']
 let g:neoformat_enabled_go = ['gofumports', 'gofumpt']
 
 Plug 'easymotion/vim-easymotion'
-nmap f <Plug>(easymotion-w)
-nmap F <Plug>(easymotion-b)
+let g:Easymotion_do_mapping = 0
+" nmap f <Plug>(easymotion-w)
+" nmap F <Plug>(easymotion-b)
+nmap f :call EasyMotion#WB(0,0)<CR>
+nmap F :call EasyMotion#WB(0,1)<CR>
 
 Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_new_list_item_indent = 0
 let g:vim_markdown_toc_autofit = 1
-autocmd FileType markdown nnoremap <buffer> <silent> <F4> :Toc<CR>
+autocmd FileType markdown nnoremap <buffer> <F4> :Toc<CR>
 
 " Plug 'editorconfig/editorconfig-vim'
 
@@ -277,15 +280,15 @@ let g:echodoc#enable_at_startup = 1
 let g:echodoc#type = 'echo'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" coc-lists coc-pairs coc-syntax coc-json coc-tsserver coc-css coc-html coc-rls
+" coc-syntax coc-json coc-tsserver coc-css coc-html coc-rls
 " autocmd CursorHold * silent call CocActionAsync('highlight')
 " autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 " let b:coc_pairs_disabled = ['<']
-nnoremap <silent> <F1> :CocDiagnostics<CR>
-nnoremap <silent> K :call CocAction('doHover')<CR>
-nnoremap <silent> L :call CocAction('jumpDefinition')<CR>
-nnoremap <silent> <C-l> :call CocAction('codeLensAction')<CR>
-nnoremap <silent> <Leader>l :call CocAction('codeAction')<CR>
+nnoremap <F1> :CocDiagnostics<CR>
+nnoremap K :call CocAction('doHover')<CR>
+nnoremap L :call CocAction('jumpDefinition')<CR>
+nnoremap <C-l> :call CocAction('codeLensAction')<CR>
+nnoremap <Leader>l :call CocAction('codeAction')<CR>
 " conflict with coc-pairs <bs>
 inoremap <silent> <expr> <BS> pumvisible() ? '<BS><C-o>coc#refresh()' : '<BS>'
 inoremap <silent> <expr> <CR> pumvisible() ? '<C-y>' : '<C-g>u<CR><C-r>=coc#on_enter()<CR>'
@@ -301,8 +304,8 @@ if has('macunix') == 1
     Plug '/usr/local/opt/fzf'
 endif
 Plug 'junegunn/fzf.vim'
-nnoremap <silent> <F2> :Buffers<CR>
-nnoremap <silent> <C-p> :Files<CR>
+nnoremap <F2> :Buffers<CR>
+nnoremap <C-p> :Files<CR>
 nnoremap <Leader>p :Rg 
 
 call plug#end()
