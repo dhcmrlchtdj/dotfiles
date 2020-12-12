@@ -307,6 +307,7 @@ Plug 'junegunn/fzf.vim'
 nnoremap <F2> :Buffers<CR>
 nnoremap <C-p> :Files<CR>
 nnoremap <Leader>p :Rg 
+nnoremap <Leader>m :Marks<CR>
 
 call plug#end()
 
@@ -346,13 +347,3 @@ function! FormatFile()
     " delete <0d>
     exe 'silent! :%s/\r/\r/g'
 endfunction
-
-augroup Binary
-    au!
-    au BufReadPre  *.wasm let &bin=1
-    au BufReadPost *.wasm if &bin | %!xxd
-    au BufReadPost *.wasm set ft=xxd | endif
-    au BufWritePre *.wasm if &bin | %!xxd -r
-    au BufWritePre *.wasm endif
-    au BufWritePost *.wasm if &bin | %!xxd
-augroup END
