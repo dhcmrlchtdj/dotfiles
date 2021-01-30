@@ -20,6 +20,7 @@ if has('nvim') == 0
     set nocompatible "不兼容vi
     set ttyfast
     set t_Co=256 "颜色数目
+    set backspace=indent,eol,start "insert模式下删除键可删除
 endif
 
 set autoread "外部编辑器修改文件
@@ -30,7 +31,6 @@ set display=lastline,uhex "不可见字符用 hex 形式展示
 set lazyredraw
 set clipboard=unnamed,unnamedplus "剪贴板
 set virtualedit=block "虚空间
-" set backspace=indent,eol,start "insert模式下删除键可删除
 set showmatch "输入括号时显示匹配括号
 " set completeopt=menu "补全窗口的样式
 set showfulltag
@@ -289,7 +289,6 @@ nnoremap K :call CocAction('doHover')<CR>
 nnoremap L :call CocAction('jumpDefinition')<CR>
 nnoremap <C-l> :call CocAction('codeLensAction')<CR>
 nnoremap <Leader>l :call CocAction('codeAction')<CR>
-" conflict with coc-pairs <bs>
 inoremap <silent> <expr> <BS> pumvisible() ? '<BS><C-o>coc#refresh()' : '<BS>'
 inoremap <silent> <expr> <CR> pumvisible() ? '<C-y>' : '<C-g>u<CR><C-r>=coc#on_enter()<CR>'
 inoremap <silent> <expr> <TAB> pumvisible() ? '<C-n>' : <SID>check_back_space() ? '<TAB>' : coc#refresh()
@@ -301,7 +300,7 @@ let g:coc_snippet_next = '<C-k>'
 
 if has('macunix') == 1
     " brew install fzf bat ripgrep
-    Plug '/usr/local/opt/fzf'
+    Plug '/opt/homebrew/opt/fzf'
 endif
 Plug 'junegunn/fzf.vim'
 nnoremap <F2> :Buffers<CR>
