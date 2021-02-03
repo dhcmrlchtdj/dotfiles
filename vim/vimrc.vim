@@ -132,7 +132,7 @@ filetype plugin indent off
 if has('nvim') == 1
     " call plug#begin('~/.local/share/nvim/plugged')
     call plug#begin(stdpath('data') . '/plugged')
-elseif
+else
     call plug#begin('~/.vim/plugged')
 end
 
@@ -283,7 +283,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " coc-syntax coc-json coc-tsserver coc-css coc-html coc-rls
 " autocmd CursorHold * silent call CocActionAsync('highlight')
 " autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-" let b:coc_pairs_disabled = ['<']
 nnoremap <F1> :CocDiagnostics<CR>
 nnoremap K :call CocAction('doHover')<CR>
 nnoremap L :call CocAction('jumpDefinition')<CR>
