@@ -87,5 +87,5 @@
     mm = merge --no-ff
     mmx = merge --no-ff -Xtheirs
     cp = cherry-pick
-    tt = "!_() { declare tag=\"$(date '+%Y-%m-%dT%H.%M.%S%z')${1:+_$1}\"; git tag $tag -am $tag; }; _"
+    tt = "!_() { declare tag=\"$(date -u '+%Y-%m-%dT%H.%M.%SZ')${1:+_$1}\"; git tag $tag -am $tag; }; _"
     commit-empty = commit --allow-empty --allow-empty-message -m ""

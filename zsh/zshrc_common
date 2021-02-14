@@ -5,8 +5,6 @@ _source() {
 }
 
 
-PATH="$HOME/.local/bin:$PATH"
-export PATH
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:=$HOME/.config}"
 export LANG="en_US.UTF-8"
 export LC_COLLATE="C"
