@@ -30,7 +30,7 @@ _source ~/.config/tabtab/zsh/__tabtab.zsh
 alias dm='docker-machine --native-ssh'
 alias pp='http_proxy="http://127.0.0.1:2080" https_proxy="$http_proxy"'
 alias pcurl='pp curl'
-alias breww='pp brew update && brew upgrade'
+alias breww='pp brew update && pp brew upgrade'
 alias go='pp go'
 alias opam='pp opam'
 alias pnpm='pp pnpm'
