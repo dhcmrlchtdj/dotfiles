@@ -1,0 +1,3 @@
+prefix = /path/to/$HOME/.local
+save-exact = true
+global-dir = /path/to/$HOME/.local/pnpm
