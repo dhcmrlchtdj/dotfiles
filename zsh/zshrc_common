@@ -64,7 +64,8 @@ alias du="du -h"
 alias df="df -h"
 alias free="free -h"
 alias tree="tree -F --dirsfirst -v"
-alias sc="screen -dRR"
+# alias sc="screen -dRR"
+alias sc="tmux new -As0"
 
 # pacman -S trash-cli
 # apt install trash-cli # ~/.local/share/Trash
