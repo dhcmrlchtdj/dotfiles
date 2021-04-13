@@ -23,24 +23,28 @@ PermitEmptyPasswords no
 # AllowUsers <user> # TODO
 # AllowGroups <group> # TODO
 
-UsePAM yes
-ChallengeResponseAuthentication no
-GSSAPIAuthentication no
-HostbasedAuthentication no
-KbdInteractiveAuthentication no
-KerberosAuthentication no
 PasswordAuthentication no
+# KbdInteractiveAuthentication no
+# GSSAPIAuthentication no
+# HostbasedAuthentication no
+# KerberosAuthentication no
 
+UsePAM yes
+
+AuthenticationMethods publickey
 PubkeyAuthentication yes
 AuthorizedKeysFile .ssh/authorized_keys
-AuthenticationMethods publickey
 
-# KbdInteractiveAuthentication yes
+ChallengeResponseAuthentication yes # TODO
+AuthenticationMethods publickey keyboard-interactive # TODO
+
 # ChallengeResponseAuthentication yes
 # AuthenticationMethods publickey keyboard-interactive:pam # TODO
 
 TCPKeepAlive yes
 ClientAliveInterval 30
 ClientAliveCountMax 3
+
+PrintMotd no
 
 # GatewayPorts clientspecified
