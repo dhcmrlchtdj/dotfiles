@@ -22,18 +22,18 @@ dns-manual: $(DOMAIN).csr
 
 .PHONY: webroot
 webroot: $(DOMAIN).csr
+	#ln -s $(ls ????_chain.pem | sort | tail -n 1) latest.pem
+	mkdir -p webroot
 	certbot certonly \
 		--webroot --webroot-path=./webroot \
 		--preferred-challenges=http \
 		--csr $(DOMAIN).csr \
 		-d $(DOMAIN)
-	-ln -s $(shell ls ????_chain.pem | sort | tail -n 1) latest.pem
-
 
 $(DOMAIN).csr: domain.key
 	# openssl req -noout -text -in domain.csr
-	# openssl req -new -sha384 -subj "/CN=$(DOMAIN)" -key domain.key -out $(DOMAIN).csr
-	openssl req -new -sha384 \
+	# openssl req -new -sha256 -subj "/CN=$(DOMAIN)" -key domain.key -out $(DOMAIN).csr
+	openssl req -new -sha256 \
 		-subj "/CN=$(DOMAIN)" \
 		-reqexts SAN -config <(cat /etc/ssl/openssl.cnf <(printf "[SAN]\nsubjectAltName=DNS:$(DOMAIN),DNS:*.$(DOMAIN)")) \
 		-key domain.key \
@@ -41,9 +41,8 @@ $(DOMAIN).csr: domain.key
 
 domain.key:
 	# openssl ecparam -list_curves
-	openssl ecparam -genkey -name secp384r1 -out domain.key
+	openssl ecparam -genkey -name prime256v1 -out domain.key
 
 register:
-	# pacman -S certbot certbot-dns-cloudflare
-	# certbot register --agree-tos --register-unsafely-without-email
-	certbot register --email TODO@example.com --agree-tos --no-eff-email
+	# certbot register --email u1@example.com --agree-tos --no-eff-email
+	certbot register --agree-tos --register-unsafely-without-email
