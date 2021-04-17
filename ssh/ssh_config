@@ -6,6 +6,10 @@ Host server
     PreferredAuthentications publickey
     ProxyJump proxy.server
 
+Host github.com
+    IdentityFile ~/.ssh/id_ed25519
+    PreferredAuthentications publickey
+
 Host *
 AddressFamily inet
 HashKnownHosts yes
