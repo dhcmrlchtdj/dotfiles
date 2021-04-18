@@ -10,10 +10,9 @@
 
     "method": "xchacha20-ietf-poly1305",
     "timeout": 60,
-    "fast_open": true,
+    "fast_open": false,
     "reuse_port": true,
     "no_delay": true,
     "nameserver": "1.1.1.1,1.0.0.1",
-    "mode": "tcp_only",
-    "verbose": true
+    "mode": "tcp_only"
 }
