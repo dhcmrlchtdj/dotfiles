@@ -97,6 +97,8 @@ function set_title() {
 }
 add-zsh-hook -Uz precmd set_title
 
+# emacs keymap
+bindkey -e
 
 # search history
 autoload -Uz up-line-or-beginning-search
@@ -105,8 +107,8 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey "^[[A" up-line-or-beginning-search # Up
 bindkey "^[[B" down-line-or-beginning-search # Down
-# bindkey "$key[Up]" up-line-or-beginning-search
-# bindkey "$key[Down]" down-line-or-beginning-search
+[[ -n ${key[Up]} ]] && bindkey "$key[Up]" up-line-or-beginning-search
+[[ -n ${key[Down]} ]] && bindkey "$key[Down]" down-line-or-beginning-search
 bindkey "^R" history-incremental-pattern-search-backward
 bindkey "^S" history-incremental-pattern-search-forward
 
