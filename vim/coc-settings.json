@@ -9,8 +9,7 @@
     "codeLens.enable": true,
     "coc.preferences.extensionUpdateCheck": "never",
     "coc.source.file.ignoreHidden": false,
-    "session.directory": "~/.config/nvim/coc-sessions",
-    "rust.clippy_preference": "on",
+    "rust-analyzer.server.path": "/opt/homebrew/bin/rust-analyzer",
     "languageserver": {
         "ocaml": {
             "command": "ocamllsp",

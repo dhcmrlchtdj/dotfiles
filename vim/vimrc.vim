@@ -280,7 +280,7 @@ let g:echodoc#enable_at_startup = 1
 let g:echodoc#type = 'echo'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" coc-syntax coc-json coc-tsserver coc-css coc-html coc-rls
+" coc-syntax coc-json coc-tsserver coc-css coc-html coc-rust-analyzer
 " autocmd CursorHold * silent call CocActionAsync('highlight')
 " autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 nnoremap <F1> :CocDiagnostics<CR>
