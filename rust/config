@@ -1,7 +1,14 @@
+# $HOME/.cargo/config
+
+# https://doc.rust-lang.org/cargo/guide/build-cache.html#shared-cache
+# sccache -s
+
+[build]
+rustc-wrapper = "/opt/homebrew/bin/sccache"
+
 # https://doc.rust-lang.org/cargo/reference/source-replacement.html
 # https://lug.ustc.edu.cn/wiki/mirrors/help/rust-crates
 # https://mirrors.tuna.tsinghua.edu.cn/help/crates.io-index.git/
-# $HOME/.cargo/config
 
 [source.crates-io]
 replace-with = 'tuna'
