@@ -45,6 +45,4 @@ TCPKeepAlive yes
 ClientAliveInterval 30
 ClientAliveCountMax 3
 
-PrintMotd no
-
 # GatewayPorts clientspecified
