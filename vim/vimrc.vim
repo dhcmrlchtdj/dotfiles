@@ -161,7 +161,7 @@ Plug 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
 
-Plug 'scrooloose/nerdtree', {'on':'NERDTreeFind'}
+Plug 'scrooloose/nerdtree'
 let g:NERDTreeCaseSensitiveSort = 1
 let g:NERDTreeChDirMode = 2
 let g:NERDTreeQuitOnOpen = 1
@@ -190,7 +190,7 @@ let g:vista#renderer#enable_icon = 0
 let g:vista_default_executive = 'coc'
 nnoremap <F4> :Vista focus<CR>
 
-Plug 'mbbill/undotree', {'on':'UndotreeToggle'}
+Plug 'mbbill/undotree'
 let g:undotree_SplitWith = 40
 let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_RelativeTimestamp = 1
@@ -204,9 +204,9 @@ let g:NERDCompactSexyComs = 1
 let g:NERDDefaultAlign = 'left'
 let g:NERDAltDelims_swift = 1
 
-Plug 'godlygeek/tabular', {'on':'Tabularize'}
+Plug 'godlygeek/tabular'
 
-Plug 'sbdchd/neoformat', {'on':'Neoformat'}
+Plug 'sbdchd/neoformat'
 let g:neoformat_basic_format_align = 1
 let g:neoformat_basic_format_retab = 1
 let g:neoformat_basic_format_trim = 1
