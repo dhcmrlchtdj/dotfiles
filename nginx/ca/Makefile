@@ -30,6 +30,10 @@ webroot: $(DOMAIN).csr
 		--csr $(DOMAIN).csr \
 		-d $(DOMAIN)
 
+.PHONY: check_pem
+check_pem:
+	openssl x509 -noout -text -in latest.pem | grep 'Not After'
+
 $(DOMAIN).csr: domain.key
 	# openssl req -noout -text -in domain.csr
 	# openssl req -new -sha256 -subj "/CN=$(DOMAIN)" -key domain.key -out $(DOMAIN).csr
