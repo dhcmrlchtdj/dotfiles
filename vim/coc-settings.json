@@ -1,5 +1,6 @@
 {
     "suggest.echodocSupport": true,
+    "suggest.enablePreview": true,
     "suggest.triggerAfterInsertEnter": true,
     "diagnostic.virtualText": true,
     "diagnostic.virtualTextPrefix": "",
@@ -10,6 +11,8 @@
     "coc.preferences.extensionUpdateCheck": "never",
     "coc.source.file.ignoreHidden": false,
     "rust-analyzer.server.path": "/opt/homebrew/bin/rust-analyzer",
+    "rust-analyzer.inlayHints.enable": false,
+    "rust-analyzer.lens.run": false,
     "languageserver": {
         "ocaml": {
             "command": "ocamllsp",

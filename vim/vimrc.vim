@@ -155,13 +155,13 @@ let g:gitgutter_sign_modified_removed = '!'
 
 Plug 'jamessan/vim-gnupg'
 
-Plug 'icymind/NeoSolarized'
+Plug 'overcache/NeoSolarized'
 
 Plug 'nathanaelkane/vim-indent-guides'
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
 
-Plug 'scrooloose/nerdtree'
+Plug 'preservim/nerdtree'
 let g:NERDTreeCaseSensitiveSort = 1
 let g:NERDTreeChDirMode = 2
 let g:NERDTreeQuitOnOpen = 1
@@ -197,7 +197,7 @@ let g:undotree_RelativeTimestamp = 1
 let g:undotree_ShortIndicators = 1
 nnoremap <F5> :UndotreeToggle<CR>
 
-Plug 'scrooloose/nerdcommenter' " comment
+Plug 'preservim/nerdcommenter' " comment
 let g:NERDCommentEmptyLines = 1
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
@@ -246,6 +246,8 @@ Plug 'ocaml/vim-ocaml'
 
 Plug 'lifepillar/pgsql.vim'
 let g:sql_type_default = 'pgsql'
+
+" Plug 'sheerun/vim-polyglot'
 
 Plug 'othree/html5.vim'
 
