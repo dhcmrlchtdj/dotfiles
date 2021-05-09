@@ -43,6 +43,7 @@ set directory=~/.config/nvim/swap//
 set undofile "开启撤销历史
 set undodir=~/.config/nvim/undo
 set backup "覆盖文件时备份
+set writebackup "保存时备份
 set backupdir=~/.config/nvim/backup
 set diffopt+=filler,context:3,vertical,internal,algorithm:histogram
 
@@ -106,6 +107,7 @@ set shiftwidth=4 "空格缩进时宽度
 set shiftround
 set smarttab "智能缩进
 set smartindent "智能选择缩进方式
+set autoindent
 set cindent
 set list "显示特殊字符
 set listchars=tab:»\ ,trail:• "字符样式
@@ -221,7 +223,7 @@ let g:neoformat_enabled_css = ['prettier']
 let g:neoformat_enabled_html = ['prettier']
 let g:neoformat_enabled_yaml = ['prettier']
 let g:neoformat_enabled_ocaml = ['ocamlformat']
-let g:neoformat_enabled_go = ['gofumports', 'gofumpt']
+let g:neoformat_enabled_go = ['goimports', 'gofumpt']
 
 Plug 'easymotion/vim-easymotion'
 let g:Easymotion_do_mapping = 0
@@ -313,6 +315,7 @@ call plug#end()
 
 filetype plugin indent on "载入文件类型 插件 缩进
 syntax enable "语法加亮
+syntax on
 
 autocmd FileType json syntax match Comment +\/\/.\+$+
 autocmd FileType go set noexpandtab "使用tab缩进
