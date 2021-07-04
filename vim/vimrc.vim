@@ -240,28 +240,28 @@ autocmd FileType markdown nnoremap <buffer> <F4> :Toc<CR>
 
 " Plug 'editorconfig/editorconfig-vim'
 
-Plug 'cespare/vim-toml'
+" Plug 'cespare/vim-toml'
 
-Plug 'nathangrigg/vim-beancount'
+" Plug 'nathangrigg/vim-beancount'
 
-Plug 'ocaml/vim-ocaml'
+" Plug 'ocaml/vim-ocaml'
 
 Plug 'lifepillar/pgsql.vim'
 let g:sql_type_default = 'pgsql'
 
 " Plug 'sheerun/vim-polyglot'
 
-Plug 'othree/html5.vim'
+" Plug 'othree/html5.vim'
 
 " Plug 'hail2u/vim-css3-syntax'
 " Plug 'cakebaker/scss-syntax.vim'
 
-Plug 'elzr/vim-json'
-let g:vim_json_syntax_conceal = 0
+" Plug 'elzr/vim-json'
+" let g:vim_json_syntax_conceal = 0
 
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'othree/yajs.vim'
-Plug 'othree/es.next.syntax.vim'
+" Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'othree/yajs.vim'
+" Plug 'othree/es.next.syntax.vim'
 " Plug 'jiangmiao/simple-javascript-indenter'
 
 " Plug 'posva/vim-vue'
@@ -272,12 +272,14 @@ Plug 'othree/es.next.syntax.vim'
 
 " Plug 'keith/swift.vim'
 " Plug 'udalov/kotlin-vim'
-Plug 'rust-lang/rust.vim'
+" Plug 'rust-lang/rust.vim'
 " Plug 'asciidoc/vim-asciidoc'
 " Plug 'jparise/vim-graphql'
 " Plug 'tbastos/vim-lua'
 " Plug 'idris-hackers/idris-vim'
 " Plug 'dart-lang/dart-vim-plugin'
+
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 Plug 'Shougo/echodoc.vim' " signature
 let g:echodoc#enable_at_startup = 1
@@ -317,9 +319,35 @@ filetype plugin indent on "载入文件类型 插件 缩进
 syntax enable "语法加亮
 syntax on
 
-autocmd FileType json syntax match Comment +\/\/.\+$+
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+    ensure_installed = {
+        "bash",
+        "beancount",
+        "c",
+        "css",
+        "go",
+        "html",
+        "javascript",
+        "json",
+        "ocaml",
+        "ocaml_interface",
+        "rust",
+        "toml",
+        "typescript",
+        "yaml",
+    },
+    highlight = { enable = true },
+    indent = { enable = true },
+}
+EOF
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+
+" autocmd FileType json syntax match Comment +\/\/.\+$+
 autocmd FileType go set noexpandtab "使用tab缩进
 autocmd FileType ocaml setl ts=2 sts=2 sw=2
+autocmd BufNewFile,BufRead *.bean,*.beancount setf beancount
 " autocmd FileType dart setl ts=2 sts=2 sw=2
 
 colorscheme NeoSolarized
