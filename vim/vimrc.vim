@@ -281,6 +281,8 @@ let g:sql_type_default = 'pgsql'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
+" Plug 'neovim/nvim-lspconfig'
+
 Plug 'Shougo/echodoc.vim' " signature
 let g:echodoc#enable_at_startup = 1
 let g:echodoc#type = 'echo'
@@ -341,8 +343,8 @@ require'nvim-treesitter.configs'.setup {
     indent = { enable = true },
 }
 EOF
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
+" set foldmethod=expr
+" set foldexpr=nvim_treesitter#foldexpr()
 
 " autocmd FileType json syntax match Comment +\/\/.\+$+
 autocmd FileType go set noexpandtab "使用tab缩进
