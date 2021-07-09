@@ -347,9 +347,10 @@ EOF
 " set foldexpr=nvim_treesitter#foldexpr()
 
 " autocmd FileType json syntax match Comment +\/\/.\+$+
-autocmd FileType go set noexpandtab "使用tab缩进
-autocmd FileType ocaml setl ts=2 sts=2 sw=2
-autocmd BufNewFile,BufRead *.bean,*.beancount setf beancount
+autocmd FileType go setlocal noexpandtab "使用tab缩进
+autocmd FileType ocaml setlocal ts=2 sts=2 sw=2
+autocmd BufNewFile,BufRead *.bean,*.beancount setfiletype beancount
+autocmd BufNewFile,BufRead *.bean,*.beancount setlocal commentstring=;%s
 " autocmd FileType dart setl ts=2 sts=2 sw=2
 
 colorscheme NeoSolarized
