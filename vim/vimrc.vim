@@ -232,6 +232,10 @@ let g:Easymotion_do_mapping = 0
 nmap f :call EasyMotion#WB(0,0)<CR>
 nmap F :call EasyMotion#WB(0,1)<CR>
 
+Plug 'jeetsukumaran/vim-buffergator'
+let g:buffergator_split_size = 30
+nnoremap <F2> :BuffergatorOpen<CR>
+
 Plug 'plasticboy/vim-markdown'
 let g:vim_markdown_conceal = 0
 let g:vim_markdown_new_list_item_indent = 0
@@ -310,7 +314,7 @@ if has('macunix') == 1
     Plug '/opt/homebrew/opt/fzf'
 endif
 Plug 'junegunn/fzf.vim'
-nnoremap <F2> :Buffers<CR>
+" nnoremap <F2> :Buffers<CR>
 nnoremap <C-p> :Files<CR>
 nnoremap <Leader>p :Rg 
 nnoremap <Leader>m :Marks<CR>
@@ -324,23 +328,15 @@ syntax on
 lua <<EOF
 require'nvim-treesitter.configs'.setup {
     ensure_installed = {
-        "bash",
+        "bash", "python",
+        "c","rust", "go",
+        "ocaml", "ocaml_interface",
+        "html", "css", "javascript", "typescript",
+        "json", "toml", "yaml",
         "beancount",
-        "c",
-        "css",
-        "go",
-        "html",
-        "javascript",
-        "json",
-        "ocaml",
-        "ocaml_interface",
-        "rust",
-        "toml",
-        "typescript",
-        "yaml",
     },
     highlight = { enable = true },
-    indent = { enable = true },
+    indent = { enable = false },
 }
 EOF
 " set foldmethod=expr
