@@ -349,9 +349,10 @@ autocmd BufNewFile,BufRead *.bean,*.beancount setfiletype beancount
 autocmd BufNewFile,BufRead *.bean,*.beancount setlocal commentstring=;%s
 " autocmd FileType dart setl ts=2 sts=2 sw=2
 
-colorscheme NeoSolarized
 " set background=dark "深色背景
 set background=light "浅色背景
+
+colorscheme NeoSolarized
 " highlight LintSign guifg=#dc322f guibg=#eee8d5
 highlight SignColumn guibg=#eee8d5
 " highlight SpecialKey guifg=#93a1a1 guibg=NONE
