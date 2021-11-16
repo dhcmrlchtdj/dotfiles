@@ -46,8 +46,8 @@ prompt_ooxx_precmd() {
     if (( $EUID == 0 )); then
         p1+="%F{magenta}#%f "
     else
-        p1+="%F{magenta}❯%f "
-        # p1+="%F{magenta}λ%f "
+        # p1+="%F{magenta}❯%f "
+        p1+="%F{magenta}%Bλ%b%f "
     fi
 
     PROMPT=$'$p0\n$p1'
