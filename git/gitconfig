@@ -1,13 +1,13 @@
 [user]
     name = h11
     email = me@h11.io
-    signingKey = 0xFEAC362C
+;   signingKey = 0xFEAC362C
 
-[commit]
-    gpgSign = true
+; [commit]
+;     gpgSign = true
 
-[includeIf "gitdir/i:~/work/"]
-    path = ~/.config/git/config.work
+; [includeIf "gitdir/i:~/work/"]
+;     path = ~/.config/git/config.work
 
 [core]
     editor = nvim
@@ -43,25 +43,19 @@
     enabled = true
 
 [diff]
-    tool = vimdiff
+    tool = nvimdiff
     algorithm = histogram
     indentHeuristic = true
 
 [difftool]
     prompt = false
 
-[difftool "vimdiff"]
-    path = nvim
-
 [merge]
-    tool = vimdiff
+    tool = nvimdiff
 
 [mergetool]
     keepBackup = false
     prompt = false
-
-[mergetool "vimdiff"]
-    path = nvim
 
 [alias]
     st = status -bsu
