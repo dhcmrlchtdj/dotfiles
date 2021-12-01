@@ -60,7 +60,7 @@ alias ls='exa --group-directories-first -aF'
 alias la='ls'
 alias ll='ls -l -gh --git --extended --time-style=long-iso'
 alias lll='ll --tree -I ".git"'
-alias du="du -h"
+alias du="du -h -d 1"
 alias df="df -h"
 alias free="free -h"
 alias tree="tree -F --dirsfirst -v"
