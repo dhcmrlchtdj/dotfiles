@@ -1,0 +1,30 @@
+SHELL := bash
+
+set_password := RESTIC_PASSWORD=password
+set_repo := RESTIC_REPOSITORY=sftp:nas:/backup-m1air
+set_env := ${set_password} ${set_repo}
+
+forget_rule := --keep-within-hourly 1d --keep-within-daily 14d --keep-within-weekly 2m --keep-within-monthly 3y
+exclude := --exclude='.DS_Store' --exclude='**/node_modules/**'
+
+.PHONY: stats
+stats:
+	${set_env} restic stats
+
+.PHONY: snapshots
+snapshots:
+	${set_env} restic snapshots
+
+.PHONY: backup
+backup:
+	${set_env} restic backup -v ${exclude} ~/Desktop
+	${set_env} restic backup -v ${exclude} ~/workspace
+
+.PHONY: forget
+forget:
+	${set_env} restic forget -v ${forget_rule} --dry-run
+	@echo "${set_env} restic forget -v ${forget_rule} --prune"
+
+.PHONY: ls
+ls:
+	${set_env} restic ls latest
