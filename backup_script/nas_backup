@@ -1,0 +1,15 @@
+SHELL := bash
+
+sync_cmd := rsync -azvhP --exclude='.DS_Store'
+sync_delete_cmd := ${sync_cmd} --delete
+src := /path/to/src
+dst := /path/to/dst
+
+echo:
+	@echo 'make sync'
+
+sync:
+	cp ${src}/Makefile ${dst}/Makefile
+	${sync_delete_cmd} ${src}/backup/ ${dst}/backup
+	${sync_cmd} ${src}/share/ ${dst}/share
+	@echo "${sync_delete_cmd} ${src}/share/ ${dst}/share"

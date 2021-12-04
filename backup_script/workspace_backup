@@ -1,7 +1,7 @@
 SHELL := bash
 
-set_password := RESTIC_PASSWORD=password
-set_repo := RESTIC_REPOSITORY=sftp:nas:/backup-m1air
+set_password := RESTIC_PASSWORD=TODO
+set_repo := RESTIC_REPOSITORY=sftp:nas:/storage/backup/TODO
 set_env := ${set_password} ${set_repo}
 
 forget_rule := --keep-within-hourly 1d --keep-within-daily 1m --keep-within-weekly 10y
