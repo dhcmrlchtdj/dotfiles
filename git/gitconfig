@@ -11,14 +11,14 @@
 
 [core]
     editor = nvim
-    quotePath = false
-    whitespace = space-before-tab,trailing-space
-    eol = native
-    autocrlf = input
-    safecrlf = warn
-    trustctime = false
-    precomposeUnicode = true
     pager = delta --light
+    ; whitespace = space-before-tab,trailing-space
+    eol = native
+    autocrlf = false
+    safecrlf = warn
+    quotePath = false
+    precomposeUnicode = true
+    trustctime = false
 
 [color]
     ui = auto
