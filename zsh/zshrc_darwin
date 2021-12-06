@@ -35,6 +35,7 @@ alias go='pp go'
 alias opam='pp opam'
 alias pnpm='pp pnpm'
 alias npm='pp npm'
+alias vim='pp nvim'
 alias curlw="/opt/homebrew/opt/curl/bin/curl --write-out '%{json}'"
 
 ip() {
