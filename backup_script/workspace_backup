@@ -13,7 +13,7 @@ stats:
 
 .PHONY: snapshots
 snapshots:
-	${set_env} restic snapshots
+	${set_env} restic snapshots -g paths
 
 .PHONY: backup
 backup:
