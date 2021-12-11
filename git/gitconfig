@@ -12,13 +12,13 @@
 [core]
     editor = nvim
     pager = delta --light
+    quotePath = false
     ; whitespace = space-before-tab,trailing-space
     eol = native
     autocrlf = false
     safecrlf = warn
-    quotePath = false
-    precomposeUnicode = true
     trustctime = false
+    precomposeUnicode = true
 
 [color]
     ui = auto
@@ -38,9 +38,6 @@
 
 [branch]
     autoSetupRebase = always
-
-[rerere]
-    enabled = true
 
 [diff]
     tool = nvimdiff
