@@ -7,7 +7,7 @@ source ~/.zshrc_common
 _source ~/.opam/opam-init/init.zsh
 
 # pacman -S pkgfile
-_source /usr/share/doc/pkgfile/command-not-found.zsh
+# _source /usr/share/doc/pkgfile/command-not-found.zsh
 
 # pacman -S zsh-syntax-highlighting
 _source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -20,11 +20,7 @@ alias pp='http_proxy="http://127.0.0.1:2080" https_proxy="$http_proxy"'
 # alias opam='pp opam'
 # alias pnpm='pp pnpm'
 # alias npm='pp npm'
-alias pcurl='pp curl'
-
-ip() {
-    curl -s "https://api.ip.sb/geoip/$1" | python3 -m json.tool
-}
+# alias vim='pp nvim'
 
 ppp() {
     # export http_proxy="socks5h://127.0.0.1:2080"

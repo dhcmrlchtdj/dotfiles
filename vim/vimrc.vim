@@ -309,8 +309,9 @@ function! s:check_back_space() abort
 endfunction
 let g:coc_snippet_next = '<C-k>'
 
+" brew install fzf bat ripgrep
+" pacman -S fzf bat ripgrep
 if has('macunix') == 1
-    " brew install fzf bat ripgrep
     Plug '/opt/homebrew/opt/fzf'
 endif
 Plug 'junegunn/fzf.vim'
