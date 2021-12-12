@@ -7,13 +7,13 @@ _source() {
 
 export PATH="$HOME/.local/bin:$PATH"
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:=$HOME/.config}"
-export LANG="en_US.UTF-8"
-export LC_COLLATE="C"
+export LANG='en_US.UTF-8'
+export LC_COLLATE='C'
 export GPG_TTY=$(tty)
-export EDITOR="nvim"
-export BAT_THEME="Solarized (light)"
-export FZF_DEFAULT_COMMAND="rg --files"
-export LESS="-FXSR"
+export EDITOR='nvim'
+export BAT_THEME='Solarized (light)'
+export FZF_DEFAULT_COMMAND='rg --files'
+export LESS='-FXSR'
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;31m'
 export LESS_TERMCAP_me=$'\E[0m'
@@ -54,42 +54,42 @@ prompt ooxx
 
 ### alias ###
 alias ...='cd ../../'
-alias sudo="sudo "
-alias cp="cp -r"
+alias sudo='sudo '
+alias cp='cp -r'
 # alias ls='ls --group-directories-first -vF'
 alias ls='exa --group-directories-first -aF'
 alias la='ls'
 alias ll='ls -l -g -h --git --time-style=long-iso'
 alias lle='ll --extended'
 alias lll='ll --tree -I ".git"'
-alias du="du -h -d 1"
-alias df="df -h"
-alias free="free -h"
-alias tree="tree -F --dirsfirst -v"
-# alias sc="screen -dRR"
-alias sc="tmux new -As0"
+alias du='du -h -d 1'
+alias df='df -h'
+alias free='free -h'
+alias tree='tree -F --dirsfirst -v'
+# alias sc='screen -dRR'
+alias sc='tmux new -As0'
+alias ffmpeg='ffmpeg -hide_banner'
 
 # pacman -S trash-cli
 # apt install trash-cli # ~/.local/share/Trash
 # brew install macos-trash
-alias rm="rm -irv"
+alias rm='rm -irv'
 
-alias j="jobs -dl"
-alias h="htop"
-alias f="find . -name"
-alias vim="nvim"
-alias vimdiff="nvim -d"
-alias rg="rg --smart-case --hidden -g '!{.git}'"
-alias ff="fzf --preview 'bat --style=numbers --color=always --line-range :50 {}'"
+alias j='jobs -dl'
+alias h='htop'
+alias f='find . -name'
+alias vim='nvim'
+alias vimdiff='nvim -d'
+alias rg='rg --smart-case --hidden -g "!{.git}"'
+alias ff='fzf --preview "bat --style=numbers --color=always --line-range :50 {}"'
 
-alias zz="bsdtar -cavf"
-alias xx="unar"
-# alias sss="python3 -m http.server"
-# alias mm="mitmproxy -p 8888"
-# alias mmm="mitmproxy -p 8888 -i '~q | ~s'"
-# alias ccc="clang -std=c11 -Weverything -Wno-missing-prototypes"
-# alias curlw="curl -w '\ntime_namelookup:\t%{time_namelookup}\ntime_connect:\t\t%{time_connect}\ntime_appconnect:\t%{time_appconnect}\ntime_pretransfer:\t%{time_pretransfer}\ntime_redirect:\t\t%{time_redirect}\ntime_starttransfer:\t%{time_starttransfer}\n------\ntime_total:\t\t%{time_total}\n'"
-alias curlw="curl --write-out '%{json}'"
+alias zz='bsdtar -cavf'
+alias xx='unar'
+# alias sss='python3 -m http.server'
+# alias mm='mitmproxy -p 8888'
+# alias mmm='mitmproxy -p 8888 -i "~q | ~s"'
+# alias ccc='clang -std=c11 -Weverything -Wno-missing-prototypes'
+alias curlw='curl --write-out "%{json}"'
 ### END alias ###
 
 
@@ -107,12 +107,12 @@ autoload -Uz up-line-or-beginning-search
 autoload -Uz down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
-bindkey "^[[A" up-line-or-beginning-search # Up
-bindkey "^[[B" down-line-or-beginning-search # Down
+bindkey '^[[A' up-line-or-beginning-search # Up
+bindkey '^[[B' down-line-or-beginning-search # Down
 [[ -n "${key[Up]}" ]] && bindkey -- "${key[Up]}" up-line-or-beginning-search
 [[ -n "${key[Down]}" ]] && bindkey -- "${key[Down]}" down-line-or-beginning-search
-bindkey "^R" history-incremental-pattern-search-backward
-bindkey "^S" history-incremental-pattern-search-forward
+bindkey '^R' history-incremental-pattern-search-backward
+bindkey '^S' history-incremental-pattern-search-forward
 
 
 # enable Ctrl-x-e to edit command line
@@ -160,7 +160,7 @@ zstyle ':completion:*:complete:*'       cache-path "${HOME}/.cache"
 
 function zzz() {
     for i in "$@"; do
-        zz $i.zip $i;
+        zz "${i}.zip" "${i}";
     done
 }
 

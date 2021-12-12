@@ -36,17 +36,17 @@ alias opam='pp opam'
 alias pnpm='pp pnpm'
 alias npm='pp npm'
 alias vim='pp nvim'
-alias curlw="/opt/homebrew/opt/curl/bin/curl --write-out '%{json}'"
+alias curlw='/opt/homebrew/opt/curl/bin/curl --write-out "%{json}"'
 
 ppp() {
-    export http_proxy="socks5h://127.0.0.1:2080"
-    export http_proxy="socks5://127.0.0.1:2080"
-    export http_proxy="http://127.0.0.1:2080"
+    export http_proxy='socks5h://127.0.0.1:2080'
+    export http_proxy='socks5://127.0.0.1:2080'
+    export http_proxy='http://127.0.0.1:2080'
     export https_proxy="$http_proxy"
     echo "export http_proxy='$http_proxy'"
 }
 pppp() {
     unset http_proxy
     unset https_proxy
-    echo "unset http_proxy"
+    echo 'unset http_proxy'
 }
