@@ -47,7 +47,7 @@ prompt_ooxx_precmd() {
         p1+="%F{magenta}#%f "
     else
         # p1+="%F{magenta}❯%f "
-        p1+="%F{magenta}%Bλ%b%f "
+        p1+="%F{yellow}%Bλ%b%f "
     fi
 
     PROMPT=$'$p0\n$p1'
