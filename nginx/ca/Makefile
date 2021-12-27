@@ -1,6 +1,28 @@
 SHELL := bash
 DOMAIN := example.com
 
+.PHONY: check_pem
+check_pem:
+	openssl x509 -noout -text -in latest.pem | grep 'Not After'
+
+$(DOMAIN).csr: domain.key
+	# openssl req -noout -text -verify -in $(DOMAIN).csr
+	# openssl req -new -subj "/CN=$(DOMAIN)" -key domain.key -out $(DOMAIN).csr
+	openssl req -new \
+		-subj "/CN=$(DOMAIN)" \
+		-reqexts SAN \
+		-config <(cat /etc/ssl/openssl.cnf <(printf "[SAN]\nsubjectAltName=DNS:$(DOMAIN),DNS:*.$(DOMAIN)")) \
+		-key domain.key \
+		-out $(DOMAIN).csr
+
+domain.key:
+	# openssl genpkey -algorithm ED25519 -out domain.key
+	openssl ecparam -genkey -name prime256v1 -out domain.key
+
+register:
+	# certbot register --email user@example.com --agree-tos --no-eff-email
+	certbot register --agree-tos --register-unsafely-without-email
+
 .PHONY: dns-auto
 dns-auto: $(DOMAIN).csr
 	certbot certonly \
@@ -29,24 +51,3 @@ webroot: $(DOMAIN).csr
 		--preferred-challenges=http \
 		--csr $(DOMAIN).csr \
 		-d $(DOMAIN)
-
-.PHONY: check_pem
-check_pem:
-	openssl x509 -noout -text -in latest.pem | grep 'Not After'
-
-$(DOMAIN).csr: domain.key
-	# openssl req -noout -text -in domain.csr
-	# openssl req -new -sha256 -subj "/CN=$(DOMAIN)" -key domain.key -out $(DOMAIN).csr
-	openssl req -new -sha256 \
-		-subj "/CN=$(DOMAIN)" \
-		-reqexts SAN -config <(cat /etc/ssl/openssl.cnf <(printf "[SAN]\nsubjectAltName=DNS:$(DOMAIN),DNS:*.$(DOMAIN)")) \
-		-key domain.key \
-		-out $(DOMAIN).csr
-
-domain.key:
-	# openssl ecparam -list_curves
-	openssl ecparam -genkey -name prime256v1 -out domain.key
-
-register:
-	# certbot register --email u1@example.com --agree-tos --no-eff-email
-	certbot register --agree-tos --register-unsafely-without-email

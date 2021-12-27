@@ -1,4 +1,8 @@
+# proxy_pass http://localhost:3000;
+
 proxy_redirect off;
+
+# proxy_intercept_errors on;
 
 proxy_set_header Host $host;
 # proxy_set_header Host $proxy_host;
@@ -10,6 +14,3 @@ proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 # proxy_set_header X-Real-IP $realip_remote_addr;
 real_ip_header X-Real-IP;
 real_ip_recursive on;
-
-proxy_intercept_errors on;
-# proxy_pass http://localhost:3000;
