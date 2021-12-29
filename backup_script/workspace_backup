@@ -1,7 +1,9 @@
 SHELL := bash
 
+rsync_to_nas := rsync --verbose --archive --compress --human-readable --partial --progress --exclude '.DS_Store' --exclude '.localized'
+
 set_password := RESTIC_PASSWORD=TODO
-set_repo := RESTIC_REPOSITORY=sftp:nas:/storage/backup/TODO
+set_repo := RESTIC_REPOSITORY=sftp:nas:/path/to/repo
 set_env := ${set_password} ${set_repo}
 
 forget_rule := --keep-within-hourly 1d --keep-within-daily 1m --keep-within-weekly 10y
@@ -17,13 +19,15 @@ snapshots:
 
 .PHONY: backup
 backup:
-	${set_env} restic backup -v ${exclude} ~/Desktop
-	${set_env} restic backup -v ${exclude} ~/Documents
-	${set_env} restic backup -v ${exclude} ~/workspace
+	${set_env} restic backup ${exclude} ~/workspace
+	${set_env} restic backup ${exclude} ~/Desktop
+	${set_env} restic backup ${exclude} ~/Documents
+	${rsync_to_nas} ~/Desktop/ nas:/path/to/desktop
+	${rsync_to_nas} ~/Documents/ nas:/path/to/documents
 
 .PHONY: forget
 forget:
-	${set_env} restic forget -v ${forget_rule} --dry-run
+	${set_env} restic forget ${forget_rule} --dry-run
 	@echo "${set_env} restic forget -v ${forget_rule} --prune"
 
 .PHONY: ls
