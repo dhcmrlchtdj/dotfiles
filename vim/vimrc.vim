@@ -10,20 +10,10 @@
 "   \::::/__/       /:/  /     \:\__\        \:\__\        \::/  /
 "    ~~~~           \/__/       \/__/         \/__/         \/__/
 
-set belloff=all
 set nomodeline "忽略 打开的文件 里的vim参数
 set termguicolors
 set guicursor=
 nnoremap Q <Nop>
-
-if has('nvim') == 0
-    set nocompatible "不兼容vi
-    set ttyfast
-    set t_Co=256 "颜色数目
-    set backspace=indent,eol,start "insert模式下删除键可删除
-endif
-
-set autoread "外部编辑器修改文件
 autocmd FocusGained,BufEnter,CursorHold * checktime
 
 set mouse= "鼠标支持
@@ -32,29 +22,22 @@ set lazyredraw
 set clipboard=unnamed,unnamedplus "剪贴板
 set virtualedit=block "虚空间
 set showmatch "输入括号时显示匹配括号
-" set completeopt=menu "补全窗口的样式
 set showfulltag
-set conceallevel=0
 
 """ 备份 撤销
 set updatetime=1000
-set hidden "自动保存?
-set directory=~/.config/nvim/swap//
 set undofile "开启撤销历史
-set undodir=~/.config/nvim/undo
 set backup "覆盖文件时备份
 set writebackup "保存时备份
-set backupdir=~/.config/nvim/backup
-set diffopt+=filler,context:3,vertical,internal,algorithm:histogram
+set backupdir-=.
+set diffopt=filler,context:3,vertical,internal,indent-heuristic,algorithm:histogram
 
 """ encoding
-set encoding=utf-8 "vim内部使用的编码
 set fileencoding=utf-8 "默认使用编码
 set fileencodings=ucs-bom,utf-8,gb18030 "判断文件编码
 set nobomb "去除BOM
 set fileformat=unix "默认换行方式
 set fileformats=unix,dos "判断换行方式
-set ambiwidth=single "宽度不明字符使用单倍字符宽度
 
 """ 行号 命令行 状态行
 set signcolumn=yes
@@ -76,25 +59,17 @@ inoremap <Down> <C-o>gj
 inoremap <expr> <Up> pumvisible() ? '<C-p>' : '<Up>'
 inoremap <expr> <Down> pumvisible() ? '<C-n>' : '<Down>'
 
-" set cmdheight=1 "命令行行数
-set noshowmode
-set showcmd "在命令行显示目前执行的指令
-set history=10000 "命令行历史纪录
 set wildmenu "命令行补全提示
 set wildmode=longest:full,full "补全方式
 
-set laststatus=2 "总是显示状态行
 set noshowmode "隐藏信息
 set shortmess=atIF "状态行信息
-" set statusline=%<%F\ %y\ (%{&ff})\ %h%m%r%w%=%-14.(%l,%c%)%p%% "状态行
 
 """ search
 "清除高亮
 nnoremap <silent> <Space> :nohlsearch<CR>
 set ignorecase "搜索时忽略大小写
 set smartcase "有大写时对大小写敏感
-set hlsearch "高亮显示搜索结果
-set incsearch "搜索时逐字符高亮
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
@@ -105,9 +80,7 @@ set tabstop=4 "制表符\t的宽度
 set softtabstop=4 "tab键的宽度
 set shiftwidth=4 "空格缩进时宽度
 set shiftround
-set smarttab "智能缩进
 set smartindent "智能选择缩进方式
-set autoindent
 set cindent
 set list "显示特殊字符
 set listchars=tab:»\ ,trail:• "字符样式
@@ -131,12 +104,7 @@ autocmd FileType qf nnoremap <buffer> <silent> q :lclose<CR>
 
 """ plugin
 filetype plugin indent off
-if has('nvim') == 1
-    " call plug#begin('~/.local/share/nvim/plugged')
-    call plug#begin(stdpath('data') . '/plugged')
-else
-    call plug#begin('~/.vim/plugged')
-end
+call plug#begin(stdpath('data') . '/plugged')
 
 Plug 'tpope/vim-fugitive' " statusline git
 Plug 'vim-airline/vim-airline' " statusline
@@ -154,8 +122,6 @@ let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '~'
 let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_modified_removed = '!'
-
-Plug 'jamessan/vim-gnupg'
 
 Plug 'overcache/NeoSolarized'
 
@@ -244,52 +210,16 @@ autocmd FileType markdown nnoremap <buffer> <F4> :Toc<CR>
 
 " Plug 'editorconfig/editorconfig-vim'
 
-" Plug 'cespare/vim-toml'
-
-" Plug 'nathangrigg/vim-beancount'
-
-" Plug 'ocaml/vim-ocaml'
-
 Plug 'lifepillar/pgsql.vim'
 let g:sql_type_default = 'pgsql'
 
-" Plug 'sheerun/vim-polyglot'
-
-" Plug 'othree/html5.vim'
-
-" Plug 'hail2u/vim-css3-syntax'
-" Plug 'cakebaker/scss-syntax.vim'
-
-" Plug 'elzr/vim-json'
-" let g:vim_json_syntax_conceal = 0
-
-" Plug 'HerringtonDarkholme/yats.vim'
-" Plug 'othree/yajs.vim'
-" Plug 'othree/es.next.syntax.vim'
-" Plug 'jiangmiao/simple-javascript-indenter'
-
-" Plug 'posva/vim-vue'
-
-" Plug 'Vimjas/vim-python-pep8-indent'
-" Plug 'vim-python/python-syntax'
-" let python_highlight_all = 1
-
-" Plug 'keith/swift.vim'
-" Plug 'udalov/kotlin-vim'
-" Plug 'rust-lang/rust.vim'
-" Plug 'asciidoc/vim-asciidoc'
-" Plug 'jparise/vim-graphql'
-" Plug 'tbastos/vim-lua'
-" Plug 'idris-hackers/idris-vim'
-" Plug 'dart-lang/dart-vim-plugin'
-
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
-" Plug 'neovim/nvim-lspconfig'
 
 Plug 'Shougo/echodoc.vim' " signature
 let g:echodoc#enable_at_startup = 1
 let g:echodoc#type = 'echo'
+
+" Plug 'neovim/nvim-lspconfig'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " coc-syntax coc-json coc-tsserver coc-css coc-html coc-rust-analyzer
