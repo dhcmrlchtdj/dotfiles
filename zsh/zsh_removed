@@ -41,3 +41,21 @@ datauri() {echo "data:image/${1##*.};base64,$(openssl base64 -in $1 | tr -d '\n'
 # chpwd_functions=( ${chpwd_functions} chpwd_nvm_use )
 # if _has "npm"; then eval "$(npm completion)"; fi
 ### END node ###
+
+# enable Ctrl-x-e to edit command line
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^xe' edit-command-line
+bindkey '^x^e' edit-command-line
+
+prompt_ooxx_pyvenv() {
+    if [[ $VIRTUAL_ENV != "" ]]; then
+        echo "use %F{magenta}$(basename $VIRTUAL_ENV)%f "
+    fi
+}
+
+prompt_ooxx_nvm() {
+    if [[ $NVM_BIN != "" ]]; then
+        echo "use %F{magenta}$(basename $(dirname $NVM_BIN))%f "
+    fi
+}

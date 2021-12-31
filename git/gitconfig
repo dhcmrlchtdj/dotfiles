@@ -1,10 +1,6 @@
 [user]
     name = h11
     email = me@h11.io
-;   signingKey = 0xFEAC362C
-
-; [commit]
-;     gpgSign = true
 
 ; [includeIf "gitdir/i:~/work/"]
 ;     path = ~/.config/git/config.work

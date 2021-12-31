@@ -6,7 +6,8 @@ _source() {
 
 
 export PATH="$HOME/.local/bin:$PATH"
-export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:=$HOME/.config}"
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
 export LANG='en_US.UTF-8'
 export LC_COLLATE='C'
 export GPG_TTY=$(tty)
@@ -97,6 +98,7 @@ alias curlw='curl --write-out "%{json}"'
 function set_title() {
     echo -ne "\e]0;${(%):-"%n @ %m : %~"}\a"
 }
+autoload -Uz add-zsh-hook
 add-zsh-hook -Uz precmd set_title
 
 # emacs keymap
@@ -115,16 +117,10 @@ bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^S' history-incremental-pattern-search-forward
 
 
-# enable Ctrl-x-e to edit command line
-autoload -U edit-command-line
-zle -N edit-command-line
-bindkey '^xe' edit-command-line
-bindkey '^x^e' edit-command-line
-
-
 # completion
 autoload -Uz compinit
 compinit
+
 zstyle ':completion:*:correct:*'        insert-unambiguous true
 zstyle ':completion:*:correct:*'        original true
 zstyle ':completion:*:default'          list-colors ${(s.:.)LS_COLORS}

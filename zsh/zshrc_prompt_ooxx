@@ -14,18 +14,6 @@ prompt_ooxx_git() {
     fi
 }
 
-prompt_ooxx_pyvenv() {
-    if [[ $VIRTUAL_ENV != "" ]]; then
-        echo "use %F{magenta}$(basename $VIRTUAL_ENV)%f "
-    fi
-}
-
-prompt_ooxx_nvm() {
-    if [[ $NVM_BIN != "" ]]; then
-        echo "use %F{magenta}$(basename $(dirname $NVM_BIN))%f "
-    fi
-}
-
 prompt_ooxx_precmd() {
     setopt prompt_subst
 
@@ -37,8 +25,6 @@ prompt_ooxx_precmd() {
     p0+="%F{blue}%n%f "
     p0+="at %F{cyan}%m%f "
     p0+="$(prompt_ooxx_git)"
-    # p0+="$(prompt_ooxx_pyvenv)"
-    # p0+="$(prompt_ooxx_nvm)"
     p0+="in %F{red}%~%f "
     p0+="%(?,,[%F{red}%B%?%b%f] ) "
     p0+="%(1j,[%j running] ,) "
