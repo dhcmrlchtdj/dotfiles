@@ -37,7 +37,7 @@ setopt complete_in_word
 setopt hash_list_all
 # expansion and globbing
 setopt extended_glob
-setopt no_glob_dots
+setopt glob_dots
 setopt unset
 # history
 export HISTFILE="${HOME}/.zsh_history"
@@ -136,7 +136,7 @@ compinit
 
 # cache
 zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
+zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/zcompcache"
 # completer
 zstyle ':completion:*' completer _complete _match _approximate _ignored _files
 # completion matching control
@@ -151,6 +151,7 @@ zstyle ':completion:*' menu select
 # group
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' list-prompt ''
+zstyle ':completion:*' select-prompt ''
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' list-dirs-first true
 # ignore

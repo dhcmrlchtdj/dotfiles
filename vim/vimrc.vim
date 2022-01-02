@@ -222,7 +222,7 @@ let g:echodoc#type = 'echo'
 " Plug 'neovim/nvim-lspconfig'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" coc-syntax coc-json coc-tsserver coc-css coc-html coc-rust-analyzer
+" :CocInstall coc-syntax coc-json coc-tsserver coc-css coc-html coc-rust-analyzer
 " autocmd CursorHold * silent call CocActionAsync('highlight')
 " autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 nnoremap <F1> :CocDiagnostics<CR>
@@ -257,17 +257,11 @@ syntax enable "语法加亮
 syntax on
 
 lua <<EOF
-require'nvim-treesitter.configs'.setup {
-    ensure_installed = {
-        "bash", "python",
-        "c","rust", "go",
-        "ocaml", "ocaml_interface",
-        "html", "css", "javascript", "typescript",
-        "json", "toml", "yaml",
-        "beancount",
-    },
-    highlight = { enable = true },
-    indent = { enable = false },
+require('nvim-treesitter.configs').setup {
+ensure_installed = "maintained",
+sync_install = true,
+highlight = { enable = true },
+indent = { enable = false },
 }
 EOF
 " set foldmethod=expr
@@ -278,7 +272,6 @@ autocmd FileType go setlocal noexpandtab "使用tab缩进
 autocmd FileType ocaml setlocal ts=2 sts=2 sw=2
 autocmd BufNewFile,BufRead *.bean,*.beancount setfiletype beancount
 autocmd BufNewFile,BufRead *.bean,*.beancount setlocal commentstring=;%s
-" autocmd FileType dart setl ts=2 sts=2 sw=2
 
 " set background=dark "深色背景
 set background=light "浅色背景
