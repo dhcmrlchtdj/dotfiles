@@ -5,9 +5,10 @@ _source() {
 }
 
 
-export PATH="$HOME/.local/bin:$PATH"
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
 export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+export PATH="$HOME/.local/bin:$PATH"
 export LANG='en_US.UTF-8'
 export LC_COLLATE='C'
 export GPG_TTY=$(tty)
@@ -24,30 +25,42 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
 
-setopt auto_cd
-setopt complete_in_word
-setopt correct
-setopt extended_glob
-setopt extended_history
-setopt hash_list_all
-setopt interactive_comments
-setopt long_list_jobs
 setopt no_beep
-setopt no_glob_dots
-setopt no_hup
 setopt no_sh_word_split
-setopt notify
+# changing directories
+setopt auto_cd
+# setopt auto_pushd
+# setopt pushd_ignore_dups
+# setopt pushd_minus
+# completion
+setopt complete_in_word
+setopt hash_list_all
+# expansion and globbing
+setopt extended_glob
+setopt no_glob_dots
 setopt unset
-setopt append_history
-setopt hist_ignore_all_dups
-setopt hist_ignore_space
-setopt share_history
+# history
 export HISTFILE="${HOME}/.zsh_history"
 export HISTSIZE=1000000
 export SAVEHIST=1000000
+setopt append_history
+setopt extended_history
+setopt share_history
+setopt hist_expire_dups_first
+setopt hist_save_no_dups
+setopt hist_ignore_all_dups
+setopt hist_ignore_dups
+setopt hist_ignore_space
+# input/output
+setopt correct
+setopt interactive_comments
+# job control
+setopt no_bg_nice
+setopt no_hup
+setopt long_list_jobs
+setopt notify
 
 
-# source ~/.zshrc_grml
 source ~/.zshrc_z
 source ~/.zshrc_prompt_ooxx
 prompt ooxx
@@ -121,36 +134,34 @@ bindkey '^S' history-incremental-pattern-search-forward
 autoload -Uz compinit
 compinit
 
-zstyle ':completion:*:correct:*'        insert-unambiguous true
-zstyle ':completion:*:correct:*'        original true
-zstyle ':completion:*:default'          list-colors ${(s.:.)LS_COLORS}
-zstyle ':completion:*:descriptions'     format $'%{\e[0;31m%}completing %B%d%b%{\e[0m%}'
-zstyle ':completion:*:expand:*'         tag-order all-expansions
-zstyle ':completion:*:history-words'    list false
-zstyle ':completion:*:history-words'    menu yes
-zstyle ':completion:*:history-words'    remove-all-dups yes
-zstyle ':completion:*:history-words'    stop yes
-zstyle ':completion:*'                  matcher-list 'm:{a-z}={A-Z}'
-zstyle ':completion:*:matches'          group 'yes'
-zstyle ':completion:*'                  group-name ''
-zstyle ':completion:*'                  menu select=5
-zstyle ':completion:*:messages'         format '%d'
-zstyle ':completion:*:options'          auto-description '%d'
-zstyle ':completion:*:options'          description 'yes'
-zstyle ':completion:*:processes'        command 'ps -au$USER'
-zstyle ':completion:*:*:-subscript-:*'  tag-order indexes parameters
-zstyle ':completion:*'                  verbose true
-zstyle ':completion:*:-command-:*:'     verbose false
-zstyle ':completion:*:*:zcompile:*'     ignored-patterns '(*~|*.zwc)'
-zstyle ':completion:correct:'           prompt 'correct to: %e'
-zstyle ':completion::(^approximate*):*:functions'   ignored-patterns '_*'
-zstyle ':completion:*:processes-names'  command 'ps c -u ${USER} -o command | uniq'
-zstyle ':completion:*:manuals'          separate-sections true
-zstyle ':completion:*:manuals.*'        insert-sections   true
-zstyle ':completion:*:man:*'            menu yes select
-zstyle ':completion:*'                  special-dirs ..
-zstyle ':completion:*'                  use-cache  yes
-zstyle ':completion:*:complete:*'       cache-path "${HOME}/.cache"
+# cache
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/.zcompcache"
+# completer
+zstyle ':completion:*' completer _complete _match _approximate _ignored _files
+# completion matching control
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+# style
+zstyle ':completion:*:descriptions' format '%F{green}-- %d --%f'
+zstyle ':completion:*:corrections' format '%F{yellow}!- %d (errors: %e) -!%f'
+zstyle ':completion:*:messages' format ' %F{purple} -- %d --%f'
+zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f'
+# menu
+zstyle ':completion:*' menu select
+# group
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' list-prompt ''
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' list-dirs-first true
+# ignore
+zstyle ':completion:*:functions' ignored-patterns '(_*|pre(cmd|exec))'
+# manpage
+zstyle ':completion:*:manuals' separate-sections true
+zstyle ':completion:*:manuals.*' insert-sections true
+# ssh
+zstyle -e ':completion:*' hosts 'reply=()'
+zstyle ':completion:*:(ssh|scp|rsync):*:users' ignored-patterns '_*'
+zstyle ':completion:*:(ssh|scp|rsync):*:hosts' ignored-patterns '<->.<->.<->.<->'
 
 ###
 
@@ -158,14 +169,4 @@ function zzz() {
     for i in "$@"; do
         zz "${i}.zip" "${i}";
     done
-}
-
-function cd () {
-    if (( ${#argv} == 1 )) && [[ -f ${1} ]]; then
-        [[ ! -e ${1:h} ]] && return 1
-        print "Correcting ${1} to ${1:h}"
-        builtin cd ${1:h}
-    else
-        builtin cd "$@"
-    fi
 }
