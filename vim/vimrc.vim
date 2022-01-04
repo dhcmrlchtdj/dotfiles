@@ -102,6 +102,13 @@ set splitright
 autocmd FileType qf nnoremap <buffer> <silent> <CR> <CR>:lclose<CR>
 autocmd FileType qf nnoremap <buffer> <silent> q :lclose<CR>
 
+" provider
+let g:loaded_python_provider = 0
+let g:loaded_python3_provider = 0
+let g:loaded_ruby_provider = 0
+let g:loaded_perl_provider = 0
+let g:loaded_node_provider = 0
+
 """ plugin
 filetype plugin indent off
 call plug#begin(stdpath('data') . '/plugged')
@@ -254,7 +261,6 @@ call plug#end()
 
 filetype plugin indent on "载入文件类型 插件 缩进
 syntax enable "语法加亮
-syntax on
 
 lua <<EOF
 require('nvim-treesitter.configs').setup {
