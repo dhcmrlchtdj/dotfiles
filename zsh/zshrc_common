@@ -35,6 +35,7 @@ setopt auto_cd
 # completion
 setopt complete_in_word
 setopt hash_list_all
+setopt menu_complete
 # expansion and globbing
 setopt extended_glob
 setopt glob_dots
@@ -121,8 +122,8 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 bindkey '^[[A' up-line-or-beginning-search # Up
 bindkey '^[[B' down-line-or-beginning-search # Down
-# bindkey '^[OA' up-line-or-beginning-search # Up
-# bindkey '^[OB' down-line-or-beginning-search # Down
+bindkey '^[OA' up-line-or-beginning-search # Up
+bindkey '^[OB' down-line-or-beginning-search # Down
 bindkey '^R' history-incremental-pattern-search-backward
 bindkey '^S' history-incremental-pattern-search-forward
 
@@ -133,23 +134,28 @@ compinit
 
 # cache
 zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/zcompcache"
+zstyle ':completion:*:complete:*' cache-path "$XDG_CACHE_HOME/zsh/zcompcache"
 # completer
-zstyle ':completion:*' completer _complete _match _approximate _ignored _files
-# completion matching control
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+zstyle ':completion:*' completer _complete _match _correct _approximate _files
+# allow one error for every three characters typed in approximate completer
+zstyle ':completion:*:approximate:' max-errors 'reply=( $((($#PREFIX+$#SUFFIX)/3 )) numeric )'
+# match uppercase from lowercase
+zstyle ':completion:*:complete:*' matcher-list '' 'm:{a-z}={A-Z}'
+zstyle ':completion:*:files:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 # style
-zstyle ':completion:*:descriptions' format '%F{green}-- %d --%f'
-zstyle ':completion:*:corrections' format '%F{yellow}!- %d (errors: %e) -!%f'
-zstyle ':completion:*:messages' format ' %F{purple} -- %d --%f'
-zstyle ':completion:*:warnings' format ' %F{red}-- no matches found --%f'
+zstyle ':completion:*:descriptions' format '%F{red}completing %B%d%b%f'
+zstyle ':completion:*:corrections' format '%F{red}%d (errors: %e)%f'
+zstyle ':completion:*:messages' format '%d'
+zstyle ':completion:*:warnings' format '%F{red}No matches for:%f %d'
 # menu
 zstyle ':completion:*' menu select
-# group
+# separate matches into groups
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' list-prompt ''
 zstyle ':completion:*' select-prompt ''
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# list style
+# https://the.exa.website/docs/colour-themes
+zstyle ':completion:*' list-colors 'fi=0:di=1;34:ln=36:or=4;31:pi=33:bd=1;33:cd=1;33:so=1;31:ex=1;32'
 zstyle ':completion:*' list-dirs-first true
 # ignore
 zstyle ':completion:*:functions' ignored-patterns '(_*|pre(cmd|exec))'
