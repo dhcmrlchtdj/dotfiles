@@ -129,12 +129,15 @@ let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '~'
 let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_modified_removed = '!'
+let g:gitgutter_set_sign_backgrounds = 1
 
 Plug 'overcache/NeoSolarized'
+let g:neosolarized_italic = 1
 
-Plug 'nathanaelkane/vim-indent-guides'
-let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_auto_colors = 0
+" Plug 'nathanaelkane/vim-indent-guides'
+" let g:indent_guides_enable_on_vim_startup = 1
+" let g:indent_guides_auto_colors = 0
+Plug 'lukas-reineke/indent-blankline.nvim'
 
 Plug 'preservim/nerdtree'
 let g:NERDTreeCaseSensitiveSort = 1
@@ -220,7 +223,7 @@ autocmd FileType markdown nnoremap <buffer> <F4> :Toc<CR>
 Plug 'lifepillar/pgsql.vim'
 let g:sql_type_default = 'pgsql'
 
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdateSync'}
 
 Plug 'Shougo/echodoc.vim' " signature
 let g:echodoc#enable_at_startup = 1
@@ -264,14 +267,25 @@ syntax enable "语法加亮
 
 lua <<EOF
 require('nvim-treesitter.configs').setup {
-ensure_installed = "maintained",
-sync_install = true,
-highlight = { enable = true },
-indent = { enable = false },
+    ensure_installed = "maintained",
+    sync_install = true,
+    highlight = { enable = true },
+    indent = { enable = false },
+}
+
+require("indent_blankline").setup {
+    char = "",
+    char_highlight_list = {
+        "IndentGuidesOdd",
+        "IndentGuidesEven",
+    },
+    space_char_highlight_list = {
+        "IndentGuidesOdd",
+        "IndentGuidesEven",
+    },
+    show_trailing_blankline_indent = false,
 }
 EOF
-" set foldmethod=expr
-" set foldexpr=nvim_treesitter#foldexpr()
 
 " autocmd FileType json syntax match Comment +\/\/.\+$+
 autocmd FileType go setlocal noexpandtab "使用tab缩进
@@ -286,14 +300,10 @@ colorscheme NeoSolarized
 " highlight LintSign guifg=#dc322f guibg=#eee8d5
 highlight SignColumn guibg=#eee8d5
 " highlight SpecialKey guifg=#93a1a1 guibg=NONE
-" highlight IndentGuidesOdd  guibg=#eee8d5
-highlight IndentGuidesEven guibg=#eee8d5
 highlight CocErrorSign guifg=#dc322f guibg=#eee8d5
 highlight CocWarningSign guifg=#d33682 guibg=#eee8d5
-highlight GitGutterAdd guibg=#eee8d5
-highlight GitGutterChange guibg=#eee8d5
-highlight GitGutterDelete guibg=#eee8d5
-highlight GitGutterChangeDelete guibg=#eee8d5
+" highlight IndentGuidesOdd  guibg=#eee8d5
+highlight IndentGuidesEven guibg=#eee8d5
 
 function! FormatFile()
     " 使用\n换行
