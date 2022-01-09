@@ -266,9 +266,8 @@ filetype plugin indent on "载入文件类型 插件 缩进
 syntax enable "语法加亮
 
 lua <<EOF
+-- :TSInstallSync maintained
 require('nvim-treesitter.configs').setup {
-    ensure_installed = "maintained",
-    sync_install = true,
     highlight = { enable = true },
     indent = { enable = false },
 }
