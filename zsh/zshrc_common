@@ -8,6 +8,7 @@ _source() {
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
 export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+export XDG_STATE_HOME="${XDG_STATE_HOME:-$HOME/.local/state}"
 export PATH="$HOME/.local/bin:$PATH"
 export LANG='en_US.UTF-8'
 export LC_COLLATE='C'
@@ -41,7 +42,7 @@ setopt extended_glob
 setopt glob_dots
 setopt unset
 # history
-export HISTFILE="${HOME}/.zsh_history"
+export HISTFILE="${XDG_STATE_HOME}/zsh/history"
 export HISTSIZE=1000000
 export SAVEHIST=1000000
 setopt extended_history
@@ -58,10 +59,11 @@ setopt no_hup
 setopt long_list_jobs
 setopt notify
 
-
-source ~/.zshrc_z
-source ~/.zshrc_prompt_ooxx
+source "${XDG_CONFIG_HOME}/zsh/zshrc_prompt_ooxx"
 prompt ooxx
+
+export _Z_DATA="${XDG_STATE_HOME}/zsh/z.sh"
+source "${XDG_CONFIG_HOME}/zsh/z.sh"
 
 
 ### alias ###
@@ -130,11 +132,11 @@ bindkey '^S' history-incremental-pattern-search-forward
 
 # completion
 autoload -Uz compinit
-compinit
+compinit -d "${XDG_CACHE_HOME}/zsh/zcompdump-${ZSH_VERSION}"
 
 # cache
 zstyle ':completion:*' use-cache on
-zstyle ':completion:*:complete:*' cache-path "$XDG_CACHE_HOME/zsh/zcompcache"
+zstyle ':completion:*' cache-path "${XDG_CACHE_HOME}/zsh/zcompcache"
 # completer
 zstyle ':completion:*' completer _complete _match _correct _approximate _files
 # allow one error for every three characters typed in approximate completer
