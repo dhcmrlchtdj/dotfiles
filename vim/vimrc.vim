@@ -23,13 +23,17 @@ set clipboard=unnamed,unnamedplus "剪贴板
 set virtualedit=block "虚空间
 set showmatch "输入括号时显示匹配括号
 set showfulltag
+set noshowmode "隐藏信息
+set shortmess=atIF "状态行信息
 
 """ 备份 撤销
 set updatetime=1000
 set undofile "开启撤销历史
 set backup "覆盖文件时备份
 set writebackup "保存时备份
-set backupdir-=.
+let &undodir = stdpath('data') . '/undo//'
+let &backupdir = stdpath('data') . '/backup//'
+let &directory = stdpath('data') . '/swap//'
 set diffopt=filler,context:3,vertical,internal,indent-heuristic,algorithm:histogram
 
 """ encoding
@@ -62,14 +66,13 @@ inoremap <expr> <Down> pumvisible() ? '<C-n>' : '<Down>'
 set wildmenu "命令行补全提示
 set wildmode=longest:full,full "补全方式
 
-set noshowmode "隐藏信息
-set shortmess=atIF "状态行信息
-
 """ search
 "清除高亮
 nnoremap <silent> <Space> :nohlsearch<CR>
 set ignorecase "搜索时忽略大小写
 set smartcase "有大写时对大小写敏感
+set hlsearch "高亮显示搜索结果
+set incsearch "搜索时逐字符高亮
 nnoremap n nzzzv
 nnoremap N Nzzzv
 
@@ -80,8 +83,9 @@ set tabstop=4 "制表符\t的宽度
 set softtabstop=4 "tab键的宽度
 set shiftwidth=4 "空格缩进时宽度
 set shiftround
+set smarttab "智能缩进
 set smartindent "智能选择缩进方式
-set cindent
+" set cindent
 set list "显示特殊字符
 set listchars=tab:»\ ,trail:• "字符样式
 
