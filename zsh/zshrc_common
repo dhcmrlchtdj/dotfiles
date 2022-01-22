@@ -69,7 +69,8 @@ source "${XDG_CONFIG_HOME}/zsh/z.sh"
 ### alias ###
 alias ...='cd ../../'
 alias sudo='sudo '
-alias cp='cp -r'
+alias cp='cp -nvr'
+alias mv='mv -nv'
 # alias ls='ls --group-directories-first -vF'
 alias ls='exa --group-directories-first -aF'
 alias la='ls'
