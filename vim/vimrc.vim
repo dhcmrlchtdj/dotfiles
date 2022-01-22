@@ -270,13 +270,20 @@ filetype plugin indent on "载入文件类型 插件 缩进
 syntax enable "语法加亮
 
 lua <<EOF
--- :TSInstallSync maintained
-require('nvim-treesitter.configs').setup {
+-- :TSInstallSync beancount
+-- :TSInstallSync bash make toml
+-- :TSInstallSync c rust
+-- :TSInstallSync go gomod
+-- :TSInstallSync ocaml ocamllex ocaml_interface
+-- :TSInstallSync json html css javascript typescript
+require('nvim-treesitter.configs').setup({
+    sync_install = false,
     highlight = { enable = true },
     indent = { enable = false },
-}
+    incremental_selection = { enable = false },
+})
 
-require("indent_blankline").setup {
+require("indent_blankline").setup({
     char = "",
     char_highlight_list = {
         "IndentGuidesOdd",
@@ -287,7 +294,7 @@ require("indent_blankline").setup {
         "IndentGuidesEven",
     },
     show_trailing_blankline_indent = false,
-}
+})
 EOF
 
 " autocmd FileType json syntax match Comment +\/\/.\+$+
