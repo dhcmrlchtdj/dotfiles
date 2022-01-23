@@ -44,10 +44,10 @@ dns-manual: $(DOMAIN).csr
 
 .PHONY: webroot
 webroot: $(DOMAIN).csr
-	#ln -s $(ls ????_chain.pem | sort | tail -n 1) latest.pem
-	mkdir -p webroot
+	@mkdir -p webroot
 	certbot certonly \
 		--webroot --webroot-path=./webroot \
 		--preferred-challenges=http \
 		--csr $(DOMAIN).csr \
 		-d $(DOMAIN)
+	@echo 'ln -v -s $$(ls ????_chain.pem | sort | tail -n 1) latest.pem'
