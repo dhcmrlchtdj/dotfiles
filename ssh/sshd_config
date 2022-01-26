@@ -20,6 +20,7 @@ PermitEmptyPasswords no
 PermitRootLogin yes # TODO disable root login
 # AllowUsers <user> # TODO
 # AllowGroups <group> # TODO
+MaxAuthTries 2
 
 UsePAM yes
 
