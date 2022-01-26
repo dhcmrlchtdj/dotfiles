@@ -1,6 +1,8 @@
 SHELL := bash
 
-rsync_to_nas := rsync --verbose --archive --compress --human-readable --partial --progress --exclude '.DS_Store' --exclude '.localized'
+rsync_to_nas := rsync --verbose --archive --compress --human-readable --partial --progress \
+				--delete-after \
+				--exclude '.DS_Store' --exclude '.localized'
 
 set_password := RESTIC_PASSWORD=TODO
 set_repo := RESTIC_REPOSITORY=sftp:nas:/path/to/repo
@@ -19,16 +21,25 @@ snapshots:
 
 .PHONY: backup
 backup:
-	${set_env} restic backup ${exclude} ~/workspace
+	${rsync_to_nas} ~/Desktop/ nas:/path/to/desktop/
+	${rsync_to_nas} ~/Documents/ nas:/path/to/documents/
 	${set_env} restic backup ${exclude} ~/Desktop
 	${set_env} restic backup ${exclude} ~/Documents
-	${rsync_to_nas} ~/Desktop/ nas:/path/to/desktop
-	${rsync_to_nas} ~/Documents/ nas:/path/to/documents
+	${set_env} restic backup ${exclude} ~/workspace
 
 .PHONY: forget
 forget:
-	${set_env} restic forget ${forget_rule} --dry-run
-	@echo "${set_env} restic forget -v ${forget_rule} --prune"
+	@if [[ $(shell date '+%u') == 7 ]]; then \
+		${set_env} restic forget ${forget_rule} --dry-run; \
+		echo "${set_env} restic forget -v ${forget_rule} --dry-run"; \
+		else \
+		echo "'forget' is only allowed to run on Sunday"; \
+		fi
+
+.PHONY: prune
+prune:
+	${set_env} restic prune --dry-run
+	@echo "${set_env} restic prune --dry-run"
 
 .PHONY: ls
 ls:
