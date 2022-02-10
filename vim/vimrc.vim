@@ -277,7 +277,7 @@ lua <<EOF
 -- :TSInstallSync ocaml ocamllex ocaml_interface
 -- :TSInstallSync json html css javascript typescript
 require('nvim-treesitter.configs').setup({
-    sync_install = false,
+    sync_install = true,
     highlight = { enable = true },
     indent = { enable = false },
     incremental_selection = { enable = false },
