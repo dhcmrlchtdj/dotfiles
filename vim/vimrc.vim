@@ -27,7 +27,7 @@ set noshowmode "隐藏信息
 set shortmess=atIF "状态行信息
 
 """ 备份 撤销
-set updatetime=1000
+set updatetime=300
 set undofile "开启撤销历史
 set backup "覆盖文件时备份
 set writebackup "保存时备份
@@ -241,13 +241,13 @@ let g:echodoc#type = 'echo'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " :CocInstall coc-syntax coc-json coc-tsserver coc-css coc-html coc-rust-analyzer
-" autocmd CursorHold * silent call CocActionAsync('highlight')
 " autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+" nnoremap <Leader>l :call CocActionAsync('codeAction')<CR>
+" nnoremap <C-l> :call CocActionAsync('codeLensAction')<CR>
+autocmd CursorHold * silent call CocActionAsync('highlight')
 nnoremap <F1> :CocDiagnostics<CR>
-nnoremap K :call CocAction('doHover')<CR>
-nnoremap L :call CocAction('jumpDefinition')<CR>
-nnoremap <C-l> :call CocAction('codeLensAction')<CR>
-nnoremap <Leader>l :call CocAction('codeAction')<CR>
+nnoremap K :call CocActionAsync('doHover')<CR>
+nnoremap L :call CocAction('jumpDefinition')<CR> " <C-o>/<C-i>
 inoremap <silent> <expr> <BS> pumvisible() ? '<BS><C-o>coc#refresh()' : '<BS>'
 inoremap <silent> <expr> <CR> pumvisible() ? '<C-y>' : '<C-g>u<CR><C-r>=coc#on_enter()<CR>'
 inoremap <silent> <expr> <TAB> pumvisible() ? '<C-n>' : <SID>check_back_space() ? '<TAB>' : coc#refresh()
@@ -256,6 +256,11 @@ function! s:check_back_space() abort
     return !col || getline('.')[col - 1] =~# '\s'
 endfunction
 let g:coc_snippet_next = '<C-k>'
+" GoTo code navigation.
+nnoremap <silent> gd <Plug>(coc-definition)
+nnoremap <silent> gy <Plug>(coc-type-definition)
+nnoremap <silent> gi <Plug>(coc-implementation)
+nnoremap <silent> gr <Plug>(coc-references)
 
 " brew install fzf bat ripgrep
 " pacman -S fzf bat ripgrep
