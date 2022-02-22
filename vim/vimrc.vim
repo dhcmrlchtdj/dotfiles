@@ -101,6 +101,10 @@ set foldcolumn=1
 set nosplitbelow
 set splitright
 
+""" tabline
+nnoremap <S-Right> gt
+nnoremap <S-Left> gT
+
 """ location list
 " nnoremap <silent> <F1> :lopen<CR>
 autocmd FileType qf nnoremap <buffer> <silent> <CR> <CR>:lclose<CR>
