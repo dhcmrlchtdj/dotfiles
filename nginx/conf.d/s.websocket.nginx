@@ -9,6 +9,10 @@ server {
 
     server_name example.com;
 
+    location @response_404 {
+        return 404 "Not Found";
+    }
+
     location / {
         proxy_pass http://websocket;
         proxy_http_version 1.1;
@@ -17,6 +21,6 @@ server {
 
         proxy_intercept_errors on;
         proxy_ignore_client_abort on;
-        error_page 400 =302 https://example.com/error;
+        error_page 400 @response_404;
     }
 }
