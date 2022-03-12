@@ -14,7 +14,10 @@
     "coc.preferences.extensionUpdateCheck": "never",
     "coc.source.file.ignoreHidden": false,
     "rust-analyzer.server.path": "/opt/homebrew/bin/rust-analyzer",
+    "rust-analyzer.updates.prompt": false,
+    "rust-analyzer.updates.checkOnStartup": false,
     "rust-analyzer.inlayHints.enable": false,
+    "rust-analyzer.checkOnSave.command": "clippy",
     "rust-analyzer.lens.run": false,
     "languageserver": {
         "ocaml": {
