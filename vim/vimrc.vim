@@ -16,6 +16,11 @@ set guicursor=
 nnoremap Q <Nop>
 autocmd FocusGained,BufEnter,CursorHold * checktime
 
+" z=, [s, ]s
+" set spell
+set spelllang=en,cjk
+set spellsuggest=best,6
+
 set mouse= "鼠标支持
 set display=lastline,uhex "不可见字符用 hex 形式展示
 set lazyredraw
