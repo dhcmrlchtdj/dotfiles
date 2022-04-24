@@ -238,11 +238,9 @@ let g:sql_type_default = 'pgsql'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdateSync'}
 
-Plug 'Shougo/echodoc.vim' " signature
-let g:echodoc#enable_at_startup = 1
-let g:echodoc#type = 'echo'
-
-" Plug 'neovim/nvim-lspconfig'
+" Plug 'Shougo/echodoc.vim' " signature
+" let g:echodoc#enable_at_startup = 1
+" let g:echodoc#type = 'echo'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " :CocInstall coc-syntax coc-json coc-tsserver coc-css coc-html coc-rust-analyzer
@@ -251,6 +249,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " nnoremap <C-l> :call CocActionAsync('codeLensAction')<CR>
 autocmd CursorHold * silent call CocActionAsync('highlight')
 nnoremap <F1> :CocDiagnostics<CR>
+nnoremap ]] :call CocAction('diagnosticNext')<cr>
+nnoremap [[ :call CocAction('diagnosticPrevious')<cr>
 nnoremap K :call CocActionAsync('doHover')<CR>
 nnoremap L :call CocAction('jumpDefinition')<CR> " <C-o>/<C-i>
 inoremap <silent> <expr> <BS> pumvisible() ? '<BS><C-o>coc#refresh()' : '<BS>'
@@ -260,7 +260,7 @@ function! s:check_back_space() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1] =~# '\s'
 endfunction
-let g:coc_snippet_next = '<C-k>'
+" let g:coc_snippet_next = '<c-k>'
 " GoTo code navigation.
 nnoremap <silent> gd <Plug>(coc-definition)
 nnoremap <silent> gy <Plug>(coc-type-definition)

@@ -1,6 +1,5 @@
 {
     "semanticTokens.filetypes": ["c", "javascript", "typescript", "ocaml"],
-    "suggest.echodocSupport": true,
     "suggest.enablePreview": true,
     "suggest.triggerAfterInsertEnter": true,
     "suggest.defaultSortMethod": "none",
@@ -33,7 +32,7 @@
                     "directory": "/tmp/ccls"
                 },
                 "clang": {
-                    "resourceDir": "/opt/homebrew/opt/llvm/lib/clang/12.0.0"
+                    "resourceDir": "/opt/homebrew/opt/llvm/lib/clang/13.0.1"
                 }
             }
         },
