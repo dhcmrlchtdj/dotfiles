@@ -130,11 +130,10 @@ Plug 'tpope/vim-fugitive' " statusline git
 Plug 'vim-airline/vim-airline' " statusline
 Plug 'vim-airline/vim-airline-themes' " statusline theme
 let g:airline_theme = 'powerlineish'
+let g:airline_symbols_ascii = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#coc#enabled = 1
-let g:airline#extensions#coc#error_symbol = 'E:'
-let g:airline#extensions#coc#warning_symbol = 'W:'
 
 Plug 'airblade/vim-gitgutter' " git status
 let g:gitgutter_diff_base = 'HEAD'
@@ -147,9 +146,6 @@ let g:gitgutter_set_sign_backgrounds = 1
 Plug 'overcache/NeoSolarized'
 let g:neosolarized_italic = 1
 
-" Plug 'nathanaelkane/vim-indent-guides'
-" let g:indent_guides_enable_on_vim_startup = 1
-" let g:indent_guides_auto_colors = 0
 Plug 'lukas-reineke/indent-blankline.nvim'
 
 Plug 'preservim/nerdtree'
@@ -218,8 +214,12 @@ Plug 'easymotion/vim-easymotion'
 let g:Easymotion_do_mapping = 0
 " nmap f <Plug>(easymotion-w)
 " nmap F <Plug>(easymotion-b)
-nmap f :call EasyMotion#WB(0,0)<CR>
-nmap F :call EasyMotion#WB(0,1)<CR>
+nnoremap f :call EasyMotion#WB(0,0)<CR>
+nnoremap F :call EasyMotion#WB(0,1)<CR>
+
+Plug 'terryma/vim-expand-region'
+vnoremap v <Plug>(expand_region_expand)
+vnoremap V <Plug>(expand_region_shrink)
 
 Plug 'jeetsukumaran/vim-buffergator'
 let g:buffergator_split_size = 30
@@ -238,12 +238,8 @@ let g:sql_type_default = 'pgsql'
 
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdateSync'}
 
-" Plug 'Shougo/echodoc.vim' " signature
-" let g:echodoc#enable_at_startup = 1
-" let g:echodoc#type = 'echo'
-
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" :CocInstall coc-syntax coc-json coc-tsserver coc-css coc-html coc-rust-analyzer
+" :CocInstall coc-syntax coc-json coc-tsserver coc-css coc-html coc-rust-analyzer coc-eslint
 " autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 " nnoremap <Leader>l :call CocActionAsync('codeAction')<CR>
 " nnoremap <C-l> :call CocActionAsync('codeLensAction')<CR>
