@@ -1,8 +1,8 @@
 {
-    "semanticTokens.filetypes": ["c", "javascript", "typescript", "ocaml"],
     "suggest.enablePreview": true,
     "suggest.triggerAfterInsertEnter": true,
     "suggest.defaultSortMethod": "none",
+    "suggest.snippetsSupport": false,
     "diagnostic.virtualText": true,
     "diagnostic.virtualTextPrefix": "",
     "diagnostic.level": "warning",
@@ -10,14 +10,13 @@
     "diagnostic.warningSign": "•",
     "codeLens.enable": true,
     "codeLens.position": "eol",
-    "coc.preferences.extensionUpdateCheck": "never",
+    "semanticTokens.filetypes": ["*"],
     "coc.source.file.ignoreHidden": false,
     "rust-analyzer.server.path": "/opt/homebrew/bin/rust-analyzer",
     "rust-analyzer.updates.prompt": false,
     "rust-analyzer.updates.checkOnStartup": false,
     "rust-analyzer.inlayHints.enable": false,
     "rust-analyzer.checkOnSave.command": "clippy",
-    "rust-analyzer.lens.run": false,
     "languageserver": {
         "ocaml": {
             "command": "ocamllsp",

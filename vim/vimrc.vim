@@ -211,11 +211,11 @@ let g:neoformat_enabled_ocaml = ['ocamlformat']
 let g:neoformat_enabled_go = ['goimports', 'gofumpt']
 
 Plug 'easymotion/vim-easymotion'
-let g:Easymotion_do_mapping = 0
-" nmap f <Plug>(easymotion-w)
-" nmap F <Plug>(easymotion-b)
-nnoremap f :call EasyMotion#WB(0,0)<CR>
-nnoremap F :call EasyMotion#WB(0,1)<CR>
+let g:EasyMotion_do_mapping = 0
+nnoremap f <Plug>(easymotion-w)
+nnoremap F <Plug>(easymotion-b)
+vnoremap f <Plug>(easymotion-w)
+vnoremap F <Plug>(easymotion-b)
 
 Plug 'terryma/vim-expand-region'
 vnoremap v <Plug>(expand_region_expand)
