@@ -65,8 +65,6 @@ vnoremap <Up> gk
 vnoremap <Down> gj
 inoremap <Up> <C-o>gk
 inoremap <Down> <C-o>gj
-inoremap <expr> <Up> pumvisible() ? '<C-p>' : '<Up>'
-inoremap <expr> <Down> pumvisible() ? '<C-n>' : '<Down>'
 
 set wildmenu "命令行补全提示
 set wildmode=longest:full,full "补全方式
@@ -245,18 +243,19 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " nnoremap <C-l> :call CocActionAsync('codeLensAction')<CR>
 autocmd CursorHold * silent call CocActionAsync('highlight')
 nnoremap <F1> :CocDiagnostics<CR>
-nnoremap ]] :call CocAction('diagnosticNext')<cr>
-nnoremap [[ :call CocAction('diagnosticPrevious')<cr>
+nnoremap <silent> [[ :call CocAction('diagnosticPrevious')<CR>
+nnoremap <silent> ]] :call CocAction('diagnosticNext')<CR>
 nnoremap K :call CocActionAsync('doHover')<CR>
 nnoremap L :call CocAction('jumpDefinition')<CR> " <C-o>/<C-i>
-inoremap <silent> <expr> <BS> pumvisible() ? '<BS><C-o>coc#refresh()' : '<BS>'
-inoremap <silent> <expr> <CR> pumvisible() ? '<C-y>' : '<C-g>u<CR><C-r>=coc#on_enter()<CR>'
-inoremap <silent> <expr> <TAB> pumvisible() ? '<C-n>' : <SID>check_back_space() ? '<TAB>' : coc#refresh()
-function! s:check_back_space() abort
+inoremap <silent> <expr> <BS> coc#pum#visible() ? '<BS><C-o>coc#refresh()' : '<BS>'
+inoremap <silent> <expr> <CR> coc#pum#visible() ? coc#pum#confirm() : '<C-g>u<CR><C-r>=coc#on_enter()<CR>'
+inoremap <silent> <expr> <TAB> coc#pum#visible() ? coc#pum#next(1) : CheckBackspace() ? '<Tab>' : coc#refresh()
+inoremap <silent> <expr> <Up> coc#pum#visible() ? coc#pum#prev(1) : '<Up>'
+inoremap <silent> <expr> <Down> coc#pum#visible() ? coc#pum#next(1) : '<Down>'
+function! CheckBackspace() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1] =~# '\s'
 endfunction
-" let g:coc_snippet_next = '<c-k>'
 " GoTo code navigation.
 nnoremap <silent> gd <Plug>(coc-definition)
 nnoremap <silent> gy <Plug>(coc-type-definition)
@@ -324,6 +323,8 @@ highlight CocErrorSign guifg=#dc322f guibg=#eee8d5
 highlight CocWarningSign guifg=#d33682 guibg=#eee8d5
 " highlight IndentGuidesOdd  guibg=#eee8d5
 highlight IndentGuidesEven guibg=#eee8d5
+highlight CocMenuSel guifg=#268bd2
+highlight CocPumSearch guifg=#2aa198
 
 function! FormatFile()
     " 使用\n换行

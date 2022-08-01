@@ -1,8 +1,10 @@
 {
-    "suggest.enablePreview": true,
+    "npm.binPath": "pnpm",
+    "suggest.noselect": true,
+    "suggest.enablePreselect": false,
+    "suggest.snippetsSupport": false,
     "suggest.triggerAfterInsertEnter": true,
     "suggest.defaultSortMethod": "none",
-    "suggest.snippetsSupport": false,
     "diagnostic.virtualText": true,
     "diagnostic.virtualTextPrefix": "",
     "diagnostic.level": "warning",
