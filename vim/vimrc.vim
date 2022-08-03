@@ -109,7 +109,6 @@ nnoremap <S-Right> gt
 nnoremap <S-Left> gT
 
 """ location list
-" nnoremap <silent> <F1> :lopen<CR>
 autocmd FileType qf nnoremap <buffer> <silent> <CR> <CR>:lclose<CR>
 autocmd FileType qf nnoremap <buffer> <silent> q :lclose<CR>
 
@@ -237,12 +236,11 @@ let g:sql_type_default = 'pgsql'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdateSync'}
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" :CocInstall coc-syntax coc-json coc-tsserver coc-css coc-html coc-rust-analyzer coc-eslint
+" :CocInstall coc-list coc-syntax coc-json coc-tsserver coc-css coc-html coc-rust-analyzer coc-eslint
 " autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 " nnoremap <Leader>l :call CocActionAsync('codeAction')<CR>
 " nnoremap <C-l> :call CocActionAsync('codeLensAction')<CR>
 autocmd CursorHold * silent call CocActionAsync('highlight')
-nnoremap <F1> :CocDiagnostics<CR>
 nnoremap <silent> [[ :call CocAction('diagnosticPrevious')<CR>
 nnoremap <silent> ]] :call CocAction('diagnosticNext')<CR>
 nnoremap K :call CocActionAsync('doHover')<CR>
@@ -261,17 +259,11 @@ nnoremap <silent> gd <Plug>(coc-definition)
 nnoremap <silent> gy <Plug>(coc-type-definition)
 nnoremap <silent> gi <Plug>(coc-implementation)
 nnoremap <silent> gr <Plug>(coc-references)
-
-" brew install fzf bat ripgrep
-" pacman -S fzf bat ripgrep
-if has('macunix') == 1
-    Plug '/opt/homebrew/opt/fzf'
-endif
-Plug 'junegunn/fzf.vim'
-" nnoremap <F2> :Buffers<CR>
-nnoremap <C-p> :Files<CR>
-nnoremap <Leader>p :Rg 
-nnoremap <Leader>m :Marks<CR>
+" coc list
+nnoremap <F1> :CocList --auto-preview diagnostics<CR>
+nnoremap <C-p> :CocList --auto-preview files<CR>
+nnoremap <Leader>p :CocList grep<CR>
+nnoremap <Leader>a :CocList<CR>
 
 call plug#end()
 

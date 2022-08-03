@@ -14,6 +14,7 @@
     "codeLens.position": "eol",
     "semanticTokens.filetypes": ["*"],
     "coc.source.file.ignoreHidden": false,
+    "list.previewSplitRight": true,
     "rust-analyzer.server.path": "/opt/homebrew/bin/rust-analyzer",
     "rust-analyzer.updates.prompt": false,
     "rust-analyzer.updates.checkOnStartup": false,
