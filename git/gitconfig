@@ -7,7 +7,7 @@
 
 [core]
     editor = nvim
-    pager = delta --light
+    pager = delta --light # https://github.com/dandavison/delta
     quotePath = false
     ; whitespace = space-before-tab,trailing-space
     eol = native
@@ -25,6 +25,7 @@
 
 [push]
     default = simple
+    autoSetupRemote = true
 
 [pull]
     rebase = true
@@ -58,7 +59,7 @@
     ad = add -A .
     au = add -u :/
     ci = commit -m
-    amend = commit --amend
+    amend = commit --amend --no-edit
     df = diff --stat HEAD
     dff = diff HEAD
     dffs = diff --cached HEAD
