@@ -260,10 +260,12 @@ nnoremap <silent> gy <Plug>(coc-type-definition)
 nnoremap <silent> gi <Plug>(coc-implementation)
 nnoremap <silent> gr <Plug>(coc-references)
 " coc list
-nnoremap <F1> :CocList --auto-preview diagnostics<CR>
+nnoremap <F1> :CocDiagnostics<CR>
+" nnoremap <F1> :CocList --auto-preview diagnostics<CR>
 nnoremap <C-p> :CocList --auto-preview files<CR>
-nnoremap <Leader>p :CocList grep<CR>
-nnoremap <Leader>a :CocList<CR>
+nnoremap <Leader>p :CocList --auto-preview grep 
+" nnoremap <Leader>a :CocList<CR>
+" nnoremap <F12> :CocListResume<CR>
 
 call plug#end()
 
