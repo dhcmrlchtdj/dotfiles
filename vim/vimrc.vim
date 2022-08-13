@@ -181,6 +181,8 @@ let g:undotree_RelativeTimestamp = 1
 let g:undotree_ShortIndicators = 1
 nnoremap <F5> :UndotreeToggle<CR>
 
+" Plug 'chrisbra/SudoEdit.vim'
+
 Plug 'preservim/nerdcommenter' " comment
 let g:NERDCommentEmptyLines = 1
 let g:NERDSpaceDelims = 1
@@ -241,8 +243,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " nnoremap <Leader>l :call CocActionAsync('codeAction')<CR>
 " nnoremap <C-l> :call CocActionAsync('codeLensAction')<CR>
 autocmd CursorHold * silent call CocActionAsync('highlight')
-nnoremap <silent> [[ :call CocAction('diagnosticPrevious')<CR>
-nnoremap <silent> ]] :call CocAction('diagnosticNext')<CR>
+nnoremap <silent> [[ :call CocAction('diagnosticPrevious')<CR>zzzv
+nnoremap <silent> ]] :call CocAction('diagnosticNext')<CR>zzzv
 nnoremap K :call CocActionAsync('doHover')<CR>
 nnoremap L :call CocAction('jumpDefinition')<CR> " <C-o>/<C-i>
 inoremap <silent> <expr> <BS> coc#pum#visible() ? '<BS><C-o>coc#refresh()' : '<BS>'
@@ -263,7 +265,7 @@ nnoremap <silent> gr <Plug>(coc-references)
 nnoremap <F1> :CocDiagnostics<CR>
 " nnoremap <F1> :CocList --auto-preview diagnostics<CR>
 nnoremap <C-p> :CocList --auto-preview files<CR>
-nnoremap <Leader>p :CocList --auto-preview grep 
+nnoremap <Leader>p :CocList --auto-preview grep -smartcase -workspace 
 " nnoremap <Leader>a :CocList<CR>
 " nnoremap <F12> :CocListResume<CR>
 
