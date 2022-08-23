@@ -4,15 +4,18 @@ server {
 
     server_name example.com;
 
-    location / {
-        # alias /path/to/dir/;
+    location /www {
+        return 302 $scheme://$host/www/;
+    }
+    location /www/ {
+        alias /path/to/dir/;
         autoindex on;
         autoindex_exact_size off;
         autoindex_localtime off;
-        # autoindex_format json;
+        #autoindex_format json;
 
         # echo "USERNAME:$(openssl passwd 'PASSWORD'):PASSWORD" >> /path/to/htpasswd
-        auth_basic_user_file /path/to/htpasswd;
-        auth_basic "closed site";
+        #auth_basic_user_file /path/to/htpasswd;
+        #auth_basic "closed site";
     }
 }
