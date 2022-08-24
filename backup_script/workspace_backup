@@ -1,7 +1,8 @@
 SHELL := bash
 
-rsync_to_nas := rsync --verbose --archive --compress --human-readable --partial --progress \
-				--delete-after \
+rsync_to_nas := rsync --verbose --archive --human-readable --partial --progress \
+				--compress --compress-choice=lz4 \
+				--delete-delay \
 				--exclude '.DS_Store' --exclude '.localized'
 
 set_password := RESTIC_PASSWORD=TODO
@@ -9,7 +10,7 @@ set_repo := RESTIC_REPOSITORY=sftp:nas:/path/to/repo
 set_env := ${set_password} ${set_repo}
 
 forget_rule := --keep-within-hourly 1d --keep-within-daily 1m --keep-within-weekly 10y
-exclude := --exclude='.DS_Store' --exclude='**/node_modules/**'
+exclude := --exclude='.DS_Store' --exclude='**/node_modules/**' --exclude='**/_build/**'
 
 .PHONY: stats
 stats:
