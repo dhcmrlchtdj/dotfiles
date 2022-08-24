@@ -238,7 +238,7 @@ let g:sql_type_default = 'pgsql'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdateSync'}
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" :CocInstall coc-list coc-syntax coc-json coc-tsserver coc-css coc-html coc-rust-analyzer coc-eslint
+" :CocInstall coc-lists coc-syntax coc-json coc-tsserver coc-css coc-html coc-rust-analyzer coc-eslint
 " autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 " nnoremap <Leader>l :call CocActionAsync('codeAction')<CR>
 " nnoremap <C-l> :call CocActionAsync('codeLensAction')<CR>
@@ -283,6 +283,7 @@ lua <<EOF
 -- :TSInstallSync json html css javascript typescript
 require('nvim-treesitter.configs').setup({
     sync_install = true,
+    auto_install = false,
     highlight = { enable = true },
     indent = { enable = false },
     incremental_selection = { enable = false },
