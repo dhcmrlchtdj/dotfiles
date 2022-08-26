@@ -13,7 +13,7 @@ Host github.com
 
 Host *
 AddressFamily inet
-HashKnownHosts yes
+HashKnownHosts no
 AddKeysToAgent yes
 
 ControlMaster auto
