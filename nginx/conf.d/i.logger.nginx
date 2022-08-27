@@ -1,0 +1,9 @@
+# https://nginx.org/en/docs/http/ngx_http_log_module.html
+# https://nginx.org/en/docs/http/ngx_http_js_module.html
+
+js_import logger from 'conf.d/js/logger.js';
+
+# The function is called when the variable is referenced for the first time for a given request.
+js_set $logJSON logger.logJSON;
+log_format logJSON escape=none '$logJSON';
+# access_log /var/log/nginx/access.log logJSON;

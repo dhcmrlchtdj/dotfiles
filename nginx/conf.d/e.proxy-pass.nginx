@@ -7,6 +7,7 @@ proxy_http_version 1.1;
 
 proxy_set_header Host $host; # request line, or request header, or server name
 
+proxy_set_header X-Request-Id $request_id;
 proxy_set_header X-Real-IP $remote_addr;
 proxy_set_header X-Forwarded-Proto $scheme;
 proxy_set_header X-Forwarded-Host $host;

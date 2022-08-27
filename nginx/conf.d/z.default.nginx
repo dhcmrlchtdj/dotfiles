@@ -11,6 +11,8 @@ server {
 
     server_name example.com;
 
+    # include conf.d/i.cloudflare-ip.nginx;
+
     location / {
         return 404;
     }
