@@ -1,16 +1,22 @@
-# proxy_pass http://localhost:3000;
+# https://nginx.org/en/docs/http/ngx_http_proxy_module.html
+
+proxy_pass http://127.0.0.1:8000/;
 
 proxy_redirect off;
+proxy_http_version 1.1;
+
+proxy_set_header Host $host; # request line, or request header, or server name
+
+proxy_set_header X-Real-IP $remote_addr;
+proxy_set_header X-Forwarded-Proto $scheme;
+proxy_set_header X-Forwarded-Host $host;
+proxy_set_header X-Forwarded-Port $server_port;
+proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 
 # proxy_intercept_errors on;
+# proxy_request_buffering off;
 
-proxy_set_header Host $host;
+# proxy_set_header Host $http_host; # http header HOST
 # proxy_set_header Host $proxy_host;
-# proxy_set_header Host $http_host;
 
-proxy_set_header X-Forwarded-Proto $scheme;
-proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-# proxy_set_header X-Real-IP $remote_addr;
 # proxy_set_header X-Real-IP $realip_remote_addr;
-real_ip_header X-Real-IP;
-real_ip_recursive on;

@@ -20,15 +20,13 @@ domain.key:
 	openssl ecparam -genkey -name prime256v1 -out domain.key
 
 register:
-	# certbot register --email user@example.com --agree-tos --no-eff-email
-	certbot register --agree-tos --register-unsafely-without-email
+	@echo 'certbot register --no-eff-email --email user@example.com'
 
 .PHONY: dns-auto
 dns-auto: $(DOMAIN).csr
 	certbot certonly \
 		--dns-cloudflare \
 		--dns-cloudflare-credentials cloudflare.ini \
-		--dns-cloudflare-propagation-seconds 60 \
 		--csr $(DOMAIN).csr \
 		-d $(DOMAIN) \
 		-d *.$(DOMAIN)

@@ -3,7 +3,7 @@ server {
     server_name example.com;
 
     location / {
-        return 418;
+        return 404;
     }
     location /.well-known/acme-challenge/ {
         alias /path/to/letsencrypt/webroot/.well-known/acme-challenge/;

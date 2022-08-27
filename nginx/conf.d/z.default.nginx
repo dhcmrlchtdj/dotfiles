@@ -1,0 +1,17 @@
+map $http_upgrade $connection_upgrade {
+    default upgrade;
+    '' close;
+}
+
+include conf.d/s.deny-access.nginx
+
+server {
+    listen 443 ssl http2;
+    include conf.d/i.ssl.nginx;
+
+    server_name example.com;
+
+    location / {
+        return 404;
+    }
+}

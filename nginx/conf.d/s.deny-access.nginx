@@ -2,9 +2,10 @@ server {
     listen 80 default_server;
     listen 443 ssl http2 default_server;
 
-    ssl_reject_handshake on;
-
     server_name _;
+
+    include conf.d/i.ssl.nginx; # openssl bug, https://forum.nginx.org/read.php?2,290250,290288
+    ssl_reject_handshake on;
 
     location / {
         return 418;
