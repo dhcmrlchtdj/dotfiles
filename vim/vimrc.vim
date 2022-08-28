@@ -124,8 +124,10 @@ let g:loaded_node_provider = 0
 filetype plugin indent off
 call plug#begin(stdpath('data') . '/plugged')
 
-Plug 'ojroques/vim-oscyank'
-autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankReg "' | endif
+if has('linux')
+	Plug 'ojroques/vim-oscyank'
+	autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankReg "' | endif
+endif
 
 Plug 'tpope/vim-fugitive' " statusline git
 Plug 'vim-airline/vim-airline' " statusline
@@ -146,8 +148,6 @@ let g:gitgutter_set_sign_backgrounds = 1
 
 Plug 'overcache/NeoSolarized'
 let g:neosolarized_italic = 1
-
-" Plug 'lukas-reineke/indent-blankline.nvim'
 
 Plug 'preservim/nerdtree'
 let g:NERDTreeCaseSensitiveSort = 1
@@ -292,19 +292,6 @@ require('nvim-treesitter.configs').setup({
 	indent = { enable = false },
 	incremental_selection = { enable = false },
 })
-
--- require("indent_blankline").setup({
--- 	char = "",
--- 	char_highlight_list = {
--- 		"IndentBlankLineOdd",
--- 		"IndentBlankLineEven",
--- 	},
--- 	space_char_highlight_list = {
--- 		"IndentBlankLineOdd",
--- 		"IndentBlankLineEven",
--- 	},
--- 	show_trailing_blankline_indent = false,
--- })
 EOF
 
 " autocmd FileType json syntax match Comment +\/\/.\+$+
@@ -321,8 +308,6 @@ colorscheme NeoSolarized
 highlight SignColumn guibg=#eee8d5
 highlight CocErrorSign guifg=#dc322f guibg=#eee8d5
 highlight CocWarningSign guifg=#d33682 guibg=#eee8d5
-" highlight IndentBlankLineOdd guifg=#eee8d5 guibg=#fdf6e3
-" highlight IndentBlankLineEven guifg=#fdf6e3 guibg=#eee8d5
 " highlight NonText guifg=#eee8d5 guibg=none
 highlight CocMenuSel guifg=#268bd2
 highlight CocPumSearch guifg=#2aa198
