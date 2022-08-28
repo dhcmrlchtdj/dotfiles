@@ -1,49 +1,49 @@
 {
-    "npm.binPath": "pnpm",
-    "suggest.noselect": true,
-    "suggest.enablePreselect": false,
-    "suggest.snippetsSupport": false,
-    "suggest.triggerAfterInsertEnter": true,
-    "suggest.defaultSortMethod": "none",
-    "diagnostic.virtualText": true,
-    "diagnostic.virtualTextPrefix": "",
-    "diagnostic.level": "warning",
-    "diagnostic.errorSign": "✖",
-    "diagnostic.warningSign": "•",
-    "codeLens.enable": true,
-    "codeLens.position": "eol",
-    "semanticTokens.filetypes": ["*"],
-    "coc.source.file.ignoreHidden": false,
-    "list.previewSplitRight": true,
-    "session.directory": "~/.local/share/nvim/session",
-    "rust-analyzer.server.path": "/opt/homebrew/bin/rust-analyzer",
-    "rust-analyzer.updates.prompt": false,
-    "rust-analyzer.updates.checkOnStartup": false,
-    "rust-analyzer.inlayHints.enable": false,
-    "rust-analyzer.checkOnSave.command": "clippy",
-    "languageserver": {
-        "ocaml": {
-            "command": "ocamllsp",
-            "filetypes": ["ocaml"]
-        },
-        "ccls": {
-            "command": "ccls",
-            "filetypes": ["c", "cpp"],
-            "rootPatterns": [".git/", ".ccls", "compile_commands.json"],
-            "initializationOptions": {
-                "cache": {
-                    "directory": "/tmp/ccls"
-                },
-                "clang": {
-                    "resourceDir": "/opt/homebrew/opt/llvm/lib/clang/13.0.1"
-                }
-            }
-        },
-        "golang": {
-            "command": "gopls",
-            "filetypes": ["go"],
-            "rootPatterns": ["go.mod"],
-            "initializationOptions": {}
-        }
-    }
+	"npm.binPath": "pnpm",
+	"suggest.noselect": true,
+	"suggest.enablePreselect": false,
+	"suggest.snippetsSupport": false,
+	"suggest.triggerAfterInsertEnter": true,
+	"suggest.defaultSortMethod": "none",
+	"diagnostic.virtualText": true,
+	"diagnostic.virtualTextPrefix": "",
+	"diagnostic.level": "warning",
+	"diagnostic.errorSign": "✖",
+	"diagnostic.warningSign": "•",
+	"codeLens.enable": true,
+	"codeLens.position": "eol",
+	"semanticTokens.filetypes": ["*"],
+	"coc.source.file.ignoreHidden": false,
+	"list.previewSplitRight": true,
+	"session.directory": "~/.local/share/nvim/session",
+	"rust-analyzer.server.path": "/opt/homebrew/bin/rust-analyzer",
+	"rust-analyzer.updates.prompt": false,
+	"rust-analyzer.updates.checkOnStartup": false,
+	"rust-analyzer.inlayHints.enable": false,
+	"rust-analyzer.checkOnSave.command": "clippy",
+	"languageserver": {
+		"ocaml": {
+			"command": "ocamllsp",
+			"filetypes": ["ocaml"]
+		},
+		"ccls": {
+			"command": "ccls",
+			"filetypes": ["c", "cpp"],
+			"rootPatterns": [".git/", ".ccls", "compile_commands.json"],
+			"initializationOptions": {
+				"cache": {
+					"directory": "/tmp/ccls"
+				},
+				"clang": {
+					"resourceDir": "/opt/homebrew/opt/llvm/lib/clang/13.0.1"
+				}
+			}
+		},
+		"golang": {
+			"command": "gopls",
+			"filetypes": ["go"],
+			"rootPatterns": ["go.mod"],
+			"initializationOptions": {}
+		}
+	}
 }

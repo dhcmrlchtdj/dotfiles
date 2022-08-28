@@ -80,8 +80,8 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 
 """ indent
-set noexpandtab "使用tab缩进
 set expandtab "使用空格缩进
+set noexpandtab "使用tab缩进
 set tabstop=4 "制表符\t的宽度
 set softtabstop=4 "tab键的宽度
 set shiftwidth=4 "空格缩进时宽度
@@ -90,7 +90,7 @@ set smarttab "智能缩进
 set smartindent "智能选择缩进方式
 " set cindent
 set list "显示特殊字符
-set listchars=tab:»\ ,trail:• "字符样式
+set listchars=tab:\|\ ,trail:• "字符样式
 
 """ fold
 set nofoldenable "关闭折叠
@@ -253,8 +253,8 @@ inoremap <silent> <expr> <TAB> coc#pum#visible() ? coc#pum#next(1) : CheckBacksp
 inoremap <silent> <expr> <Up> coc#pum#visible() ? coc#pum#prev(1) : '<Up>'
 inoremap <silent> <expr> <Down> coc#pum#visible() ? coc#pum#next(1) : '<Down>'
 function! CheckBackspace() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1] =~# '\s'
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1] =~# '\s'
 endfunction
 " GoTo code navigation.
 nnoremap <silent> gd <Plug>(coc-definition)
@@ -282,24 +282,24 @@ lua <<EOF
 -- :TSInstallSync ocaml ocamllex ocaml_interface
 -- :TSInstallSync json html css javascript typescript
 require('nvim-treesitter.configs').setup({
-    sync_install = true,
-    auto_install = false,
-    highlight = { enable = true },
-    indent = { enable = false },
-    incremental_selection = { enable = false },
+	sync_install = true,
+	auto_install = false,
+	highlight = { enable = true },
+	indent = { enable = false },
+	incremental_selection = { enable = false },
 })
 
 require("indent_blankline").setup({
-    char = "",
-    char_highlight_list = {
-        "IndentGuidesOdd",
-        "IndentGuidesEven",
-    },
-    space_char_highlight_list = {
-        "IndentGuidesOdd",
-        "IndentGuidesEven",
-    },
-    show_trailing_blankline_indent = false,
+	char = "",
+	char_highlight_list = {
+		"IndentBlankLineOdd",
+		"IndentBlankLineEven",
+	},
+	space_char_highlight_list = {
+		"IndentBlankLineOdd",
+		"IndentBlankLineEven",
+	},
+	show_trailing_blankline_indent = false,
 })
 EOF
 
@@ -315,24 +315,23 @@ set background=light "浅色背景
 colorscheme NeoSolarized
 " highlight LintSign guifg=#dc322f guibg=#eee8d5
 highlight SignColumn guibg=#eee8d5
-" highlight SpecialKey guifg=#93a1a1 guibg=NONE
 highlight CocErrorSign guifg=#dc322f guibg=#eee8d5
 highlight CocWarningSign guifg=#d33682 guibg=#eee8d5
-" highlight IndentGuidesOdd  guibg=#eee8d5
-highlight IndentGuidesEven guibg=#eee8d5
+highlight IndentBlankLineOdd guifg=#eee8d5 guibg=#fdf6e3
+highlight IndentBlankLineEven guifg=#fdf6e3 guibg=#eee8d5
 highlight CocMenuSel guifg=#268bd2
 highlight CocPumSearch guifg=#2aa198
 
 function! FormatFile()
-    " 使用\n换行
-    let &ff = 'unix'
+	" 使用\n换行
+	let &ff = 'unix'
 
-    " 使用utf-8编码
-    let &fenc = 'utf8'
+	" 使用utf-8编码
+	let &fenc = 'utf8'
 
-    " 去除 BOM
-    exe 'set nobomb'
+	" 去除 BOM
+	exe 'set nobomb'
 
-    " delete <0d>
-    exe 'silent! :%s/\r/\r/g'
+	" delete <0d>
+	exe 'silent! :%s/\r/\r/g'
 endfunction
