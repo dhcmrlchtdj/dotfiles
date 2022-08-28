@@ -90,7 +90,8 @@ set smarttab "智能缩进
 set smartindent "智能选择缩进方式
 " set cindent
 set list "显示特殊字符
-set listchars=tab:\|\ ,trail:• "字符样式
+" set listchars=tab:»\ ,lead:•,trail:• "字符样式
+set listchars=tab:»\ ,trail:• "字符样式
 
 """ fold
 set nofoldenable "关闭折叠
@@ -146,7 +147,7 @@ let g:gitgutter_set_sign_backgrounds = 1
 Plug 'overcache/NeoSolarized'
 let g:neosolarized_italic = 1
 
-Plug 'lukas-reineke/indent-blankline.nvim'
+" Plug 'lukas-reineke/indent-blankline.nvim'
 
 Plug 'preservim/nerdtree'
 let g:NERDTreeCaseSensitiveSort = 1
@@ -292,18 +293,18 @@ require('nvim-treesitter.configs').setup({
 	incremental_selection = { enable = false },
 })
 
-require("indent_blankline").setup({
-	char = "",
-	char_highlight_list = {
-		"IndentBlankLineOdd",
-		"IndentBlankLineEven",
-	},
-	space_char_highlight_list = {
-		"IndentBlankLineOdd",
-		"IndentBlankLineEven",
-	},
-	show_trailing_blankline_indent = false,
-})
+-- require("indent_blankline").setup({
+-- 	char = "",
+-- 	char_highlight_list = {
+-- 		"IndentBlankLineOdd",
+-- 		"IndentBlankLineEven",
+-- 	},
+-- 	space_char_highlight_list = {
+-- 		"IndentBlankLineOdd",
+-- 		"IndentBlankLineEven",
+-- 	},
+-- 	show_trailing_blankline_indent = false,
+-- })
 EOF
 
 " autocmd FileType json syntax match Comment +\/\/.\+$+
@@ -320,8 +321,9 @@ colorscheme NeoSolarized
 highlight SignColumn guibg=#eee8d5
 highlight CocErrorSign guifg=#dc322f guibg=#eee8d5
 highlight CocWarningSign guifg=#d33682 guibg=#eee8d5
-highlight IndentBlankLineOdd guifg=#eee8d5 guibg=#fdf6e3
-highlight IndentBlankLineEven guifg=#fdf6e3 guibg=#eee8d5
+" highlight IndentBlankLineOdd guifg=#eee8d5 guibg=#fdf6e3
+" highlight IndentBlankLineEven guifg=#fdf6e3 guibg=#eee8d5
+" highlight NonText guifg=#eee8d5 guibg=none
 highlight CocMenuSel guifg=#268bd2
 highlight CocPumSearch guifg=#2aa198
 
