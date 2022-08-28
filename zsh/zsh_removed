@@ -1,14 +1,14 @@
 # forward f port remote-port remote-host
 # forward c port remote-port remote-host
 forward() {
-    case "$1" in
-        "f") ssh -v -O forward -R 0.0.0.0:${3}:localhost:${2} ${4} ;;
-        "c") ssh -v -O cancel -R 0.0.0.0:${3}:localhost:${2} ${4} ;;
-    esac
+	case "$1" in
+		"f") ssh -v -O forward -R 0.0.0.0:${3}:localhost:${2} ${4} ;;
+		"c") ssh -v -O cancel -R 0.0.0.0:${3}:localhost:${2} ${4} ;;
+	esac
 }
 
 _has() {
-    type "$1" &> /dev/null
+	type "$1" &> /dev/null
 }
 
 alias danger_chrome="open -a 'Google Chrome Canary' --args --disable-web-security --user-data-dir --allow-file-access-from-files"
@@ -21,11 +21,11 @@ datauri() {echo "data:image/${1##*.};base64,$(openssl base64 -in $1 | tr -d '\n'
 
 ### git for directoy ###
 # chpwd_profile_default() {
-    # [[ ${profile} == ${CHPWD_PROFILE} ]] && return 1
-    # unset GIT_AUTHOR_NAME
-    # unset GIT_AUTHOR_EMAIL
-    # unset GIT_COMMITTER_NAME
-    # unset GIT_COMMITTER_EMAIL
+# [[ ${profile} == ${CHPWD_PROFILE} ]] && return 1
+# unset GIT_AUTHOR_NAME
+# unset GIT_AUTHOR_EMAIL
+# unset GIT_COMMITTER_NAME
+# unset GIT_COMMITTER_EMAIL
 # }
 # if _has "chpwd_profiles"; then chpwd_profiles; fi
 #### END git for directoy ###
@@ -34,7 +34,7 @@ datauri() {echo "data:image/${1##*.};base64,$(openssl base64 -in $1 | tr -d '\n'
 ### node ###
 # export NVM_DIR="$HOME/.nvm";
 # if [[ -f "$NVM_DIR/nvm.sh" ]]; then
-    # source "$NVM_DIR/nvm.sh";
+# source "$NVM_DIR/nvm.sh";
 # fi
 # chpwd_nvm_use() { nvm use &>/dev/null || nvm use system &>/dev/null; return 0 }
 # chpwd_nvm_use
@@ -49,23 +49,23 @@ bindkey '^xe' edit-command-line
 bindkey '^x^e' edit-command-line
 
 prompt_ooxx_pyvenv() {
-    if [[ $VIRTUAL_ENV != "" ]]; then
-        echo "use %F{magenta}$(basename $VIRTUAL_ENV)%f "
-    fi
+	if [[ $VIRTUAL_ENV != "" ]]; then
+		echo "use %F{magenta}$(basename $VIRTUAL_ENV)%f "
+	fi
 }
 
 prompt_ooxx_nvm() {
-    if [[ $NVM_BIN != "" ]]; then
-        echo "use %F{magenta}$(basename $(dirname $NVM_BIN))%f "
-    fi
+	if [[ $NVM_BIN != "" ]]; then
+		echo "use %F{magenta}$(basename $(dirname $NVM_BIN))%f "
+	fi
 }
 
 function cd () {
-    if (( ${#argv} == 1 )) && [[ -f ${1} ]]; then
-        [[ ! -e ${1:h} ]] && return 1
-        print "Correcting ${1} to ${1:h}"
-        builtin cd ${1:h}
-    else
-        builtin cd "$@"
-    fi
+	if (( ${#argv} == 1 )) && [[ -f ${1} ]]; then
+		[[ ! -e ${1:h} ]] && return 1
+		print "Correcting ${1} to ${1:h}"
+		builtin cd ${1:h}
+	else
+		builtin cd "$@"
+	fi
 }

@@ -1,15 +1,15 @@
 Host server
-    HostName 127.0.0.1
-    Port 22
-    User admin
-    IdentityFile ~/.ssh/id_ed25519
-    PreferredAuthentications publickey
-    ProxyJump proxy.server
-    ProxyCommand nc -x 127.0.0.1:1080 %h %p
+	HostName 127.0.0.1
+	Port 22
+	User admin
+	IdentityFile ~/.ssh/id_ed25519
+	PreferredAuthentications publickey
+	ProxyJump proxy.server
+	ProxyCommand nc -x 127.0.0.1:1080 %h %p
 
 Host github.com
-    IdentityFile ~/.ssh/id_ed25519
-    PreferredAuthentications publickey
+	IdentityFile ~/.ssh/id_ed25519
+	PreferredAuthentications publickey
 
 Host *
 AddressFamily inet

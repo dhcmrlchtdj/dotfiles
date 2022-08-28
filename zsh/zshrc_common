@@ -1,7 +1,7 @@
 _source() {
-    if [[ -f $1 ]]; then
-        source $1
-    fi
+	if [[ -f $1 ]]; then
+		source $1
+	fi
 }
 
 
@@ -106,7 +106,7 @@ alias curlw='curl --write-out "%{json}"'
 
 # title
 function set_title() {
-    echo -ne "\e]0;${(%):-"%n @ %m : %~"}\a"
+	echo -ne "\e]0;${(%):-"%n @ %m : %~"}\a"
 }
 autoload -Uz add-zsh-hook
 add-zsh-hook -Uz precmd set_title
@@ -169,7 +169,7 @@ zstyle ':completion:*:(ssh|scp|rsync):*:hosts' ignored-patterns '<->.<->.<->.<->
 ###
 
 function zzz() {
-    for i in "$@"; do
-        zz "${i}.zip" "${i}";
-    done
+	for i in "$@"; do
+		zz "${i}.zip" "${i}";
+	done
 }

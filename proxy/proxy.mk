@@ -1,7 +1,6 @@
 # https://github.com/felixonmars/dnsmasq-china-list
 # https://github.com/misakaio/chnroutes2
 
-
 .PHONY: proxy china_list chnroutes2
 proxy: china_list chnroutes2
 

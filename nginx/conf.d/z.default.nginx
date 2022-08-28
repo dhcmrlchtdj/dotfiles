@@ -1,19 +1,19 @@
 map $http_upgrade $connection_upgrade {
-    default upgrade;
-    '' close;
+	default upgrade;
+	'' close;
 }
 
 include conf.d/s.deny-access.nginx
 
 server {
-    listen 443 ssl http2;
-    include conf.d/i.ssl.nginx;
+	listen 443 ssl http2;
+	include conf.d/i.ssl.nginx;
 
-    server_name example.com;
+	server_name example.com;
 
-    # include conf.d/i.cloudflare-ip.nginx;
+	# include conf.d/i.cloudflare-ip.nginx;
 
-    location / {
-        return 404;
-    }
+	location / {
+		return 404;
+	}
 }

@@ -1,18 +1,18 @@
 {
-    "/** plugin": "**/",
-    "plugin": "v2ray-plugin",
-    "plugin_opts": "server",
+	"/** plugin": "**/",
+	"plugin": "v2ray-plugin",
+	"plugin_opts": "server",
 
-    "/** basic": "**/",
-    "server": "127.0.0.1",
-    "server_port": "2080",
-    "password": "!!!TODO!!! password",
+	"/** basic": "**/",
+	"server": "127.0.0.1",
+	"server_port": "2080",
+	"password": "!!!TODO!!! password",
 
-    "method": "xchacha20-ietf-poly1305",
-    "timeout": 60,
-    "fast_open": false,
-    "reuse_port": true,
-    "no_delay": true,
-    "nameserver": "1.1.1.1,1.0.0.1",
-    "mode": "tcp_only"
+	"method": "xchacha20-ietf-poly1305",
+	"timeout": 60,
+	"fast_open": false,
+	"reuse_port": true,
+	"no_delay": true,
+	"nameserver": "1.1.1.1,1.0.0.1",
+	"mode": "tcp_only"
 }

@@ -1,12 +1,12 @@
 server {
-    listen 80;
-    server_name example.com;
+	listen 80;
+	server_name example.com;
 
-    location / {
-        return 404;
-    }
-    location /.well-known/acme-challenge/ {
-        alias /path/to/letsencrypt/webroot/.well-known/acme-challenge/;
-        autoindex off;
-    }
+	location / {
+		return 404;
+	}
+	location /.well-known/acme-challenge/ {
+		alias /path/to/letsencrypt/webroot/.well-known/acme-challenge/;
+		autoindex off;
+	}
 }

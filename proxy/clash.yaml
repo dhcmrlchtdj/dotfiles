@@ -4,18 +4,18 @@ mode: rule
 log-level: info # info / warning / error / debug / silent
 
 proxies:
-  - name: "ss1"
-    type: ss
-    server: TODO.ip # !!!TODO!!!
-    port: 443
-    cipher: xchacha20-ietf-poly1305
-    password: "TODO.password" # !!!TODO!!!
-    plugin: v2ray-plugin
-    plugin-opts:
-        mode: websocket
-        tls: true
-        mux: true
-        host: TODO.host # !!!TODO!!!
+    - name: "ss1"
+      type: ss
+      server: TODO.ip # !!!TODO!!!
+      port: 443
+      cipher: xchacha20-ietf-poly1305
+      password: "TODO.password" # !!!TODO!!!
+      plugin: v2ray-plugin
+      plugin-opts:
+          mode: websocket
+          tls: true
+          mux: true
+          host: TODO.host # !!!TODO!!!
 
 proxy-groups:
     - name: "proxy"
@@ -28,10 +28,10 @@ proxy-groups:
       interval: 300
 
 rules:
-  - DOMAIN-SUFFIX,.cn,DIRECT
-  - IP-CIDR,10.0.0.0/8,DIRECT
-  - IP-CIDR,127.0.0.0/8,DIRECT
-  - IP-CIDR,172.16.0.0/12,DIRECT
-  - IP-CIDR,192.168.0.0/16,DIRECT
-  - GEOIP,CN,DIRECT
-  - MATCH,proxy
+    - DOMAIN-SUFFIX,.cn,DIRECT
+    - IP-CIDR,10.0.0.0/8,DIRECT
+    - IP-CIDR,127.0.0.0/8,DIRECT
+    - IP-CIDR,172.16.0.0/12,DIRECT
+    - IP-CIDR,192.168.0.0/16,DIRECT
+    - GEOIP,CN,DIRECT
+    - MATCH,proxy
