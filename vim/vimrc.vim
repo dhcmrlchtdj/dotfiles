@@ -123,6 +123,9 @@ let g:loaded_node_provider = 0
 filetype plugin indent off
 call plug#begin(stdpath('data') . '/plugged')
 
+Plug 'ojroques/vim-oscyank'
+autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankReg "' | endif
+
 Plug 'tpope/vim-fugitive' " statusline git
 Plug 'vim-airline/vim-airline' " statusline
 Plug 'vim-airline/vim-airline-themes' " statusline theme
