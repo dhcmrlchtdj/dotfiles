@@ -87,8 +87,7 @@ set softtabstop=4 "tab键的宽度
 set shiftwidth=4 "空格缩进时宽度
 set shiftround
 set smarttab "智能缩进
-set smartindent "智能选择缩进方式
-" set cindent
+set autoindent
 set list "显示特殊字符
 " set listchars=tab:»\ ,lead:•,trail:• "字符样式
 set listchars=tab:»\ ,trail:• "字符样式
@@ -187,6 +186,7 @@ let g:undotree_ShortIndicators = 1
 nnoremap <F5> :UndotreeToggle<CR>
 
 " Plug 'chrisbra/SudoEdit.vim'
+" :w !sudo tee % > /dev/null
 
 Plug 'preservim/nerdcommenter' " comment
 let g:NERDCommentEmptyLines = 1
@@ -296,8 +296,6 @@ require('nvim-treesitter.configs').setup({
 EOF
 
 " autocmd FileType json syntax match Comment +\/\/.\+$+
-autocmd FileType go setlocal noexpandtab "使用tab缩进
-autocmd FileType ocaml setlocal ts=2 sts=2 sw=2
 autocmd BufNewFile,BufRead *.bean,*.beancount setfiletype beancount
 autocmd BufNewFile,BufRead *.bean,*.beancount setlocal commentstring=;%s
 
@@ -310,8 +308,6 @@ highlight SignColumn guibg=#eee8d5
 highlight CocErrorSign guifg=#dc322f guibg=#eee8d5
 highlight CocWarningSign guifg=#d33682 guibg=#eee8d5
 " highlight NonText guifg=#eee8d5 guibg=none
-highlight CocMenuSel guifg=#268bd2
-highlight CocPumSearch guifg=#2aa198
 
 function! FormatFile()
 	" 使用\n换行
