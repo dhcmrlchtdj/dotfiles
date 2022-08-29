@@ -124,8 +124,9 @@ let g:loaded_node_provider = 0
 filetype plugin indent off
 call plug#begin(stdpath('data') . '/plugged')
 
-if has('linux')
-	Plug 'ojroques/vim-oscyank'
+Plug 'ojroques/vim-oscyank'
+let g:oscyank_term = 'default'
+if exists("$SSH_CONNECTION")
 	autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankReg "' | endif
 endif
 
