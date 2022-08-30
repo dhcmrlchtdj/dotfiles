@@ -77,10 +77,12 @@ alias lll='ll --tree -I ".git"'
 alias du='du -h -d 1'
 alias df='df -P -h'
 alias free='free -h'
-alias tree='tree -F --dirsfirst -v'
+alias ffmpeg='ffmpeg -hide_banner'
+# alias tree='tree -F --dirsfirst -v'
 # alias sc='screen -dRR'
 alias sc='tmux new -As0'
-alias ffmpeg='ffmpeg -hide_banner'
+alias scc='tmux -CC'
+alias tmuxcap='tmux capture-pane -p -S - | nvim -'
 
 # pacman -S trash-cli
 # apt install trash-cli # ~/.local/share/Trash
