@@ -15,6 +15,7 @@
 	"semanticTokens.filetypes": ["*"],
 	"coc.source.file.ignoreHidden": false,
 	"list.previewSplitRight": true,
+	"outline.sortBy": "position",
 	"session.directory": "~/.local/share/nvim/session",
 	"rust-analyzer.server.path": "/opt/homebrew/bin/rust-analyzer",
 	"rust-analyzer.updates.prompt": false,
