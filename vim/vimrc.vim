@@ -10,9 +10,14 @@
 "   \::::/__/       /:/  /     \:\__\        \:\__\        \::/  /
 "    ~~~~           \/__/       \/__/         \/__/         \/__/
 
+set nocompatible
+set ttyfast
+
 set nomodeline "忽略 打开的文件 里的vim参数
+set belloff=all
 set termguicolors
 set guicursor=
+set autoread
 nnoremap Q <Nop>
 autocmd FocusGained,BufEnter,CursorHold * checktime
 
@@ -22,6 +27,7 @@ set spelllang=en,cjk
 set spellsuggest=best,6
 
 set mouse= "鼠标支持
+set backspace=indent,eol,start
 set display=lastline,uhex "不可见字符用 hex 形式展示
 set lazyredraw
 set clipboard=unnamed,unnamedplus "剪贴板
@@ -30,15 +36,25 @@ set showmatch "输入括号时显示匹配括号
 set showfulltag
 set noshowmode "隐藏信息
 set shortmess=atIF "状态行信息
+set ttimeout
+set ttimeoutlen=50
+set history=10000
 
 """ 备份 撤销
 set updatetime=300
+set hidden
 set undofile "开启撤销历史
 set backup "覆盖文件时备份
 set writebackup "保存时备份
-let &undodir = stdpath('data') . '/undo//'
-let &backupdir = stdpath('data') . '/backup//'
-let &directory = stdpath('data') . '/swap//'
+if has('nvim')
+	let &undodir = stdpath('data') . '/undo//'
+	let &backupdir = stdpath('data') . '/backup//'
+	let &directory = stdpath('data') . '/swap//'
+else
+	let &undodir = expand('~/.config/vim/undo')
+	let &backupdir = expand('~/.config/vim/backup')
+	let &directory = expand('~/.config/vim/swap')
+endif
 set diffopt=filler,context:3,vertical,internal,indent-heuristic,algorithm:histogram
 
 """ encoding
@@ -50,6 +66,9 @@ set fileformats=unix,dos "判断换行方式
 
 """ 行号 命令行 状态行
 set signcolumn=yes
+set ruler
+set laststatus=2
+set showcmd
 set number "显示行号
 " set wrap "自动换行
 set nowrap "不自动换行
@@ -121,7 +140,12 @@ let g:loaded_node_provider = 0
 
 """ plugin
 filetype plugin indent off
-call plug#begin(stdpath('data') . '/plugged')
+
+if has('nvim')
+	call plug#begin(stdpath('data') . '/plugged')
+else
+	call plug#begin('~/.vim/plugged')
+endif
 
 Plug 'ojroques/vim-oscyank'
 let g:oscyank_term = 'default'
@@ -242,7 +266,9 @@ autocmd FileType markdown nnoremap <buffer> <F4> :Toc<CR>
 Plug 'lifepillar/pgsql.vim'
 let g:sql_type_default = 'pgsql'
 
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdateSync'}
+if has('nvim')
+	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdateSync'}
+endif
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " :CocInstall coc-lists coc-syntax coc-json coc-tsserver coc-css coc-html coc-rust-analyzer coc-eslint
@@ -281,6 +307,7 @@ call plug#end()
 filetype plugin indent on "载入文件类型 插件 缩进
 syntax enable "语法加亮
 
+if has('nvim')
 lua <<EOF
 -- :TSInstallSync beancount
 -- :TSInstallSync bash make toml
@@ -296,6 +323,7 @@ require('nvim-treesitter.configs').setup({
 	incremental_selection = { enable = false },
 })
 EOF
+endif
 
 " autocmd FileType json syntax match Comment +\/\/.\+$+
 autocmd BufNewFile,BufRead *.bean,*.beancount setfiletype beancount
