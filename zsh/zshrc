@@ -1,0 +1,77 @@
+if [[ "$(uname)" == 'Linux' ]]; then
+	export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-/run/user/$UID}"
+	export DBUS_SESSION_BUS_ADDRESS="${DBUS_SESSION_BUS_ADDRESS:-unix:path=${XDG_RUNTIME_DIR}/bus}"
+
+	PATH="$HOME/go/bin:$PATH"
+	PATH="$HOME/.cargo/bin:$PATH"
+	export PATH
+
+	source ~/.config/zsh/zshrc_common
+	_source ~/.opam/opam-init/init.zsh
+
+	# pacman -S zsh-syntax-highlighting
+	_source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+	# apt install zsh-syntax-highlighting
+	_source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+else
+	FPATH="/opt/homebrew/share/zsh-completions:$FPATH"
+	FPATH="/opt/homebrew/share/zsh/functions:$FPATH"
+	FPATH="$HOME/.zfunc:$FPATH"
+
+	export HOMEBREW_NO_ANALYTICS=1
+	export HOMEBREW_NO_AUTO_UPDATE=1
+	export HOMEBREW_NO_INSTALL_CLEANUP=1
+	export HOMEBREW_NO_BOTTLE_SOURCE_FALLBACK=1
+	export HOMEBREW_NO_EMOJI=1
+	# export HOMEBREW_BOTTLE_DOMAIN='https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles'
+	# export HOMEBREW_BOTTLE_DOMAIN='https://mirrors.ustc.edu.cn/homebrew-bottles'
+	# export RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup
+
+	# export SDKROOT=macosx
+
+	PATH="$HOME/go/bin:$PATH"
+	PATH="$HOME/.cargo/bin:$PATH"
+	PATH="/opt/homebrew/sbin:$PATH"
+	PATH="/opt/homebrew/bin:$PATH"
+	PATH="/opt/homebrew/opt/libarchive/bin:$PATH"
+	PATH="/opt/homebrew/opt/make/libexec/gnubin:$PATH"
+	export PATH
+
+	source ~/.config/zsh/zshrc_common
+	_source ~/.opam/opam-init/init.zsh
+	# brew install zsh-syntax-highlighting
+	_source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+## alias
+alias pp=''
+# alias pp='http_proxy="http://127.0.0.1:2080" https_proxy="$http_proxy"'
+alias go='pp go'
+alias opam='pp opam'
+alias pnpm='pp pnpm'
+alias npm='pp npm'
+alias vim='pp nvim'
+alias breww='pp brew update && pp brew upgrade'
+# alias curlw='curl --write-out "%{json}"'
+# alias curlw='/opt/homebrew/opt/curl/bin/curl --write-out "%{json}"'
+
+ppp() {
+	export http_proxy='socks5h://127.0.0.1:2080'
+	export http_proxy='socks5://127.0.0.1:2080'
+	export http_proxy='http://127.0.0.1:2080'
+	export https_proxy="$http_proxy"
+	echo "export http_proxy='$http_proxy'"
+}
+pppp() {
+	unset http_proxy
+	unset https_proxy
+	echo 'unset http_proxy'
+}
+
+doh() {
+	if [[ "$1" != "" ]]; then
+		pp curl -s -H "accept: application/dns-json" "https://1.1.1.1/dns-query?name=$1" | jq
+	else
+		echo 'Usage: doh [domain]'
+	fi
+}

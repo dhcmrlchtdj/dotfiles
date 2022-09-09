@@ -102,7 +102,6 @@ alias xx='unar'
 # alias mm='mitmproxy -p 8888'
 # alias mmm='mitmproxy -p 8888 -i "~q | ~s"'
 # alias ccc='clang -std=c11 -Weverything -Wno-missing-prototypes'
-alias curlw='curl --write-out "%{json}"'
 ### END alias ###
 
 
