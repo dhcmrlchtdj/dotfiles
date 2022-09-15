@@ -164,6 +164,9 @@ zstyle ':completion:*:manuals' separate-sections true
 zstyle ':completion:*:manuals.*' insert-sections true
 # ssh
 zstyle -e ':completion:*' hosts 'reply=()'
+zstyle -e ':completion:*:(ssh|scp|rsync):*:hosts' hosts 'reply=(
+$(grep -E "^Host[[:blank:]]+[a-z]" ~/.ssh/config 2>/dev/null | sed -E "s/Host[[:blank:]]+//")
+)'
 zstyle ':completion:*:(ssh|scp|rsync):*:users' ignored-patterns '_*'
 zstyle ':completion:*:(ssh|scp|rsync):*:hosts' ignored-patterns '<->.<->.<->.<->'
 
