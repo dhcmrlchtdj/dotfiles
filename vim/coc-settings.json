@@ -12,7 +12,7 @@
 	"diagnostic.warningSign": "•",
 	"codeLens.enable": true,
 	"codeLens.position": "eol",
-	"semanticTokens.filetypes": ["*"],
+	"semanticTokens.enable": true,
 	"coc.source.file.ignoreHidden": false,
 	"list.previewSplitRight": true,
 	"outline.sortBy": "position",
