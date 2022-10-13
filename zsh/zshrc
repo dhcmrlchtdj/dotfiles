@@ -46,6 +46,8 @@ fi
 ## alias
 alias pp=''
 # alias pp='http_proxy="http://127.0.0.1:2080" https_proxy="$http_proxy"'
+alias git='pp git'
+alias make='pp make'
 alias go='pp go'
 alias opam='pp opam'
 alias pnpm='pp pnpm'
