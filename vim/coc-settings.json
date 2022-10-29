@@ -36,7 +36,7 @@
 					"directory": "/tmp/ccls"
 				},
 				"clang": {
-					"resourceDir": "/opt/homebrew/opt/llvm/lib/clang/13.0.1"
+					"resourceDir": "/opt/homebrew/opt/llvm/lib/clang/15.0.3"
 				}
 			}
 		},
