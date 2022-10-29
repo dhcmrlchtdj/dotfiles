@@ -5,7 +5,7 @@
 	"suggest.snippetsSupport": false,
 	"suggest.triggerAfterInsertEnter": true,
 	"suggest.defaultSortMethod": "none",
-	"diagnostic.virtualText": true,
+	"diagnostic.virtualText": false,
 	"diagnostic.virtualTextPrefix": "",
 	"diagnostic.level": "warning",
 	"diagnostic.errorSign": "✖",
@@ -18,14 +18,16 @@
 	"outline.sortBy": "position",
 	"session.directory": "~/.local/share/nvim/session",
 	"rust-analyzer.server.path": "/opt/homebrew/bin/rust-analyzer",
-	"rust-analyzer.updates.prompt": false,
+	"rust-analyzer.updates.prompt": true,
 	"rust-analyzer.updates.checkOnStartup": false,
-	"rust-analyzer.inlayHints.enable": false,
 	"rust-analyzer.checkOnSave.command": "clippy",
+	"rust-analyzer.inlayHints.typeHints.enable": false,
+	"rust-analyzer.inlayHints.parameterHints.enable": false,
 	"languageserver": {
 		"ocaml": {
 			"command": "ocamllsp",
-			"filetypes": ["ocaml"]
+			"filetypes": ["ocaml"],
+			"rootPatterns": ["dune-project", ".git/"]
 		},
 		"ccls": {
 			"command": "ccls",
@@ -43,7 +45,7 @@
 		"golang": {
 			"command": "gopls",
 			"filetypes": ["go"],
-			"rootPatterns": ["go.mod"],
+			"rootPatterns": ["go.mod", ".git/"],
 			"initializationOptions": {}
 		}
 	}

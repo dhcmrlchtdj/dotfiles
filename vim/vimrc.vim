@@ -274,12 +274,12 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " :CocInstall coc-lists coc-syntax coc-json coc-tsserver coc-css coc-html coc-rust-analyzer coc-eslint
 " autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 " nnoremap <Leader>l :call CocActionAsync('codeAction')<CR>
-" nnoremap <C-l> :call CocActionAsync('codeLensAction')<CR>
 autocmd CursorHold * silent call CocActionAsync('highlight')
 nnoremap <silent> [[ :call CocAction('diagnosticPrevious')<CR>zzzv
 nnoremap <silent> ]] :call CocAction('diagnosticNext')<CR>zzzv
 nnoremap K :call CocActionAsync('doHover')<CR>
 nnoremap L :call CocAction('jumpDefinition')<CR> " <C-o>/<C-i>
+nnoremap <C-l> :call CocAction('codeLensAction')<CR>
 inoremap <silent> <expr> <BS> coc#pum#visible() ? '<BS><C-o>coc#refresh()' : '<BS>'
 inoremap <silent> <expr> <CR> coc#pum#visible() ? coc#pum#confirm() : '<C-g>u<CR><C-r>=coc#on_enter()<CR>'
 inoremap <silent> <expr> <TAB> coc#pum#visible() ? coc#pum#next(1) : CheckBackspace() ? '<Tab>' : coc#refresh()
