@@ -36,9 +36,6 @@
 			"initializationOptions": {
 				"cache": {
 					"directory": "/tmp/ccls"
-				},
-				"clang": {
-					"resourceDir": "/opt/homebrew/opt/llvm/lib/clang/15.0.3"
 				}
 			}
 		},
