@@ -19,8 +19,9 @@ AddKeysToAgent yes
 ControlMaster auto
 # ControlPath ~/.ssh/socket-%C
 ControlPath ~/.ssh/socket-%r@%h:%p
-ControlPersist 1h
-ServerAliveInterval 30
+ControlPersist 10m
+TCPKeepAlive no
+ServerAliveInterval 20
 ServerAliveCountMax 3
 
 Compression yes

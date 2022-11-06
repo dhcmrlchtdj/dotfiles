@@ -35,8 +35,8 @@ HostbasedAuthentication no
 KerberosAuthentication no
 PasswordAuthentication no
 
-TCPKeepAlive yes
-ClientAliveInterval 30
+TCPKeepAlive no
+ClientAliveInterval 0
 ClientAliveCountMax 3
 
 # GatewayPorts clientspecified
