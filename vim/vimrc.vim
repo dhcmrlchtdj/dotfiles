@@ -270,8 +270,12 @@ if has('nvim')
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdateSync'}
 endif
 
+" :CocInstall coc-lists
+" :CocInstall coc-json
+" :CocInstall coc-tsserver coc-css coc-html coc-eslint
+" :CocInstall coc-syntax
+" :CocInstall coc-rust-analyzer
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" :CocInstall coc-lists coc-syntax coc-json coc-tsserver coc-css coc-html coc-rust-analyzer coc-eslint
 " autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 " nnoremap <Leader>l :call CocActionAsync('codeAction')<CR>
 autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -279,7 +283,8 @@ nnoremap <silent> [[ :call CocAction('diagnosticPrevious')<CR>zzzv
 nnoremap <silent> ]] :call CocAction('diagnosticNext')<CR>zzzv
 nnoremap K :call CocActionAsync('doHover')<CR>
 nnoremap L :call CocAction('jumpDefinition')<CR> " <C-o>/<C-i>
-nnoremap <C-l> :call CocAction('codeLensAction')<CR>
+" nnoremap <C-l> :call CocActionAsync('jumpReferences')<CR>
+" nnoremap <C-k> :call CocAction('codeLensAction')<CR>
 inoremap <silent> <expr> <BS> coc#pum#visible() ? '<BS><C-o>coc#refresh()' : '<BS>'
 inoremap <silent> <expr> <CR> coc#pum#visible() ? coc#pum#confirm() : '<C-g>u<CR><C-r>=coc#on_enter()<CR>'
 inoremap <silent> <expr> <TAB> coc#pum#visible() ? coc#pum#next(1) : CheckBackspace() ? '<Tab>' : coc#refresh()
@@ -308,13 +313,13 @@ filetype plugin indent on "载入文件类型 插件 缩进
 syntax enable "语法加亮
 
 if has('nvim')
+" :TSInstallSync beancount
+" :TSInstallSync bash make toml
+" :TSInstallSync c rust
+" :TSInstallSync go gomod
+" :TSInstallSync ocaml ocamllex ocaml_interface
+" :TSInstallSync json html css javascript typescript
 lua <<EOF
--- :TSInstallSync beancount
--- :TSInstallSync bash make toml
--- :TSInstallSync c rust
--- :TSInstallSync go gomod
--- :TSInstallSync ocaml ocamllex ocaml_interface
--- :TSInstallSync json html css javascript typescript
 require('nvim-treesitter.configs').setup({
 	sync_install = true,
 	auto_install = false,
