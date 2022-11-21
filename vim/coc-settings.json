@@ -17,6 +17,8 @@
 	"list.previewSplitRight": true,
 	"outline.sortBy": "position",
 	"session.directory": "~/.local/share/nvim/session",
+	"typescript.suggest.completeFunctionCalls": false,
+	"javascript.suggest.completeFunctionCalls": false,
 	"rust-analyzer.server.path": "/opt/homebrew/bin/rust-analyzer",
 	"rust-analyzer.updates.prompt": true,
 	"rust-analyzer.updates.checkOnStartup": false,
@@ -43,6 +45,7 @@
 			"command": "gopls",
 			"filetypes": ["go"],
 			"rootPatterns": ["go.mod", ".git/"],
+			"disableSnippetCompletion": true,
 			"initializationOptions": {}
 		}
 	}
