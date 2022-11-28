@@ -342,7 +342,6 @@ colorscheme NeoSolarized
 highlight SignColumn guibg=#eee8d5
 highlight CocErrorSign guifg=#dc322f guibg=#eee8d5
 highlight CocWarningSign guifg=#d33682 guibg=#eee8d5
-" highlight NonText guifg=#eee8d5 guibg=none
 
 function! FormatFile()
 	" 使用\n换行

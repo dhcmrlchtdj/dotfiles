@@ -26,7 +26,7 @@
 	"rust-analyzer.inlayHints.typeHints.enable": false,
 	"rust-analyzer.inlayHints.parameterHints.enable": false,
 	"languageserver": {
-		"ocaml": {
+		"ocamllsp": {
 			"command": "ocamllsp",
 			"filetypes": ["ocaml"],
 			"rootPatterns": ["dune-project", ".git/"]
@@ -34,14 +34,13 @@
 		"ccls": {
 			"command": "ccls",
 			"filetypes": ["c", "cpp"],
-			"rootPatterns": [".git/", ".ccls", "compile_commands.json"],
+			"rootPatterns": [".git/", "compile_commands.json"],
 			"initializationOptions": {
-				"cache": {
-					"directory": "/tmp/ccls"
-				}
+				"cache": { "directory": "/tmp/ccls" },
+				"client": { "snippetSupport": false }
 			}
 		},
-		"golang": {
+		"gopls": {
 			"command": "gopls",
 			"filetypes": ["go"],
 			"rootPatterns": ["go.mod", ".git/"],
