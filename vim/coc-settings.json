@@ -19,13 +19,25 @@
 	"session.directory": "~/.local/share/nvim/session",
 	"typescript.suggest.completeFunctionCalls": false,
 	"javascript.suggest.completeFunctionCalls": false,
-	"rust-analyzer.server.path": "/opt/homebrew/bin/rust-analyzer",
-	"rust-analyzer.updates.prompt": true,
-	"rust-analyzer.updates.checkOnStartup": false,
-	"rust-analyzer.checkOnSave.command": "clippy",
-	"rust-analyzer.inlayHints.typeHints.enable": false,
-	"rust-analyzer.inlayHints.parameterHints.enable": false,
 	"languageserver": {
+		"rust-analyzer": {
+			"command": "rust-analyzer",
+			"filetypes": ["rust"],
+			"rootPatterns": ["Cargo.toml", ".git/"],
+			"initializationOptions": {
+				"checkOnSave": { "command": "clippy" },
+				"completion": {
+					"callable": { "snippets": "none" },
+					"postfix": { "enable": false }
+				},
+				"inlayHints": {
+					"chainingHints": { "enable": false },
+					"closingBraceHints": { "enable": false },
+					"parameterHints": { "enable": false },
+					"typeHints": { "enable": false }
+				}
+			}
+		},
 		"ocamllsp": {
 			"command": "ocamllsp",
 			"filetypes": ["ocaml"],

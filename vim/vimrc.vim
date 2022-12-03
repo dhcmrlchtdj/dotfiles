@@ -274,7 +274,6 @@ endif
 " :CocInstall coc-json
 " :CocInstall coc-tsserver coc-css coc-html coc-eslint
 " :CocInstall coc-syntax
-" :CocInstall coc-rust-analyzer
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 " nnoremap <Leader>l :call CocActionAsync('codeAction')<CR>
