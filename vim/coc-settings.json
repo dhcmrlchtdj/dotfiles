@@ -38,12 +38,14 @@
 		"ocamllsp": {
 			"command": "ocamllsp",
 			"filetypes": ["ocaml"],
-			"rootPatterns": ["dune-project", ".git/"]
+			"rootPatterns": ["dune-project", ".git/"],
+			"disableSnippetCompletion": true
 		},
 		"ccls": {
 			"command": "ccls",
 			"filetypes": ["c", "cpp"],
 			"rootPatterns": [".git/", "compile_commands.json"],
+			"disableSnippetCompletion": true,
 			"initializationOptions": {
 				"cache": { "directory": "/tmp/ccls" },
 				"client": { "snippetSupport": false }
