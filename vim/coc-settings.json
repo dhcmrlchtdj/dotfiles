@@ -24,12 +24,9 @@
 			"command": "rust-analyzer",
 			"filetypes": ["rust"],
 			"rootPatterns": ["Cargo.toml", ".git/"],
+			"disableSnippetCompletion": true,
 			"initializationOptions": {
 				"checkOnSave": { "command": "clippy" },
-				"completion": {
-					"callable": { "snippets": "none" },
-					"postfix": { "enable": false }
-				},
 				"inlayHints": {
 					"chainingHints": { "enable": false },
 					"closingBraceHints": { "enable": false },
