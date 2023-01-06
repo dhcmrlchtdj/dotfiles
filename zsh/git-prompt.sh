@@ -1,4 +1,5 @@
-# copy from https://github.com/git/git/blob/v2.37.3/contrib/completion/git-prompt.sh
+# copy from
+# https://github.com/git/git/blob/v2.39.0/contrib/completion/git-prompt.sh
 #
 # Copyright (C) 2006,2007 Shawn O. Pearce <spearce@spearce.org>
 # Distributed under the GNU General Public License, version 2.0.

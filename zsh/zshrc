@@ -25,7 +25,6 @@ else
 	export HOMEBREW_NO_EMOJI=1
 	# export HOMEBREW_BOTTLE_DOMAIN='https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles'
 	# export HOMEBREW_BOTTLE_DOMAIN='https://mirrors.ustc.edu.cn/homebrew-bottles'
-	export HOMEBREW_BOTTLE_DOMAIN='https://mirrors.sjtug.sjtu.edu.cn/homebrew-bottles'
 	# export RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup
 
 	# export SDKROOT=macosx
@@ -46,7 +45,7 @@ fi
 
 ## alias
 alias pp=''
-# alias pp='http_proxy="http://127.0.0.1:2080" https_proxy="$http_proxy"'
+# alias pp='http_proxy="http://127.0.0.1:1080" https_proxy="$http_proxy"'
 alias git='pp git'
 alias make='pp make'
 alias go='pp go'
