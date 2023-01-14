@@ -22,7 +22,8 @@ PermitRootLogin yes # TODO disable root login
 # AllowGroups <group> # TODO
 MaxAuthTries 2
 
-UsePAM yes
+# UsePAM yes
+UsePAM no
 
 AuthorizedKeysFile .ssh/authorized_keys
 

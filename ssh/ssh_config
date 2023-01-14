@@ -1,20 +1,22 @@
-Host server
-	HostName 127.0.0.1
-	Port 22
-	User admin
-	IdentityFile ~/.ssh/id_ed25519
-	PreferredAuthentications publickey
-	ProxyJump proxy.server
-	ProxyCommand nc -x 127.0.0.1:1080 %h %p
-
 Host github.com
 	IdentityFile ~/.ssh/id_ed25519
 	PreferredAuthentications publickey
+
+Host server
+	HostName 127.0.0.1
+	Port 22
+	User root
+	IdentityFile ~/.ssh/id_ed25519
+	PreferredAuthentications publickey
+	ProxyCommand nc -x 127.0.0.1:1080 %h %p
+	# ProxyJump proxy.server
+
 
 Host *
 AddressFamily inet
 HashKnownHosts no
 AddKeysToAgent yes
+IdentitiesOnly yes
 
 ControlMaster auto
 # ControlPath ~/.ssh/socket-%C
