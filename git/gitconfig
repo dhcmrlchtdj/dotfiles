@@ -2,9 +2,6 @@
 	name = h11
 	email = me@h11.io
 
-; [includeIf "gitdir/i:~/work/"]
-;     path = ~/.config/git/config.work
-
 [core]
 	editor = nvim
 	pager = delta --line-numbers --light # https://github.com/dandavison/delta
@@ -59,6 +56,7 @@
 	au = add -u :/
 	ci = commit -m
 	amend = commit --amend --no-edit
+	amend-message = commit --amend
 	df = diff --stat HEAD
 	dff = diff HEAD
 	dffs = diff --cached HEAD
@@ -76,3 +74,5 @@
 	cp = cherry-pick
 	tt = "!_() { declare tag=\"$(date -u '+%Y-%m-%dT%H.%M.%SZ')${1:+_$1}\"; git tag $tag -am $tag; }; _"
 	commit-empty = commit --allow-empty --allow-empty-message -m ""
+[init]
+	defaultBranch = main
