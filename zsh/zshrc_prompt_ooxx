@@ -19,6 +19,7 @@ prompt_ooxx_precmd() {
 	else
 		# p1+="%F{magenta}❯%f "
 		# p1+="%F{yellow}%Bλ%b%f "
+		# p1+="%F{yellow}#%f "
 		p1+="%F{yellow}#%f "
 	fi
 
