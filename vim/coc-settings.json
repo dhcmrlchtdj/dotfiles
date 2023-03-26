@@ -41,15 +41,11 @@
 			"rootPatterns": ["dune-project", ".git/"],
 			"disableSnippetCompletion": true
 		},
-		"ccls": {
-			"command": "ccls",
+		"clangd": {
+			"command": "clangd",
 			"filetypes": ["c", "cpp"],
-			"rootPatterns": [".git/", "compile_commands.json"],
-			"disableSnippetCompletion": true,
-			"initializationOptions": {
-				"cache": { "directory": "/tmp/ccls" },
-				"client": { "snippetSupport": false }
-			}
+			"rootPatterns": [".git/"],
+			"disableSnippetCompletion": true
 		},
 		"gopls": {
 			"command": "gopls",
