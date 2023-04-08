@@ -82,7 +82,7 @@ alias ffmpeg='ffmpeg -hide_banner'
 # alias tree='tree -F --dirsfirst -v'
 # alias sc='screen -dRR'
 alias sc='tmux new -As0'
-alias scc='tmux -CC'
+alias scsc='tmux -CC'
 alias tmuxcap='tmux capture-pane -p -S - | nvim -'
 
 # pacman -S trash-cli
