@@ -10,6 +10,8 @@
 "   \::::/__/       /:/  /     \:\__\        \:\__\        \::/  /
 "    ~~~~           \/__/       \/__/         \/__/         \/__/
 
+let g:editorconfig = v:false
+
 set nocompatible
 set ttyfast
 
@@ -307,6 +309,17 @@ nnoremap <Leader>p :CocList --auto-preview grep -smartcase -workspace
 " nnoremap <F12> :CocListResume<CR>
 
 call plug#end()
+
+augroup LargeFile
+	let g:LargeFile = 1048576 " 1MB
+	autocmd BufReadPre *
+				\ let f=expand("<afile>") |
+				\ if getfsize(f) > g:LargeFile |
+				\ set eventignore+=FileType |
+				\ else |
+				\ set eventignore-=FileType |
+				\ endif
+augroup END
 
 filetype plugin indent on "载入文件类型 插件 缩进
 syntax enable "语法加亮
