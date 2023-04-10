@@ -19,6 +19,7 @@
 	"session.directory": "~/.local/share/nvim/session",
 	"typescript.suggest.completeFunctionCalls": false,
 	"javascript.suggest.completeFunctionCalls": false,
+	"tsserver.useLocalTsdk": true,
 	"languageserver": {
 		"rust-analyzer": {
 			"command": "rust-analyzer",
