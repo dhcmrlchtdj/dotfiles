@@ -10,8 +10,6 @@
 "   \::::/__/       /:/  /     \:\__\        \:\__\        \::/  /
 "    ~~~~           \/__/       \/__/         \/__/         \/__/
 
-let g:editorconfig = v:false
-
 set nocompatible
 set ttyfast
 
@@ -139,6 +137,7 @@ let g:loaded_python3_provider = 0
 let g:loaded_ruby_provider = 0
 let g:loaded_perl_provider = 0
 let g:loaded_node_provider = 0
+let g:editorconfig = v:false
 
 """ plugin
 filetype plugin indent off
@@ -152,7 +151,10 @@ endif
 Plug 'ojroques/vim-oscyank'
 let g:oscyank_term = 'default'
 if exists("$SSH_CONNECTION")
-	autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankReg "' | endif
+	autocmd TextYankPost *
+				\ if v:event.operator is 'y' && v:event.regname is ''
+				\ | execute 'OSCYankReg "'
+				\ | endif
 endif
 
 Plug 'tpope/vim-fugitive' " statusline git
@@ -263,14 +265,45 @@ let g:vim_markdown_new_list_item_indent = 0
 let g:vim_markdown_toc_autofit = 1
 autocmd FileType markdown nnoremap <buffer> <F4> :Toc<CR>
 
-" Plug 'editorconfig/editorconfig-vim'
-
 Plug 'lifepillar/pgsql.vim'
 let g:sql_type_default = 'pgsql'
 
 if has('nvim')
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdateSync'}
 endif
+
+" if !has('nvim')
+" " brew install fzf bat
+" Plug '/opt/homebrew/opt/fzf'
+" Plug 'junegunn/fzf.vim'
+" nnoremap <C-p> :Files<CR>
+" nnoremap <Leader>p :Rg 
+" set completeopt=menuone,popup
+" set completepopup=height:10,width:60,highlight:Pmenu,border:off
+" set pumheight=10
+" set pumwidth=10
+" Plug 'ycm-core/YouCompleteMe'
+" highlight YcmErrorSign guifg=#dc322f guibg=#eee8d5
+" highlight YcmWarningSign guifg=#d33682 guibg=#eee8d5
+" let g:ycm_error_symbol = '✖'
+" let g:ycm_warning_symbol = '•'
+" let g:ycm_auto_hover = ''
+" let g:ycm_complete_in_comments = 1
+" let g:ycm_complete_in_strings = 1
+" let g:ycm_collect_identifiers_from_comments_and_strings = 1
+" let g:ycm_echo_current_diagnostic = 1
+" let g:ycm_use_ultisnips_completer = 0
+" let g:ycm_enable_inlay_hints= 0
+" let g:ycm_enable_semantic_highlighting=1
+" let g:ycm_disable_signature_help=0
+" let g:ycm_language_server = [{'name':'gopls','filetypes':['go'],'project_root_files':['go.mod'],'cmdline':['gopls']}]
+" nnoremap <F1> :YcmDiags<CR>
+" nnoremap K <plug>(YCMHover)
+" nnoremap L :YcmCompleter GoTo<CR> " <C-o>/<C-i>
+" nnoremap gd :YcmCompleter GoToDefinition<CR>
+" nnoremap gr :YcmCompleter GoToReferences<CR>
+" nnoremap gi :YcmCompleter GoToImplementation<CR>
+" endif
 
 " :CocInstall coc-lists
 " :CocInstall coc-json
@@ -352,10 +385,8 @@ set background=light "浅色背景
 colorscheme NeoSolarized
 " highlight LintSign guifg=#dc322f guibg=#eee8d5
 highlight SignColumn guibg=#eee8d5
-" highlight CocErrorSign guifg=#dc322f guibg=#eee8d5
-" highlight CocWarningSign guifg=#d33682 guibg=#eee8d5
-highlight DiagnosticSignError guifg=#dc322f guibg=#eee8d5
-highlight DiagnosticSignWarn guifg=#d33682 guibg=#eee8d5
+highlight CocErrorSign guifg=#dc322f guibg=#eee8d5
+highlight CocWarningSign guifg=#d33682 guibg=#eee8d5
 
 function! FormatFile()
 	" 使用\n换行
