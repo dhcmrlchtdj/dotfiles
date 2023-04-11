@@ -379,8 +379,8 @@ endif
 autocmd BufNewFile,BufRead *.bean,*.beancount setfiletype beancount
 autocmd BufNewFile,BufRead *.bean,*.beancount setlocal commentstring=;%s
 
-set background=dark "深色背景
 set background=light "浅色背景
+set background=dark "深色背景
 
 colorscheme NeoSolarized
 " highlight LintSign guifg=#dc322f guibg=#eee8d5
@@ -388,16 +388,16 @@ highlight SignColumn guibg=#eee8d5
 highlight CocErrorSign guifg=#dc322f guibg=#eee8d5
 highlight CocWarningSign guifg=#d33682 guibg=#eee8d5
 
-function! FormatFile()
-	" 使用\n换行
-	let &ff = 'unix'
-
-	" 使用utf-8编码
-	let &fenc = 'utf8'
-
-	" 去除 BOM
-	exe 'set nobomb'
-
-	" delete <0d>
-	exe 'silent! :%s/\r/\r/g'
-endfunction
+" function! FormatFile()
+"     " 使用\n换行
+"     let &ff = 'unix'
+" 
+"     " 使用utf-8编码
+"     let &fenc = 'utf8'
+" 
+"     " 去除 BOM
+"     exe 'set nobomb'
+" 
+"     " delete <0d>
+"     exe 'silent! :%s/\r/\r/g'
+" endfunction
