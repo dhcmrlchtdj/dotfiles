@@ -1,11 +1,16 @@
 {
+	"/** local": "**/",
+	"local_address": "127.0.0.1",
+	"local_port": 2080,
+	"protocol": "http",
+
 	"/** server": "**/",
 	"server": "XXX.XXX.XXX.XXX",
 	"server_port": "443",
 
 	"/** plugin": "**/",
 	"plugin": "shadow-tls",
-	"plugin_opts": "server;v3;passwd=XXX;tls=XXX.com:443",
+	"plugin_opts": "v3;passwd=XXX;host=XXX.com",
 
 	"method": "xchacha20-ietf-poly1305",
 	"password": "XXX",

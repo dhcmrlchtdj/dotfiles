@@ -4,26 +4,27 @@ mode: rule
 log-level: info # info / warning / error / debug / silent
 
 proxy-groups:
-    - name: "group.name"
+    - name: "group1"
       type: "url-test"
       url: "http://www.gstatic.com/generate_204"
       interval: 60
       proxies:
-          - "proxy.name"
+          - "proxy1"
+          - "proxy2"
 
 proxies:
-    - name: "proxy.name"
+    - name: "proxy1"
       type: ss
-      server: TODO.ip # !!!TODO!!!
+      server: "[REDACTED]" # TODO: IP
       port: 443
       cipher: xchacha20-ietf-poly1305
-      password: "TODO.password" # !!!TODO!!!
+      password: "[REDACTED]" # TODO: password
       plugin: v2ray-plugin
       plugin-opts:
           mode: websocket
           tls: true
           mux: true
-          host: TODO.host # !!!TODO!!!
+          host: "[REDACTED]" # TODO: domain
 
 rules:
     - IP-CIDR,10.0.0.0/8,DIRECT
@@ -32,4 +33,4 @@ rules:
     - IP-CIDR,172.16.0.0/12,DIRECT
     - IP-CIDR,192.168.0.0/16,DIRECT
     # - GEOIP,CN,DIRECT
-    - MATCH,group.name
+    - MATCH,group1
