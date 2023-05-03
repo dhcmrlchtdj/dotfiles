@@ -17,7 +17,7 @@ proxies:
       type: ss
       server: "[REDACTED]" # TODO: IP
       port: 443
-      cipher: xchacha20-ietf-poly1305
+      cipher: chacha20-ietf-poly1305
       password: "[REDACTED]" # TODO: password
       plugin: v2ray-plugin
       plugin-opts:

@@ -7,7 +7,21 @@
 	"plugin": "shadow-tls",
 	"plugin_opts": "server;v3;passwd=XXX;tls=XXX.com:443",
 
-	"method": "xchacha20-ietf-poly1305",
+	"method": "chacha20-ietf-poly1305",
+	"password": "XXX",
+	"mode": "tcp_only"
+}
+
+{
+	"/** server": "**/",
+	"server": "XXX.XXX.XXX.XXX",
+	"server_port": "443",
+
+	"/** plugin": "**/",
+    "plugin": "v2ray-plugin",
+    "plugin_opts": "server",
+
+	"method": "chacha20-ietf-poly1305",
 	"password": "XXX",
 	"mode": "tcp_only"
 }

@@ -12,7 +12,7 @@
 	"plugin": "shadow-tls",
 	"plugin_opts": "v3;passwd=XXX;host=XXX.com",
 
-	"method": "xchacha20-ietf-poly1305",
+	"method": "chacha20-ietf-poly1305",
 	"password": "XXX",
 	"mode": "tcp_only"
 }
