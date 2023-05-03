@@ -149,11 +149,10 @@ else
 endif
 
 Plug 'ojroques/vim-oscyank'
-let g:oscyank_term = 'default'
 if exists("$SSH_CONNECTION")
 	autocmd TextYankPost *
 				\ if v:event.operator is 'y' && v:event.regname is ''
-				\ | execute 'OSCYankReg "'
+				\ | execute 'OSCYankRegister "'
 				\ | endif
 endif
 
@@ -379,8 +378,8 @@ endif
 autocmd BufNewFile,BufRead *.bean,*.beancount setfiletype beancount
 autocmd BufNewFile,BufRead *.bean,*.beancount setlocal commentstring=;%s
 
-set background=light "浅色背景
 set background=dark "深色背景
+set background=light "浅色背景
 
 colorscheme NeoSolarized
 " highlight LintSign guifg=#dc322f guibg=#eee8d5
