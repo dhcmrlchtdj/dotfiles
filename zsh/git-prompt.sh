@@ -1,5 +1,5 @@
 # copy from
-# https://github.com/git/git/blob/v2.39.0/contrib/completion/git-prompt.sh
+# https://github.com/git/git/blob/v2.41.0-rc2/contrib/completion/git-prompt.sh
 #
 # Copyright (C) 2006,2007 Shawn O. Pearce <spearce@spearce.org>
 # Distributed under the GNU General Public License, version 2.0.
@@ -8,7 +8,7 @@
 # __git_eread requires 2 arguments, the file path and the name of the
 # variable, in that order.
 __git_eread () {
-	test -r "$1" && IFS=$'\r\n' read "$2" <"$1"
+	test -r "$1" && IFS=$'\r\n' read -r "$2" <"$1"
 }
 
 # see if a cherry-pick or revert is in progress, if the user has committed a

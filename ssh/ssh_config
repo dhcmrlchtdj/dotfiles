@@ -1,6 +1,8 @@
 Host github.com
 	IdentityFile ~/.ssh/id_ed25519
 	PreferredAuthentications publickey
+	# ProxyCommand nc -x 127.0.0.1:1080 %h %p
+	# ProxyJump proxy.server
 
 Host server
 	HostName 127.0.0.1
@@ -8,28 +10,26 @@ Host server
 	User root
 	IdentityFile ~/.ssh/id_ed25519
 	PreferredAuthentications publickey
-	ProxyCommand nc -x 127.0.0.1:1080 %h %p
-	# ProxyJump proxy.server
 
 
 Host *
-AddressFamily inet
-HashKnownHosts no
-AddKeysToAgent yes
-IdentitiesOnly yes
+	AddressFamily inet
+	HashKnownHosts no
+	AddKeysToAgent yes
+	IdentitiesOnly yes
 
-ControlMaster auto
-# ControlPath ~/.ssh/socket-%C
-ControlPath ~/.ssh/socket-%r@%h:%p
-ControlPersist 10m
-TCPKeepAlive no
-ServerAliveInterval 20
-ServerAliveCountMax 3
+	ControlMaster auto
+	# ControlPath ~/.ssh/socket-%C
+	ControlPath ~/.ssh/socket-%r@%h:%p
+	ControlPersist 10m
+	TCPKeepAlive no
+	ServerAliveInterval 20
+	ServerAliveCountMax 3
 
-Compression yes
-KexAlgorithms sntrup761x25519-sha512@openssh.com,curve25519-sha256,curve25519-sha256@libssh.org
-Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr
-MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com
-HostKeyAlgorithms ssh-ed25519
+	Compression yes
+	KexAlgorithms sntrup761x25519-sha512@openssh.com,curve25519-sha256,curve25519-sha256@libssh.org
+	Ciphers chacha20-poly1305@openssh.com,aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr
+	MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com
+	HostKeyAlgorithms ssh-ed25519
 
-PreferredAuthentications keyboard-interactive,password
+	PreferredAuthentications keyboard-interactive,password
