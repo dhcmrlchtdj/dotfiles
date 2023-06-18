@@ -1,6 +1,6 @@
 [user]
 	name = h11
-	email = me@h11.io
+	email = git@h11.io
 
 [core]
 	editor = nvim
@@ -11,6 +11,9 @@
 	safecrlf = warn
 	trustctime = false
 	precomposeUnicode = true
+
+[init]
+	defaultBranch = main
 
 [color]
 	ui = auto
@@ -74,5 +77,3 @@
 	cp = cherry-pick
 	tt = "!_() { declare tag=\"$(date -u '+%Y-%m-%dT%H.%M.%SZ')${1:+_$1}\"; git tag $tag -am $tag; }; _"
 	commit-empty = commit --allow-empty --allow-empty-message -m ""
-[init]
-	defaultBranch = main
