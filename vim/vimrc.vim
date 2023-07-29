@@ -271,39 +271,6 @@ if has('nvim')
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdateSync'}
 endif
 
-" if !has('nvim')
-" " brew install fzf bat
-" Plug '/opt/homebrew/opt/fzf'
-" Plug 'junegunn/fzf.vim'
-" nnoremap <C-p> :Files<CR>
-" nnoremap <Leader>p :Rg 
-" set completeopt=menuone,popup
-" set completepopup=height:10,width:60,highlight:Pmenu,border:off
-" set pumheight=10
-" set pumwidth=10
-" Plug 'ycm-core/YouCompleteMe'
-" highlight YcmErrorSign guifg=#dc322f guibg=#eee8d5
-" highlight YcmWarningSign guifg=#d33682 guibg=#eee8d5
-" let g:ycm_error_symbol = '✖'
-" let g:ycm_warning_symbol = '•'
-" let g:ycm_auto_hover = ''
-" let g:ycm_complete_in_comments = 1
-" let g:ycm_complete_in_strings = 1
-" let g:ycm_collect_identifiers_from_comments_and_strings = 1
-" let g:ycm_echo_current_diagnostic = 1
-" let g:ycm_use_ultisnips_completer = 0
-" let g:ycm_enable_inlay_hints= 0
-" let g:ycm_enable_semantic_highlighting=1
-" let g:ycm_disable_signature_help=0
-" let g:ycm_language_server = [{'name':'gopls','filetypes':['go'],'project_root_files':['go.mod'],'cmdline':['gopls']}]
-" nnoremap <F1> :YcmDiags<CR>
-" nnoremap K <plug>(YCMHover)
-" nnoremap L :YcmCompleter GoTo<CR> " <C-o>/<C-i>
-" nnoremap gd :YcmCompleter GoToDefinition<CR>
-" nnoremap gr :YcmCompleter GoToReferences<CR>
-" nnoremap gi :YcmCompleter GoToImplementation<CR>
-" endif
-
 " :CocInstall coc-lists
 " :CocInstall coc-json
 " :CocInstall coc-tsserver coc-css coc-html coc-eslint
