@@ -46,15 +46,9 @@ set hidden
 set undofile "开启撤销历史
 set backup "覆盖文件时备份
 set writebackup "保存时备份
-if has('nvim')
-	let &undodir = stdpath('data') . '/undo//'
-	let &backupdir = stdpath('data') . '/backup//'
-	let &directory = stdpath('data') . '/swap//'
-else
-	let &undodir = expand('~/.config/vim/undo')
-	let &backupdir = expand('~/.config/vim/backup')
-	let &directory = expand('~/.config/vim/swap')
-endif
+let &undodir = stdpath('data') . '/undo//'
+let &backupdir = stdpath('data') . '/backup//'
+let &directory = stdpath('data') . '/swap//'
 set diffopt=filler,context:3,vertical,internal,indent-heuristic,algorithm:histogram
 
 """ encoding
@@ -142,11 +136,7 @@ let g:editorconfig = v:false
 """ plugin
 filetype plugin indent off
 
-if has('nvim')
-	call plug#begin(stdpath('data') . '/plugged')
-else
-	call plug#begin('~/.vim/plugged')
-endif
+call plug#begin(stdpath('data') . '/plugged')
 
 Plug 'ojroques/vim-oscyank'
 if exists("$SSH_CONNECTION")
@@ -241,7 +231,7 @@ let g:neoformat_enabled_css = ['prettier']
 let g:neoformat_enabled_html = ['prettier']
 let g:neoformat_enabled_yaml = ['prettier']
 let g:neoformat_enabled_ocaml = ['ocamlformat']
-let g:neoformat_enabled_go = ['goimports', 'gofumpt']
+let g:neoformat_enabled_go = ['gofumpt']
 
 Plug 'easymotion/vim-easymotion'
 let g:EasyMotion_do_mapping = 0
@@ -264,12 +254,7 @@ let g:vim_markdown_new_list_item_indent = 0
 let g:vim_markdown_toc_autofit = 1
 autocmd FileType markdown nnoremap <buffer> <F4> :Toc<CR>
 
-Plug 'lifepillar/pgsql.vim'
-let g:sql_type_default = 'pgsql'
-
-if has('nvim')
-	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdateSync'}
-endif
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdateSync'}
 
 " :CocInstall coc-lists
 " :CocInstall coc-json
@@ -304,6 +289,7 @@ nnoremap <F1> :CocDiagnostics<CR>
 nnoremap <Leader><F1> :CocList --auto-preview diagnostics<CR>
 nnoremap <C-p> :CocList --auto-preview files<CR>
 nnoremap <Leader>p :CocList --auto-preview grep -smartcase -workspace 
+nnoremap <Leader>m :CocList marks<CR>
 " nnoremap <Leader>a :CocList<CR>
 " nnoremap <F12> :CocListResume<CR>
 
@@ -323,13 +309,13 @@ augroup END
 filetype plugin indent on "载入文件类型 插件 缩进
 syntax enable "语法加亮
 
-if has('nvim')
 " :TSInstallSync beancount
 " :TSInstallSync bash make toml
 " :TSInstallSync c rust
 " :TSInstallSync go gomod
 " :TSInstallSync ocaml ocamllex ocaml_interface
 " :TSInstallSync json html css javascript typescript
+" :TSInstallSync sql
 lua <<EOF
 require('nvim-treesitter.configs').setup({
 	sync_install = true,
@@ -339,7 +325,6 @@ require('nvim-treesitter.configs').setup({
 	incremental_selection = { enable = false },
 })
 EOF
-endif
 
 " autocmd FileType json syntax match Comment +\/\/.\+$+
 autocmd BufNewFile,BufRead *.bean,*.beancount setfiletype beancount
