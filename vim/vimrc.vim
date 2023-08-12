@@ -326,8 +326,9 @@ require('nvim-treesitter.configs').setup({
 })
 EOF
 
-" autocmd FileType json syntax match Comment +\/\/.\+$+
-autocmd BufNewFile,BufRead *.bean,*.beancount setfiletype beancount
+autocmd BufNewFile,BufRead *.json setlocal filetype=jsonc
+autocmd BufNewFile,BufRead *.json setlocal commentstring=//%s
+autocmd BufNewFile,BufRead *.bean,*.beancount setlocal filetype=beancount
 autocmd BufNewFile,BufRead *.bean,*.beancount setlocal commentstring=;%s
 
 set background=dark "深色背景
