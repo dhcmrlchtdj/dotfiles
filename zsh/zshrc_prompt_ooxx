@@ -7,12 +7,12 @@ prompt_ooxx_precmd() {
 	p0=""
 	p1=""
 
-	p0+="%F{blue}%n%f "
-	p0+="at %F{cyan}%m%f "
-	p0+="$(__git_ps1 "on %%F{green}%s%%f ")"
-	p0+="in %F{red}%~%f "
-	p0+="%(?,,[%F{red}%B%?%b%f] ) "
-	p0+="%(1j,[%j running] ,) "
+	p0+="%F{blue}%n%f " #name
+	p0+="at %F{cyan}%m%f " #machine
+	p0+="$(__git_ps1 "on %%F{green}%s%%f ")" #git
+	p0+="in %F{red}%~%f " #path
+	p0+="%(?,,[%F{red}%B%?%b%f] ) " #error
+	p0+="%(1j,[%j running] ,) " #job
 
 	if (( $EUID == 0 )); then
 		p1+="%F{magenta}#%f "
