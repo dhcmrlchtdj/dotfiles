@@ -224,6 +224,7 @@ let g:neoformat_run_all_formatters = 1
 nnoremap <Leader>ff :Neoformat<CR>
 let g:neoformat_enabled_markdown = []
 let g:neoformat_enabled_json = ['prettier']
+let g:neoformat_enabled_jsonc = ['prettier']
 let g:neoformat_enabled_javascript = ['prettier']
 let g:neoformat_enabled_typescript = ['prettier']
 let g:neoformat_enabled_typescriptreact = ['prettier']
