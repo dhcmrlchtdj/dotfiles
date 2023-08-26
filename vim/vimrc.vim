@@ -64,10 +64,10 @@ set ruler
 set laststatus=2
 set showcmd
 set number "显示行号
-" set wrap "自动换行
+set wrap "自动换行
 set nowrap "不自动换行
 set textwidth=0 "行宽
-set colorcolumn=81 "行宽提示
+set colorcolumn=80 "行宽提示
 " set cursorline "高亮当前行
 set scrolloff=1
 set sidescroll=1
@@ -340,6 +340,8 @@ colorscheme NeoSolarized
 highlight SignColumn guibg=#eee8d5
 highlight CocErrorSign guifg=#dc322f guibg=#eee8d5
 highlight CocWarningSign guifg=#d33682 guibg=#eee8d5
+
+" autocmd VimResized * if (&columns < 80) | set wrap | endif
 
 " function! FormatFile()
 "     " 使用\n换行
