@@ -4,7 +4,7 @@
 # sccache -s
 
 [build]
-rustc-wrapper = "/opt/homebrew/bin/sccache"
+# rustc-wrapper = "/opt/homebrew/bin/sccache"
 # target-dir = "~/.cache/cargo"
 
 # https://doc.rust-lang.org/cargo/reference/source-replacement.html
@@ -12,7 +12,7 @@ rustc-wrapper = "/opt/homebrew/bin/sccache"
 # https://mirrors.tuna.tsinghua.edu.cn/help/crates.io-index.git/
 
 [source.crates-io]
-replace-with = 'tuna'
+# replace-with = 'tuna'
 # replace-with = 'ustc'
 
 [source.tuna]
