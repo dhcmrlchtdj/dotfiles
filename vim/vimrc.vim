@@ -327,6 +327,7 @@ require('nvim-treesitter.configs').setup({
 })
 EOF
 
+let g:rust_recommended_style = 0
 autocmd BufNewFile,BufRead *.json setlocal filetype=jsonc
 autocmd BufNewFile,BufRead *.json setlocal commentstring=//%s
 autocmd BufNewFile,BufRead *.bean,*.beancount setlocal filetype=beancount
