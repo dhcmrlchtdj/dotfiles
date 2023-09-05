@@ -3,6 +3,7 @@
 	"suggest.noselect": true,
 	"suggest.enablePreselect": false,
 	"suggest.snippetsSupport": false,
+	"suggest.autoTrigger": "always",
 	"suggest.triggerAfterInsertEnter": true,
 	"suggest.defaultSortMethod": "none",
 	"diagnostic.virtualText": false,
@@ -12,11 +13,16 @@
 	"diagnostic.warningSign": "•",
 	"codeLens.enable": true,
 	"codeLens.position": "eol",
+	"inlayHint.enable": false,
 	"semanticTokens.enable": true,
-	"coc.source.file.ignoreHidden": false,
 	"list.previewSplitRight": true,
 	"outline.sortBy": "position",
+	"coc.source.file.ignoreHidden": false,
+	// coc-lists
 	"session.directory": "~/.local/share/nvim/session",
+	// coc-eslint
+	"eslint.workingDirectories": [{ "mode": "auto" }],
+	// coc-tsserver
 	"typescript.suggest.completeFunctionCalls": false,
 	"javascript.suggest.completeFunctionCalls": false,
 	"tsserver.useLocalTsdk": true,
@@ -27,13 +33,7 @@
 			"rootPatterns": ["Cargo.toml", ".git/"],
 			"disableSnippetCompletion": true,
 			"initializationOptions": {
-				"checkOnSave": { "command": "clippy" },
-				"inlayHints": {
-					"chainingHints": { "enable": false },
-					"closingBraceHints": { "enable": false },
-					"parameterHints": { "enable": false },
-					"typeHints": { "enable": false }
-				}
+				"checkOnSave": { "command": "clippy" }
 			}
 		},
 		"ocamllsp": {
