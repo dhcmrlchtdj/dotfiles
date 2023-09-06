@@ -234,6 +234,7 @@ let g:neoformat_enabled_html = ['prettier']
 let g:neoformat_enabled_yaml = ['prettier']
 let g:neoformat_enabled_ocaml = ['ocamlformat']
 let g:neoformat_enabled_go = ['gofumpt']
+let g:neoformat_enabled_rust = ['rustfmt']
 
 Plug 'easymotion/vim-easymotion'
 let g:EasyMotion_do_mapping = 0

@@ -1,6 +1,6 @@
 prefix = /path/to/$HOME/.local
 save-exact = true
-global-bin-dir=/Users/$HOME/.local/bin
+global-bin-dir=/path/to/$HOME/.local/bin
 update-notifier=false
 ignore-scripts=true
 save-prefix=
