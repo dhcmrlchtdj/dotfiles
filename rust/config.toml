@@ -5,7 +5,7 @@
 
 [build]
 # rustc-wrapper = "/opt/homebrew/bin/sccache"
-# target-dir = "~/.cache/cargo"
+# target-dir = "/path/to/.cache/cargo"
 
 # https://doc.rust-lang.org/cargo/reference/source-replacement.html
 # https://lug.ustc.edu.cn/wiki/mirrors/help/rust-crates
