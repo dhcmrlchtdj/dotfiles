@@ -9,6 +9,7 @@ $(DOMAIN).csr: domain.key
 	# openssl req -noout -text -verify -in $(DOMAIN).csr
 	# openssl req -new -subj "/CN=$(DOMAIN)" -key domain.key -out $(DOMAIN).csr
 	openssl req -new \
+		-sha256 \
 		-subj "/CN=$(DOMAIN)" \
 		-reqexts SAN \
 		-config <(cat /etc/ssl/openssl.cnf <(printf "[SAN]\nsubjectAltName=DNS:$(DOMAIN),DNS:*.$(DOMAIN)")) \
@@ -25,11 +26,15 @@ register:
 .PHONY: dns-auto
 dns-auto: $(DOMAIN).csr
 	certbot certonly \
+		--config-dir=./letsencrypt/config \
+		--work-dir=./letsencrypt/work \
+		--logs-dir=./letsencrypt/logs \
 		--dns-cloudflare \
 		--dns-cloudflare-credentials cloudflare.ini \
 		--csr $(DOMAIN).csr \
 		-d $(DOMAIN) \
 		-d *.$(DOMAIN)
+	@echo 'ln -v -s $$(ls ????_chain.pem | sort | tail -n 1) latest.pem'
 
 .PHONY: dns-manual
 dns-manual: $(DOMAIN).csr
