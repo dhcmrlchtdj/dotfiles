@@ -1,6 +1,6 @@
 [user]
 	name = h11
-	email = git@h11.io
+	email = git@h11.dev
 
 [core]
 	editor = nvim
