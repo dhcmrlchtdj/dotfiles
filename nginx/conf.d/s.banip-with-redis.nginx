@@ -6,7 +6,8 @@ upstream redis_backend {
 }
 
 server {
-	listen 443 ssl http2;
+	listen 443 ssl;
+	http2 on;
 	include conf.d/i.ssl.nginx;
 
 	server_name example.com;
