@@ -164,16 +164,8 @@ let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_modified_removed = '!'
 let g:gitgutter_set_sign_backgrounds = 1
 
-" Plug 'overcache/NeoSolarized'
-" let g:neosolarized_italic = 1
-
-Plug 'terabyte128/solarized.nvim'
-let g:solarized_italic_comments = v:true
-let g:solarized_italic_strings = v:false
-let g:solarized_italic_keywords = v:false
-let g:solarized_italic_functions = v:false
-let g:solarized_italic_variables = v:false
-let g:solarized_disable_background = v:false
+Plug 'overcache/NeoSolarized'
+let g:neosolarized_italic = 1
 
 Plug 'preservim/nerdtree'
 let g:NERDTreeCaseSensitiveSort = 1
@@ -346,7 +338,7 @@ autocmd BufNewFile,BufRead *.bean,*.beancount setlocal commentstring=;%s
 set background=dark "深色背景
 set background=light "浅色背景
 
-colorscheme solarized
+colorscheme NeoSolarized
 " highlight LintSign guifg=#dc322f guibg=#eee8d5
 highlight SignColumn guibg=#eee8d5
 highlight CocErrorSign guifg=#dc322f guibg=#eee8d5
