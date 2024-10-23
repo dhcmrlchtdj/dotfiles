@@ -27,14 +27,14 @@ UsePAM no
 
 AuthorizedKeysFile .ssh/authorized_keys
 
-AuthenticationMethods publickey keyboard-interactive # TODO disable keyboard-interactive
+AuthenticationMethods publickey keyboard-interactive password # TODO disable keyboard-interactive
 
 PubkeyAuthentication yes
 KbdInteractiveAuthentication yes # TODO disable keyboard-interactive
+PasswordAuthentication yes # TODO disable password
 GSSAPIAuthentication no
 HostbasedAuthentication no
 KerberosAuthentication no
-PasswordAuthentication no
 
 TCPKeepAlive no
 ClientAliveInterval 0
