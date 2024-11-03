@@ -1,0 +1,24 @@
+location = /grafana {
+	return 302 $scheme://$host/grafana/;
+}
+
+location /grafana/ {
+	rewrite ^/grafana/(.*) /$1 break;
+	proxy_pass http://127.0.0.1:8484/;
+
+	proxy_redirect off;
+	proxy_http_version 1.1;
+	proxy_set_header Host $host; # request line, or request header, or server name
+}
+
+location /grafana/api/live/ {
+	rewrite ^/grafana/(.*) /$1 break;
+	proxy_pass http://127.0.0.1:8484/api/live/;
+
+	proxy_set_header Upgrade $http_upgrade;
+	proxy_set_header Connection $connection_upgrade;
+
+	proxy_redirect off;
+	proxy_http_version 1.1;
+	proxy_set_header Host $host; # request line, or request header, or server name
+}
