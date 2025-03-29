@@ -1,0 +1,17 @@
+font-family = Monaco
+font-synthetic-style = true
+font-thicken = true
+font-thicken-strength = 255
+
+font-size = 16
+
+theme = solarized2
+
+macos-titlebar-style = tabs
+
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
+
+keybind = super+,=previous_tab
+keybind = super+.=next_tab
