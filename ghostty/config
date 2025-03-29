@@ -13,5 +13,7 @@ cursor-style = block
 cursor-style-blink = false
 shell-integration-features = no-cursor
 
-keybind = super+,=previous_tab
-keybind = super+.=next_tab
+# keybind = super+left=previous_tab
+# keybind = super+right=next_tab
+keybind = ctrl+left=previous_tab
+keybind = ctrl+right=next_tab
