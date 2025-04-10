@@ -1,3 +1,5 @@
+auto-update = off
+
 font-family = Monaco
 font-synthetic-style = true
 font-thicken = true
@@ -9,11 +11,11 @@ theme = solarized2
 
 macos-titlebar-style = tabs
 
+window-new-tab-position = end
+
 cursor-style = block
 cursor-style-blink = false
 shell-integration-features = no-cursor
 
-# keybind = super+left=previous_tab
-# keybind = super+right=next_tab
-keybind = ctrl+left=previous_tab
-keybind = ctrl+right=next_tab
+keybind = super+left=previous_tab
+keybind = super+right=next_tab
