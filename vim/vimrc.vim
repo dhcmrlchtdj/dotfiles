@@ -139,13 +139,13 @@ filetype plugin indent off
 
 call plug#begin(stdpath('data') . '/plugged')
 
-" Plug 'ojroques/vim-oscyank', {'branch': 'main'}
-" if exists("$SSH_CONNECTION")
-"     autocmd TextYankPost *
-"                 \ if v:event.operator is 'y' && v:event.regname is ''
-"                 \ | execute 'OSCYankRegister "'
-"                 \ | endif
-" endif
+if exists("$SSH_CONNECTION")
+	Plug 'ojroques/vim-oscyank', {'branch': 'main'}
+	autocmd TextYankPost *
+				\ if v:event.operator is 'y' && v:event.regname is ''
+				\ | execute 'OSCYankRegister "'
+				\ | endif
+endif
 
 Plug 'tpope/vim-fugitive' " statusline git
 Plug 'vim-airline/vim-airline' " statusline
@@ -235,6 +235,8 @@ let g:neoformat_enabled_yaml = ['prettier']
 let g:neoformat_enabled_ocaml = ['ocamlformat']
 let g:neoformat_enabled_go = ['gofumpt']
 let g:neoformat_enabled_rust = ['rustfmt']
+let g:neoformat_beancount_beancount = { 'exe': 'bean-format' }
+let g:neoformat_enabled_beancount = ['beancount']
 
 Plug 'easymotion/vim-easymotion'
 let g:EasyMotion_do_mapping = 0
@@ -261,7 +263,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdateSync'}
 
 " :CocInstall coc-lists
 " :CocInstall coc-json
-" :CocInstall coc-tsserver coc-css coc-html coc-eslint
+" :CocInstall coc-tsserver coc-css coc-html
 " :CocInstall coc-syntax
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
@@ -295,6 +297,10 @@ nnoremap <Leader>p :CocList --auto-preview grep -smartcase -workspace
 nnoremap <Leader>m :CocList marks<CR>
 " nnoremap <Leader>a :CocList<CR>
 " nnoremap <F12> :CocListResume<CR>
+" let g:coc_node_args = ['--nolazy', '--inspect=6045']
+
+Plug 'github/copilot.vim'
+let g:copilot_filetypes = {'*': v:false}
 
 call plug#end()
 
@@ -349,13 +355,13 @@ highlight CocWarningSign guifg=#d33682 guibg=#eee8d5
 " function! FormatFile()
 "     " 使用\n换行
 "     let &ff = 'unix'
-" 
+"
 "     " 使用utf-8编码
 "     let &fenc = 'utf8'
-" 
+"
 "     " 去除 BOM
 "     exe 'set nobomb'
-" 
+"
 "     " delete <0d>
 "     exe 'silent! :%s/\r/\r/g'
 " endfunction
